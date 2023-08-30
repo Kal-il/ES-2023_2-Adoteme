@@ -11,16 +11,16 @@ O "AdoteMe" é uma plataforma digital inovadora desenvolvida para unir coraçõe
 
 #### Iteração 1
 
-- [] RF01 - Realizar Login do Usuário. 1.1 [Kalil Garcia Canuto](https://github.com/Kal-il) Revisador por @mariaclaranaires
+- [ ] RF01 - Realizar Login do Usuário. 1.1 [Kalil Garcia Canuto](https://github.com/Kal-il) Revisador por @mariaclaranaires
 
-- [] RF02 - Realizar Cadastro do Usuário. 1.2 [Ana Flavia Moreira Pires](https://github.com/MatheusDreher) Revisador por @romeuborges19
+- [ ] RF02 - Realizar Cadastro do Usuário. 1.2 [Ana Flavia Moreira Pires](https://github.com/MatheusDreher) Revisador por @romeuborges19
 
-- [] RF03 - Realizar Cadastro do Animal. 1.3 [Matheus Henrique Dreher dos Santos](https://github.com/MatheusDreher) Revisador por @Kal-il
+- [ ] RF03 - Realizar Cadastro do Animal. 1.3 [Matheus Henrique Dreher dos Santos](https://github.com/MatheusDreher) Revisador por @Kal-il
 
-- [] RF04 - Visualizar Animal. 1.4 [Thiago Gonzaga dos Santos](https://github.com/tgofsaints) Revisador por @MatheusDreher
+- [ ] RF04 - Visualizar Animal. 1.4 [Thiago Gonzaga dos Santos](https://github.com/tgofsaints) Revisador por @MatheusDreher
 
-- [] RF05 - Visualizar Página Principal. 1.5 [Maria Clara Nazareno Aires](https://github.com/mariaclaranaires) Revisador por @ana-flav
+- [ ] RF05 - Visualizar Página Principal. 1.5 [Maria Clara Nazareno Aires](https://github.com/mariaclaranaires) Revisador por @ana-flav
 
-- [] RF05 - Visualizar Perfil do Usuário. 1.6 [Romeu Miranda Borges](https://github.com/romeuborges19) Revisador por @tgofsaints
+- [ ] RF05 - Visualizar Perfil do Usuário. 1.6 [Romeu Miranda Borges](https://github.com/romeuborges19) Revisador por @tgofsaints
 
 ---
