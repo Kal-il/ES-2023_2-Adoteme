@@ -21,6 +21,6 @@ O "AdoteMe" é uma plataforma digital inovadora desenvolvida para unir coraçõe
 
 - [ ] RF05 - Visualizar Página Principal. 1.5 [Maria Clara Nazareno Aires](https://github.com/mariaclaranaires) Revisador por @ana-flav
 
-- [ ] RF05 - Visualizar Perfil do Usuário. 1.6 [Romeu Miranda Borges](https://github.com/romeuborges19) Revisador por @tgofsaints
+- [ ] RF06 - Visualizar Perfil do Usuário. 1.6 [Romeu Miranda Borges](https://github.com/romeuborges19) Revisador por @tgofsaints
 
 ---
