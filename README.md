@@ -1,4 +1,4 @@
-# Engenharia de software-2023.2 | Universidade Federal do Tocantins - Palmas, 2022
+# Engenharia de software-2023.2 | Universidade Federal do Tocantins - Palmas, 2023
 ## Adoteme
 ### Introdução
 
@@ -11,11 +11,11 @@ O "AdoteMe" é uma plataforma digital inovadora desenvolvida para unir coraçõe
 
 #### Iteração 1
 
-- [ ] RF01 - Realizar Login do Usuário. 1.1 [Kalil Garcia Canuto](https://github.com/Kal-il) Revisado por @mariaclaranaires
+- [x] RF01 - Realizar Login do Usuário. 1.1 [Kalil Garcia Canuto](https://github.com/Kal-il) Revisado por @mariaclaranaires
 
-- [ ] RF02 - Cadastrar Usuário. 1.2 [Ana Flavia Moreira Pires](https://github.com/MatheusDreher) Revisado por @romeuborges19
+- [x] RF02 - Cadastrar Usuário. 1.2 [Ana Flavia Moreira Pires](https://github.com/MatheusDreher) Revisado por @romeuborges19
 
-- [ ] RF03 - Preencher Formulário. 1.3 [Matheus Henrique Dreher dos Santos](https://github.com/MatheusDreher) Revisador por @Kal-il
+- [x] RF03 - Preencher Formulário. 1.3 [Matheus Henrique Dreher dos Santos](https://github.com/MatheusDreher) Revisador por @Kal-il
 
 - [ ] RF04 - Visualizar Animal. 1.4 [Thiago Gonzaga dos Santos](https://github.com/tgofsaints) Revisado por @MatheusDreher
 
@@ -87,7 +87,7 @@ O "AdoteMe" é uma plataforma digital inovadora desenvolvida para unir coraçõe
 | Passo 3  | Usuário é redirecinado para a tela de redefinição de senha               |
 
 
-![login (2) (4)](https://github.com/Kal-il/repositorioTeste/assets/106031060/587b59c7-3ce4-41ad-aeef-752618623d82)
+![login (2) (4)](https://uploaddeimagens.com.br/images/004/605/432/original/login_%282%29_%284%29.png?1694550634)
 
 
 ## **RF02 - Cadastrar do Usuário**.
@@ -168,3 +168,75 @@ O "AdoteMe" é uma plataforma digital inovadora desenvolvida para unir coraçõe
 
 ## Protótipo
 ![Tela de Cadastro](https://uploaddeimagens.com.br/images/004/605/446/original/cadastrar_%282%29.png?1694552172)
+
+
+## Adoteme
+## **RF03 - Preencher formulário de adoção**
+
+#### Autor: @MatheusDreher - Matheus Henrique Dreher dos Santos.
+
+---
+
+### Revisor: @Kal-il - Kalil Garcia Canuto.
+
+| Item            | Descrição                                                                                                                                                                                               |
+| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Caso de uso     | Preencher formulário.                                                                                                                                                                                                  |
+| Resumo          | Este requisito descreve o processo pelo qual um adotante pode preencher um formulário de adoção para expressar interesse em adotar um gato disponível no site.                                                          |
+| Ator principal  | Usuário adotante.                                                                                                           |
+| Pré-condição    | O adotante deve estar registrado no site e autenticado.                                                                                                                     |
+| Pós-condição    | O formulário de adoção é preenchido e submetido.                                                                                                                                  |
+### Descrição Sucinta:
+
+"O usuário preenche o formulário de adoção"
+
+#### Fluxo principal
+
+| Passos   | Descrição                                                                 |
+| -------- | ------------------------------------------------------------------------- |
+| Passo 1  | O sistema exibe o formulário de adoção contendo os campos necessários para preenchimento                                                          |
+| Passo 2  | O adotante preenche os campos obrigatórios do formulário.                                  |
+| Passo 3  | O adotante tem a opção de fornecer um comentário adicional (opcional).                                   |
+| Passo 4  | O adotante clica no botão de envio. |
+| Passo 5  | O sistema valida os dados do formulário. |
+| Passo 6  | Se houver erros de validação, o sistema exibe mensagens de erro ao lado dos campos afetados. |
+| Passo 7  | Se não houver erros de validação, o sistema registra os dados no banco de dados. |
+| Passo 8  | O sistema exibe uma mensagem de confirmação indicando que a solicitação de adoção foi recebida. |
+| Passo 9  | O sistema envia um e-mail de confirmação para o adotante com um resumo da solicitação de adoção e informações de contato.
+ |
+
+
+### Campos da aba Formulário:
+
+| Campo  | Obrigatório?  | Formato        |
+| ------ | ------------  | -------------- |
+| Nome completo |     Sim      |  texto         |
+| E-mail  |     Sim        |  texto |
+| Telefone |     Sim        |  numérico         |
+| Endereço  |     Sim        |  texto |
+| Idade |     Sim          |  numérico         |
+| Estado civil  |     Sim        |  texto |
+| Tipo de moradia |     Sim       |  texto         |
+| Sua moradia tem a segurança necessária?  |     Sim       |  texto |
+| Qual a sua renda?  |     Sim       |  texto |
+| Possui outros animais?  |     Sim        |  texto |
+| Caso sim, quantos e quais tipos? |     Sim        |  texto   |
+| Já teve experiência com gatos?  |     Sim       |  texto |
+| Motivação para adotar um gato |     Sim       |  texto      |
+| Comentário adicional  |     Não       |  texto |
+### Opções dos Usuários:
+
+| Campo                                   | Descrição | 
+| --------------------------------------- | ----------- | 
+|Enviar formulário                             | Envia o formulário para o banco de dados   | 
+
+
+ ### Fluxos Alternativos:
+ #### Fluxo alternativo 1:
+
+| Passos   | Descrição                                                                 |
+| -------- | ------------------------------------------------------------------------- |
+| Passo 1  | No passo 8, se houver erros de validação, o sistema exibe mensagens de erro ao lado dos campos afetados e retorna ao passo 4 para correção.|
+
+
+![formulario](https://uploaddeimagens.com.br/images/004/605/447/original/formulario.png?1694552460)
