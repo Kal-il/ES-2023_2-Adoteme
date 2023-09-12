@@ -84,7 +84,7 @@ O "AdoteMe" é uma plataforma digital inovadora desenvolvida para unir coraçõe
 | -------- | ------------------------------------------------------------------------- |
 | Passo 1  | Entrar na página                                                          |
 | Passo 2  | Usuário seleciona a opção 'Redefinir senha'                               |
-| Passo 3  | Usuário é redirecinado para a tela de reedefiniçaõ de senha               |
+| Passo 3  | Usuário é redirecinado para a tela de reedefinição de senha               |
 
 
 ![login (2) (4)](https://github.com/Kal-il/repositorioTeste/assets/106031060/587b59c7-3ce4-41ad-aeef-752618623d82)
