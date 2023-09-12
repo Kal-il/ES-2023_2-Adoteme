@@ -267,7 +267,7 @@ Os atores devem ter selecionado um animal para visualizar suas informações.
 | Passos | Descrição | 
 | :--------: | -------- | 
 | Passo 1 &nbsp;|  O ator ao acessar a tela de listagem de todos os animais disponíveis para adoção seleciona um dos animais para visualizar.    | 
-| Passo 2 &nbsp;| O sistema verifica se o animal existe no banco de dados: <br/> 2.1 - e sim, o sistema vai para o passo 3. <br/> 2.2 - Senão o sistema exibe a mensagem "Erro ao exibir o animal selecionado, verifique se o animal ainda está disponível para adoção e tente novamente".     | 
+| Passo 2 &nbsp;| O sistema verifica se o animal existe no banco de dados: <br/> 2.1 - se sim, o sistema vai para o passo 3. <br/> 2.2 - Senão o sistema exibe a mensagem "Erro ao exibir o animal selecionado, verifique se o animal ainda está disponível para adoção e tente novamente".     | 
 | Passo 3 &nbsp;| O sistema verifica se o ator possui cadastro no banco de dados e o seu nível de permissões e:<br/> 3.1 -  Se sim, o sistema exibe o botão com a mensagem "Tenho Interesse!" e vai para o passo 4. <br/> 3.2 - Senão, o sistema exibe o botão com a mensagem "Entrar".  | 
 | Passo 4    &nbsp;| O sistema apresenta a caixa de confirmação se o ator se encaixa no perfil do animal selecionado.     |   
 
@@ -276,14 +276,8 @@ Os atores devem ter selecionado um animal para visualizar suas informações.
 | Opção | Descrição | Atalho |
 | --- | --- | --- |
 | Tenho Interesse! | Exibe ao ator a solicitação de confirmação se o ator se encaixa no perfil do animal selecionado |  |
+| Entrar| Redireciona o ator à página de login | |
 
-
-### Relatório do Usuário:
-
-| Campo | Descrição | Formato |
-| --- | --- | --- |
-|  |  |  |
-|  |  |  |
 
 ### Fluxo Alternativo:
 
@@ -292,7 +286,7 @@ Os atores devem ter selecionado um animal para visualizar suas informações.
 | Passos  | Descrição | 
 | :--------: | -------- | 
 | Passo 1  &nbsp;|  O ator ao acessar a tela de listagem de todos os animais disponíveis para adoção seleciona um dos animais para visualizar.   | 
-| Passo 2 &nbsp;| O sistema verifica se o animal existe no banco de dados: <br/> 2.1 - e sim, o sistema vai para o passo 3. <br/> 2.2 - Senão o sistema exibe a mensagem "Erro ao exibir o animal selecionado, verifique se o animal ainda está disponível para adoção e tente novamente".     | 
+| Passo 2 &nbsp;| O sistema verifica se o animal existe no banco de dados: <br/> 2.1 - se sim, o sistema vai para o passo 3. <br/> 2.2 - Senão o sistema exibe a mensagem "Erro ao exibir o animal selecionado, verifique se o animal ainda está disponível para adoção e tente novamente".     | 
 | Passo 3 &nbsp;|O sistema verifica se o ator possui cadastro no banco de dados e o seu nível de permissões e o ator que ainda não autenticou-se no sistema seleciona a opção de entrar;  | 
 | Passo 4    &nbsp;| O sistema exibe na tela o formulário de login.   | 
 
