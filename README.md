@@ -1,4 +1,4 @@
-# Engenharia de software-2023.2 | Universidade Federal do Tocantins - Palmas, 2022
+# Engenharia de software-2023.2 | Universidade Federal do Tocantins - Palmas, 2023
 ## Adoteme
 ### Introdução
 
@@ -11,11 +11,11 @@ O "AdoteMe" é uma plataforma digital inovadora desenvolvida para unir coraçõe
 
 #### Iteração 1
 
-- [ ] RF01 - Realizar Login do Usuário. 1.1 [Kalil Garcia Canuto](https://github.com/Kal-il) Revisado por @mariaclaranaires
+- [x] RF01 - Realizar Login do Usuário. 1.1 [Kalil Garcia Canuto](https://github.com/Kal-il) Revisado por @mariaclaranaires
 
-- [ ] RF02 - Cadastrar Usuário. 1.2 [Ana Flavia Moreira Pires](https://github.com/MatheusDreher) Revisado por @romeuborges19
+- [x] RF02 - Cadastrar Usuário. 1.2 [Ana Flavia Moreira Pires](https://github.com/MatheusDreher) Revisado por @romeuborges19
 
-- [ ] RF03 - Preencher Formulário. 1.3 [Matheus Henrique Dreher dos Santos](https://github.com/MatheusDreher) Revisador por @Kal-il
+- [x] RF03 - Preencher Formulário. 1.3 [Matheus Henrique Dreher dos Santos](https://github.com/MatheusDreher) Revisador por @Kal-il
 
 - [ ] RF04 - Visualizar Animal. 1.4 [Thiago Gonzaga dos Santos](https://github.com/tgofsaints) Revisado por @MatheusDreher
 
@@ -87,7 +87,7 @@ O "AdoteMe" é uma plataforma digital inovadora desenvolvida para unir coraçõe
 | Passo 3  | Usuário é redirecinado para a tela de redefinição de senha               |
 
 
-![login (2) (4)](https://github.com/Kal-il/repositorioTeste/assets/106031060/587b59c7-3ce4-41ad-aeef-752618623d82)
+![login (2) (4)](https://uploaddeimagens.com.br/images/004/605/432/original/login_%282%29_%284%29.png?1694550634)
 
 
 ## **RF02 - Cadastrar do Usuário**.
