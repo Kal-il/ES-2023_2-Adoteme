@@ -90,3 +90,81 @@ O "AdoteMe" é uma plataforma digital inovadora desenvolvida para unir coraçõe
 ![login (2) (4)](https://github.com/Kal-il/repositorioTeste/assets/106031060/587b59c7-3ce4-41ad-aeef-752618623d82)
 
 
+## **RF02 - Cadastrar do Usuário**.
+
+#### Autor: @ana-flav- Ana Flavia Moreira Pires.
+
+---
+
+### Revisor: @romeuborges19 - Romeu Miranda Borges.
+
+| Item            | Descrição                                                              |
+| --------------- | ---------------------------------------------------------------------- |
+| Caso de uso     | Cadastrar do Usuário. |
+| Resumo          | Este caso de uso descreve o processo de cadastro de um novo usuário no sistema de adoção de gatos. |
+| Ator principal  | Usuário interessado em adotar um gato.                      |
+| Ator secundário |                                                                       |
+| Pré-condição    | O ator principal deve ter acesso a plataforma. |
+| Pós-condição    | O ator principal não deve ter um cadastro no sistema. |
+
+
+
+#### Fluxo principal
+
+| Passos  | Descrição                                                                                                            |
+| ------- | -------------------------------------------------------------------------------------------------------------------- |
+| Passo 1 | O usuário acessa o sistema de adoção de gatos da UFT e é apresentada a tela inicial.        |
+| Passo 2 | Na tela de inicial, o usuário encontra um botão com o título “Criar uma conta” e clica nele para ir para a tela de cadastro. |
+| Passo 3 | Exibe um formulário de cadastro com campos para o usuário preencher com seus dados. |
+| Passo 4 | Após preencher o formulário, clica no botão "Cadastrar".   |
+| Passo 5 | O sistema verifica os dados fornecidos pelo usuário.<br/> Se correto, ele é redirecionado para a página inicial.<br/> Se incorreto, irá retornar mensagens de erro no formulário. |
+
+
+
+
+
+#### Campos do formulário.
+
+| Campo    | Obrigatório? | Editável? | Formato      |
+| -------- | ------------ | --------- | ------------ |
+| Nome     | Sim          | Sim       | Texto        |
+| Email    | Sim          | Sim       | Texto        |
+| Senha    | Sim          | Sim       | Alfanumérico        |
+| CPF      | Sim          | Sim       | Texto |
+| Estado | Sim         | Sim       | Texto        |
+| Cidade | Sim         | Sim       | Texto        |
+| Endereço | Não          | Sim       | Texto        |
+| Contato  | Sim          | Sim       | Numérico     |
+| Data de nascimento   | sim          | Sim       | Numérico     |
+| Matrícula   | Sim         | Sim       | Numérico     |
+
+#### Opções de usuário
+
+| Opção       | Descrição                 | Atalho |
+| ----------- | ------------------------- | ------ |
+| Cadastrar no sistema | Verificar os dados preenchidos |
+
+#### Relatório de usuário
+
+| Campo                    | Descrição                                                             | Formato |
+| ------------------------ | --------------------------------------------------------------------- | ------- |
+| Conta criada com sucesso! | Assegura o usuário do resultado positivo do registro no sistema | Texto   |
+
+#### Fluxo alternativo 
+
+| Passos    | Descrição                                                                                                      |
+| --------- | -------------------------------------------------------------------------------------------------------------- |
+| Passo 1 | O ator já possui um conta no sistema.                                                                                      |
+| Passo 2 | O ator clica no botão "Já tenho um conta. Fazer Login." e ele é redirecionado para tela de Login. |
+
+
+# User Story
+## Persona 01 - Usuário comum
+
+
+| Epic       | User Story                 | Critério de aceitação |
+| ----------- | ------------------------- | ------ | 
+| Como um usuário comum, eu gostaria de me cadastrar no sistema para  utilizar suas funcionalidades | Enquanto usuário comum, eu gostaria de me cadastrar no sistema para adotar gatos. | Para se cadastrar no sistema, seus dados não devem estar registrados previamente no banco de dados.
+
+## Protótipo
+![Tela de Cadastro](https://uploaddeimagens.com.br/images/004/605/446/original/cadastrar_%282%29.png?1694552172)
