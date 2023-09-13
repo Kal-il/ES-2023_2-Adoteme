@@ -1,5 +1,9 @@
 # Engenharia de software-2023.2 | Universidade Federal do Tocantins - Palmas, 2023
 ## Adoteme
+#### Curso: Bacharelado em Ciência da Computação
+#### Professor: Edeilson Milhomem da Silva.
+#### Monitor: João Gabriel Alves de Souza.
+#### Time: Romeu Miranda Borges, Ana Flavia Moreira Pires, Kalil Garcia Canuto, Matheus Henrique Dreher dos Santos, Maria Clara Nazareno Aires, Thiago Gonzaga dos Santos.
 ### Introdução
 
 O "AdoteMe" é uma plataforma digital inovadora desenvolvida para unir corações e lares, conectando gatos abandonados no campus da Universidade Federal do Tocantins (UFT) a indivíduos e famílias carinhosas que desejam fazer a diferença na vida desses animais. Além de ser uma plataforma intuitiva e interativa ela proporciona um ambiente virtual dedicado à catalogação e adoção de gatos abandonados dentro da universidade. Nossa visão é criar um espaço virtual gratuito onde a solidariedade, compaixão e amor pelos animais possam florescer, ao mesmo tempo em que promovemos a responsabilidade e conscientização sobre a adoção de animais de estimação.
