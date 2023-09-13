@@ -318,7 +318,6 @@ Os atores devem ter selecionado um animal para visualizar suas informações.
 | Passo 3 &nbsp;|O sistema verifica se o ator possui cadastro no banco de dados e o seu nível de permissões e o ator que ainda não autenticou-se no sistema seleciona a opção de entrar;  | 
 | Passo 4    &nbsp;| O sistema exibe na tela o formulário de login.   | 
 
-<br/>
 # User Story
 
 ### Persona 01 - Usuário comum
