@@ -378,8 +378,8 @@ Como um usuário comum, eu gostaria de acessar a página principal para ter uma 
 | **Caso de Uso**     | Visualizar o perfil do usuário                                                                                             |
 | **Resumo**          | O usuário deve ser capaz de visualizar seu próprio perfil para editá-lo e acompanhar as ofertas de adoção que o interessam. |
 | **Ator Principal**  | Usuário utilizador da plataforma                                                                                           |
-| **Pré-condição**    | O usuário deve estar acessando a plataforma.                                                                               |
-| **Pós-condição**    | Para visualizar sua conta, é necessário que o usuário já tenha uma.                     |                                                                                                                        
+| **Pré-condição**    | O usuário deve estar acessando a plataforma e autenticado no sistema.                                                                               |
+| **Pós-condição**    | É necessário que o usuário esteja cadastrado.                     |                                                                                                                        
 
 #### **Fluxo Principal**
 
