@@ -32,7 +32,7 @@ O "AdoteMe" é uma plataforma digital inovadora desenvolvida para unir coraçõe
 
 ---
 
-### Revisor: @mariaclaranaires - Maria Clara Nazareno Aires
+#### Revisor: @mariaclaranaires - Maria Clara Nazareno Aires
 
 | Item            | Descrição                                                                                                                                                                                               |
 | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -96,7 +96,7 @@ O "AdoteMe" é uma plataforma digital inovadora desenvolvida para unir coraçõe
 
 ---
 
-### Revisor: @romeuborges19 - Romeu Miranda Borges.
+#### Revisor: @romeuborges19 - Romeu Miranda Borges.
 
 | Item            | Descrição                                                              |
 | --------------- | ---------------------------------------------------------------------- |
@@ -177,7 +177,7 @@ O "AdoteMe" é uma plataforma digital inovadora desenvolvida para unir coraçõe
 
 ---
 
-### Revisor: @Kal-il - Kalil Garcia Canuto.
+#### Revisor: @Kal-il - Kalil Garcia Canuto.
 
 | Item            | Descrição                                                                                                                                                                                               |
 | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -246,7 +246,7 @@ O "AdoteMe" é uma plataforma digital inovadora desenvolvida para unir coraçõe
 
 ---
 
-### Revisor: @MatheusDreher - Matheus Henrique Dreher dos Santos.
+#### Revisor: @MatheusDreher - Matheus Henrique Dreher dos Santos.
 
 ## Atores:
 
@@ -301,7 +301,7 @@ Os atores devem ter selecionado um animal para visualizar suas informações.
 
 ---
 
-### Revisor: @ana-flav - Ana Flávia Moreira Pires
+#### Revisor: @ana-flav - Ana Flávia Moreira Pires
 
 Item           | Descrição
 ---------------|----------
@@ -364,3 +364,46 @@ Como um usuário comum, eu gostaria de acessar a página principal para ter uma 
 
 ## Protótipo
 ![Página principal](https://uploaddeimagens.com.br/images/004/605/591/original/p%C3%A1gina_principal_-_AdoteMe.png?1694564418)
+
+
+## **RF06 - Visualizar Perfil do Usuário**
+
+#### **Autor:** @romeuborges19 - Romeu Miranda Borges\
+---
+
+#### **Revisor:** @tgofsaints - Thiago Gonzaga dos Santos
+
+| **Item**            | **Descrição**                                                                                                          |
+| --------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| **Caso de Uso**     | Visualizar o perfil do usuário                                                                                             |
+| **Resumo**          | O usuário deve ser capaz de visualizar seu próprio perfil para editá-lo e acompanhar as ofertas de adoção que o interessam. |
+| **Ator Principal**  | Usuário utilizador da plataforma                                                                                           |
+| **Pré-condição**    | O usuário deve estar acessando a plataforma.                                                                               |
+| **Pós-condição**    | Para visualizar sua conta, é necessário que o usuário já tenha uma.                     |                                                                                                                        
+
+#### **Fluxo Principal**
+
+| Passo | Descrição |
+| --------| --- |
+| **Passo 1** | Entrar na página principal. |
+| **Passo 2** | Clicar no seu perfil pelo botão disponível na página principal. |
+| **Passo 3** | Visualizar o perfil. |
+
+#### **Opções do Usuário**
+
+| Opção | Descrição |
+| - | - |
+| **Editar informações do perfil** | O usuário pode clicar em um botão que o levará para uma tela de edição de perfil. |
+| **Acessar interesses do usuário** | É possível acessar as postagens dos animais pelos quais o dono do perfil se interessa |
+
+---
+
+## User Story
+
+#### Persona 1 - Usuário comum
+
+| User Story | Critério de Aceitação |
+| ---------- | --------------------- |
+| Enquanto usuário comum, eu preciso visualizar o meu perfil e ter acesso às ofertas de adoção que me interessam, para poder acompanhá-las. Além disso, preciso ser capaz de editar as informações do meu perfil. | Para visualizar o próprio perfil, certifique-se de que o usuário está cadastrado e logado na plataforma. |
+
+![](https://uploaddeimagens.com.br/images/004/605/683/original/MacBook_Air_-_1_%281%29.png?1694569982)
