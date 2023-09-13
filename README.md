@@ -293,3 +293,74 @@ Os atores devem ter selecionado um animal para visualizar suas informações.
 <br/>
 
 ![Protótipo de tela de visualização do animal selecionado](https://uploaddeimagens.com.br/images/004/605/444/full/adoteme.png?1694552147)
+
+
+## **RF05 - Visualizar página principal**
+
+#### Autor: @mariaclaranaires - Maria Clara Nazareno Aires
+
+---
+
+### Revisor: @ana-flav - Ana Flávia Moreira Pires
+
+Item           | Descrição
+---------------|----------
+Caso de uso    | Visualizar página principal.|
+Resumo           | É esperado que, ao pesquisar pelo site e entrar nele, clicar na logo do site exibida no topo do site ou fazer login, o usuário se depare com a página principal, que dará a ele a possibilidade de ter uma visão sobre uma parte do catálogo de animais disponíveis para adoção, botões que o redirecionem para as redes sociais oficiais do projeto, botão para fazer login ou ver a própria conta, barra de busca de animais por nome, busca por categoria (menu) e também permitirá que a página individual de cada animal do catálogo seja acessada.|
+Ator principal | Usuário utilizador da plataforma.|
+Ator secundário| Não possui.|
+Pré-condição   | É necessário que o usuário tenha um browser, busque o site ou esteja dentro dele, e que tenha acesso à internet.|
+Pós-condição   | Ter acesso ao site.|
+
+
+
+#### Fluxo principal
+
+Passos  | Descrição
+--------|----------
+Passo 1 | Buscar o site em seu browser.|
+Passo 2 | Clicar em cima do nome do site após a busca.|
+
+
+#### Campos da página principal
+
+Campo                                | Obrigatório | Editável | Formato
+-------------------------------------|-------------|----------|--------|
+
+
+#### Opções de usuário
+
+Opção                                  | Descrição   | Atalho
+---------------------------------------|-------------|-------
+Acessar redes sociais                  | Ao clicar num dos botões referentes às redes sociais, o usuário deverárá ser redirecionado para o perfil do site na respectiva rede social.		  				 | 
+Visualizar catálogo                    | Estando na página principal, o usuário deverárá ser capaz de visualizar o catálogo de animais. |
+Fazer login ou acessar a própria conta | Ao clicar no botão com símbolo de usuário, o usuário deverá ser redirecionado para a página de login caso não esteja dentro de alguma conta, ou para a página da sua própria conta. |
+Barra de busca de animais	       | Ao clicar na barra de busca de animais o usuário deverá ser capaz de buscar os animais que correspondam à sua busca. |
+Visualizar animal		       | Ao clicar em cima de um animal o usuário deverá conseguir visualizar a página referente àquele animal em específico. |
+Botão de menu	       | Ao clicar no botão de menu o usuário poderá selecionar a categoria de animais que se deseja buscar. |
+
+#### Relatório de usuário
+
+
+Campo | Descrição | Formato
+------|-----------|--------
+
+#### Fluxo alternativo 
+
+Passos      | Descrição
+------------|----------
+Passo 1.1.1 | Caso o usuário já esteja dentro do site, para voltar para a página principal ele deverá clicar em cima da logo exibida no topo do site.
+Passo 2.1.2 | Caso o usuário tenha efetuado seu login, ele deverá ser redirecionado para a página principal.
+Passo 1.1.3 | Caso o usuário faça o logout, ele deverá ser redirecionado para a página principal.
+
+
+# User Story
+## Persona 01 - Usuário comum
+
+
+Epic                                |User Story| Critério de aceitação
+-----------------------|----------|----------------------
+Como um usuário comum, eu gostaria de acessar a página principal para ter uma visão geral do site. | Enquanto usuário comum, eu gostaria de ser capaz de visualizar uma página principal que me permita acessar as diversas funcionalidades do site.| Certifique-se de que o usuário seja capaz de **buscar o site ou ser redirecionado para a página principal.**
+
+## Protótipo
+![Página principal](https://uploaddeimagens.com.br/images/004/605/591/original/p%C3%A1gina_principal_-_AdoteMe.png?1694564418)
