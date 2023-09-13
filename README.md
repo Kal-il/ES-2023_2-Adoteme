@@ -349,7 +349,7 @@ Campo | Descrição | Formato
 
 Passos      | Descrição
 ------------|----------
-Passo 1.1.1 | Caso o usuário já esteja dentro so site, para voltar para a página principal ele deverá clicar em cima da logo exibida no topo do site.
+Passo 1.1.1 | Caso o usuário já esteja dentro do site, para voltar para a página principal ele deverá clicar em cima da logo exibida no topo do site.
 Passo 2.1.2 | Caso o usuário tenha efetuado seu login, ele deverá ser redirecionado para a página principal.
 Passo 1.1.3 | Caso o usuário faça o logout, ele deverá ser redirecionado para a página principal.
 
