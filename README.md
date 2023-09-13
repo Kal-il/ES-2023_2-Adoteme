@@ -11,13 +11,13 @@ O "AdoteMe" é uma plataforma digital inovadora desenvolvida para unir coraçõe
 
 #### Iteração 1
 
-- [x] RF01 - Realizar Login do Usuário. 1.1 [Kalil Garcia Canuto](https://github.com/Kal-il) Revisado por @mariaclaranaires
+- [ ] RF01 - Realizar Login do Usuário. 1.1 [Kalil Garcia Canuto](https://github.com/Kal-il) Revisado por @mariaclaranaires
 
-- [x] RF02 - Cadastrar Usuário. 1.2 [Ana Flavia Moreira Pires](https://github.com/MatheusDreher) Revisado por @romeuborges19
+- [ ] RF02 - Cadastrar Usuário. 1.2 [Ana Flavia Moreira Pires](https://github.com/MatheusDreher) Revisado por @romeuborges19
 
-- [x] RF03 - Preencher Formulário. 1.3 [Matheus Henrique Dreher dos Santos](https://github.com/MatheusDreher) Revisador por @Kal-il
+- [ ] RF03 - Preencher Formulário. 1.3 [Matheus Henrique Dreher dos Santos](https://github.com/MatheusDreher) Revisador por @Kal-il
 
-- [x] RF04 - Visualizar Animal. 1.4 [Thiago Gonzaga dos Santos](https://github.com/tgofsaints) Revisado por @MatheusDreher
+- [ ] RF04 - Visualizar Animal. 1.4 [Thiago Gonzaga dos Santos](https://github.com/tgofsaints) Revisado por @MatheusDreher
 
 - [ ] RF05 - Visualizar Página Principal. 1.5 [Maria Clara Nazareno Aires](https://github.com/mariaclaranaires) Revisado por @ana-flav
 
@@ -53,7 +53,6 @@ O "AdoteMe" é uma plataforma digital inovadora desenvolvida para unir coraçõe
 | Passo 2  | Usuário deverá inserir seu email e senha                                  |
 | Passo 3  | Usuário deverá clicar no botão 'Entrar'                                   |
 | Passo 4  | O sistéma irá verificar se o usuário está cadastrado no banco de dados <br/>  4.1 - Se sim : exibira: logado com sucesso <br/> 4.2 - Se não: exibirá a mensagem: ‘Email ou senha não encontrado, tente novamente’ |
-| Passo 5  | O sistema irá verificar o nível de acesso do usuário <br/> 5.1 - Administrador - Usuário é redirecionado para a página de administrador <br/> 5.2 Comum - Usuário é redirecionado para a página inicial de adoção |
 
 ### Campos do Formulário:
 
@@ -69,6 +68,15 @@ O "AdoteMe" é uma plataforma digital inovadora desenvolvida para unir coraçõe
 |Cadastrar                                | Redireciona usuário pra tela de cadastro        |
 |Redefinir senha                          | Redireciona usuário pra tela de redefinição de senha         | 
 
+<br/>
+
+### Relatório de usuário
+
+| Campo | Descrição | Formato |
+| ----- | --------- | ------- |
+| 'Logado com sucesso!' | Assegura o usuárido de que ele conseguiu realizar login | Texto   |
+| ‘Email ou senha não encontrado, tente novamente’ | Mostra pro usuário que algo está errado | Texto   |
+<br/>
  ### Fluxos Alternativos:
  #### Fluxo alternativo 1:
 
@@ -77,16 +85,26 @@ O "AdoteMe" é uma plataforma digital inovadora desenvolvida para unir coraçõe
 | Passo 1  | Entrar na página                                                          |
 | Passo 2  | Usuário seleciona a opção 'Cadastrar'                                       |
 | Passo 3  | Usuário é redirecinado para a tela de cadastro                            |
-
+<br/>
 #### Fluxo alternativo 2:
 
 | Passos   | Descrição                                                                 |
 | -------- | ------------------------------------------------------------------------- |
 | Passo 1  | Entrar na página                                                          |
 | Passo 2  | Usuário seleciona a opção 'Redefinir senha'                               |
-| Passo 3  | Usuário é redirecinado para a tela de redefinição de senha               |
+| Passo 3  | Usuário é redirecinado para a tela de redefinição de senha                |
+<br/>
 
+# User Story
 
+### Persona 01 - Usuário comum
+
+|     Epic     |     User Story     | Critério de aceitação |
+|--------------| ------------------ | --------------------- |
+|  Como usuário comum gostaria de realizar autenticação de Usuário  | Enquanto usuário comum do site, gostaria de poder acessar minha conta através de uma página de login para poder ultilizar as funcionalidades do sistéma.  |  Para realizar login no sistéma o usuário deve ter seus dados cadastrados no banco de dados, e deve saber o e-mail e senha informados durante o cadastro |
+<br/>
+
+## Protótipo
 ![login (2) (4)](https://uploaddeimagens.com.br/images/004/605/432/original/login_%282%29_%284%29.png?1694550634)
 
 
@@ -238,7 +256,17 @@ O "AdoteMe" é uma plataforma digital inovadora desenvolvida para unir coraçõe
 | -------- | ------------------------------------------------------------------------- |
 | Passo 1  | No passo 8, se houver erros de validação, o sistema exibe mensagens de erro ao lado dos campos afetados e retorna ao passo 4 para correção.|
 
+# User Story
+## Persona 01 - Usuário comum
 
+
+| Epic       | User Story                 | Critério de aceitação |
+| ----------- | ------------------------- | ------ | 
+| Como usuário comum do site e possível adotante, gostaria de preencher o formulário de adoção. | Enquanto usuário comum, eu gostaria de preencher o formulário para adotar um gato. | Para adotar um gato, seu formulário precisa ser lido e julgado passível para adoção.
+
+<br/>
+
+## Protótipo
 ![formulario](https://uploaddeimagens.com.br/images/004/605/447/original/formulario.png?1694552460)
 
 # RF04 - Visualizar Animal
@@ -291,6 +319,17 @@ Os atores devem ter selecionado um animal para visualizar suas informações.
 | Passo 4    &nbsp;| O sistema exibe na tela o formulário de login.   | 
 
 <br/>
+# User Story
+
+### Persona 01 - Usuário comum
+
+| User Story | Critério de aceitação |
+| --------- | --------------------- |
+| Como usuário comum interessado em adotar um gato eu quero ser capaz de visualizar informações detalhadas sobre gatos disponíveis para adoção no site para que eu possa tomar uma decisão informada sobre a adoção.| Selecionar um dos animais disponíveis para adoção
+
+<br/>
+
+## Protótipo
 
 ![Protótipo de tela de visualização do animal selecionado](https://uploaddeimagens.com.br/images/004/605/444/full/adoteme.png?1694552147)
 
@@ -361,6 +400,7 @@ Passo 1.1.3 | Caso o usuário faça o logout, ele deverá ser redirecionado para
 Epic                                |User Story| Critério de aceitação
 -----------------------|----------|----------------------
 Como um usuário comum, eu gostaria de acessar a página principal para ter uma visão geral do site. | Enquanto usuário comum, eu gostaria de ser capaz de visualizar uma página principal que me permita acessar as diversas funcionalidades do site.| Certifique-se de que o usuário seja capaz de **buscar o site ou ser redirecionado para a página principal.**
+<br/>
 
 ## Protótipo
 ![Página principal](https://uploaddeimagens.com.br/images/004/605/591/original/p%C3%A1gina_principal_-_AdoteMe.png?1694564418)
@@ -405,5 +445,8 @@ Como um usuário comum, eu gostaria de acessar a página principal para ter uma 
 | User Story | Critério de Aceitação |
 | ---------- | --------------------- |
 | Enquanto usuário comum, eu preciso visualizar o meu perfil e ter acesso às ofertas de adoção que me interessam, para poder acompanhá-las. Além disso, preciso ser capaz de editar as informações do meu perfil. | Para visualizar o próprio perfil, certifique-se de que o usuário está cadastrado e logado na plataforma. |
+<br/>
+
+## Protótipo
 
 ![](https://uploaddeimagens.com.br/images/004/605/683/original/MacBook_Air_-_1_%281%29.png?1694569982)
