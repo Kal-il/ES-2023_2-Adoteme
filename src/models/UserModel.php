@@ -4,23 +4,23 @@ require_once '../models/Connection.php';
 
 class UserModel {
     function Login($connection, $data) {
-        $email = pg_escape_string($connection, $data['user']); 
+        /**
+            * o uso do pg_escape_string é para evitar o SQL Injection, que é uma técnica de invasão de banco de dados
+            * ele é usado para escapar caracteres especiais que podem ser usados para invadir o banco de dados.
+        */
+        $email = pg_escape_string($connection, $data['email']); 
         $password = pg_escape_string($connection, $data['password']); 
 
         $query = "SELECT * FROM usuarios WHERE email = '$email' AND senha = '$password'";
         $resultado = pg_query($connection, $query);
 
         if (!$resultado) {
-            die("Deu erro na consulta: " . pg_last_error($connection));
+            die("eRROOOOOO: " . pg_last_error($connection));
         }
 
         if (pg_num_rows($resultado) == 0) {
-            echo "<h4>Nenhum resultado encontrado.</h4>";
+            return false;
         } else {
-            $row = pg_fetch_assoc($resultado);
-            $json = json_encode($row);
-            $array = json_decode($json, true);
-            $_SESSION['user'] = $array;
             return true;
         }
     }

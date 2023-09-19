@@ -1,17 +1,11 @@
-
 <?php
-use controller\LoginDadosController;
-
-
-
-
-
-
-
+    /**
+        * Verficar se existe erro na url, se existir, mostrar mensagem de erro
+    */
+    if(isset($_GET['error']) && $_GET['error'] == 400){
+        echo "<h1>Não existe usuário com essas credenciais. Tente novamente</h1>";
+    }
 ?>
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,7 +15,7 @@ use controller\LoginDadosController;
     <h1> Login</h1>
 </head>
 <body>
-<form action="../../controller/LoginDadosController.php" method="POST">
+<form action="../../controller/LoginDadosController.php" method="POST"> 
     <label for="email">E-mail:</label>
     <input type="text" name="email" id="email">
     <label for="password">Senha:</label>
