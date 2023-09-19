@@ -8,6 +8,7 @@ h1{
 }
 
 .botoes{
+    margin-top: 24px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -18,20 +19,20 @@ h1{
     display: flex;
     justify-content: center;
     align-items: center;
-    
     width: 100%;
     height: 100vh;
     
 }
 
 .teste{
+    
     color: white;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 0px;
-    background-color: rgb(136, 127, 255);
+    background-color: rgb(120, 97, 183);
     border-top-right-radius: 10px;
     border-top-left-radius: 10px;
 }
@@ -51,17 +52,41 @@ h1{
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(20px);
   }
+  
+.imput-icon {
+    position: relative;
+    margin-bottom: 16px;
+}
+/*responsavel por colocar os icones dentro das caixas de imput*/
+.imput-icon i {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 10px; 
+    font-size: 18px; 
+    color: #676666; 
+}
+
+.imput-icon input {
+    padding-left: 30px; 
+}   
+
+
 
 .adoteme{
     margin-left: 30px;
+    color: white;
+    display: flex;
+    font-size: 40px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 .header{
-    padding: 10px;    
+    padding: 5px;    
     padding-left: 50px;
-    display: flex; /* Use flexbox to create a horizontal layout */
-    align-items: center; /* Vertically align elements in the center */
-    background-color: rgb(136, 127, 255);
+    display: flex;
+    align-items: center;
+    background-color: rgb(120, 97, 183);
 
 }
 
@@ -83,17 +108,25 @@ body{
     margin-right: 0px;
     font-family: 'Nunito', sans-serif;
     background-color: rgb(255, 255, 255);
-    background-image: url('assets/image.png') ;
+    background-image: url('assets/image.png');
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
 
 }
 
+
+.form-container {
+    border: 1px solid black; 
+    border-radius: 10px; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
 .input{
+    
     font-family: 'Nunito', sans-serif;
     color: white;
-    background-color: rgb(255, 149, 149);
+    background-color: rgb(217, 217, 217);
     text-align: center;
     border-radius: 10px;
     padding: 10px;
@@ -101,19 +134,14 @@ body{
     border-width: 1px;
     width: 270px;
     height: 20px;
+    
 
-}
-
-.form-container {
-    border: 1px solid black; /* Add this line to apply the black border */
-    border-radius: 10px; /* Optional: Add border-radius for rounded corners */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .entrar{
     font-family: 'Nunito', sans-serif;
     color: white;
-    background-color: rgb(2, 19, 255);
+    background-color: rgb(65, 72, 241);
     border-width: 0px;
     border-radius: 10px;
     width: 300px;
@@ -125,7 +153,7 @@ body{
 
 .registro{
     font-family: 'Nunito', sans-serif;
-    color: rgb(2, 19, 255);
+    color: rgb(65, 72, 241);
     background-color: white;
     border-width: 0px;
     border-radius: 10px;
@@ -134,13 +162,20 @@ body{
     padding: 10px;
     margin-bottom: 20px;
     border-width: 1px;
-    border-color: rgb(2, 19, 255);
+    border-color: rgb(65, 72, 241);
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
 }
 
 .esqueci{
-    font-size: large;
-    color: rgb(2, 19, 255);
+    font-size:medium;
+    color: rgb(65, 72, 241);
     border-width: 0px;
     background-color: white;
+}
+.footer {
+    background-color: rgb(120, 97, 183); 
+    color: white; 
+    text-align: center; 
+    padding: 5px ; 
+    display:block;
 }

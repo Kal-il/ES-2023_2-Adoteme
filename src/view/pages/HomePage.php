@@ -5,8 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HomePage</title>
-    <h1> Deu certo</h1>
+    <h1> Futura pragina inicial</h1>
+    
 </head>
 <body>
+<img src="assets/gatinho.png" alt="desenho de gato">
 </body>
 </html>
