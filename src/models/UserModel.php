@@ -15,7 +15,7 @@ class UserModel {
         $resultado = pg_query($connection, $query);
 
         if (!$resultado) {
-            die("eRROOOOOO: " . pg_last_error($connection));
+            die("Erro na busca: " . pg_last_error($connection));
         }
 
         if (pg_num_rows($resultado) == 0) {
