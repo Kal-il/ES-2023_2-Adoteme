@@ -13,7 +13,19 @@ if(isset($_POST['botaoLogin'])){
         $login = new LoginController($email, $password);
         $resultado_login = $login->Login();
     } else {
-        echo "<h1>Por favor, insira informações válidas.</h1>";
+        $erros = [];
+
+        if (empty($_POST['email'])) {
+            $erros[] = "O campo de e-mail não pode estar vazio.";
+        }
+
+        if (empty($_POST['password'])) {
+            $erros[] = "O campo de senha não pode estar vazio.";
+        }
+
+        $erros_encoded = urlencode(json_encode($erros));
+        
+        header("Location: ../view/pages/LoginPage.php?erros=$erros_encoded");
     }
 }
 ?>

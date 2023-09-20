@@ -27,7 +27,9 @@ class LoginController {
     }
 
     public function Login(){
-        if ($this->validar_campos()){
+        $erros = $this->validar_campos();
+
+        if (empty($erros)){
             $this->connection = new Connection();
             $this->connection = $this->connection->getConnection();
             $data = [
@@ -55,23 +57,26 @@ class LoginController {
                 header("Location: ../view/pages/LoginPage.php?error=400");
             }
         }
+        else {
+                $erros_encoded = urlencode(json_encode($erros));
+                header("Location: ../view/pages/LoginPage.php?erros=$erros_encoded");
+            }
     }
 
-    private function validar_campos(): bool {
-        /**
-            * Validação dos campos, filter_var é uma função nativa do php que valida o email, usando o filtro FILTER_VALIDATE_EMAIL,
-            * que retorna true se o email for válido e false se não for válido.
-        */
-        if (empty($this->email) || empty($this->password)) {
-            return false; 
-        } 
-        if (!filter_var($this->email, FILTER_VALIDATE_EMAIL)) {
-            return false; 
-        }
-        if (strlen($this->password) < 8){
-            return false; 
-        }
-        return true; 
-    }   
+private function validar_campos(): array {
+    $erros = [];
+
+    // Validação do e-mail
+    if (empty($this->email)) {
+        $erros[] = "O campo de e-mail não pode estar vazio.";
+    }
+
+    // Validação da senha
+    if (empty($this->password)) {
+        $erros[] = "O campo de senha não pode estar vazio.";
+    }
+
+    return $erros;
+    }
 }
 ?>
