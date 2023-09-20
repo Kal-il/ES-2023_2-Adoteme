@@ -179,3 +179,21 @@ body{
     padding: 5px ; 
     display:block;
 }
+
+h3 {
+    color: #FF0000; 
+    font-size: 20px;
+    margin: 10px 0; 
+}
+
+ul {
+    list-style-type: disc; 
+    margin: 10px 0; 
+    padding: 0 20px; 
+}
+
+li {
+    color: #FF4500; 
+    font-size: 16px;
+    margin: 5px 0; 
+}

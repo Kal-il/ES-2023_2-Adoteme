@@ -1,12 +1,3 @@
-<?php
-
-/**
- * Verficar se existe erro na url, se existir, mostrar mensagem de erro
- */
-if (isset($_GET['error']) && $_GET['error'] == 400) {
-    echo "<h1>Não existe usuário com essas credenciais. Tente novamente</h1>";
-}
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -38,6 +29,29 @@ if (isset($_GET['error']) && $_GET['error'] == 400) {
                 <h1>Log-In</h1>
             </div>
             <form class="form" action="../../controller/LoginDadosController.php" method="POST">
+
+                <?php
+
+                    /**
+                     * Verficar se existe erro, se existir, mostrar mensagem de erro
+                     */
+
+                    if (isset($_GET['error']) && $_GET['error'] == 400) {
+                        echo "<h3> E-mail e/ou senha incorreta. Por favor, tente novamente. </h3>";
+                    }
+
+                    if (isset($_GET['erros'])) {
+                        $erros_encoded = $_GET['erros'];
+                        $erros = json_decode(urldecode($erros_encoded), true); 
+                        
+                        echo '<ul>';
+                        foreach ($erros as $erro) {
+                            echo '<li>' . htmlspecialchars($erro, ENT_QUOTES, 'UTF-8') . '</li>';
+                        }
+                        echo '</ul>';
+                    }
+                    
+                ?>
 
                 <div class="imput-container">
                     <div class="imput-icon">
