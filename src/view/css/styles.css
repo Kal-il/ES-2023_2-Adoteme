@@ -68,7 +68,7 @@ h1{
 }
 
 .imput-icon input {
-    padding-left: 30px; 
+    padding-left: 50px; 
 }   
 
 
@@ -108,7 +108,7 @@ body{
     margin-right: 0px;
     font-family: 'Nunito', sans-serif;
     background-color: rgb(255, 255, 255);
-    background-image: url('assets/image.png');
+    background-image: url('../assets/image.png');
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;

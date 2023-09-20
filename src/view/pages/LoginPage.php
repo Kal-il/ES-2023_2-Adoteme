@@ -37,25 +37,33 @@ if (isset($_GET['error']) && $_GET['error'] == 400) {
             <div class="teste">
                 <h1>Log-In</h1>
             </div>
-            <form class="form" action="" method="POST">
+            <form class="form" action="../../controller/LoginDadosController.php" method="POST">
 
                 <div class="imput-container">
                     <div class="imput-icon">
                         <i class="fa-solid fa-user"></i>
-                        <input class="input" type="text" name="email" placeholder="E-mail">
+                        <label for="email">
+                        <input class="input" type="text" name="email" placeholder="E-mail" id ="email">
+                        </label>
+                        
                     </div>
                     <div class="imput-icon">
                         <i class="fa-solid fa-lock"></i>
-                        <input class="input" type="password" name="senha" placeholder="Senha">
+                        <label for="password">
+                        <input class="input" type="password" name="password" placeholder="Senha" id="password">
+
+                        </label>
+                        
                     </div>
                 </div>
  
                 <div class="botoes">
-                    <button class="entrar" type="submit">Entrar</button>
+                    <button class="entrar" type="submit" name="botaoLogin">Entrar</button>
                     <button class="registro" type="submit">Novo por aqui? Registrar-se</button>
                     <button class="esqueci" type="submit">Esqueci minha senha</button>
                 </div>
 
+            </form>
             </form>
         </div>
     </div>

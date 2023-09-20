@@ -9,6 +9,6 @@
     
 </head>
 <body>
-<img src="assets/gatinho.png" alt="desenho de gato">
+<img src="../assets/gatinho.png" alt="desenho de gato">
 </body>
 </html>
