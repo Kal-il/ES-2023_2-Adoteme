@@ -67,11 +67,6 @@ h1{
     color: #676666; 
 }
 
-.imput-icon input {
-    padding-left: 50px; 
-}   
-
-
 
 .adoteme{
     margin-left: 30px;
@@ -149,6 +144,12 @@ body{
     padding: 10px;
     margin-bottom: 20px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.entrar:active {
+    transform: scale(0.95); 
 }
 
 .registro{
@@ -164,6 +165,12 @@ body{
     border-width: 1px;
     border-color: rgb(65, 72, 241);
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.registro:active {
+    transform: scale(0.95); 
 }
 
 .esqueci{
@@ -171,7 +178,14 @@ body{
     color: rgb(65, 72, 241);
     border-width: 0px;
     background-color: white;
+    cursor: pointer;
+    transition: transform 0.2s;
 }
+
+.esqueci:active {
+    transform: scale(0.95); 
+}
+
 .footer {
     background-color: rgb(120, 97, 183); 
     color: white; 
