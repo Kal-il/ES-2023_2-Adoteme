@@ -4,7 +4,7 @@ use PDOException;
 
 class Connection {
     private $host = 'localhost';
-    private $port = '5432';
+    private $port = '5433';
     private $dbname = 'db_adoteme';
     private $user = 'postgres'; 
     private $password = 'postgres';

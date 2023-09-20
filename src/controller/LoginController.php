@@ -1,6 +1,9 @@
 <?php
 namespace controller;
 
+require __DIR__ . '\..\..\vendor\autoload.php';
+use Firebase\JWT\JWT;
+
 require_once '../models/Connection.php';
 require_once '../models/UserModel.php';
 
@@ -34,6 +37,19 @@ class LoginController {
             $login = new UserModel();
             $this->resultado_login = $login -> Login($this->connection, $data);
             if ($this->resultado_login){
+                // Caso o login tenha sucesso, será gerado um token JWT:
+                $payload = [
+                    "exp" => time() + 10,
+                    "iat" => time(),
+                    "email" => $this->email,
+                ];
+
+                // Uso de Chave temporária "test_key"
+
+                $token = JWT::encode($payload, "test_key", "HS256");
+
+                setcookie('jwt_token', $token, time() + 3600, '/');
+
                 header("Location: ../view/pages/HomePage.php");
             } else {
                 header("Location: ../view/pages/LoginPage.php?error=400");
