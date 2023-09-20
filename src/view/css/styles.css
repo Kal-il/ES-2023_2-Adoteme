@@ -1,0 +1,213 @@
+h1{
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
+
+.label{
+    margin-right: 20px;
+}
+
+.botoes{
+    margin-top: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    
+}
+
+.teste{
+    
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    background-color: rgb(120, 97, 183);
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+}
+
+.form {
+    padding-right: 100px;
+    padding-left: 100px;
+    padding-top: 60px;
+    padding-bottom: 20px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(20px);
+  }
+  
+.imput-icon {
+    position: relative;
+    margin-bottom: 16px;
+}
+/*responsavel por colocar os icones dentro das caixas de imput*/
+.imput-icon i {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 10px; 
+    font-size: 18px; 
+    color: #676666; 
+}
+
+
+.adoteme{
+    margin-left: 30px;
+    color: white;
+    display: flex;
+    font-size: 40px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.header{
+    padding: 5px;    
+    padding-left: 50px;
+    display: flex;
+    align-items: center;
+    background-color: rgb(120, 97, 183);
+
+}
+
+.login{
+    font-family: 'Nunito', sans-serif;
+    background-color: white;
+    border-width: 0px;
+    border-radius: 10px;
+    width: 300px;
+    height: 45px;
+    padding: 10px;
+    margin-bottom: 30px;
+    box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.1);
+}
+
+body{ 
+    margin-top: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+    font-family: 'Nunito', sans-serif;
+    background-color: rgb(255, 255, 255);
+    background-image: url('../assets/image.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+}
+
+
+.form-container {
+    border: 1px solid black; 
+    border-radius: 10px; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.input{
+    
+    font-family: 'Nunito', sans-serif;
+    color: white;
+    background-color: rgb(217, 217, 217);
+    text-align: center;
+    border-radius: 10px;
+    padding: 10px;
+    border-color: black;
+    border-width: 1px;
+    width: 270px;
+    height: 20px;
+    
+
+}
+
+.entrar{
+    font-family: 'Nunito', sans-serif;
+    color: white;
+    background-color: rgb(65, 72, 241);
+    border-width: 0px;
+    border-radius: 10px;
+    width: 300px;
+    height: 45px;
+    padding: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.entrar:active {
+    transform: scale(0.95); 
+}
+
+.registro{
+    font-family: 'Nunito', sans-serif;
+    color: rgb(65, 72, 241);
+    background-color: white;
+    border-width: 0px;
+    border-radius: 10px;
+    width: 300px;
+    height: 45px;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-width: 1px;
+    border-color: rgb(65, 72, 241);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.registro:active {
+    transform: scale(0.95); 
+}
+
+.esqueci{
+    font-size:medium;
+    color: rgb(65, 72, 241);
+    border-width: 0px;
+    background-color: white;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.esqueci:active {
+    transform: scale(0.95); 
+}
+
+.footer {
+    background-color: rgb(120, 97, 183); 
+    color: white; 
+    text-align: center; 
+    padding: 5px ; 
+    display:block;
+}
+
+h3 {
+    color: #FF0000; 
+    font-size: 20px;
+    margin: 10px 0; 
+}
+
+ul {
+    list-style-type: disc; 
+    margin: 10px 0; 
+    padding: 0 20px; 
+}
+
+li {
+    color: #FF4500; 
+    font-size: 16px;
+    margin: 5px 0; 
+}

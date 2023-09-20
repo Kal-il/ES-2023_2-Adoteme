@@ -15,7 +15,7 @@ O "AdoteMe" é uma plataforma digital inovadora desenvolvida para unir coraçõe
 
 #### Iteração 1
 
-- [ ] RF01 - Realizar Login do Usuário. 1.1 [Kalil Garcia Canuto](https://github.com/Kal-il) Revisado por @mariaclaranaires
+- [x] RF01 - Realizar Login do Usuário. 1.1 [Kalil Garcia Canuto](https://github.com/Kal-il) Revisado por @mariaclaranaires
 
 - [ ] RF02 - Cadastrar Usuário. 1.2 [Ana Flavia Moreira Pires](https://github.com/MatheusDreher) Revisado por @romeuborges19
 
@@ -110,6 +110,8 @@ O "AdoteMe" é uma plataforma digital inovadora desenvolvida para unir coraçõe
 
 ## Protótipo
 ![login (2) (4)](https://uploaddeimagens.com.br/images/004/605/432/original/login_%282%29_%284%29.png?1694550634)
+## protótipo 2
+![login_(_)_(3)](https://uploaddeimagens.com.br/images/004/614/090/original/login_%28_%29_%283%29.png?1695208018)
 
 
 ## **RF02 - Cadastrar do Usuário**.
