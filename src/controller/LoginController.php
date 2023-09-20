@@ -41,10 +41,10 @@ class LoginController {
                 header("Location: ../view/pages/LoginPage.php?error=400");
             }
         }
-    else {
-            $erros_encoded = urlencode(json_encode($erros));
-            header("Location: ../view/pages/LoginPage.php?erros=$erros_encoded");
-        }
+        else {
+                $erros_encoded = urlencode(json_encode($erros));
+                header("Location: ../view/pages/LoginPage.php?erros=$erros_encoded");
+            }
     }
 
 private function validar_campos(): array {
