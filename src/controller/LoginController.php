@@ -9,7 +9,7 @@ require_once '../models/UserModel.php';
 
 use models\Connection;
 use models\UserModel;
- /**
+ /*
         * Aqui é implementado toda a lógica de negócio do login, é feita a validação dos campos,
         * a conexão com o banco de dados e a verificação se o usuário existe no banco de dados.
         * caso o usuário exista, é redirecionado para a página inicial, caso não exista, é redirecionado
@@ -41,7 +41,7 @@ class LoginController {
             if ($this->resultado_login){
                 // Caso o login tenha sucesso, será gerado um token JWT:
                 $payload = [
-                    "exp" => time() + 10,
+                    "exp" => time() + 3600,
                     "iat" => time(),
                     "email" => $this->email,
                 ];
@@ -51,8 +51,14 @@ class LoginController {
                 $token = JWT::encode($payload, "test_key", "HS256");
 
                 setcookie('jwt_token', $token, time() + 3600, '/');
+        
 
-                header("Location: ../view/pages/HomePage.php");
+                if ($login->IsSuperuser($this->connection, $data)){
+                    header("Location: ../view/pages/pagesAdmin/HomePageAdmin.php");
+                }else{
+                    header("Location: ../view/pages/HomePage.php");
+                }
+                
             } else {
                 header("Location: ../view/pages/LoginPage.php?error=400");
             }
