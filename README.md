@@ -27,6 +27,7 @@ O "AdoteMe" é uma plataforma digital inovadora desenvolvida para unir coraçõe
 
 - [ ] RF06 - Visualizar Perfil do Usuário. 1.6 [Romeu Miranda Borges](https://github.com/romeuborges19) Revisado por @tgofsaints
 
+
 ---
 
 ## Adoteme
@@ -116,7 +117,7 @@ O "AdoteMe" é uma plataforma digital inovadora desenvolvida para unir coraçõe
 
 ## **RF02 - Cadastrar do Usuário**.
 
-#### Autor: @ana-flav- Ana Flavia Moreira Pires.
+#### Autor: @ana-flav - Ana Flavia Moreira Pires.
 
 ---
 
@@ -345,7 +346,7 @@ Os atores devem ter selecionado um animal para visualizar suas informações.
 
 ---
 
-#### Revisor: @ana-flav - Ana Flávia Moreira Pires
+#### Revisor: @ana-flav - Ana Flavia Moreira Pires
 
 Item           | Descrição
 ---------------|----------
@@ -455,3 +456,60 @@ Como um usuário comum, eu gostaria de acessar a página principal para ter uma 
 ## Protótipo
 
 ![](https://uploaddeimagens.com.br/images/004/605/683/original/MacBook_Air_-_1_%281%29.png?1694569982)
+
+
+## **RF18 - Realizar Denúncia**.
+
+#### Autor: @ana-flav - Ana Flavia Moreira Pires.
+
+---
+
+#### Revisor: @romeuborges19 - Romeu Miranda Borges.
+
+| Item            | Descrição                                                              |
+| --------------- | ---------------------------------------------------------------------- |
+| Caso de uso     | Realizar Denúncia. |
+| Resumo          | Este caso de uso descreve a funcionalidade de permitir que os usuários denunciem situações de maus-tratos a gatos que já foram adotados por meio do sistema. |
+| Ator principal  | Usuário interessado em denunciar maus-tratos a gatos adotados.                      |
+| Ator secundário |                                                                       |
+| Pré-condição    | O ator principal deve estar autenticado no sistema. |
+| Pós-condição    | O ator principal pode registrar uma denúncia de maus-tratos e fornecer informações relevantes. |
+
+
+
+#### Fluxo principal
+
+| Passos  | Descrição                                                                                                            |
+| ------- | -------------------------------------------------------------------------------------------------------------------- |
+| Passo 1 | O usuário acessa o sistema de adoção de gatos da UFT e faz o login em sua conta.        |
+| Passo 2 | Na menu, o usuário encontra um botão ou opção "Realizar Denúncia" e clica nele. |
+| Passo 3 | O sistema redireciona o usuário para uma tela de registro de denúncia, que terá informaçõe de com proceder para o envio da denúncia e um botão que será redirecionado para o email que será enviado a denúncia. |
+
+
+
+#### Opções de usuário
+
+| Opção       | Descrição                 | Atalho |
+| ----------- | ------------------------- | ------ |
+| Visualizar instruções para denúncia| Descrições de como ele deve enviar sua denúncia através do e-mail que ao clicar no botão ele será redirecionado para o e-mail.|
+|
+
+#### Fluxo alternativo 
+
+| Passos    | Descrição                                                                                                      |
+| --------- | -------------------------------------------------------------------------------------------------------------- |
+| Passo 1 | O ator já fez o Login e está autenticado                                                                                   |
+| Passo 2 | O ator é redirecionado a tela Home com ofertas de gato para adoção.|
+
+## User Story
+
+#### Persona 1 - Usuário comum
+
+
+| Epic       | User Story                 | Critério de aceitação |
+| ----------- | ------------------------- | ------ | 
+| Um usuário comum, gostaria de fazer denúncia de maus-tratos animais| Como um usuário comum, eu gostaria realizar uma denúncia de um gato que foi adotado pelo sistema e que está sofrendo maus-tratos. | Para realizar essa denúncia é preciso está registrado no sistema e autenticado.
+
+## Protótipo
+
+![](https://uploaddeimagens.com.br/images/004/618/776/full/Captura_de_tela_2023-09-26_072454.png?1695725635)
