@@ -37,7 +37,7 @@
                  * Verficar se existe erro, se existir, mostrar mensagem de erro
                  */
 
-                if (isset($_GET['error']) && $_GET['error'] == 400) {
+                 if (isset($_GET['error']) && $_GET['error'] == 400) {
                     echo "<h3> E-mail e/ou senha incorreta. Por favor, tente novamente. </h3>";
                 }
 
@@ -74,9 +74,7 @@
 
                 <div class="botoes">
                     <button class="entrar" type="submit" name="botaoLogin">Entrar</button>
-                    <a href="SinginPage.php"> 
-                        <button class="registro" type="submit">Novo por aqui? Registrar-se</button>
-                    </a>
+                    <a href="SinginPage.php" class="esqueci">Novo por aqui? Registrar-se</a>
                     <button class="esqueci" type="submit">Esqueci minha senha</button>
                 </div>
 
