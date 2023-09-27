@@ -457,6 +457,48 @@ Como um usuário comum, eu gostaria de acessar a página principal para ter uma 
 
 ![](https://uploaddeimagens.com.br/images/004/605/683/original/MacBook_Air_-_1_%281%29.png?1694569982)
 
+## **RF07 - Realizar Adoção**
+#### Autor: @romeuborges19 - Romeu Miranda Borges
+
+---
+
+#### Revisor: @Kal-il - Kalil Garcia Canuto
+
+| Item | Descrição |
+| - | - |
+| **Caso de uso** | Realizar Adoção |
+| **Resumo** | Este caso de uso descreve o ato de um usuário comum finalizar o processo de adoção, após ter seu formulário de adoção preenchido e aprovado pela administração. |
+| **Ator principal**| Usuário envolvido em um processo de adoção.|
+| **Pré-condição** | O usuário deve estar autenticado na plataforma. |
+| **Pós-condiçao** | O usuário deve estar previamente envolvido em um processo de adoção. |
+
+#### Fluxo Principal
+
+| Passo | Descrição |
+| - | - |
+| **Passo 1** | O usuário acessa a plataforma. |
+| **Passo 2** | O usuário acessa seu próprio perfil. |
+| **Passo 3** | O usuário, em seu perfil, visualiza, em uma área especial, uma mensagem de confirmação de adoção. |
+| **Passo 4** | O usuário clica em "confirmar adoção", finalizando o processo de adoção. |
+| **Passo 5** | A oferta de adoção do animal adotado é retirada do sistema. |
+
+#### **Opções do Usuário**
+
+| Opção | Descrição |
+| - | - |
+| Confirmar adoção | O usuário, através desta opção, finaliza o processo de adoção e permite que a oferta de adoção correspondente ao animal adotado seja retirada do sistema.
+
+#### User Story
+
+|User Story | Critério de Aceitação |
+| - | - |
+| Enquanto usuário comum, quero ser capaz de confirmar a finalização do processo de adoção e de permitir que as informações do animal adotado sejam retiradas do sistema. | O usuário deve estar cadastrado, autenticado, livre de denúncias e envolvido em um processo de adoção. |
+
+#### Protótipo
+
+![](https://uploaddeimagens.com.br/images/004/619/814/original/MacBook_Air_-_1_%284%29.png?1695798984)
+
+
 ## **RF09 - Busca Personalizada de Animal**
 
 #### Autor: @MatheusDreher - Matheus Henrique Dreher dos Santos.
@@ -760,6 +802,54 @@ Permite que o usuário entre em contato com a equipe de suporte para esclarecer 
 ## Protótipo
 
 ![](https://uploaddeimagens.com.br/images/004/618/775/full/Captura_de_tela_2023-09-26_072936.png?1695724798)
+
+## **RF16 - Enviar E-mail ao Usuário**
+#### Autor: @romeuborges19 - Romeu Miranda Borges
+
+---
+
+#### Revisor: @Kal-il - Kalil Garcia Canuto
+
+| Item | Descrição |
+| - | - |
+| **Caso de uso** | Enviar e-mail ao usuário. |
+| **Resumo** | Este caso de uso permite que a administração entre em contato com o usuário enviando-lhe um e-mail através da plataforma Adote-me, para comunicá-lo sobre o processo de adoção do qual ele participa.
+| **Ator principal** | Administrador responsável por enviar o e-mail. |
+| **Pré-condição** | Tanto o administrador quanto o usuário devem estar devidamente autenticados no sistema |
+| **Pós-condição** | O usuário deve estar participando de algum processo de adoção em andamento.|
+
+#### Fluxo Principal
+
+| Passo | Descrição |
+| - | - |
+| **Passo 1** | O administrador acessa a página da oferta de adoção. |
+| **Passo 2** | O administrador visualiza a lista de usuários interessados no gato. |
+| **Passo 3** | Ao analisar e identificar um usuário qualificado, o administrador clica no botão de entrar em contato com usuário. |
+| **Passo 4** | O administrador preenche os dados do e-mail. |
+| **Passo 5** | O administrador clica em enviar.
+
+#### Campos do Formulário
+
+| Campo | Obrigatório? | Editável? | Formato |
+| - | - | - | - |
+| Assunto | Sim | Sim | Texto |
+| Conteúdo do E-mail | Sim | Sim | Texto |
+
+#### Opções do Usuário
+
+| Opção | Descrição |
+| - | - |
+| Enviar e-mail | Botão que permite que o administrador realize o envio do e-mail ao usuário. |
+
+#### User Story
+
+| User Story | Critério de Aceitação |
+| - | - |
+| Enquanto usuário administrador, eu quero ser capaz de entrar em contato com o usuário comum através de um e-mail, para informá-lo sobre o processo de adoção no qual ele está envolvido. | O usuário deve estar autenticado no sistema e ter permissões de administração. |
+
+#### Protótipo
+
+![](https://uploaddeimagens.com.br/images/004/619/813/original/MacBook_Air_-_1_%282%29.png?1695797670)
 
 ## **RF18 - Realizar Denúncia**.
 
