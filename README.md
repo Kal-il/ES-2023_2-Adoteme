@@ -519,7 +519,7 @@ Epic	       					 |User Story| Critério de aceitação
 
 ## Protótipo
 
-![Compartilhar publicação](https://uploaddeimagens.com.br/imagens/jmWtx8U)
+![Compartilhar publicação](https://uploaddeimagens.com.br/images/004/619/689/full/Untitled.png?1695773871)
 
 ## **RF15 - Lista de Desejos de Adoção**.
 
@@ -678,4 +678,4 @@ Epic	       					 |User Story| Critério de aceitação
 
 ## Protótipo
 
-![Editar perfil](https://uploaddeimagens.com.br/imagens/Wjee-Ak)
+![Editar perfil](https://uploaddeimagens.com.br/images/004/619/694/full/Untitled_%281%29.png?1695774881)
