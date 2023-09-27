@@ -23,7 +23,7 @@ O "AdoteMe" é uma plataforma digital inovadora desenvolvida para unir coraçõe
 
 - [x] RF01 - Realizar Login do Usuário. 1.1 [Kalil Garcia Canuto](https://github.com/Kal-il) Revisado por @mariaclaranaires
 
-- [ ] RF02 - Cadastrar Usuário. 1.2 [Ana Flavia Moreira Pires](https://github.com/MatheusDreher) Revisado por @romeuborges19
+- [ ] RF02 - Cadastrar Usuário. 1.2 [Ana Flavia Moreira Pires](https://github.com/ana-flav) Revisado por @romeuborges19
 
 - [ ] RF03 - Preencher Formulário. 1.3 [Matheus Henrique Dreher dos Santos](https://github.com/MatheusDreher) Revisador por @Kal-il
 
@@ -51,11 +51,11 @@ O "AdoteMe" é uma plataforma digital inovadora desenvolvida para unir coraçõe
 
 - [ ] RF13 - Solicitar Contato com Suporte. 2.6 [Thiago Gonzaga dos Santos](https://github.com/tgofsaints) Revisado por @MatheusDreher
 
-- [ ] RF14 - Lista de Desejo de Adoção. 2.7 [Ana Flavia Moreira Pires](https://github.com/MatheusDreher)Revisado por @romeuborges19
+- [ ] RF14 - Lista de Desejo de Adoção. 2.7 [Ana Flavia Moreira Pires](https://github.com/ana-flav)Revisado por @romeuborges19
 
 - [ ] RF15 - Enviar E-mail ao usuário. 2.7 [Romeu Miranda Borges](https://github.com/romeuborges19)Revisado por @Kal-il
 
-- [ ] RF16 - Realizar Denúncia. 2.8 [Ana Flavia Moreira Pires](https://github.com/MatheusDreher) Revisado por @romeuborges19
+- [ ] RF16 - Realizar Denúncia. 2.8 [Ana Flavia Moreira Pires](https://github.com/ana-flav) Revisado por @romeuborges19
 
 - [ ] RF17 - Editar Perfil do Usuário. 2.9 [Maria Clara Nazareno Aires](https://github.com/mariaclaranaires) Revisado por @tgofsaints
 
