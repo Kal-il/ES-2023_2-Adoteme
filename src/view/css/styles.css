@@ -1,13 +1,13 @@
-h1{
+h1 {
     margin-bottom: 30px;
     margin-top: 30px;
 }
 
-.label{
+.label {
     margin-right: 20px;
 }
 
-.botoes{
+.botoes {
     margin-top: 24px;
     display: flex;
     flex-direction: column;
@@ -21,18 +21,18 @@ h1{
     align-items: center;
     width: 100%;
     height: 100vh;
-    
+
 }
 
-.teste{
-    
+.teste {
+
     color: white;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 0px;
-    background-color: rgb(120, 97, 183);
+    background-color: #383464;
     border-top-right-radius: 10px;
     border-top-left-radius: 10px;
 }
@@ -51,41 +51,42 @@ h1{
     border-bottom-right-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(20px);
-  }
-  
+}
+
 .imput-icon {
     position: relative;
     margin-bottom: 16px;
 }
+
 /*responsavel por colocar os icones dentro das caixas de imput*/
 .imput-icon i {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    left: 10px; 
-    font-size: 18px; 
-    color: #676666; 
+    left: 10px;
+    font-size: 18px;
+    color: #676666;
 }
 
 
-.adoteme{
+.adoteme {
     margin-left: 30px;
     color: white;
     display: flex;
     font-size: 40px;
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
-.header{
-    padding: 5px;    
+.header {
+    padding: 5px;
     padding-left: 50px;
     display: flex;
     align-items: center;
-    background-color: rgb(120, 97, 183);
+    background-color: #383464;
 
 }
 
-.login{
+.login {
     font-family: 'Nunito', sans-serif;
     background-color: white;
     border-width: 0px;
@@ -97,7 +98,7 @@ h1{
     box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.1);
 }
 
-body{ 
+body {
     margin-top: 0px;
     margin-left: 0px;
     margin-right: 0px;
@@ -112,13 +113,13 @@ body{
 
 
 .form-container {
-    border: 1px solid black; 
-    border-radius: 10px; 
+    border: 1px solid black;
+    border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.input{
-    
+.input {
+
     font-family: 'Nunito', sans-serif;
     color: white;
     background-color: rgb(217, 217, 217);
@@ -129,14 +130,14 @@ body{
     border-width: 1px;
     width: 270px;
     height: 20px;
-    
+
 
 }
 
-.entrar{
+.entrar {
     font-family: 'Nunito', sans-serif;
     color: white;
-    background-color: rgb(65, 72, 241);
+    background-color: rgb(40, 44, 155);
     border-width: 0px;
     border-radius: 10px;
     width: 300px;
@@ -149,12 +150,12 @@ body{
 }
 
 .entrar:active {
-    transform: scale(0.95); 
+    transform: scale(0.95);
 }
 
-.registro{
+.registro {
     font-family: 'Nunito', sans-serif;
-    color: rgb(65, 72, 241);
+    color: rgb(40, 44, 155);
     background-color: white;
     border-width: 0px;
     border-radius: 10px;
@@ -163,19 +164,19 @@ body{
     padding: 10px;
     margin-bottom: 20px;
     border-width: 1px;
-    border-color: rgb(65, 72, 241);
+    border-color: rgb(40, 44, 155);
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
     cursor: pointer;
     transition: transform 0.2s;
 }
 
 .registro:active {
-    transform: scale(0.95); 
+    transform: scale(0.95);
 }
 
-.esqueci{
-    font-size:medium;
-    color: rgb(65, 72, 241);
+.esqueci {
+    font-size: medium;
+    color: rgb(40, 44, 155);
     border-width: 0px;
     background-color: white;
     cursor: pointer;
@@ -183,31 +184,31 @@ body{
 }
 
 .esqueci:active {
-    transform: scale(0.95); 
+    transform: scale(0.95);
 }
 
 .footer {
-    background-color: rgb(120, 97, 183); 
-    color: white; 
-    text-align: center; 
-    padding: 5px ; 
-    display:block;
+    background-color: #383464;
+    color: white;
+    text-align: center;
+    padding: 5px;
+    display: block;
 }
 
 h3 {
-    color: #FF0000; 
+    color: #FF0000;
     font-size: 20px;
-    margin: 10px 0; 
+    margin: 10px 0;
 }
 
 ul {
-    list-style-type: disc; 
-    margin: 10px 0; 
-    padding: 0 20px; 
+    list-style-type: disc;
+    margin: 10px 0;
+    padding: 0 20px;
 }
 
 li {
-    color: #FF4500; 
+    color: #FF4500;
     font-size: 16px;
-    margin: 5px 0; 
+    margin: 5px 0;
 }

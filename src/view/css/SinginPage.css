@@ -1,0 +1,107 @@
+body {
+    margin: 0%;
+    padding: 0%;
+    background-image: url('../assets/image.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+header {
+    background-color: #383464;
+    display: flex;
+    align-items: center;
+    margin-top: 0%;
+}
+
+#logo {
+    margin: 10px;
+}
+
+#adoteme {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: white;
+
+}
+
+.etapa, .etapa2 {
+    width: 50%;
+    max-width: 60%;
+    margin: 5% auto;
+    padding: 10px;
+    text-align: center;
+    border: 1px solid rgba(236, 236, 236, 0.90);
+    border-radius: 12px;
+    background: rgba(236, 236, 236, 0.90);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    display: block;
+}
+
+.etapa2 {
+    display: none;
+}
+#login-container {
+    display: flex;
+    justify-content: center; /* Centralizar horizontalmente */
+    align-items: center; /* Centralizar verticalmente */
+    height: 100vh; /* Define a altura da div de login para cobrir a altura da janela */
+}
+
+#h1cadastro {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: #626060;
+    
+}
+
+.inputInfo {
+    max-width: 40%;
+    font-family: 'Nunito', sans-serif;
+    background-color: rgb(217, 217, 217);
+    border-radius: 8px;
+    border-color: rgba(236, 236, 236, 0);
+    text-align: center;
+    padding-inline: 25%;
+    padding-block: 2%;
+    margin: 10px;
+}
+
+#birthday {
+    padding-inline: 28%;
+    max-width: 40%;
+    color: rgb(92, 92, 92);
+}
+
+button {
+    font-family: 'Nunito', sans-serif;
+    color: white;
+    background-color: rgb(40, 44, 155);
+    border-width: 0px;
+    border-radius: 10px;
+    width: 50%;
+    max-width: 50%;
+    height: 45px;
+    padding: 8px;
+    margin: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+#login {
+    color: rgb(40, 44, 155);
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(40, 44, 155);
+    padding: auto;
+}
+
+footer {
+    background-color: #383464;
+    padding: 5px;
+    padding-left: 50px;
+
+}
+
+#copyrigth {
+    text-align: center;
+    color: white;
+}

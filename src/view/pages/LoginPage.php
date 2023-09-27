@@ -16,11 +16,12 @@
 </head>
 
 <header class="header">
-        <a href="HomePage.php">
+    <a href="HomePage.php">
         <img class="image" src="../assets/adoteme.png" alt="Logo Adotme" width="100" height="100">
-        </a>
-        <h1 class="adoteme">Adoteme</h1>
-    </header>
+    </a>
+    <h1 class="adoteme">Adoteme</h1>
+</header>
+
 <body>
     <div class="container">
 
@@ -32,48 +33,50 @@
 
                 <?php
 
-                    /**
-                     * Verficar se existe erro, se existir, mostrar mensagem de erro
-                     */
+                /**
+                 * Verficar se existe erro, se existir, mostrar mensagem de erro
+                 */
 
-                    if (isset($_GET['error']) && $_GET['error'] == 400) {
-                        echo "<h3> E-mail e/ou senha incorreta. Por favor, tente novamente. </h3>";
-                    }
+                if (isset($_GET['error']) && $_GET['error'] == 400) {
+                    echo "<h3> E-mail e/ou senha incorreta. Por favor, tente novamente. </h3>";
+                }
 
-                    if (isset($_GET['erros'])) {
-                        $erros_encoded = $_GET['erros'];
-                        $erros = json_decode(urldecode($erros_encoded), true); 
-                        
-                        echo '<ul>';
-                        foreach ($erros as $erro) {
-                            echo '<li>' . htmlspecialchars($erro, ENT_QUOTES, 'UTF-8') . '</li>';
-                        }
-                        echo '</ul>';
+                if (isset($_GET['erros'])) {
+                    $erros_encoded = $_GET['erros'];
+                    $erros = json_decode(urldecode($erros_encoded), true);
+
+                    echo '<ul>';
+                    foreach ($erros as $erro) {
+                        echo '<li>' . htmlspecialchars($erro, ENT_QUOTES, 'UTF-8') . '</li>';
                     }
-                    
+                    echo '</ul>';
+                }
+
                 ?>
 
                 <div class="imput-container">
                     <div class="imput-icon">
                         <i class="fa-solid fa-user"></i>
                         <label for="email">
-                        <input class="input" type="text" name="email" placeholder="E-mail" id ="email">
+                            <input class="input" type="text" name="email" placeholder="E-mail" id="email">
                         </label>
-                        
+
                     </div>
                     <div class="imput-icon">
                         <i class="fa-solid fa-lock"></i>
                         <label for="password">
-                        <input class="input" type="password" name="password" placeholder="Senha" id="password">
+                            <input class="input" type="password" name="password" placeholder="Senha" id="password">
 
                         </label>
-                        
+
                     </div>
                 </div>
- 
+
                 <div class="botoes">
                     <button class="entrar" type="submit" name="botaoLogin">Entrar</button>
-                    <button class="registro" type="submit">Novo por aqui? Registrar-se</button>
+                    <a href="SinginPage.php"> 
+                        <button class="registro" type="submit">Novo por aqui? Registrar-se</button>
+                    </a>
                     <button class="esqueci" type="submit">Esqueci minha senha</button>
                 </div>
 
@@ -83,7 +86,7 @@
     </div>
 </body>
 <footer class="footer">
-    <p >&copy;2023 Adoteme </p>
+    <p>&copy;2023 Adoteme </p>
 </footer>
 
 </html>
