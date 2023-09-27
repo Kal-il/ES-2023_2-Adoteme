@@ -457,6 +457,80 @@ Como um usuário comum, eu gostaria de acessar a página principal para ter uma 
 
 ![](https://uploaddeimagens.com.br/images/004/605/683/original/MacBook_Air_-_1_%281%29.png?1694569982)
 
+## **RF09 - Busca Personalizada de Animal**
+
+#### Autor: @MatheusDreher - Matheus Henrique Dreher dos Santos.
+
+---
+
+#### Revisor: @mariaclaranaires - Maria Clara Nazareno Aires.
+
+| Item            | Descrição                                                                                                                                                                                               |
+| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Caso de uso     | Buscar por animal específico.                                                                                                                                                                                                  |
+| Resumo          | Este requisito descreve o processo pelo qual um adotante irá fazer uma busca personalizada por alguma animal disponível para adoção no site.                                                          |
+| Ator principal  | Usuário adotante.                                                                                                           |
+| Pré-condição    | O usuário precisa dispor de conexão à internet e estar acessando a página principal.                                                                                                                     |
+| Pós-condição    | A pesquisa é feita e o usuário redirecionado.                                                                                                                                  |
+### Descrição Sucinta:
+
+"O usuário procurará por um animal especifíco"
+
+#### Fluxo principal
+
+| Passos   | Descrição                                                                 |
+| -------- | ------------------------------------------------------------------------- |
+| Passo 1  | O usuário acessa a página de busca personalizada no site.                                                          |
+| Passo 2  | O sistema exibe os critérios de busca disponíveis, que podem incluir:
+Idade
+Gênero
+Cor
+Personalidade 
+Nível de atividade                                 |
+| Passo 3  | O usuário seleciona os critérios desejados para a busca e envia a consulta.                                   |
+| Passo 4  | O sistema processa a consulta e retorna uma lista de gatos que correspondem aos critérios especificados. |
+| Passo 5  | O sistema exibe para o usuário uma lista de gatos com informações detalhadas. |
+| Passo 6  | O usuário pode escolher adotar um gato e seguir os passos de adoção fornecidos pelo site. |
+
+
+
+### Campos da aba de pesquisa personalizada:
+
+| Campo  | Obrigatório?  | Formato        |
+| ------ | ------------  | -------------- |
+| Cor  |     Não        |  Checkbox|
+| Idade |     Não        |  Checkbox|
+| Genêro  |     Não        |  Checkbox|
+| Personalidade  |     Não    |  Checkbox|
+| Nivel de Atividade |     Não       |  Checkbox|
+
+
+### Opções dos Usuários:
+
+| Campo                                   | Descrição | 
+| --------------------------------------- | ----------- | 
+|Buscar                             | Realiza a busca personalizada e redireciona o usuário   | 
+
+
+ ### Fluxos Alternativos:
+ #### Fluxo alternativo 1:
+
+| Passos   | Descrição                                                                 |
+| -------- | ------------------------------------------------------------------------- |
+| Passo 1  | Se não houver gatos que correspondam aos critérios de busca, o sistema exibe uma mensagem informando ao usuário que não foram encontrados resultados.|
+
+# User Story
+## Persona 01 - Usuário comum
+
+
+| Epic       | User Story                 | Critério de aceitação |
+| ----------- | ------------------------- | ------ | 
+| Como usuário comum do site e possível adotante, gostaria de procurar por um animal específico. | Enquanto usuário comum, eu gostaria de realizar uma busca por um gato. | Para adotar um gato especifíco, a sua busca tem que ser realizada e conferir se há um gato disponível nas suas especificações.
+
+## Protótipo
+![Untitled](https://uploaddeimagens.com.br/images/004/619/702/full/Untitled.png?1695776879)
+
+<br/>
 
 ## **RF11 - Compartilhar Publicação do Animal**.
 
@@ -679,3 +753,73 @@ Epic	       					 |User Story| Critério de aceitação
 ## Protótipo
 
 ![Editar perfil](https://uploaddeimagens.com.br/images/004/619/694/full/Untitled_%281%29.png?1695774881)
+
+## **RF20 - Editar Cadastro de Animal**
+
+#### Autor: @MatheusDreher - Matheus Henrique Dreher dos Santos.
+
+---
+
+#### Revisor: @mariaclaranaires - Maria Clara Nazareno Aires.
+
+| Item            | Descrição                                                                                                                                                                                               |
+| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Caso de uso     | Editar o cadastro de um animal.                                                                                                                                                                         |
+| Resumo          | Este requisito descreve o processo pelo qual um administrador irá alterar o cadastro de um animal do site.                                                          |
+| Ator principal  | Usuário administrador.                                                                                                           |
+| Pré-condição    | Um animal precista estar cadastrado para fazer as alterações.                                                                                                                     |
+| Pós-condição    | Os dados do animal são atualizados.                                                                                                                                  |
+### Descrição Sucinta:
+
+"Um administrador irá alterar o cadastro de um animal do site"
+
+#### Fluxo principal
+
+| Passos   | Descrição                                                                 |
+| -------- | ------------------------------------------------------------------------- |
+| Passo 1  | O administrador acessa a página de animais do site.                                                          |
+| Passo 2  | O administrador seleciona um animal para atualizar seu cadastro.                     |
+| Passo 3  | O administrados edita campos como nome, foto, idade, gênero, cor e descrição do animal          |
+| Passo 4  | O sistema valida e atualiza as informações do gato. |
+| Passo 5  | O sistema exibe uma confirmação de que as alterações foram salvas com sucesso. |
+
+### Campos da aba Editar Cadastro de Animal:
+
+| Campo  | Obrigatório?  | Formato        |
+| ------ | ------------  | -------------- |
+| Foto |     Sim        |  imagem |
+| Nome |     Sim        |  texto |
+| Cor  |     Sim        |  texto |
+| Idade |     Sim        |  texto 
+| Genêro  |     Sim        |  texto |
+| Personalidade  |     Sim    |  texto |
+| Nivel de Atividade |     Sim       |  texto |
+| Descrição |     Sim       |  texto |
+
+
+### Opções dos Usuários:
+
+| Campo                                   | Descrição | 
+| --------------------------------------- | ----------- | 
+|Atualizar Cadastro                       | Atualiza o cadastro do animal com os novos dados.   | 
+|Cancelar                       | Cancela a operação de edição.   |
+
+ ### Fluxos Alternativos:
+ #### Fluxo alternativo 1:
+
+| Passos   | Descrição                                                                 |
+| -------- | ------------------------------------------------------------------------- |
+| Passo 1  | Se o usuário optar por cancelar a edição, o sistema retorna à visualização dos detalhes do animal sem salvar as alterações.|
+
+# User Story
+## Persona 01 - Usuário comum
+
+
+| Epic       | User Story                 | Critério de aceitação |
+| ----------- | ------------------------- | ------ | 
+| Como administrador do site, gostaria de editar as informações de cadastro de um animal. | Enquanto administrador, eu gostaria de atualizar o cadastro de um gato. | Para atualizar as informações de um gato, os novos dados precisam ser inseridos e confirmados.
+
+## Protótipo
+![editcadastro](https://uploaddeimagens.com.br/images/004/619/724/full/editcadastro.png?1695778750)
+
+<br/>
