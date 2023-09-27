@@ -45,7 +45,10 @@
                     <input class="inputInfo" type="tel" id="telephone" placeholder="(00)0 0000-0000" minlength="11" maxlength="100" required><br>
                 </label>
                 <label for="password">
-                    <input class="inputInfo" type="password" id="password" placeholder="Senha123" minlength="6" maxlength="100" required><br><br>
+                    <input class="inputInfo" type="password" id="password" placeholder="Senha123" minlength="6" maxlength="30" required><br><br>
+                </label>
+                <label for="password2">
+                    <input class="inputInfo" type="password" id="password2" placeholder="Senha123" minlength="6" maxlength="30" required><br><br>
                 </label>
                 <button onclick="proximoEtapa(1)">Próximo</button>
                 <a href="LoginPage.php"><button id="login">Já possui cadastro? login</button></a><!--Botão para voltar para a página inicial porem não funciona como devia por conta do "required" nos inputs-->
