@@ -20,7 +20,8 @@
     <main class="main">
 
 
-        <form action="POST" enctype="multipart/form-data">
+        <form action="../../controller/CadastroController.php" method="POST" enctype="multipart/form-data">
+
 
             <div class="etapa" id="etapa1">
 
@@ -64,17 +65,17 @@
                 <button>Cadastrar</button>
             </div>
             <a href="LoginPage.php"><button id="login" type="button">Já possui cadastro? login</button></a><!--Botão para voltar para a página inicial funciona por estar fora das divs, mas n consegui centralizar-->
-        <script>
-            function proximoEtapa(etapa) {
-                // Oculta a etapa atual
-                document.getElementById("etapa" + etapa).style.display = "none";
-                // Exibe a próxima etapa
-                etapa++;
-                if (etapa <= 3) {
-                    document.getElementById("etapa" + etapa).style.display = "block";
+            <script>
+                function proximoEtapa(etapa) {
+                    // Oculta a etapa atual
+                    document.getElementById("etapa" + etapa).style.display = "none";
+                    // Exibe a próxima etapa
+                    etapa++;
+                    if (etapa <= 3) {
+                        document.getElementById("etapa" + etapa).style.display = "block";
+                    }
                 }
-            }
-        </script>
+            </script>
 
     </main>
     <footer>
