@@ -7,6 +7,7 @@
     <title>SinginPage</title>
 
     <link rel="stylesheet" type="text/css" href="../css/SinginPage.css">
+    <link rel="stylesheet" type="text/css" href="../css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
@@ -23,6 +24,25 @@
         <form action="../../controller/CadastroController.php" method="POST">
 
             <div class="etapa" id="etapa1">
+
+                <?php
+
+                /**
+                 * Verficar se existe erro, se existir, mostrar mensagem de erro
+                 */
+
+                if (isset($_GET['erros'])) {
+                    $erros_encoded = $_GET['erros'];
+                    $erros = json_decode(urldecode($erros_encoded), true);
+
+                    echo '<ul>';
+                    foreach ($erros as $erro) {
+                        echo '<li>' . htmlspecialchars($erro, ENT_QUOTES, 'UTF-8') . '</li>';
+                    }
+                    echo '</ul>';
+                }
+
+                ?>
 
                 <h1 id="h1cadastro">Cadastro</h1>
                 <label for="name">
