@@ -3,6 +3,7 @@ namespace models;
 require_once '../models/Connection.php';
 
 class UserModel {
+
     private function queryDatabase($connection, $query) {
         $resultado = pg_query($connection, $query);
 
@@ -44,25 +45,22 @@ class UserModel {
             return true;
         }
     }
-    function Register($connection, $data) {
+    function CreateUser($connection, $data) {
         $email = pg_escape_string($connection, $data['email']); 
         $password = pg_escape_string($connection, $data['password']); 
         $nome = pg_escape_string($connection, $data['nome']); 
         $cpf = pg_escape_string($connection, $data['cpf']); 
         $telefone = pg_escape_string($connection, $data['telefone']); 
         $cep = pg_escape_string($connection, $data['cep']); 
-        $rua = pg_escape_string($connection, $data['rua']); 
-        $bairro = pg_escape_string($connection, $data['bairro']); 
         $cidade = pg_escape_string($connection, $data['cidade']); 
         $estado = pg_escape_string($connection, $data['estado']); 
-        $numero = pg_escape_string($connection, $data['numero']); 
         $matricula = pg_escape_string($connection, $data['matricula']);
         $data_nascimento = pg_escape_string($connection, $data['data_nascimento']); 
-        $complemento = pg_escape_string($connection, $data['complemento']); 
+        $endereco = pg_escape_string($connection, $data['endereco']);
         $superuser = false;
 
-        $query = "INSERT INTO usuarios (email, senha, nome, cpf, telefone, cep, rua, bairro, cidade, estado, numero, matricula, data_nascimento, complemento, superuser) \\
-        VALUES ('$email', '$password', '$nome', '$cpf', '$telefone', '$cep', '$rua', '$bairro', '$cidade', '$estado', '$numero', '$matricula', '$data_nascimento', '$complemento', '$superuser')";
+        $query = "INSERT INTO usuarios (email, senha, nome, cpf, telefone, cep, cidade, estado, endereco, matricula, data_nascimento)
+        VALUES ('$email', '$password', '$nome', '$cpf', '$telefone', '$cep', '$cidade', '$estado', '$endereco', '$matricula', '$data_nascimento')";
         $resultado = $this->queryDatabase($connection, $query);
 
         if (!$resultado) {

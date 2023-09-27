@@ -754,6 +754,117 @@ Epic	       					 |User Story| Critério de aceitação
 
 ![Compartilhar publicação](https://uploaddeimagens.com.br/images/004/619/689/full/Untitled.png?1695773871)
 
+# RF12 - Recuperar Senha
+#### Autor: @tgofsaints - Thiago Gonzaga dos Santos.
+
+---
+
+### Revisor: @MatheusDreher - Matheus Henrique Dreher dos Santos.
+
+## Atores:
+
+ **Usuário Registrado** - Qualquer usuário que tenha criado uma conta no site.
+
+### Descrição Sucinta:
+
+Permite que o usuário registrado recupere sua senha caso a tenha esquecido.
+
+### Pré-Condição:
+
+O ator deve ter uma conta registrada no sistema.
+
+### Fluxo Principal:
+
+
+| Passos | Descrição | 
+| :--------: | -------- | 
+| Passo 1 &nbsp;|  O ator seleciona a opção "Esqueci minha senha" na tela de login.    | 
+| Passo 2 &nbsp;| O sistema solicita que o ator insira o e-mail associado à conta.     | 
+| Passo 3 &nbsp;| O sistema verifica se o e-mail existe no banco de dados:<br/> 3.1 -  Se sim, o sistema envia um e-mail com instruções para redefinir a senha. <br/> 3.2 - Se não, o sistema exibe a mensagem "E-mail não encontrado. Por favor, verifique o e-mail inserido e tente novamente"  | 
+| Passo 4    &nbsp;| O sistema apresenta a caixa de confirmação se o ator se encaixa no perfil do animal selecionado.  |   
+
+
+### Campos do Formulário:
+
+| Campo  | Obrigatório? | Editável? | Formato        |
+| ------ | ------------ | --------- | -------------- |
+| E-mail |     Sim      |    Sim    |  Texto         |
+
+### Opções dos Usuários:
+
+| Campo                                   | Descrição | 
+| --------------------------------------- | ----------- | 
+|Recuperar                             | Checa se o e-mail está associado à uma conta no banco de dados        | 
+
+
+## User Story
+
+|User Story| Critério de aceitação
+|----------|----------------------
+“Como usuário comum interessado em adotar um gato, eu quero ser capaz de recuperar minha senha caso a tenha esquecido, para que eu possa acessar minha conta e continuar a busca pela adoção de um gato.” | O usuário deve acessar a página de recuperação de senha.
+
+## Protótipo
+
+<br>
+
+![Recuperar Senha](https://uploaddeimagens.com.br/images/004/619/732/original/recuperarSenha_00000.png?1695780184)
+
+# RF13 - Solicitar Contato com Suporte
+
+
+#### Autor: @tgofsaints - Thiago Gonzaga dos Santos.
+
+---
+
+### Revisor: @MatheusDreher - Matheus Henrique Dreher dos Santos.
+
+
+## Atores:
+
+
+**Usuário Registrado** - Qualquer usuário que tenha criado uma conta no site.
+**Usuário Anônimo** - Qualquer usuário que esteja utilizando o site sem ter uma conta criada ou que não esteja logado.
+
+### Descrição Sucinta:
+
+
+Permite que o usuário entre em contato com a equipe de suporte para esclarecer dúvidas ou relatar problemas.
+
+### Fluxo Principal:
+
+
+| Passos | Descrição | 
+| :--------: | -------- | 
+| Passo 1 &nbsp;|  O ator seleciona a opção "Contato" no cabeçalho do site.  | 
+| Passo 2 &nbsp;| O sistema exibe um formulário para que o ator insira suas informações de contato e detalhes da solicitação. |  
+| Passo 3 &nbsp;|O ator preenche o formulário e seleciona a opção "Enviar". | 
+| Passo 4    &nbsp;| O sistema verifica se todas as informações necessárias foram fornecidas:<br/> 4.1 - Se sim, o sistema envia a solicitação para a equipe de suporte e exibe a mensagem "Sua solicitação foi enviada com sucesso. Nossa equipe entrará em contato em breve". <br/> 4.2 - Se não, o sistema exibe a mensagem "Por favor, preencha todos os campos obrigatórios".   |  
+
+### Campos do Formulário:
+
+| Campo                 | Obrigatório? | Editável? | Formato        |
+| ------                | ------------ | --------- | -------------- |
+| Nome                  |     Sim      |    Sim    |  Texto         |
+| Número para contato   |     Sim      |    Sim    |  Numérico      |
+| Descrição             |     Sim      |    Sim    |  Texto         |
+
+### Opções dos Usuários:
+
+| Campo                                   | Descrição | 
+| --------------------------------------- | ----------- | 
+|Enviar                             | Encaminha a solicitação de suporte para a equipe de apoio ao usuário | 
+
+|User Story| Critério de aceitação
+|----------|----------------------
+“Como usuário comum interessado em adotar um gato, eu quero ser capaz de solicitar contato com o suporte caso tenha alguma dúvida ou precise de assistência adicional durante o processo de adoção, para que eu possa obter a ajuda necessária para a adoção.” | O usuário clicar no botao de entrar em contato com o suporte no cabeçalho do site.
+
+
+## Protótipo
+
+<br>
+
+![Contato com Suporte](https://uploaddeimagens.com.br/images/004/619/739/original/ContatoSuporte_00000.png?1695780797)
+
 ## **RF14 - Lista de Desejos de Adoção**.
 
 #### Autor: @ana-flav - Ana Flavia Moreira Pires.
