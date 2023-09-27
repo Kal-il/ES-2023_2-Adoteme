@@ -9,11 +9,13 @@
 
 O "AdoteMe" é uma plataforma digital inovadora desenvolvida para unir corações e lares, conectando gatos abandonados no campus da Universidade Federal do Tocantins (UFT) a indivíduos e famílias carinhosas que desejam fazer a diferença na vida desses animais. Além de ser uma plataforma intuitiva e interativa ela proporciona um ambiente virtual dedicado à catalogação e adoção de gatos abandonados dentro da universidade. Nossa visão é criar um espaço virtual gratuito onde a solidariedade, compaixão e amor pelos animais possam florescer, ao mesmo tempo em que promovemos a responsabilidade e conscientização sobre a adoção de animais de estimação.
 
+### [Relatório de gestão de atividades](https://docs.google.com/spreadsheets/d/15xbPCzuF3L6a0VQsooBDLaNwTEBM20fFOac99ntMcq8/edit?usp=sharing)
+
 ### Escopo:
 
-- ### Épico 1 --- Gerenciamento de usuário: RF01, RF02, RF06, RF17, RF12, RF13;
-- ### Épico 2 --- Gerenciamento de gatos: RF10, RF08, RF18, RF04, RF09, RF11;
-- ### Épico 3 --- Gerenciamento de adoção: RF14, RF16, RF07, RF03, RF15.
+- #### Épico 1 --- Gerenciamento de usuário: RF01, RF02, RF06, RF17, RF12, RF13;
+- #### Épico 2 --- Gerenciamento de gatos: RF10, RF08, RF18, RF04, RF09, RF11;
+- #### Épico 3 --- Gerenciamento de adoção: RF14, RF16, RF07, RF03, RF15.
 ---
 ### Definindo os requisitos funcionais do projeto:
 
