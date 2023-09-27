@@ -4,12 +4,18 @@
 #### Professor: Edeilson Milhomem da Silva.
 #### Monitor: João Gabriel Alves de Souza.
 #### Time: Romeu Miranda Borges, Ana Flavia Moreira Pires, Kalil Garcia Canuto, Matheus Henrique Dreher dos Santos, Maria Clara Nazareno Aires, Thiago Gonzaga dos Santos.
+
 ### Introdução
 
 O "AdoteMe" é uma plataforma digital inovadora desenvolvida para unir corações e lares, conectando gatos abandonados no campus da Universidade Federal do Tocantins (UFT) a indivíduos e famílias carinhosas que desejam fazer a diferença na vida desses animais. Além de ser uma plataforma intuitiva e interativa ela proporciona um ambiente virtual dedicado à catalogação e adoção de gatos abandonados dentro da universidade. Nossa visão é criar um espaço virtual gratuito onde a solidariedade, compaixão e amor pelos animais possam florescer, ao mesmo tempo em que promovemos a responsabilidade e conscientização sobre a adoção de animais de estimação.
- 
 
-### Definindo os requisitos e seus respectivos grupos.
+### Escopo:
+
+- ### Épico 1 --- Gerenciamento de usuário: RF01, RF02, RF06, RF17, RF12, RF13;
+- ### Épico 2 --- Gerenciamento de gatos: RF10, RF08, RF18, RF04, RF09, RF11;
+- ### Épico 3 --- Gerenciamento de adoção: RF14, RF16, RF07, RF03, RF15.
+---
+### Definindo os requisitos funcionais do projeto:
 
 ---
 
@@ -27,6 +33,33 @@ O "AdoteMe" é uma plataforma digital inovadora desenvolvida para unir coraçõe
 
 - [ ] RF06 - Visualizar Perfil do Usuário. 1.6 [Romeu Miranda Borges](https://github.com/romeuborges19) Revisado por @tgofsaints
 
+---
+
+#### Iteração 2
+
+- [ ] RF07 - Realizar adoção. 2.1 [Romeu Miranda Borges](https://github.com/romeuborges19) Revisado por @Kal-il
+
+- [ ] RF08 - Remover Cadastro do Animal. 2.1 [Kalil Garcia Canuto](https://github.com/Kal-il) Revisado por @ana-flav
+
+- [ ] RF09 - Busca Personalizada de Animal. 2.2 [Matheus Henrique Dreher dos Santos](https://github.com/MatheusDreher) Revisado por @mariaclaranaires
+
+- [ ] RF10 - Adicionar Animal à Lista de Desejos. 2.3 [Kalil Garcia Canuto](https://github.com/Kal-il) Revisado por @ana-flav
+
+- [ ] RF11 - Compartilhar Publicação do Animal. 2.4 [Maria Clara Nazareno Aires](https://github.com/mariaclaranaires) Revisado por @tgofsaints
+
+- [ ] RF12 - Recuperar Senha. 2.5 [Thiago Gonzaga dos Santos](https://github.com/tgofsaints) Revisado por @MatheusDreher
+
+- [ ] RF13 - Solicitar Contato com Suporte. 2.6 [Thiago Gonzaga dos Santos](https://github.com/tgofsaints) Revisado por @MatheusDreher
+
+- [ ] RF14 - Lista de Desejo de Adoção. 2.7 [Ana Flavia Moreira Pires](https://github.com/MatheusDreher)Revisado por @romeuborges19
+
+- [ ] RF15 - Enviar E-mail ao usuário. 2.7 [Romeu Miranda Borges](https://github.com/romeuborges19)Revisado por @Kal-il
+
+- [ ] RF16 - Realizar Denúncia. 2.8 [Ana Flavia Moreira Pires](https://github.com/MatheusDreher) Revisado por @romeuborges19
+
+- [ ] RF17 - Editar Perfil do Usuário. 2.9 [Maria Clara Nazareno Aires](https://github.com/mariaclaranaires) Revisado por @tgofsaints
+
+- [ ] RF18 - Editar Cadastro do Animal. 2.10[Matheus Henrique Dreher dos Santos](https://github.com/MatheusDreher) Revisado por @mariaclaranaires 
 
 ---
 
@@ -457,6 +490,70 @@ Como um usuário comum, eu gostaria de acessar a página principal para ter uma 
 
 ![](https://uploaddeimagens.com.br/images/004/605/683/original/MacBook_Air_-_1_%281%29.png?1694569982)
 
+## RF08 - Remover Cadastro do Animal
+
+#### Autor: @Kal-il - Kalil Garcia Canuto.
+
+---
+
+#### Revisor: @ana-flav - Ana Flavia Moreira Pires
+
+| Item            | Descrição                                                                                                                                                                                               |
+| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Caso de uso     |  Remover Cadastro do Animal específico.                                                                                                                                                                                                  |
+| Resumo          |Este requisito descreve o processo no qual um usuário admnistrador entra na plataforma para remover o cadastro de um gato, caso este tenha sido adotado, ou por outros motivos, não esteja mais disponivel para adoção.                                  |
+| Ator principal  | Usuário administrador                                                                                                          |
+| Pré-condição    | 1- O usuário deve estar autenticado no site "AdoteMe"<br>2 - O animal a ser removido do site "AdoteMe" deve estar cadastrado no sistema. principal.                                                                                                                     |
+| Pós-condição    | 1 - Se o usuário for um Usuário Comum, o animal selecionado pelo usuário não está mais disponível para adoção no site "AdoteMe".<br>2 - Se o usuário for um Usuário Administrador, o animal selecionado pelo usuário pode ser removido ou editado, conforme a escolha do administrador. 
+
+### Descrição Sucinta:
+
+"O usuário irá procurar por um animal que não está mais disponivel para adoção".
+
+#### Fluxo principal
+
+| Passos   | Descrição                                                                 |
+| -------- | ------------------------------------------------------------------------- |
+| Passo 1  | O caso de uso começa quando o usuário realiza o login no site "AdoteMe" com suas credenciais. |
+| Passo 2  | O usuário navega até a página inicial ou à sua página de perfil, onde pode visualizar a lista de animais cadastrados para adoção. |
+| Passo 3  | O usuário seleciona o animal que deseja remover do site. |
+| Passo 4  | O sistema exibe a página de detalhes do animal selecionado. |
+| Passo 5  | Se o usuário for um **Usuário Comum**: <br>O sistema exibe apenas informações sobre o animal e não fornece a opção de edição. |
+| Passo 6  | Se o usuário for um Usuário **Administrador**: <br>O sistema exibe uma opção de "Editar Cadastro" além da opção de "Remover Cadastro" na página de detalhes do animal. <br>O usuário pode escolher entre "Editar Cadastro" ou "Remover Cadastro". |
+| Passo 7  | Se o usuário seleciona "Remover Cadastro": <br>O sistema solicita uma confirmação do usuário para garantir que a ação seja intencional.<br>O usuário confirma a remoção do cadastro do animal. |
+| Passo 8  | O sistema remove o animal do banco de dados do site "AdoteMe" e exibe uma mensagem de confirmação de que o animal foi removido com sucesso. |
+| Passo 9  | O usuário é redirecionado de volta para sua lista de animais cadastrados para adoção. |
+
+### Opções dos Usuários:
+
+| Campo                                   | Descrição | 
+| --------------------------------------- | ----------- | 
+|Deletar cadastro                         | Esta opção permite ao usuário iniciar o processo de remoção de um animal cadastrado no site | 
+|cancelar deleção                         | Esta opção é apresentada ao usuário como uma etapa de confirmação após ter selecionado "Deletar cadastro" para caso ele tenha clicado por engano | 
+|confirmar deleção                        | Esta opção é apresentada ao usuário como uma etapa de confirmação após ter selecionado "Deletar cadastro" para remover um animal do site | 
+
+
+### Fluxos Alternativos:
+ #### Fluxo alternativo 1: Confirmação negada
+
+| Passos   | Descrição                                                                 |
+| -------- | ------------------------------------------------------------------------- |
+| Passo 1  | Se o usuário optar por não confirmar a remoção do animal, o sistema não executará a ação e permanecerá na página de detalhes do animal.|
+
+
+# User Story
+## Persona 01 - Usuário comum
+
+
+| Epic       | User Story                 | Critério de aceitação |
+| ----------- | ------------------------- | ------ | 
+|       Como usuário comum, gostaria de  Localizar um Animal para Adoção      |   Como usuário comum do site e possível adotante, gostaria de procurar por um gato específico.  | Como usuário comum, desejo:<br>Pesquisar gatos no site "AdoteMe" com base em critérios como idade, sexo e cor.<br>Ver uma lista de gatos que correspondam aos meus critérios.<br>Visualizar informações detalhadas, incluindo fotos e descrições, dos gatos na lista.<br>Ter a opção de iniciar o processo de adoção ou entrar em contato com o responsável pelo anúncio.<br>Receber uma mensagem se a pesquisa não encontrar resultados correspondentes aos critérios fornecidos.|
+
+
+## Protótipo
+![Untitled](https://uploaddeimagens.com.br/images/004/619/764/original/imagem_2023-09-27_002750171.png?1695785283)
+
+
 ## **RF09 - Busca Personalizada de Animal**
 
 #### Autor: @MatheusDreher - Matheus Henrique Dreher dos Santos.
@@ -532,6 +629,68 @@ Nível de atividade                                 |
 
 <br/>
 
+## **RF10 - Adicionar Animal à Lista de Desejos.**
+
+#### Autor: @Kal-il -  Kalil Garcia Canuto.
+
+---
+
+#### Revisor: @ana-flav - Ana Flávia Moreira Pires.
+
+| Item            | Descrição      |
+| --------------- | -------------  |
+| Caso de uso     | Adicionar Animal à Lista de Desejos |
+| Resumo          | Este RF descreve como um usuário comum, interessado em adotar um animal, pode adicionar um animal à sua lista de desejos no "AdoteMe". A lista de desejos permite ao usuário acompanhar e manter registro dos animais que despertaram seu interesse para possível adoção futura. |
+| Ator principal  | Usuário Comum (Pessoa interessada em adotar um animal). |
+| Pré-condição    | O usuário deve estar autenticado no site "AdoteMe". |
+| Pós-condição    | O animal selecionado agora faz parte da lista de desejos do usuário. |
+
+
+
+#### Fluxo principal
+
+| Passos   | Descrição                                                                 |
+| -------- | ------------------------------------------------------------------------- |
+| Passo 1  | O caso de uso começa quando o usuário navega pelo site e encontra um animal que deseja adicionar à sua lista de desejos. |
+| Passo 2  | O usuário clica no animal para visualizar seus detalhes.  |
+| Passo 3  | Na página de detalhes do animal, o usuário encontra a opção "Adicionar à Lista de Desejos" ou uma função equivalente. |
+| Passo 4  | O usuário seleciona "Adicionar à Lista de Desejos". |
+| Passo 5  | O sistema registra o animal na lista de desejos do usuário. |
+| Passo 6  | O sistema exibe uma mensagem de confirmação de que o animal foi adicionado com sucesso à lista de desejos. |
+
+
+### Opções dos Usuários:
+
+| Campo                                   | Descrição | 
+| --------------------------------------- | ----------- | 
+| Adicionar à Lista de Desejos |Esta é a opção principal dos usuários, permitindo que eles selecionem um animal que desejam adotar no futuro e o adicionem à sua lista de desejos.| 
+| Ver Lista de Desejos | Após adicionar animais à lista de desejos, os usuários devem ter a opção de visualizar a lista completa de animais que eles marcaram como desejados. | 
+| Remover da Lista de Desejos | Para dar aos usuários controle total sobre sua lista de desejos, eles devem ter a opção de remover um animal da lista caso mudem de ideia ou encontrem outro animal de interesse. | 
+
+
+### Fluxos Alternativos:
+ #### Fluxo alternativo 1: Confirmação negada
+
+| Passos   | Descrição                                                                 |
+| -------- | ------------------------------------------------------------------------- |
+| Passo 1  | Se o animal já estiver na lista de desejos do usuário, o sistema exibirá uma mensagem de aviso informando que o animal já foi adicionado anteriormente. |
+
+
+# User Story
+## Persona 01 - Usuário comum
+
+
+| Epic        | User Story                 | Critério de aceitação |
+| ----------- | -------------------------- | --------------------- | 
+| Adicionar Animais à Lista de Desejos | Como usuário comum do site "AdoteMe", desejo poder adicionar gatos à minha lista de desejos para acompanhar os animais que tenho interesse em adotar no futuro | Adicionar gatos à lista de desejos de forma fácil e visível.<br>Registro correto da adição à lista de desejos. <br>Visualização clara dos gatos na lista de desejos no perfil do usuário.<br>Remoção simples de gatos da lista de desejos.<br>Atualização instantânea da lista ao remover um gato. |
+
+
+## Protótipo
+![Untitled](https://uploaddeimagens.com.br/images/004/619/793/original/Frame_39.png?1695791219)
+
+
+
+
 ## **RF11 - Compartilhar Publicação do Animal**.
 
 #### Autor: @mariaclaranaires - Maria Clara Nazareno Aires.
@@ -595,7 +754,7 @@ Epic	       					 |User Story| Critério de aceitação
 
 ![Compartilhar publicação](https://uploaddeimagens.com.br/images/004/619/689/full/Untitled.png?1695773871)
 
-## **RF15 - Lista de Desejos de Adoção**.
+## **RF14 - Lista de Desejos de Adoção**.
 
 #### Autor: @ana-flav - Ana Flavia Moreira Pires.
 
@@ -707,7 +866,7 @@ Epic	       					 |User Story| Critério de aceitação
 ![](https://uploaddeimagens.com.br/images/004/618/776/full/Captura_de_tela_2023-09-26_072454.png?1695725635)
 
 
-## **RF19 - Editar Perfil do Usuário**
+## **RF17 - Editar Perfil do Usuário**
 
 #### Autor: @mariaclaranaires - Maria Clara Nazareno Aires.
 
@@ -754,7 +913,7 @@ Epic	       					 |User Story| Critério de aceitação
 
 ![Editar perfil](https://uploaddeimagens.com.br/images/004/619/694/full/Untitled_%281%29.png?1695774881)
 
-## **RF20 - Editar Cadastro de Animal**
+## **RF18 - Editar Cadastro de Animal**
 
 #### Autor: @MatheusDreher - Matheus Henrique Dreher dos Santos.
 
@@ -823,3 +982,23 @@ Epic	       					 |User Story| Critério de aceitação
 ![editcadastro](https://uploaddeimagens.com.br/images/004/619/724/full/editcadastro.png?1695778750)
 
 <br/>
+
+## Critérios de Aceitação do Produto:
+
+- A plataforma "AdoteMe" deve estar completamente funcional, sem erros significativos.<br>
+- Os usuários devem ser capazes de adicionar, pesquisar, manifestar interesse e gerenciar gatos em suas listas de desejos de forma eficaz.<br>
+- O sistema de notificação deve operar conforme esperado, mantendo os usuários informados sobre atualizações relevantes.<br>
+- As opções de filtragem e ordenação devem permitir que os usuários pesquisem gatos de forma conveniente e eficaz.<br>
+
+## Entregas do projeto:
+
+- Plataforma web "AdoteMe" completa e funcional.
+- Documentação completa do projeto.
+
+## Restrições e premissas:
+
+- O projeto deve ser desenvolvido dentro do prazo estabelecido.
+- A plataforma "AdoteMe" estará disponível apenas para a adoção de gatos no campus da UFT.
+- Os recursos e informações fornecidos pelos usuários devem ser precisos e confiáveis.
+
+
