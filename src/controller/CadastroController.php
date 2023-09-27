@@ -38,7 +38,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                     echo "<h1> Query inválida </h1>";
                 }
             } else {
-                // Redirecionamento para erro na validação
+                $erros = [];
+
+                $erros[] = "As senhas não são iguais.";
+        
+                $erros_encoded = urlencode(json_encode($erros));
+                
+                header("Location: ../view/pages/SinginPage.php?erros=$erros_encoded");
             }
         }
     }
@@ -46,8 +52,16 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
 
 function validarCadastro($data){
-    return true;
     // TODO: Validar cadastro (validar e comparar senhas e garantir que não hajam campos vazios)
+
+    if ($data['password'] != $data['password2']) {
+        return false;
+    }
+
+    else {
+        return true;
+     }
+        
 }
 
 
