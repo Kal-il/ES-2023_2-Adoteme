@@ -5,7 +5,7 @@ use controller\LoginController;
         * se não estiverem vazios, é instanciado um objeto da classe LoginController e é chamado o método Login() 
         * que está dentro da classe LoginController.
     */
-require_once(realpath($_SERVER["DOCUMENT_ROOT"]) .'/src/controller/LoginController.php');
+require_once('C:\xampp\htdocs\ES-2023_2-Adoteme\src\controller\LoginController.php');
 if(isset($_POST['botaoLogin'])){
     if(!empty($_POST['email']) && !empty($_POST['password'])){
         $email = $_POST['email'];  

@@ -8,7 +8,7 @@ use models\UserModel;
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
     if(isset($_POST["botaoCadastro"])){
-        if(isEmpty($_POST)){
+        if(!isEmpty($_POST)){
     
             $data = [
                 "email" => $email = $_POST['email'],
@@ -24,8 +24,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 "matricula" => $matricula = $_POST['enrollment'],
                 "data_nascimento" => $data_nascimento = $_POST['birthday']
             ];
+
+            $errors = validar_cadastro();
             
-            if(validarCadastro($data)){
+            if(!$errors){
                 $connection = new Connection;
                 $connection = $connection->getConnection();
     
@@ -38,25 +40,52 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                     echo "<h1> Query inválida </h1>";
                 }
             } else {
-                // Redirecionamento para erro na validação
+                header("Location: ../view/pages/SinginPage.php?$errors");
             }
+        } else {
+            header("Location: ../view/pages/SinginPage.php?erro=400");
         }
     }
 }
 
+function validar_cadastro(){
+    if(comparar_senhas()){
+        $errors = "different_password=1";
+    }
 
-function validarCadastro($data){
-    return true;
-    // TODO: Validar cadastro (validar e comparar senhas e garantir que não hajam campos vazios)
+    if(isset($errors)){
+        $errors = $errors . "&";
+    }
+
+    if(verificar_tamanho_senha()){
+        $errors = $errors . "password_size_error=1";
+    }
+
+    return $errors;
 }
 
+function comparar_senhas(){
+    if($_POST['password'] != $_POST['password2']){
+        $erro = "As senhas devem ser iguais.";
+        return true;
+    }
+    return false;
+}
+
+function verificar_tamanho_senha(){
+    if(!empty($_POST['password']) && strlen($_POST['password']) < 8){
+        $erro = "A senha deve conter pelo menos 8 caracteres";
+        return true;
+    }
+    return false;
+}
 
 function isEmpty(){
     foreach($_POST as $item){
-        if(empty($item) && $item != $_POST["botaoCadastro"]){
-            return false;
+        if(empty($item) || $item != $_POST["botaoCadastro"]){
+            return true;
         }
     }
-    return true;
+    return false;
 }
 ?>

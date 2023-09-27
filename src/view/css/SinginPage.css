@@ -112,3 +112,7 @@ footer {
     text-align: center;
     color: white;
 }
+
+.error-message{
+    color: red;
+}
