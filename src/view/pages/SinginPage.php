@@ -56,18 +56,16 @@
                 <label for="password">
                     <input class="inputInfo" type="password" name="password" id="password" placeholder="Senha123" minlength="6" maxlength="30"><br>
                 </label>
-
-                <?php
-                    if(isset($_GET['password_size_error'])){
-                        echo '<p class="error-message">A senha deve conter pelo menos 8 caracteres.</p>';
-                    }
-                ?>
-
                 <label for="password2">
                     <input class="inputInfo" type="password" name="password2" id="password2" placeholder="Senha123" minlength="6" maxlength="30"><br>
                 </label>
 
                 <?php
+
+                    if(isset($_GET['password_size_error'])){
+                        echo '<p class="error-message">A senha deve conter pelo menos 8 caracteres.</p>';
+                    }
+
                     if(isset($_GET['different_password'])){
                         echo '<p class="error-message">As senhas devem ser iguais.</p>';
                     }
