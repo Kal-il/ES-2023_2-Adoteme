@@ -457,6 +457,70 @@ Como um usuário comum, eu gostaria de acessar a página principal para ter uma 
 
 ![](https://uploaddeimagens.com.br/images/004/605/683/original/MacBook_Air_-_1_%281%29.png?1694569982)
 
+
+## **RF11 - Compartilhar Publicação do Animal**.
+
+#### Autor: @mariaclaranaires - Maria Clara Nazareno Aires.
+
+---
+
+#### Revisor:  @tgofsaints - Thiago Gonzaga dos Santos.
+
+Item           | Descrição
+---------------|----------
+Caso de uso    |RF21 - Compartilhar publicação do animal
+Resumo           |É esperado que, quando na página de visualização de um animal, o usuário tenha um botão que o permita compartilhá-la em alguma rede social ou copie o link da publicação.
+Ator principal |Usuário utilizador da plataforma.
+Ator secundário|Usuário anônimo (não autenticado).
+Pré-condição   |O usuário deve ter acessado a página de visualização de um animal.
+Pós-condição   |O usuário pode compartilhar a página de visualização de um animal com a rede social que desejar.
+
+#### Fluxo principal
+
+Passos  | Descrição
+--------|----------
+Passo 1 | O ator acessa a plataforma e visualiza a página de determinado animal.
+Passo 2 | O sistema exibe um ícone/botão que permite o compartilhamento da página.
+Passo 3 | Ao clicar no botão de compartilhamento, o sistema exibe opções de plataformas por meio das quais o usuário pode compartilhar a publicação ou ainda a opção de copiar o link da mesma.
+Passo 4 | O usuário escolhe por qual plataforma deseja enviar o link de compartilhamento.
+
+#### Campos da aba de compartilhar publicação
+
+
+Campo | Obrigatório | Editável | Formato
+------|-------------|----------|--------
+Compartilhar publicação   | Não          | Não       |Botão    
+
+#### Opções de usuário
+
+Opção                                | Descrição                              | Atalho
+-------------------------------------|-------------                           |-------
+Compartilhar publicação        | Ao clicar no botão de compartilhamento, o sistema exibe as opções de plataformas por meio das quais o usuário pode compartilhar a publicação| --
+
+#### Relatório de usuário
+
+Campo | Descrição | Formato
+------|-----------|--------
+--    | --        | --
+
+#### Fluxo alternativo
+
+Passos      | Descrição
+------------|----------
+--          | --
+
+# User story
+
+**Persona um, usuário já na tela de visualização de um animal.**
+
+Epic	       					 |User Story| Critério de aceitação
+-----------------------|----------|----------------------
+“Como **usuário comum** eu quero **compartilhar a publicação do animal alguma plataforma** para que **ela possa ser visualizada pelas pessoas com quem eu compartilhar o seu link.**” | Enquanto **um usuário comum** eu preciso ser capaz de **compartilhar a publicação em alguma plataforma** para que **ela possa ser visualizada pelas pessoas com quem eu compartilhá-la.** | Certifique-se de que o usuário é capaz de **acessar o site e clicar no botão de compartilhamento**.
+
+## Protótipo
+
+![Compartilhar publicação](https://uploaddeimagens.com.br/images/004/619/689/full/Untitled.png?1695773871)
+
 ## **RF15 - Lista de Desejos de Adoção**.
 
 #### Autor: @ana-flav - Ana Flavia Moreira Pires.
@@ -567,3 +631,51 @@ Como um usuário comum, eu gostaria de acessar a página principal para ter uma 
 ## Protótipo
 
 ![](https://uploaddeimagens.com.br/images/004/618/776/full/Captura_de_tela_2023-09-26_072454.png?1695725635)
+
+
+## **RF19 - Editar Perfil do Usuário**
+
+#### Autor: @mariaclaranaires - Maria Clara Nazareno Aires.
+
+---
+
+#### Revisor:  @tgofsaints - Thiago Gonzaga dos Santos.
+
+| **Item**            | **Descrição**                                                                                                          |
+| --------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| **Caso de Uso**     | Editar o perfil do usuário                                                                                             |
+| **Resumo**          | O usuário deve ser capaz de editar as informações de seu próprio perfil. |
+| **Ator Principal**  | Usuário utilizador da plataforma.                                                                                           |
+| **Pré-condição**    | O usuário deve estar acessando a plataforma e autenticado no sistema.                                                                               |
+| **Pós-condição**    | É necessário que o usuário esteja cadastrado.                     |                                                                                                                        
+
+#### **Fluxo Principal**
+
+| Passo | Descrição |
+| --------| --- |
+| **Passo 1** | Entrar na página principal. |
+| **Passo 2** | Clicar no seu perfil pelo botão disponível na página principal. |
+| **Passo 3** | Visualizar o perfil. |
+| **Passo 4** | Editar o perfil. |
+
+#### **Opções do Usuário**
+
+| Opção | Descrição |
+| - | - |
+| **Salvar edições** | O usuário poderá clicar num botão que salvará as edições feitas. |
+| **Cancelar** | O usuário poderá clicar num botão que cancelará as edições feitas.  |
+
+---
+
+## User Story
+
+#### Persona 1 - Usuário comum
+
+| User Story | Critério de Aceitação |
+| ---------- | --------------------- |
+| Enquanto usuário comum, eu preciso editar as informações do meu perfil. | Para editar o perfil, certifique-se de que o usuário está cadastrado e logado na plataforma. |
+<br/>
+
+## Protótipo
+
+![Editar perfil](https://uploaddeimagens.com.br/images/004/619/694/full/Untitled_%281%29.png?1695774881)
