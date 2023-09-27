@@ -23,43 +23,43 @@ O "AdoteMe" é uma plataforma digital inovadora desenvolvida para unir coraçõe
 
 - [x] RF01 - Realizar Login do Usuário. 1.1 [Kalil Garcia Canuto](https://github.com/Kal-il) Revisado por @mariaclaranaires
 
-- [ ] RF02 - Cadastrar Usuário. 1.2 [Ana Flavia Moreira Pires](https://github.com/ana-flav) Revisado por @romeuborges19
+- [x] RF02 - Cadastrar Usuário. 1.2 [Ana Flavia Moreira Pires](https://github.com/ana-flav) Revisado por @romeuborges19
 
-- [ ] RF03 - Preencher Formulário. 1.3 [Matheus Henrique Dreher dos Santos](https://github.com/MatheusDreher) Revisador por @Kal-il
+- [x] RF03 - Preencher Formulário. 1.3 [Matheus Henrique Dreher dos Santos](https://github.com/MatheusDreher) Revisador por @Kal-il
 
-- [ ] RF04 - Visualizar Animal. 1.4 [Thiago Gonzaga dos Santos](https://github.com/tgofsaints) Revisado por @MatheusDreher
+- [x] RF04 - Visualizar Animal. 1.4 [Thiago Gonzaga dos Santos](https://github.com/tgofsaints) Revisado por @MatheusDreher
 
-- [ ] RF05 - Visualizar Página Principal. 1.5 [Maria Clara Nazareno Aires](https://github.com/mariaclaranaires) Revisado por @ana-flav
+- [x] RF05 - Visualizar Página Principal. 1.5 [Maria Clara Nazareno Aires](https://github.com/mariaclaranaires) Revisado por @ana-flav
 
-- [ ] RF06 - Visualizar Perfil do Usuário. 1.6 [Romeu Miranda Borges](https://github.com/romeuborges19) Revisado por @tgofsaints
+- [x] RF06 - Visualizar Perfil do Usuário. 1.6 [Romeu Miranda Borges](https://github.com/romeuborges19) Revisado por @tgofsaints
 
 ---
 
 #### Iteração 2
 
-- [ ] RF07 - Realizar adoção. 2.1 [Romeu Miranda Borges](https://github.com/romeuborges19) Revisado por @Kal-il
+- [x] RF07 - Realizar adoção. 2.1 [Romeu Miranda Borges](https://github.com/romeuborges19) Revisado por @Kal-il
 
-- [ ] RF08 - Remover Cadastro do Animal. 2.1 [Kalil Garcia Canuto](https://github.com/Kal-il) Revisado por @ana-flav
+- [x] RF08 - Remover Cadastro do Animal. 2.1 [Kalil Garcia Canuto](https://github.com/Kal-il) Revisado por @ana-flav
 
-- [ ] RF09 - Busca Personalizada de Animal. 2.2 [Matheus Henrique Dreher dos Santos](https://github.com/MatheusDreher) Revisado por @mariaclaranaires
+- [x] RF09 - Busca Personalizada de Animal. 2.2 [Matheus Henrique Dreher dos Santos](https://github.com/MatheusDreher) Revisado por @mariaclaranaires
 
-- [ ] RF10 - Adicionar Animal à Lista de Desejos. 2.3 [Kalil Garcia Canuto](https://github.com/Kal-il) Revisado por @ana-flav
+- [x] RF10 - Adicionar Animal à Lista de Desejos. 2.3 [Kalil Garcia Canuto](https://github.com/Kal-il) Revisado por @ana-flav
 
-- [ ] RF11 - Compartilhar Publicação do Animal. 2.4 [Maria Clara Nazareno Aires](https://github.com/mariaclaranaires) Revisado por @tgofsaints
+- [x] RF11 - Compartilhar Publicação do Animal. 2.4 [Maria Clara Nazareno Aires](https://github.com/mariaclaranaires) Revisado por @tgofsaints
 
-- [ ] RF12 - Recuperar Senha. 2.5 [Thiago Gonzaga dos Santos](https://github.com/tgofsaints) Revisado por @MatheusDreher
+- [x] RF12 - Recuperar Senha. 2.5 [Thiago Gonzaga dos Santos](https://github.com/tgofsaints) Revisado por @MatheusDreher
 
-- [ ] RF13 - Solicitar Contato com Suporte. 2.6 [Thiago Gonzaga dos Santos](https://github.com/tgofsaints) Revisado por @MatheusDreher
+- [x] RF13 - Solicitar Contato com Suporte. 2.6 [Thiago Gonzaga dos Santos](https://github.com/tgofsaints) Revisado por @MatheusDreher
 
-- [ ] RF14 - Lista de Desejo de Adoção. 2.7 [Ana Flavia Moreira Pires](https://github.com/ana-flav)Revisado por @romeuborges19
+- [x] RF14 - Lista de Desejo de Adoção. 2.7 [Ana Flavia Moreira Pires](https://github.com/ana-flav)Revisado por @romeuborges19
 
-- [ ] RF15 - Enviar E-mail ao usuário. 2.7 [Romeu Miranda Borges](https://github.com/romeuborges19)Revisado por @Kal-il
+- [x] RF15 - Enviar E-mail ao usuário. 2.7 [Romeu Miranda Borges](https://github.com/romeuborges19)Revisado por @Kal-il
 
-- [ ] RF16 - Realizar Denúncia. 2.8 [Ana Flavia Moreira Pires](https://github.com/ana-flav) Revisado por @romeuborges19
+- [x] RF16 - Realizar Denúncia. 2.8 [Ana Flavia Moreira Pires](https://github.com/ana-flav) Revisado por @romeuborges19
 
-- [ ] RF17 - Editar Perfil do Usuário. 2.9 [Maria Clara Nazareno Aires](https://github.com/mariaclaranaires) Revisado por @tgofsaints
+- [x] RF17 - Editar Perfil do Usuário. 2.9 [Maria Clara Nazareno Aires](https://github.com/mariaclaranaires) Revisado por @tgofsaints
 
-- [ ] RF18 - Editar Cadastro do Animal. 2.10[Matheus Henrique Dreher dos Santos](https://github.com/MatheusDreher) Revisado por @mariaclaranaires 
+- [x] RF18 - Editar Cadastro do Animal. 2.10[Matheus Henrique Dreher dos Santos](https://github.com/MatheusDreher) Revisado por @mariaclaranaires 
 
 ---
 
