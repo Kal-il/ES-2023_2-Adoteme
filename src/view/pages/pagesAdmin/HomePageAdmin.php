@@ -1,5 +1,6 @@
 <?php
     require '..\..\..\vendor\autoload.php';
+    
     use Firebase\JWT\JWT;
     use Firebase\JWT\Key;
 
@@ -20,6 +21,7 @@
     <title>HomePage</title>
     <h1> Futura página inicial</h1>
     <h2> Oi, admin!!!</h2>
+    <button><a href="">Adicionar Gatos</a></button>
     
 </head>
 <body>
