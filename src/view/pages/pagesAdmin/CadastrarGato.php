@@ -4,33 +4,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SinginPage</title>
+    <title>Cadastro de Gatos</title>
 
-    <link rel="stylesheet" type="text/css" href="../css/SinginPage.css">
-    <link rel="stylesheet" type="text/css" href="../css/styles.css">
+    <link rel="stylesheet" type="text/css" href="../../css/SinginPage.css">
+    <link rel="stylesheet" type="text/css" href="../../css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="../../js/script.js"></script>
+</head>
 </head>
 
 <body>
     <header>
-        <a href="HomePage.php">
-            <img id="logo" src="../assets/adoteme.png" alt="Logo Adotme" width="100" height="100">
+        <a href="HomePageAdmin.php">
+            <img id="logo" src="../../assets/adoteme.png" alt="Logo Adotme" width="100" height="100">
         </a>
         <h1 id="adoteme">Adoteme</h1>
     </header>
     <main class="main">
-
-
-        <form action="../../controller/CadastroController.php" method="POST">
-
+        <form action="../../controller/gatosController/CadastroGatosController.php" method="POST">
             <div class="etapa" id="etapa1">
-
                 <?php
-
-                /**
-                 * Verficar se existe erro, se existir, mostrar mensagem de erro
-                 */
-
+                // Verificar se existe erro, se existir, mostrar mensagem de erro
                 if (isset($_GET['erros'])) {
                     $erros_encoded = $_GET['erros'];
                     $erros = json_decode(urldecode($erros_encoded), true);
@@ -41,64 +36,101 @@
                     }
                     echo '</ul>';
                 }
-
                 ?>
 
-                <h1 id="h1cadastro">Cadastro</h1>
-                <label for="name">
-                    <input class="inputInfo" type="text" name="name" id="name" placeholder="Seu nome aqui" maxlength="100" required><br>
+                <h1 id="h1cadastro">Cadastro de Gato</h1>
+                <label for="nome">
+                    Nome:
+                    <input class="inputInfo" type="text" name="nome" id="nome" placeholder="Nome do gato" maxlength="50" required><br>
                 </label>
-                <label for="email">
-                    <input class="inputInfo" type="email" name="email" id="email" placeholder="Example@email.com" maxlength="100" required><br>
+                <label for="data_nascimento">
+                    Data de Nascimento Aproximada:
+                    <input class="inputInfo" type="date" name="data_nascimento" id="data_nascimento" required><br>
                 </label>
-                <label for="cpf">
-                    <input class="inputInfo" type="text" name="cpf" id="cpf" placeholder="000.000.000-00" maxlength="100" required><br>
+                <label for="sexo">
+                    Sexo:
+                    <select  name="sexo" id="sexo" required>
+                        <option value="macho">Macho</option>
+                        <option value="femea">Fêmea</option>
+                    </select><br>
                 </label>
-                <label for="cep">
-                    <input class="inputInfo" type="text" name="cep" id="cep" placeholder="00000-000" maxlength="100" required><br>
+                <label for="cor">
+                    Cor:
+                    <select name="cor" id="cor" required>
+                        <option value="amarelo">Laranja</option>
+                        <option value="preto_e_branco">Preto e Branco</option>
+                        <option value="preto">Preto</option>
+                        <option value="branco">Branco</option>
+                        <option value="cinza">Cinza</option>
+                        <option value="marrom">Marrom</option>
+                        <option value="laranja">Laranja</option>
+                        <option value="outra">Outra cor</option>
+                    </select><br>
                 </label>
-                <label for="birthday">
-                    <input class="inputInfo" type="date" name="birthday" id="birthday" maxlength="8" required><br>
+                <div id="outraCor" style="display: none;">
+                    <label for="outraCor">
+                        <input class="inputInfo" type="text" name="outraCor" id="outracor" placeholder="Especifique a cor" maxlength="100">
+                    </label>
+                </div>
+                <label for="descricao">
+                    Descrição:
+                    <input class="inputInfo" type="text" name="descricao" id="descricao" placeholder="Conte sobre o gato" maxlength="100" required><br>
                 </label>
-                <label for="enrollment">
-                    <input class="inputInfo" type="text" name="enrollment" id="enrollment" placeholder="00000000000" maxlength="100" required><br>
+                <label for="castrado">
+
+                    <input class="inputInfo" type="checkbox" name="castrado" id="castrado" maxlength="100" required> Castrado
                 </label>
-                <label for="telephone">
-                    <input class="inputInfo" type="tel" name="telephone" id="telephone" placeholder="(00)0 0000-0000" minlength="11" maxlength="100" required><br>
+                <label for="vacina_completa">
+
+                    <input class="inputInfo" type="checkbox" name="vacina_completa" id="vacina_completa" maxlength="100"> Vacinação Completa
                 </label>
-                <label for="password">
-                    <input class="inputInfo" type="password" name="password" id="password" placeholder="Senha123" minlength="6" maxlength="30" required><br>
-                </label>
-                <label for="password2">
-                    <input class="inputInfo" type="password" name="password2" id="password2" placeholder="Senha123" minlength="6" maxlength="30" required><br>
-                </label>
-                <label for="state">
-                    <input class="inputInfo" type="text" name="state" id="state" placeholder="Tocantins" minlength="4" maxlength="20" required><br>
-                </label>
-                <label for="city">
-                    <input class="inputInfo" type="text" name="city" id="city" placeholder="Palmas" maxlength="100" required><br>
-                </label>
-                <label for="adress">
-                    <input class="inputInfo" type="text" name="adress" id="adress" placeholder="Bairro rua número" maxlength="100" required><br>
-                </label>
+
+                <div id="infoVacina" style="display:none;">
+                    <label for="info_vacina">
+                        Informações sobre a vacinação:
+                        <input class="inputInfo" type="text" name="info_vacina" id="info_vacina" placeholder="Fale sobre a vacinação" maxlength="100">
+                    </label>
+                </div>
+                <label for="personalidades">Personalidades:</label>
+                    <div id="personalidades">
+                        <label>
+                            <input type="checkbox" name="personalidades[]" value="amigavel"> Amigável
+                        </label>
+                        <label>
+                            <input type="checkbox" name="personalidades[]" value="brincalhao"> Brincalhão
+                        </label>
+                        <label>
+                            <input type="checkbox" name="personalidades[]" value="timido"> Tímido
+                        </label>
+                        <label>
+                            <input type="checkbox" name="personalidades[]" value="curioso"> Curioso
+                        </label>
+                        <label>
+                            <input type="checkbox" name="personalidades[]" value="calmo"> Calmo
+                        </label>
+                        <label>
+                            <input type="checkbox" name="personalidades[]" value="territorial"> Territorial
+                        </label>
+                        <label>
+                            <input type="checkbox" name="personalidades[]" value="carente"> Carente
+                        </label>
+                        <label>
+                            <input type="checkbox" name="personalidades[]" value="preguicoso"> Preguiçoso
+                        </label>     
+                        <label>
+                            <input type="checkbox" name="personalidades[]" value="nervoso"> Nervoso
+                        </label>   
+                    </div>
                 <div class="form-buttons-container">
                     <div class="submit-button">
-                        <button type="submit" name="botaoCadastro">Cadastrar</button>
-                    </div>                  
-                    <div class="login-button">
-                        <a href="LoginPage.php">Já possui cadastro? Faça login</a><!--Botão para voltar para a página inicial porem não funciona como devia por conta do "required" nos inputs-->
+                        <button type="submit" name="botaoCadastroGato">Cadastrar</button>
                     </div>
                 </div>
-                
-
             </div>
         </form>
-    
     </main>
     <footer>
-        <p id="copyrigth">&copy;2023 Adoteme </p>
+        <p id="copyrigth">&copy;2023 Adoteme</p>
     </footer>
-
 </body>
-
 </html>
