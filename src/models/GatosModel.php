@@ -1,6 +1,6 @@
 <?php
 namespace models;
-require_once '../models/Connection.php';
+require_once 'Connection.php';
 
 class GatosModel {
 
@@ -15,51 +15,31 @@ class GatosModel {
     }
 
     function CreateGato($connection, $data) {
-        // // TODO: Terminar SQL  de inserção de gato
-        // $nome = pg_escape_string($connection, $data['nome']); 
-        // $data_nas = pg_escape_string($connection, $data['idade']); 
-        // $sexo = pg_escape_string($connection, $data['sexo']); 
-        // $cor = pg_escape_string($connection, $data['cor']); 
-        // $porte = pg_escape_string($connection, $data['porte']); 
-        // $descricao = pg_escape_string($connection, $data['descricao']); 
-        // $imagem = pg_escape_string($connection, $data['imagem']); 
-        // $adotado = false;
-        // $adotante = null;
-        // $data_adocao = null;
-        // $data_cadastro = date("Y-m-d");
 
-        // $query = "INSERT INTO gatos (nome, idade, sexo, cor, porte, descricao, imagem, adotado, adotante, data_adocao, data_cadastro) VALUES ('$nome', '$idade', '$sexo', '$cor', '$porte', '$descricao', '$imagem', '$adotado', '$adotante', '$data_adocao', '$data_cadastro')";
-        // $resultado = $this->queryDatabase($connection, $query);
+        $nome = pg_escape_string($connection, $data['nome']);
+        $data_nascimento = pg_escape_string($connection, $data['dataNascimento']);
+        $sexo = pg_escape_string($connection, $data['sexo']);
+        $cor = pg_escape_string($connection, $data['cor']);
+        $outra_cor = pg_escape_string($connection, $data['outraCor']);
+        $descricao = pg_escape_string($connection, $data['descricao']);
+        $castrado = pg_escape_string($connection, $data['castrado']);
+        $vacinacao_completa = pg_escape_string($connection, $data['vacinacaoCompleta']);
+        $info_vacina = pg_escape_string($connection, $data['infoVacina']);
+        $personalidades = pg_escape_string($connection, implode(',', $data['personalidades']));
 
-        // if (pg_num_rows($resultado) == 0) {
-        //     return false;
-        // } else {
-        //     return true;
-        // }
-    }
-    // function EditGato($connection, $data) {
 
-    //     $nome = pg_escape_string($connection, $data['nome']); 
-    //     $idade = pg_escape_string($connection, $data['idade']); 
-    //     $sexo = pg_escape_string($connection, $data['sexo']); 
-    //     $cor = pg_escape_string($connection, $data['cor']); 
-    //     $porte = pg_escape_string($connection, $data['porte']); 
-    //     $descricao = pg_escape_string($connection, $data['descricao']); 
-    //     $imagem = pg_escape_string($connection, $data['imagem']); 
-    //     $adotado = false;
-    //     $adotante = null;
-    //     $data_adocao = null;
-    //     $data_cadastro = date("Y-m-d");
+        $query = "INSERT INTO gatos (nome, data_nascimento, sexo, cor, outracor, descricao, castrado, vacina_completa, info_vacina, personalidade) VALUES ('$nome', '$data_nascimento', '$sexo', '$cor', '$outra_cor', '$descricao', '$castrado', '$vacinacao_completa', '$info_vacina', '$personalidades');";
+        $resultado = $this->queryDatabase($connection, $query);
 
-    //     $query = "UPDATE gatos SET nome = '$nome', idade = '$idade', sexo = '$sexo', cor = '$cor', porte = '$porte', descricao = '$descricao', imagem = '$imagem', adotado = '$adotado', adotante = '$adotante', data_adocao = '$data_adocao', data_cadastro = '$data_cadastro' WHERE id = '$id'";
-    //     $resultado = $this->queryDatabase($connection, $query);
 
-    //     if (pg_num_rows($resultado) == 0) {
-    //         return false;
-    //     } else {
-    //         return true;
-    //     }
-    // }
-   
+        if(pg_affected_rows($resultado) == 0){
+            return false;
+        } else {
+            return true;
+        }   
         
+    }
+    
+   
+    
 }

@@ -13,6 +13,7 @@
 ?>
 
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,7 +22,7 @@
     <title>HomePage</title>
     <h1> Futura página inicial</h1>
     <h2> Oi, admin!!!</h2>
-    <button><a href="CadastrarGatos.php">Adicionar Gatos</a></button>
+    <button><a href="CadastrarGato.php">Adicionar Gatos</a></button>
     
 </head>
 <body>

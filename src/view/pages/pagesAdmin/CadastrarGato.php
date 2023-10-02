@@ -22,7 +22,7 @@
         <h1 id="adoteme">Adoteme</h1>
     </header>
     <main class="main">
-        <form action="../../controller/gatosController/CadastroGatosController.php" method="POST">
+        <form action="../../../controller/gatosController/CadastroGatosController.php" method="POST">
             <div class="etapa" id="etapa1">
                 <?php
                 // Verificar se existe erro, se existir, mostrar mensagem de erro
