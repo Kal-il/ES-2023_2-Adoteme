@@ -10,7 +10,28 @@ use models\Connection;
 use models\GatosModel;
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if (isset($_POST["botaoCadastroGato"])) {
+    if (isset($_POST["botaoCadastroGato"])){
+  
+        $imagesPath = []; 
+        $i = 0;
+
+        // TODO: VERIFICAR TAMANHO IMAGENS
+        // TODO: VERIFICAR QUANTIDADE DE  IMAGENS
+         
+
+        foreach ($_FILES["fotos"]["error"] as $key => $error) {
+        
+            $path = "../../view/pages/pagesAdmin/uploads/";
+            $pasta = $path . $_FILES["fotos"]["name"][$i];
+            $imagesPath["foto" . ($i + 1)] = $pasta;
+            move_uploaded_file(
+                $_FILES["fotos"]["tmp_name"][$i],
+                $pasta 
+            );
+
+            ++$i;
+        }
+
         $data = [
             "nome" => $_POST['nome'],
             "dataNascimento" => $_POST['data_nascimento'],
@@ -25,7 +46,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         ];
         
 
-        $erros = validarCadastroGato($data);
+        $erros = validarCadastroGato($data);    
+        $data["foto1_url"] = $imagesPath["foto1"];
+        $data["foto2_url"] = $imagesPath["foto2"];
+        $data["foto3_url"] = $imagesPath["foto3"];
+   
+        var_dump($data);
 
         if (empty($erros)) {
 
@@ -36,14 +62,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $resultado = $gato->CreateGato($connection, $data);
 
             if ($resultado) {
-                header("Location: ../../view/pages/pagesAdmin/HomePageAdmin.php");
+               header("Location: ../../view/pages/pagesAdmin/HomePageAdmin.php");
             } else {
                 echo "<h1>Query inválida</h1>";
             }
         } else {
                 $erros_encoded = urlencode(json_encode($erros));
                 header("Location: ../../view/pages/pagesAdmin/CadastrarGato.php?erros=$erros_encoded");
-           
           
         }
     }
@@ -79,4 +104,5 @@ function validarCadastroGato($data)
 
     return $erros;
 }
-?>
+
+

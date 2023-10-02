@@ -26,9 +26,13 @@ class GatosModel {
         $vacinacao_completa = pg_escape_string($connection, $data['vacinacaoCompleta']);
         $info_vacina = pg_escape_string($connection, $data['infoVacina']);
         $personalidades = pg_escape_string($connection, implode(',', $data['personalidades']));
+        $foto1 = pg_escape_string($connection, $data['foto1_url']);
+        $foto2 = pg_escape_string($connection, $data['foto2_url']);
+        $foto3 = pg_escape_string($connection, $data['foto3_url']);
+        
 
 
-        $query = "INSERT INTO gatos (nome, data_nascimento, sexo, cor, outracor, descricao, castrado, vacina_completa, info_vacina, personalidade) VALUES ('$nome', '$data_nascimento', '$sexo', '$cor', '$outra_cor', '$descricao', '$castrado', '$vacinacao_completa', '$info_vacina', '$personalidades');";
+        $query = "INSERT INTO gatos (nome, data_nascimento, sexo, cor, outracor, descricao, castrado, vacina_completa, info_vacina, personalidade, foto1, foto2, foto3) VALUES ('$nome', '$data_nascimento', '$sexo', '$cor', '$outra_cor', '$descricao', '$castrado', '$vacinacao_completa', '$info_vacina', '$personalidades','$foto1', '$foto2', '$foto3');";
         $resultado = $this->queryDatabase($connection, $query);
 
 

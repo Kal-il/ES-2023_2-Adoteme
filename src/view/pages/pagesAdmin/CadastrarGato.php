@@ -22,7 +22,7 @@
         <h1 id="adoteme">Adoteme</h1>
     </header>
     <main class="main">
-        <form action="../../../controller/gatosController/CadastroGatosController.php" method="POST">
+        <form action="../../../controller/gatosController/CadastroGatosController.php" method="POST" enctype="multipart/form-data">
             <div class="etapa" id="etapa1">
                 <?php
                 // Verificar se existe erro, se existir, mostrar mensagem de erro
@@ -121,7 +121,10 @@
                             <input type="checkbox" name="personalidades[]" value="nervoso"> Nervoso
                         </label>   
                     </div>
-                <div class="form-buttons-container">
+                    </label>
+                    <label for="foto1"></label>
+                        <input name="fotos[]" type=file multiple/>
+                    <div class="form-buttons-container">
                     <div class="submit-button">
                         <button type="submit" name="botaoCadastroGato">Cadastrar</button>
                     </div>
