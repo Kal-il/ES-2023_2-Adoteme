@@ -54,7 +54,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 $validacao = false;
             }
 
-            if($validacao ){
+            if($validacao){
                 $resultado = $user->CreateUser($connection, $data);
                 
                 if($resultado){
