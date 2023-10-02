@@ -59,9 +59,7 @@ header {
     text-align: center;
     padding-inline: 25%;
     padding-block: 2%;
-    margin: 10px;
 }
-
 #birthday {
     padding-inline: 28%;
     max-width: 40%;
@@ -111,4 +109,15 @@ footer {
 #copyrigth {
     text-align: center;
     color: white;
+}
+
+.input-field{
+    margin:20px 10px;
+}
+
+.error-message{
+    font-size:14px;
+    font-weight: 600;
+    color:red;
+    margin-top: 10px;
 }

@@ -69,5 +69,41 @@ class UserModel {
             return true;
         }
     }
+
+    function CheckUserByEmail($connection, $email){
+        $query = "SELECT * FROM usuarios WHERE email='$email'";
+
+        $resultado = $this->queryDatabase($connection, $query);
+
+        if(pg_num_rows($resultado)==0){
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    function CheckUserByCPF($connection, $cpf){
+        $query = "SELECT * FROM usuarios WHERE cpf='$cpf'";
+
+        $resultado = $this->queryDatabase($connection, $query);
+
+        if(pg_num_rows($resultado)==0){
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    function CheckUserByMatricula($connection, $matricula){
+        $query = "SELECT * FROM usuarios WHERE matricula='$matricula'";
+
+        $resultado = $this->queryDatabase($connection, $query);
+
+        if(pg_num_rows($resultado)==0){
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
 ?>
