@@ -59,7 +59,11 @@
                             <tr>
                                 <td>
                                     <button type="button" class="btn btn-transparent"><span class="material-symbols-outlined">visibility</span></button>
-                                    <button type="button" class="btn btn-transparent"><span class="material-symbols-outlined">edit</span></button>
+                                    <button type="button" class="btn btn-transparent">
+                                        <a href="../../../controller/gatosController/EditarGatos.php?id=<?php echo $gato['id']; ?>">
+                                            <span class="material-symbols-outlined">edit</span>
+                                        </a>
+                                    </button>
                                     <button type="button" class="btn btn-transparent"><span class="material-symbols-outlined">delete</span></button>
                                 </td>
                                 <td><?php echo $gato['id']; ?></td>

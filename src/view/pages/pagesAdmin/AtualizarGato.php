@@ -22,7 +22,7 @@
         <h1 id="adoteme">Adoteme</h1>
     </header>
     <main class="main">
-        <form action="../../../controller/gatosController/AtualizarGatos.php" method="POST" enctype="multipart/form-data">
+        <form action="../../../controller/gatosController/AtualizarGatos.php?id=<?php echo isset($dataEncode['id'])?>" method="POST" enctype="multipart/form-data">
             <div class="etapa" id="etapa1">
             <?php
                     if (isset($_GET['erros'])) {
