@@ -44,6 +44,21 @@ class GatosModel {
         
     }
     
+    function ListarGatos($connection) {
+        $query = "SELECT * FROM gatos";
+        $resultado = pg_query($connection, $query);
+    
+        if (!$resultado) {
+            die("Erro na busca: " . pg_last_error($connection));
+        }
+    
+        $gatos = array();
+        while ($row = pg_fetch_assoc($resultado)) {
+            $gatos[] = $row;
+        }
+    
+        return $gatos;
+    }
    
     
 }
