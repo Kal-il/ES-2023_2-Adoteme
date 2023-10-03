@@ -23,6 +23,7 @@
     <h1> Futura página inicial</h1>
     <h2> Oi, admin!!!</h2>
     <button><a href="CadastrarGato.php">Adicionar Gatos</a></button>
+    <button name="botaoEditarGato"><a href="../../../controller/gatosController/EditarGatos.php">Adicionar Usuários</a></button>
     
 </head>
 <body>
