@@ -20,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
         
         if ($gatoData) {
             $dataEncode = urlencode(json_encode($gatoData));
-            header("Location: ../../view/pages/pagesAdmin/EditarGato.php?data=$dataEncode");
+            header("Location: ../../view/pages/pagesAdmin/AtualizarGato.php?data=$dataEncode");
         } else {
             echo "Gato não encontrado.";
         }

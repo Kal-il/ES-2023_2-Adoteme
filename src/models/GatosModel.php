@@ -44,6 +44,16 @@ class GatosModel {
         
     }
     
+    function getGatoById($connection, $id) {
+        $query = "SELECT * FROM gatos WHERE id = $id;";
+        $resultado = $this->queryDatabase($connection, $query);
+
+        $gato = pg_fetch_assoc($resultado);
+
+        return $gato;
+    }
+    
+    
    
     
 }
