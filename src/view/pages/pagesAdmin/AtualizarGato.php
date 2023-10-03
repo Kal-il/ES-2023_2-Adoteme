@@ -44,7 +44,7 @@
                         }
                     
                 ?>
-                <h1 id="h1cadastro">Atualização do gato <?php echo isset($dataEncoded['nome']) ? htmlspecialchars($dataEncoded['nome']) : ''; ?> </h1>
+                <h1 id="h1cadastro">Atualização do gato <span style="color: purple;"><?php echo isset($dataEncoded['nome']) ? htmlspecialchars($dataEncoded['nome']) : ''; ?></span> </h1>
                 <label for="nome">
                     Nome:
                     <input class="inputInfo" type="text" name="nome" id="nome" placeholder="Nome do gato" maxlength="50" value = "<?php echo isset($dataEncoded['nome']) ? htmlspecialchars($dataEncoded['nome']) : ''; ?>" required><br>
@@ -87,10 +87,8 @@
                     <input class="inputInfo" type="checkbox" name="castrado" id="castrado" maxlength="100" <?php if ($dataEncoded['castrado'] == 't') echo "checked='checked'"; ?> required> Castrado
                 </label>
                 <label for="vacina_completa">
-
                     <input class="inputInfo" type="checkbox" name="vacina_completa" id="vacina_completa" maxlength="100" <?php if ($dataEncoded['vacina_completa'] == 't') echo "checked='checked'"; ?>> Vacinação Completa
                 </label>
-
                 <div id="infoVacina" style="display:none;">
                     <label for="info_vacina">
                         Informações sobre a vacinação:
@@ -99,7 +97,7 @@
                 </div>
                 <label for="personalidades">Personalidades:</label>
                     <div id="personalidades">
-                                <?php
+                            <?php
                                 $personalidadesSelecionadas = isset($dataEncoded['personalidade']) ? explode(",", $dataEncoded['personalidade']) : [];
                                 var_dump($personalidadesSelecionadas);
                                 $personalidades = [
@@ -114,15 +112,15 @@
                                     'nervoso' => 'Nervoso',
                                 ];
 
-                                foreach ($personalidades as $valor => $texto) {
-                                    $marcado = in_array($valor, $personalidadesSelecionadas) ? 'checked' : '';
-                                    var_dump($marcado);
+                                foreach ($personalidades as $value => $texto) {
+                                    $checked_attr = in_array($value, $personalidadesSelecionadas) ? 'checked' : '';
+                                    var_dump($checked_attr);
                                     echo '<label>';
-                                    echo '<input type="checkbox" name="personalidades[]" value="' . $valor . '" ' . $marcado . '> ' . $texto;
+                                    echo '<input type="checkbox" name="personalidades[]" value="' . $value . '" ' . $checked_attr . '> ' . $texto;
                                     echo '</label>';
                                 }
-                                ?>
-                            </div>
+                            ?>
+                        </div>
                     <label for="foto1"></label>
                         <input name="fotos[]" type=file multiple/>
                         <?php
@@ -132,7 +130,6 @@
                             }
                         }
                         ?>
-
                     <div class="form-buttons-container">
                     <div class="submit-button">
                         <button type="submit" name="botaoAtualizarGato">Salvar</button>
