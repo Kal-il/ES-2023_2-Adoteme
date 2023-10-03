@@ -15,5 +15,6 @@
     $gatosModel = new GatosModel();
 
     $gatos = $gatosModel->ListarGatos($pdo);
-
+    
+    
 ?>
