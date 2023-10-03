@@ -8,7 +8,7 @@ use models\UserModel;
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
     if(isset($_POST["botaoCadastro"])){
-        if(isEmpty($_POST)){
+        if(!isEmpty($_POST)){
     
             $data = [
                 "email" => $email = $_POST['email'],
@@ -24,53 +24,70 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 "matricula" => $matricula = $_POST['enrollment'],
                 "data_nascimento" => $data_nascimento = $_POST['birthday']
             ];
-            
-            if(validarCadastro($data)){
-                $connection = new Connection;
-                $connection = $connection->getConnection();
-    
-                $user = new UserModel();
+            $connection = new Connection;
+            $connection = $connection->getConnection();
+
+            $user = new UserModel();
+            $validacao = true;
+
+            if(!validarSenhas($data)){
+                $erro = "As senhas não são iguais.";
+                $erro_senha = "senha=" . urlencode(json_encode($erro));
+                $validacao = false;
+            }
+
+            if(!$user->CheckUserByEmail($connection, $data['email'])){
+                $erro = "Este e-mail já está cadastrado";
+                $erro_email = "email=" . urlencode(json_encode($erro));
+                $validacao = false;
+            }
+
+            if(!$user->CheckUserByCPF($connection, $data['cpf'])){
+                $erro = "Este CPF já está cadastrado";
+                $erro_cpf = "cpf=" . urlencode(json_encode($erro));
+                $validacao = false;
+            }
+
+            if(!$user->CheckUserByMatricula($connection, $data['matricula'])){
+                $erro = "Este número de matrícula já está cadastrado";
+                $erro_matricula = "matricula=" . urlencode(json_encode($erro));
+                $validacao = false;
+            }
+
+            if($validacao){
                 $resultado = $user->CreateUser($connection, $data);
-    
+                
                 if($resultado){
                     header("Location: ../view/pages/LoginPage.php");
                 } else {
                     echo "<h1> Query inválida </h1>";
                 }
             } else {
-                $erros = [];
+                header("Location: ../view/pages/SinginPage.php?$erro_senha&$erro_email&$erro_cpf&$erro_matricula"); 
 
-                $erros[] = "As senhas não são iguais.";
-        
-                $erros_encoded = urlencode(json_encode($erros));
-                
-                header("Location: ../view/pages/SinginPage.php?erros=$erros_encoded");
             }
+        } else {
+            $erro = "Preencha todos os campos";
+            $erro = urlencode(json_encode($erro));
+            header("Location: ../view/pages/SinginPage.php?erro=$erro"); 
         }
     }
 }
 
-
-function validarCadastro($data){
-    // TODO: Validar cadastro (validar e comparar senhas e garantir que não hajam campos vazios)
-
+function validarSenhas($data){
     if ($data['password'] != $data['password2']) {
         return false;
-    }
-
-    else {
+    } else {
         return true;
-     }
-        
+    }   
 }
-
 
 function isEmpty(){
     foreach($_POST as $item){
         if(empty($item) && $item != $_POST["botaoCadastro"]){
-            return false;
+            return true;
         }
     }
-    return true;
+    return false;
 }
 ?>
