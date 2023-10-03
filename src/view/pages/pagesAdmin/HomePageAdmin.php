@@ -1,5 +1,5 @@
 <?php
-    require '..\..\..\vendor\autoload.php';
+    require '..\..\..\..\vendor\autoload.php';
     
     use Firebase\JWT\JWT;
     use Firebase\JWT\Key;
@@ -22,6 +22,7 @@
     <h1> Futura página inicial</h1>
     <h2> Oi, admin!!!</h2>
     <button><a href="CadastrarGato.php">Adicionar Gatos</a></button>
+    <button><a href="TabelaGato.php">Tabela de Gatos</a></button>
     <button><a href="../../../controller/gatosController/EditarGatos.php?id=1">Editar Gato 1</a></button>
 
 
