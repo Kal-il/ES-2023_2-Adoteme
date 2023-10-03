@@ -1196,8 +1196,8 @@ Permite que o usuário entre em contato com a equipe de suporte para esclarecer 
 | Resumo          | Este caso de uso descreve o processo de cadastro de um novo animal no sistema de adoção de gatos. |
 | Ator principal  | Usuário administrador do sistema                        |
 | Ator secundário |                                                                       |
-| Pré-condição    | O ator deve ser registrado como administrador. |
-| Pós-condição    |  |
+| Pré-condição    | O ator está logado no sistema. |
+| Pós-condição    | O ator deve ser registrado como administrador. |
 
 
 
@@ -1206,7 +1206,7 @@ Permite que o usuário entre em contato com a equipe de suporte para esclarecer 
 | Passos  | Descrição                                                                                                            |
 | ------- | -------------------------------------------------------------------------------------------------------------------- |
 | Passo 1 | O usuário administrador acessa o sistema de adoção de gatos da UFT e é apresentada a tela home.        |
-| Passo 2 | Na tela de home, o usuário dmnistrador encontra um botão com o título “CAdicionar” e clica nele para ir para a tela de cadastro de animal. |
+| Passo 2 | Na tela de home, o usuário dmnistrador encontra um botão com o título “Adicionar” e clica nele para ir para a tela de cadastro de animal. |
 | Passo 3 | Exibe um formulário de cadastro com campos para o usuário preencher com os dados do animal. |
 | Passo 4 | Após preencher o formulário, clica no botão "Cadastrar".   |
 | Passo 5 | O sistema verifica os dados fornecidos pelo usuário.<br/> Se correto, ele é redirecionado para a página home.<br/> Se incorreto, irá retornar mensagens de erro no formulário. |
@@ -1226,7 +1226,7 @@ Permite que o usuário entre em contato com a equipe de suporte para esclarecer 
 | Castrado | Sim         | Sim       | Texto        |
 | Outra Cor | Não         | Sim       | Texto        |
 | Informação Vacina | Não          | Sim       | Texto        |
-| Vacinação Completa  | Sim          | Sim       | Boleano    |
+| Vacinação Completa  | Sim          | Sim       | Booleano    |
 | Personalidades  | sim          | Sim       | Texto     |
 | Fotos  | Sim         | Sim       | Imagem    |
 
@@ -1259,7 +1259,7 @@ Permite que o usuário entre em contato com a equipe de suporte para esclarecer 
 | Como um usuário administrador, eu desejo cadastrar novos animais no sistema para que eles estejam disponíveis para adoção. | Enquanto usuário administrador, desejo ter a capacidade de cadastrar animais no sistema de adoção de gatos. | Para se cadastrar no sistema, os dados do gato não devem estar registrados previamente no banco de dados.
 
 ## Protótipo
-![Tela de Cadastro](https://uploaddeimagens.com.br/images/004/605/446/original/cadastrar_%282%29.png?1694552172)
+![Tela de Cadastro](https://uploaddeimagens.com.br/images/004/626/420/full/Captura_de_tela_2023-10-02_210838.png?1696370306)
 
 <br/>
 
