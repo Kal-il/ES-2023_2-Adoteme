@@ -16,6 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
 
         $gato = new GatosModel();
         $gatoData = $gato->getGatoById($connection, $gatoId);
+        $gatoData['id'] = $gatoId;
         
         
         if ($gatoData) {
