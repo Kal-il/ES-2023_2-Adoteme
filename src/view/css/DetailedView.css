@@ -52,19 +52,18 @@ header {
 
 button {
     font-family: 'Nunito', sans-serif;
-    background-color: #383464;
+    background-color: rgb(40, 44, 155);
     color: white;
-    border-width: 0px;
-    border-radius: 16px;
-    width: 100px;
-    height: 40px;
-    padding: 10px;
-    margin-bottom: 30px;
-    box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.1);
-    margin-left: 10px;
-    margin-right: 10px;
-    margin-top: 10px;
+    border: none;
+    padding: 10px 20px;
     margin-bottom: 10px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    border-radius: 8px;
+    display: flow-root;
+    float: left;
+    margin-top: 1%;
+    margin-left: 1%;
 }
 
 table {
@@ -105,7 +104,7 @@ footer {
     text-align: center;
 }
 
-.butao-vei{
+.butao-vei {
     text-decoration: none;
     color: white;
 }
