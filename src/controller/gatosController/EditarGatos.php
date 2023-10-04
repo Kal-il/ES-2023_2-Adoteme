@@ -17,8 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
         $gato = new GatosModel();
         $gatoData = $gato->getGatoById($connection, $gatoId);
         $gatoData['id'] = $gatoId;
-        
-        
+              
         if ($gatoData) {
             $dataEncode = urlencode(json_encode($gatoData));
             header("Location: ../../view/pages/pagesAdmin/AtualizarGato.php?data=$dataEncode");

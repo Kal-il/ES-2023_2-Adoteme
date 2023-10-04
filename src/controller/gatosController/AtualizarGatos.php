@@ -28,15 +28,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $gatoData['descricao'] = $_POST['descricao'];
 
                 if(!strcmp($_POST['castrado'], "on")){
-                    $gatoData['castrado'] = true;
+                    $gatoData['castrado'] = 1;
                 } else {
-                    $gatoData['castrado'] = false;
+                    $gatoData['castrado'] = 0;
                 }
                 
                 if(!strcmp($_POST['vacina_completa'], "on")){
-                    $gatoData['vacinacaoCompleta'] = true;
+                    $gatoData['vacinacaoCompleta'] = 1;
                 } else {
-                    $gatoData['vacinacaoCompleta'] = false;
+                    $gatoData['vacinacaoCompleta'] = 0;
                 }
                 
                 $gatoData['infoVacina'] = $_POST['info_vacina'];
