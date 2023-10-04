@@ -32,6 +32,12 @@
                 </div>
 
                 <div class="input-field">
+                    <label for="surname">
+                        <input class="inputInfo" type="text" name="surname" id="surname" placeholder="Seu sobrenome aqui" maxlength="100" required><br>
+                    </label>
+                </div>
+
+                <div class="input-field">
                     <label for="email">
                         <input class="inputInfo" type="email" name="email" id="email" placeholder="Example@email.com" maxlength="100" required><br>
                     </label>
