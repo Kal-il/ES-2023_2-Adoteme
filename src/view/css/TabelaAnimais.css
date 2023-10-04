@@ -339,3 +339,13 @@ border-radius: 10px ;
     background-color: #252152;
     transform: scale(0.95);
 }
+
+.button-icon-link{
+    text-decoration: none;
+    color: #292A2D;
+}
+
+.button-icon-link-add{
+    text-decoration: none;
+    color: white;
+}
