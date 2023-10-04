@@ -33,7 +33,9 @@
                 <div class="col">
                     <div class="input-group">
                         <input type="text" class="form-control" aria-label="Text input with radio button" placeholder="Search">
-                        <button type="button" class="btn roxo-botao"><span class="material-symbols-outlined">add</span></button>
+                        <a href="CadastrarGato.php">
+                            <button type="button" class="btn roxo-botao"><span class="material-symbols-outlined">add</span></button>
+                        </a>
                     </div>
 
                 </div>
@@ -129,7 +131,6 @@
                             </tr>
                         </tbody>
                     </table>
-
                     <script>
                         const openModalButtons = document.querySelectorAll('.openModal');
                         const closeModalButtons = document.querySelectorAll('.modal__cancelar');
@@ -155,7 +156,6 @@
                             });
                         });
                     </script>
-
                 </div>
             </div>
         </div>

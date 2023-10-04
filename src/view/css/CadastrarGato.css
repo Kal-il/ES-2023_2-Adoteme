@@ -1,0 +1,122 @@
+/* Reset de estilos para eliminar margens e preenchimentos padrão */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilos globais */
+body {
+    font-family: 'Nunito', sans-serif;
+    background-color: #f1f1f1;
+    margin: 0;
+    padding: 0;
+}
+
+/* Cabeçalho */
+header {
+    background-color: #383464;
+    color: white;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+}
+
+#logo {
+    margin-right: 10px;
+
+}
+
+#adoteme {
+    font-size: 24px;
+}
+
+/* Formulário */
+
+
+
+form {
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+}
+
+#h1cadastro {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.inputInfo {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+}
+
+/* Tabela */
+table {
+    border-collapse: collapse;
+    width: 100%;
+    border: 1px solid #ccc;
+    text-align: center;
+}
+
+td {
+    padding: 10px;
+    border-left: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    text-align: center;
+}
+
+#td-top-right,
+#td-top-left,
+#td-botton-right,
+#td-botton-left {
+    border-radius: 8px;
+    /* Adiciona arredondamento às células */
+}
+
+/* Checkboxes e selects */
+select,
+input[type="checkbox"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+/* Botões do formulário */
+.form-buttons-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+button {
+    background-color: rgb(40, 44, 155);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    border-radius: 8px;
+    display: flow-root;
+    float: left;
+    margin-top: 1%;
+    margin-left: 1%;
+}
+
+
+.submit-button button:hover {
+    background-color: #1e2178;
+}
+
+/* Rodapé */
+footer {
+    background-color: #383464;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}

@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;600&display=swap');
-
 h1 {
     margin-bottom: 30px;
     margin-top: 30px;
@@ -262,9 +261,6 @@ border-radius: 10px ;
     color: white;
     background-color:#bfbfbf !important;
 }
-
-
-
 .modal {
     display: grid;
     position: fixed;
