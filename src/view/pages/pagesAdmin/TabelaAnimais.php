@@ -65,9 +65,18 @@
                                 <td>0001</td>
                                 <td>Garfield
                                 </td>
-                                <td><button type="button" class="btn btn-transparent"><span class="material-symbols-outlined">
-                                            delete
-                                        </span></button></td>
+                                <td><a href="#" class="btn openModal">🗑️</a>
+                                    <div class="modal">
+                                        <div class="modal__content">
+                                            <h2 class="modal__title">Atenção!</h2>
+                                            <p class="modal__description">
+                                                Deseja <b>deletar</b> todas as informações deste gato?
+                                            </p>
+                                            <a href="#" class="modal__deletar deleteButton">Deletar</a>
+                                            <a href="#" class="modal__cancelar">Cancelar</a>
+                                        </div>
+                                    </div>
+                                </td>
                             </tr>
                             <tr>
                                 <td>
@@ -81,9 +90,18 @@
                                 <td>0002</td>
                                 <td>Meredith
                                 </td>
-                                <td><button type="button" class="btn btn-transparent"><span class="material-symbols-outlined">
-                                            delete
-                                        </span></button></td>
+                                <td><a href="#" class="btn openModal">🗑️</a>
+                                    <div class="modal">
+                                        <div class="modal__content">
+                                            <h2 class="modal__title">Atenção!</h2>
+                                            <p class="modal__description">
+                                                Deseja <b>deletar</b> todas as informações deste gato?
+                                            </p>
+                                            <a href="#" class="modal__deletar deleteButton">Deletar</a>
+                                            <a href="#" class="modal__cancelar">Cancelar</a>
+                                        </div>
+                                    </div>
+                                </td>
                             </tr>
                             <tr>
                                 <td>
@@ -98,13 +116,46 @@
                                 <td>Salem
 
                                 </td>
-                                <td><button type="button" class="btn btn-transparent"><span class="material-symbols-outlined">
-                                            delete
-                                        </span></button></td>
+                                <td><a href="#" class="btn openModal">🗑️</a>
+                                    <div class="modal">
+                                        <div class="modal__content">
+                                            <h2 class="modal__title">Atenção!</h2>
+                                            <p class="modal__description">
+                                                Deseja <b>deletar</b> todas as informações deste gato?
+                                            </p>
+                                            <a href="#" class="modal__deletar deleteButton">Deletar</a>
+                                            <a href="#" class="modal__cancelar">Cancelar</a>
+                                        </div>
+                                    </div>
+                                </td>
                             </tr>
                         </tbody>
                     </table>
+                    <script>
+                        const openModalButtons = document.querySelectorAll('.openModal');
+                        const closeModalButtons = document.querySelectorAll('.modal__cancelar');
+                        const deleteButtons = document.querySelectorAll('.deleteButton');
+                        const modals = document.querySelectorAll('.modal');
 
+                        openModalButtons.forEach((button, index) => {
+                            button.addEventListener('click', () => {
+                                modals[index].style.display = 'block';
+                            });
+                        });
+
+                        closeModalButtons.forEach((button, index) => {
+                            button.addEventListener('click', () => {
+                                modals[index].style.display = 'none';
+                            });
+                        });
+
+                        deleteButtons.forEach((button, index) => {
+                            button.addEventListener('click', () => {
+
+                                modals[index].style.display = 'none';
+                            });
+                        });
+                    </script>
                 </div>
             </div>
         </div>

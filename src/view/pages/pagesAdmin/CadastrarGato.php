@@ -83,14 +83,15 @@
 
                 <table class="table">
                     <tr>
-                        <td id="td-top-left">Castrado</td>
-                        <td id="td-top-right"><input type="checkbox" name="castrado" required></td>
+                        <td >Castrado</td>
+                        <td ><input type="checkbox" name="castrado" required></td>
                     </tr>
                     <tr>
-                        <td id="td-botton-left">Vacina completa</td>
-                        <td id="td-botton-right"><input type="checkbox" name="vacina_completa" id="vacina_completa"></td>
+                        <td >Vacina completa</td>
+                        <td ><input type="checkbox" name="vacina_completa" id="vacina_completa"></td>
                     </tr>
                 </table>
+
 
                 <div id="infoVacina" style="display:none;">
                     <label for="info_vacina">

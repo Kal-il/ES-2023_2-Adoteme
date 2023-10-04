@@ -2,8 +2,8 @@
 
     namespace controller\gatosController;
 
-    require_once(realpath($_SERVER["DOCUMENT_ROOT"]) .'\src\models\Connection.php');
-    require_once(realpath($_SERVER["DOCUMENT_ROOT"]) .'\src\models\GatosModel.php');
+    require_once('C:\xampp\htdocs\ES-2023_2-Adoteme\src\models\Connection.php');
+    require_once('C:\xampp\htdocs\ES-2023_2-Adoteme\src\models\GatosModel.php');
 
 
     use models\Connection;
