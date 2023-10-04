@@ -542,7 +542,7 @@ Como um usuário comum, eu gostaria de acessar a página principal para ter uma 
 | Item            | Descrição                                                                                                                                                                                               |
 | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Caso de uso     |  Remover Cadastro do Animal específico.                                                                                                                                                                                                  |
-| Resumo          |Este requisito descreve o processo no qual um usuário admnistrador entra na plataforma para remover o cadastro de um gato, caso este tenha sido adotado, ou por outros motivos, não esteja mais disponivel para adoção.                                  |
+| Resumo          |Este requisito descreve o processo no qual um usuário administrador entra na plataforma para remover o cadastro de um gato, caso este tenha sido adotado, ou por outros motivos, não esteja mais disponivel para adoção.                                  |
 | Ator principal  | Usuário administrador                                                                                                          |
 | Pré-condição    | 1- O usuário deve estar autenticado no site "AdoteMe"<br>2 - O animal a ser removido do site "AdoteMe" deve estar cadastrado no sistema. principal.                                                                                                                     |
 | Pós-condição    | 1 - Se o usuário for um Usuário Comum, o animal selecionado pelo usuário não está mais disponível para adoção no site "AdoteMe".<br>2 - Se o usuário for um Usuário Administrador, o animal selecionado pelo usuário pode ser removido ou editado, conforme a escolha do administrador. 
@@ -1181,6 +1181,85 @@ Permite que o usuário entre em contato com a equipe de suporte para esclarecer 
 
 ## Protótipo
 ![editcadastro](https://uploaddeimagens.com.br/images/004/619/724/full/editcadastro.png?1695778750)
+
+## **RF19 - Cadastrar Animal**.
+
+#### Autor: @ana-flav - Ana Flavia Moreira Pires.
+
+---
+
+#### Revisor: @romeuborges19 - Romeu Miranda Borges.
+
+| Item            | Descrição                                                              |
+| --------------- | ---------------------------------------------------------------------- |
+| Caso de uso     | Cadastrar Animal |
+| Resumo          | Este caso de uso descreve o processo de cadastro de um novo animal no sistema de adoção de gatos. |
+| Ator principal  | Usuário administrador do sistema                        |
+| Ator secundário |                                                                       |
+| Pré-condição    | O ator está logado no sistema. |
+| Pós-condição    | O ator deve ser registrado como administrador. |
+
+
+
+#### Fluxo principal
+
+| Passos  | Descrição                                                                                                            |
+| ------- | -------------------------------------------------------------------------------------------------------------------- |
+| Passo 1 | O usuário administrador acessa o sistema de adoção de gatos da UFT e é apresentada a tela home.        |
+| Passo 2 | Na tela de home, o usuário dmnistrador encontra um botão com o título “Adicionar” e clica nele para ir para a tela de cadastro de animal. |
+| Passo 3 | Exibe um formulário de cadastro com campos para o usuário preencher com os dados do animal. |
+| Passo 4 | Após preencher o formulário, clica no botão "Cadastrar".   |
+| Passo 5 | O sistema verifica os dados fornecidos pelo usuário.<br/> Se correto, ele é redirecionado para a página home.<br/> Se incorreto, irá retornar mensagens de erro no formulário. |
+
+
+
+
+
+#### Campos do formulário.
+
+| Campo    | Obrigatório? | Editável? | Formato      |
+| -------- | ------------ | --------- | ------------ |
+| Nome     | Sim          | Sim       | Texto        |
+| Data Nascimento Aproximada    | Sim          | Sim       | Date       |
+| Sexo   | Sim          | Sim       | Texto        |
+| Cor      | Sim          | Sim       | Texto |
+| Castrado | Sim         | Sim       | Texto        |
+| Outra Cor | Não         | Sim       | Texto        |
+| Informação Vacina | Não          | Sim       | Texto        |
+| Vacinação Completa  | Sim          | Sim       | Booleano    |
+| Personalidades  | sim          | Sim       | Texto     |
+| Fotos  | Sim         | Sim       | Imagem    |
+
+#### Opções de usuário
+
+| Opção       | Descrição                 | Atalho |
+| ----------- | ------------------------- | ------ |
+| Cadastrar Gatos no sistema| Verificar os dados preenchidos |
+
+#### Relatório de usuário
+
+| Campo                    | Descrição                                                             | Formato |
+| ------------------------ | --------------------------------------------------------------------- | ------- |
+| Gato cadastrado com sucesso! | Assegura o usuário do resultado positivo do registro do gato no sistema | Texto   |
+
+#### Fluxo alternativo 
+
+| Passos    | Descrição                                                                                                      |
+| --------- | -------------------------------------------------------------------------------------------------------------- |
+| Passo 1 | O ator tenta cadastrar um animal no sistema, mas ele já existe no banco de dados.                                                                                     |
+| Passo 2 | O sistema exibe uma mensagem de erro informando que o animal já está cadastrado e não permite o cadastro duplicado. |
+
+
+# User Story
+## Persona 01 - Usuário comum
+
+
+| Epic       | User Story                 | Critério de aceitação |
+| ----------- | ------------------------- | ------ | 
+| Como um usuário administrador, eu desejo cadastrar novos animais no sistema para que eles estejam disponíveis para adoção. | Enquanto usuário administrador, desejo ter a capacidade de cadastrar animais no sistema de adoção de gatos. | Para se cadastrar no sistema, os dados do gato não devem estar registrados previamente no banco de dados.
+
+## Protótipo
+![Tela de Cadastro](https://uploaddeimagens.com.br/images/004/626/420/full/Captura_de_tela_2023-10-02_210838.png?1696370306)
 
 <br/>
 
