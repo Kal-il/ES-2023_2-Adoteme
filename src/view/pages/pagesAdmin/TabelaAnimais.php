@@ -97,7 +97,6 @@
                         <?php endforeach; ?>
                         </tbody>
                     </table>
-
                     <script>
                         const openModalButtons = document.querySelectorAll('.openModal');
                         const closeModalButtons = document.querySelectorAll('.modal__cancelar');
@@ -123,7 +122,6 @@
                             });
                         });
                     </script>
-
                 </div>
             </div>
         </div>

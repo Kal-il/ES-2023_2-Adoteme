@@ -6,8 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro de Gatos</title>
 
-    <link rel="stylesheet" type="text/css" href="../../css/SinginPage.css">
-    <link rel="stylesheet" type="text/css" href="../../css/styles.css">
+    <link rel="stylesheet" type="text/css" href="../../css/CadastrarGato.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="../../js/script.js"></script>
@@ -17,11 +16,14 @@
 <body>
     <header>
         <a href="HomePageAdmin.php">
-            <img id="logo" src="../../assets/adoteme.png" alt="Logo Adotme" width="100" height="100">
+            <img id="botao-voltar" src="../../assets/adoteme.png" alt="Logo Adotme" width="100" height="100">
         </a>
         <h1 id="adoteme">Adoteme</h1>
     </header>
     <main class="main">
+        <a href="TabelaAnimais.php">
+            <button>Voltar</button>
+        </a>
         <form action="../../../controller/gatosController/CadastroGatosController.php" method="POST" enctype="multipart/form-data">
             <div class="etapa" id="etapa1">
                 <?php
@@ -38,7 +40,9 @@
                 }
                 ?>
 
+
                 <h1 id="h1cadastro">Cadastro de Gato</h1>
+
                 <label for="nome">
                     Nome:
                     <input class="inputInfo" type="text" name="nome" id="nome" placeholder="Nome do gato" maxlength="50" required><br>
@@ -49,7 +53,7 @@
                 </label>
                 <label for="sexo">
                     Sexo:
-                    <select  name="sexo" id="sexo" required>
+                    <select name="sexo" id="sexo" required>
                         <option value="macho">Macho</option>
                         <option value="femea">Fêmea</option>
                     </select><br>
@@ -76,14 +80,18 @@
                     Descrição:
                     <input class="inputInfo" type="text" name="descricao" id="descricao" placeholder="Conte sobre o gato" maxlength="100" required><br>
                 </label>
-                <label for="castrado">
 
-                    <input class="inputInfo" type="checkbox" name="castrado" id="castrado" maxlength="100"> Castrado
-                </label>
-                <label for="vacina_completa">
+                <table class="table">
+                    <tr>
+                        <td >Castrado</td>
+                        <td ><input type="checkbox" name="castrado" required></td>
+                    </tr>
+                    <tr>
+                        <td >Vacina completa</td>
+                        <td ><input type="checkbox" name="vacina_completa" id="vacina_completa"></td>
+                    </tr>
+                </table>
 
-                    <input class="inputInfo" type="checkbox" name="vacina_completa" id="vacina_completa" maxlength="100"> Vacinação Completa
-                </label>
 
                 <div id="infoVacina" style="display:none;">
                     <label for="info_vacina">
@@ -92,39 +100,52 @@
                     </label>
                 </div>
                 <label for="personalidades">Personalidades:</label>
-                    <div id="personalidades">
-                        <label>
-                            <input type="checkbox" name="personalidades[]" value="amigavel"> Amigável
-                        </label>
-                        <label>
-                            <input type="checkbox" name="personalidades[]" value="brincalhao"> Brincalhão
-                        </label>
-                        <label>
-                            <input type="checkbox" name="personalidades[]" value="timido"> Tímido
-                        </label>
-                        <label>
-                            <input type="checkbox" name="personalidades[]" value="curioso"> Curioso
-                        </label>
-                        <label>
-                            <input type="checkbox" name="personalidades[]" value="calmo"> Calmo
-                        </label>
-                        <label>
-                            <input type="checkbox" name="personalidades[]" value="territorial"> Territorial
-                        </label>
-                        <label>
-                            <input type="checkbox" name="personalidades[]" value="carente"> Carente
-                        </label>
-                        <label>
-                            <input type="checkbox" name="personalidades[]" value="preguicoso"> Preguiçoso
-                        </label>     
-                        <label>
-                            <input type="checkbox" name="personalidades[]" value="nervoso"> Nervoso
-                        </label>   
-                    </div>
-                    </label>
-                    <label for="foto1"></label>
-                        <input name="fotos[]" type=file multiple/>
-                    <div class="form-buttons-container">
+                <div id="personalidades">
+
+                    <table>
+                        <tr>
+                            <td>Amigável</td>
+                            <td><input type="checkbox" name="personalidades[]" value="amigavel"></td>
+                        </tr>
+                        <tr>
+                            <td>Brincalhão</td>
+                            <td><input type="checkbox" name="personalidades[]" value="brincalhao"></td>
+                        </tr>
+                        <tr>
+                            <td>Tímido</td>
+                            <td><input type="checkbox" name="personalidades[]" value="timido"></td>
+                        </tr>
+                        <tr>
+                            <td>Curioso</td>
+                            <td><input type="checkbox" name="personalidades[]" value="curioso"></td>
+                        </tr>
+                        <tr>
+                            <td>Calmo</td>
+                            <td><input type="checkbox" name="personalidades[]" value="calmo"></td>
+                        </tr>
+                        <tr>
+                            <td>Territorial</td>
+                            <td><input type="checkbox" name="personalidades[]" value="territorial"></td>
+                        </tr>
+                        <tr>
+                            <td>Carente</td>
+                            <td><input type="checkbox" name="personalidades[]" value="carente"></td>
+                        </tr>
+                        <tr>
+                            <td>Preguiçoso</td>
+                            <td><input type="checkbox" name="personalidades[]" value="preguicoso"></td>
+                        </tr>
+                        <tr>
+                            <td>Nervoso</td>
+                            <td><input type="checkbox" name="personalidades[]" value="nervoso"></td>
+                        </tr>
+                    </table><br>
+
+                </div>
+                </label>
+                <label for="foto1"></label>
+                <input name="fotos[]" type=file multiple id="arquivo" />
+                <div class="form-buttons-container">
                     <div class="submit-button">
                         <button type="submit" name="botaoCadastroGato">Cadastrar</button>
                     </div>
@@ -136,4 +157,5 @@
         <p id="copyrigth">&copy;2023 Adoteme</p>
     </footer>
 </body>
+
 </html>
