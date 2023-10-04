@@ -1,3 +1,7 @@
+<?php
+    require_once '../../../controller/gatosController/ListarGatosController.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -33,9 +37,13 @@
                 <div class="col">
                     <div class="input-group">
                         <input type="text" class="form-control" aria-label="Text input with radio button" placeholder="Search">
-                        <a href="CadastrarGato.php">
-                            <button type="button" class="btn roxo-botao"><span class="material-symbols-outlined">add</span></button>
-                        </a>
+                        <button type="button" class="btn roxo-botao">
+                            <a class="button-icon-link-add" href="CadastrarGato.php">
+                            <span class="material-symbols-outlined">
+                                add
+                            </a>
+                            </span>
+                        </button>
                     </div>
 
                 </div>
@@ -52,19 +60,27 @@
                             </tr>
                         </thead>
                         <tbody>
+                        <?php foreach ($gatos as $gato) : ?>
                             <tr>
                                 <td>
-                                    <button type="button" class="btn btn-transparent"><span class="material-symbols-outlined">
-                                            visibility
-                                        </span></button>
-                                    <button type="button" class="btn btn-transparent"><span class="material-symbols-outlined">
-                                            edit
-                                        </span></button>
+                                    <button type="button" class="btn btn-transparent">
+                                        <a class="button-icon-link" href="DetailedView.php?id=<?php echo $gato['id']; ?>">
+                                            <span class="material-symbols-outlined">
+                                                visibility
+                                            </span>
+                                        </a>
+                                    </button>
+                                    <button type="button" class="btn btn-transparent">
+                                        <a class="button-icon-link" href="../../../controller/gatosController/EditarGatos.php?id=<?php echo $gato['id']; ?>">
+                                            <span class="material-symbols-outlined">
+                                                edit
+                                            </span>
+                                        </a>
+                                    </button>
 
                                 </td>
-                                <td>0001</td>
-                                <td>Garfield
-                                </td>
+                                <td><?php echo $gato['id'] ?> </td>
+                                <td><?php echo $gato['nome'] ?></td>
                                 <td><a href="#" class="btn openModal">🗑️</a>
                                     <div class="modal">
                                         <div class="modal__content">
@@ -72,63 +88,13 @@
                                             <p class="modal__description">
                                                 Deseja <b>deletar</b> todas as informações deste gato?
                                             </p>
-                                            <a href="#" class="modal__deletar deleteButton">Deletar</a>
+                                            <a class = "button-icon-link" href="../../../controller/gatosController/RemoverGatos.php?id=<?php echo $gato['id']; ?>" class="modal__deletar deleteButton">Deletar</a>
                                             <a href="#" class="modal__cancelar">Cancelar</a>
                                         </div>
                                     </div>
                                 </td>
                             </tr>
-                            <tr>
-                                <td>
-                                    <button type="button" class="btn btn-transparent"><span class="material-symbols-outlined">
-                                            visibility
-                                        </span></button>
-                                    <button type="button" class="btn btn-transparent"><span class="material-symbols-outlined">
-                                            edit
-                                        </span></button>
-                                </td>
-                                <td>0002</td>
-                                <td>Meredith
-                                </td>
-                                <td><a href="#" class="btn openModal">🗑️</a>
-                                    <div class="modal">
-                                        <div class="modal__content">
-                                            <h2 class="modal__title">Atenção!</h2>
-                                            <p class="modal__description">
-                                                Deseja <b>deletar</b> todas as informações deste gato?
-                                            </p>
-                                            <a href="#" class="modal__deletar deleteButton">Deletar</a>
-                                            <a href="#" class="modal__cancelar">Cancelar</a>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <button type="button" class="btn btn-transparent"><span class="material-symbols-outlined">
-                                            visibility
-                                        </span></button>
-                                    <button type="button" class="btn btn-transparent"><span class="material-symbols-outlined">
-                                            edit
-                                        </span></button>
-                                </td>
-                                <td>0003</td>
-                                <td>Salem
-
-                                </td>
-                                <td><a href="#" class="btn openModal">🗑️</a>
-                                    <div class="modal">
-                                        <div class="modal__content">
-                                            <h2 class="modal__title">Atenção!</h2>
-                                            <p class="modal__description">
-                                                Deseja <b>deletar</b> todas as informações deste gato?
-                                            </p>
-                                            <a href="#" class="modal__deletar deleteButton">Deletar</a>
-                                            <a href="#" class="modal__cancelar">Cancelar</a>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
+                        <?php endforeach; ?>
                         </tbody>
                     </table>
                     <script>

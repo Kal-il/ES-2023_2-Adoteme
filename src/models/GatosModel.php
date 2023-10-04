@@ -98,9 +98,21 @@ class GatosModel {
         }   
         
     }
+
+    function DeleteGato($connection, $id){
+        $query =  "DELETE FROM gatos WHERE id='$id'";
+
+        $resultado = $this->queryDatabase($connection, $query);
+
+        if(pg_affected_rows($resultado) == 0){
+            return false;
+        } else {
+            return true;
+        }
+    }
     
     function getGatoById($connection, $id) {
-        $query = "SELECT * FROM gatos WHERE id = $id;";
+        $query = "SELECT * FROM gatos WHERE id = '$id'";
         $resultado = $this->queryDatabase($connection, $query);
 
         $gato = pg_fetch_assoc($resultado);

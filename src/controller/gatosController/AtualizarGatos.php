@@ -45,7 +45,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $resultado = $gatoModel->UpdateGato($connection, $gatoData);
                 
                 if ($resultado) {
-                    header("Location: ../../view/pages/pagesAdmin/TabelaGato.php");
+                    header("Location: ../../view/pages/pagesAdmin/TabelaAnimais.php");
                 } else {
                     echo "<h1>Erro ao atualizar o gato.</h1>";
                 }
