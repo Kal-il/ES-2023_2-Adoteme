@@ -22,7 +22,15 @@
         <h1 id="adoteme">Adoteme</h1>
     </header>
     <main class="main">
-        <form action="../../../controller/gatosController/AtualizarGatos.php?id=<?php echo isset($dataEncode['id'])?>" method="POST" enctype="multipart/form-data">
+
+    <?php
+        if (isset($_GET['data'])) {
+            var_dump($_GET['data']);
+            $dataEncoded = $_GET['data'];
+            $dataEncoded = json_decode(urldecode($dataEncoded), true);
+        }
+    ?>
+        <form action="../../../controller/gatosController/AtualizarGatos.php?id=<?php echo $dataEncoded['id']?>" method="POST" enctype="multipart/form-data">
             <div class="etapa" id="etapa1">
             <?php
                     if (isset($_GET['erros'])) {
@@ -36,12 +44,7 @@
                             echo '</ul>';
                         }
 
-                        if (isset($_GET['data'])) {
-                            var_dump($_GET['data']);
-                            $dataEncoded = $_GET['data'];
-                            $dataEncoded = json_decode(urldecode($dataEncoded), true);
-                 
-                        }
+
                     
                 ?>
                 <h1 id="h1cadastro">Atualização do gato <span style="color: purple;"><?php echo isset($dataEncoded['nome']) ? htmlspecialchars($dataEncoded['nome']) : ''; ?></span> </h1>

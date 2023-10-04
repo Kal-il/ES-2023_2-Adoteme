@@ -12,6 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST["botaoAtualizarGato"])) {
         if (isset($_GET['id'])) {
             $gatoID = $_GET['id'];
+            echo "<h1>" . $gatoID . "</h1>";
             
             $connection = new Connection;
             $connection = $connection->getConnection();
@@ -24,11 +25,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $gatoData['dataNascimento'] = $_POST['data_nascimento'];
                 $gatoData['sexo'] = $_POST['sexo'];
                 $gatoData['cor'] = $_POST['cor'];
-                $gatoData['outraCor'] = $_POST['outraCor'];
                 $gatoData['descricao'] = $_POST['descricao'];
-                $gatoData['castrado'] = $_POST['castrado'];
-                $gatoData['vacinacaoCompleta'] = $_POST['vacinacaoCompleta'];
-                $gatoData['infoVacina'] = $_POST['infoVacina'];
+
+                if(!strcmp($_POST['castrado'], "on")){
+                    $gatoData['castrado'] = true;
+                } else {
+                    $gatoData['castrado'] = false;
+                }
+                
+                if(!strcmp($_POST['vacina_completa'], "on")){
+                    $gatoData['vacinacaoCompleta'] = true;
+                } else {
+                    $gatoData['vacinacaoCompleta'] = false;
+                }
+                
+                $gatoData['infoVacina'] = $_POST['info_vacina'];
                 $gatoData['personalidades'] = $_POST['personalidades'];
                 
                 $resultado = $gatoModel->UpdateGato($connection, $gatoData);
