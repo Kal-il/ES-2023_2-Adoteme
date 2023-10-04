@@ -25,7 +25,6 @@
 
     <?php
         if (isset($_GET['data'])) {
-            var_dump($_GET['data']);
             $dataEncoded = $_GET['data'];
             $dataEncoded = json_decode(urldecode($dataEncoded), true);
         }
@@ -102,7 +101,6 @@
                     <div id="personalidades">
                             <?php
                                 $personalidadesSelecionadas = isset($dataEncoded['personalidade']) ? explode(",", $dataEncoded['personalidade']) : [];
-                                var_dump($personalidadesSelecionadas);
                                 $personalidades = [
                                     'amigavel' => 'Amigável',
                                     'brincalhao' => 'Brincalhão',
@@ -117,7 +115,6 @@
 
                                 foreach ($personalidades as $value => $texto) {
                                     $checked_attr = in_array($value, $personalidadesSelecionadas) ? 'checked' : '';
-                                    var_dump($checked_attr);
                                     echo '<label>';
                                     echo '<input type="checkbox" name="personalidades[]" value="' . $value . '" ' . $checked_attr . '> ' . $texto;
                                     echo '</label>';
