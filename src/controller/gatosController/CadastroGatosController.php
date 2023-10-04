@@ -21,12 +21,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         foreach ($_FILES["fotos"]["error"] as $key => $error) {
         
-            $path = "../../view/pages/pagesAdmin/uploads/";
+            $path = 'uploads/';
             $pasta = $path . $_FILES["fotos"]["name"][$i];
             $imagesPath["foto" . ($i + 1)] = $pasta;
             move_uploaded_file(
                 $_FILES["fotos"]["tmp_name"][$i],
-                $pasta 
+                '..\..\view\pages\pagesAdmin\uploads/' .  $_FILES["fotos"]["name"][$i]
             );
 
             ++$i;
@@ -39,19 +39,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             "cor" => $_POST['cor'],
             "outraCor" => isset($_POST['outraCor']) ? $_POST['outraCor'] : null,
             "descricao" => $_POST['descricao'],
-            "castrado" => isset($_POST['castrado']) ? true : false,
-            "vacinacaoCompleta" => isset($_POST['vacina_completa']) ? true : false,
+            "castrado" => isset($_POST['castrado']) ? 1 : 0,
+            "vacinacaoCompleta" => isset($_POST['vacina_completa']) ? 1 : 0,
             "infoVacina" => isset($_POST['info_vacina']) ? $_POST['info_vacina'] : null,
             "personalidades" => isset($_POST['personalidades']) ? $_POST['personalidades'] : [],
         ];
-        
 
-        $erros = validarCadastroGato($data);    
-        $data["foto1_url"] = $imagesPath["foto1"];
-        $data["foto2_url"] = $imagesPath["foto2"];
-        $data["foto3_url"] = $imagesPath["foto3"];
-   
-        var_dump($data);
+        $erros = validarCadastroGato($data);   
+        if($i == 1){
+            echo 'pegando imagem normal';
+            $data["foto1_url"] = $imagesPath["foto1"];
+        } 
+        if(isset($data["foto2_url"])){
+            $data["foto2_url"] = $imagesPath["foto2"];
+        }
+        if(isset($data["foto3_url"])){
+            $data["foto3_url"] = $imagesPath["foto3"];
+        }
 
         if (empty($erros)) {
 

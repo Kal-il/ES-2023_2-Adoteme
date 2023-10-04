@@ -78,7 +78,7 @@
                 </label>
                 <label for="castrado">
 
-                    <input class="inputInfo" type="checkbox" name="castrado" id="castrado" maxlength="100" required> Castrado
+                    <input class="inputInfo" type="checkbox" name="castrado" id="castrado" maxlength="100"> Castrado
                 </label>
                 <label for="vacina_completa">
 

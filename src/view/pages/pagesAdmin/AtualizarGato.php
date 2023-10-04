@@ -86,7 +86,7 @@
                 </label>
                 <label for="castrado">
 
-                    <input class="inputInfo" type="checkbox" name="castrado" id="castrado" maxlength="100" <?php if ($dataEncoded['castrado'] == 't') echo "checked='checked'"; ?> required> Castrado
+                    <input class="inputInfo" type="checkbox" name="castrado" id="castrado" maxlength="100" <?php if ($dataEncoded['castrado'] == 't') echo "checked='checked'"; ?>> Castrado
                 </label>
                 <label for="vacina_completa">
                     <input class="inputInfo" type="checkbox" name="vacina_completa" id="vacina_completa" maxlength="100" <?php if ($dataEncoded['vacina_completa'] == 't') echo "checked='checked'"; ?>> Vacinação Completa

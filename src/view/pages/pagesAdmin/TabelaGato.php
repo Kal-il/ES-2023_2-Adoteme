@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="../../css/EditAnimal.css">
+    <link rel="stylesheet" type="text/css" href="../../css/TabelaAnimais.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <meta charset="UTF-8">
@@ -37,7 +37,9 @@
                 <div class="col">
                     <div class="input-group">
                         <input type="text" class="form-control" aria-label="Text input with radio button" placeholder="Search">
-                        <button type="button" class="btn roxo-botao"><span class="material-symbols-outlined">add</span></button>
+                        <button type="button" class="btn roxo-botao">
+                                <a href="CadastrarGato.php"><span class="material-symbols-outlined">add</span></a>
+                        </button>
                     </div>
 
                 </div>
@@ -58,7 +60,9 @@
                         <?php foreach ($gatos as $gato) : ?>
                             <tr>
                                 <td>
-                                    <button type="button" class="btn btn-transparent"><span class="material-symbols-outlined">visibility</span></button>
+                                    <button type="button" class="btn btn-transparent">
+                                        <a href="DetailedView.php?id=<?php echo $gato['id']; ?>">
+                                        <span class="material-symbols-outlined">visibility</span></button>
                                     <button type="button" class="btn btn-transparent">
                                         <a href="../../../controller/gatosController/EditarGatos.php?id=<?php echo $gato['id']; ?>">
                                             <span class="material-symbols-outlined">edit</span>
