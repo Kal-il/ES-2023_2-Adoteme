@@ -25,7 +25,7 @@
     <main>
 
         <div id="div1">
-            <button><a href="TabelaGato.php" class="butao-vei">Voltar</a></button>
+            <button><a href="TabelaAnimais.php" class="butao-vei">Voltar</a></button>
             <h3 class="info-detail">Informações detalhadas</h3>
         </div>
         <table>
