@@ -72,12 +72,10 @@ class LoginController {
     private function validar_campos(): array {
         $erros = [];
 
-        // Validação do e-mail
         if (empty($this->email)) {
             $erros[] = "O campo de e-mail não pode estar vazio.";
         }
 
-        // Validação da senha
         if (empty($this->password)) {
             $erros[] = "O campo de senha não pode estar vazio.";
         }

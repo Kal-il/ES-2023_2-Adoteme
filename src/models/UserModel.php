@@ -57,16 +57,52 @@ class UserModel {
         $matricula = pg_escape_string($connection, $data['matricula']);
         $data_nascimento = pg_escape_string($connection, $data['data_nascimento']); 
         $endereco = pg_escape_string($connection, $data['endereco']);
-        $superuser = false;
+    
 
-        $query = "INSERT INTO usuarios (email, senha, nome, cpf, telefone, cep, cidade, estado, endereco, matricula, data_nascimento)
-        VALUES ('$email', '$password', '$nome', '$cpf', '$telefone', '$cep', '$cidade', '$estado', '$endereco', '$matricula', '$data_nascimento')";
+        $query = "INSERT INTO usuarios (email, senha, nome, cpf, telefone, cep, cidade, estado, endereco, matricula, data_nascimento, superuser)
+        VALUES ('$email', '$password', '$nome', '$cpf', '$telefone', '$cep', '$cidade', '$estado', '$endereco', '$matricula', '$data_nascimento', 'false')";
         $resultado = $this->queryDatabase($connection, $query);
 
         if (!$resultado) {
             return false;
         } else {
             return true;
+        }
+    }
+
+    function CheckUserByEmail($connection, $email){
+        $query = "SELECT * FROM usuarios WHERE email='$email'";
+
+        $resultado = $this->queryDatabase($connection, $query);
+
+        if(pg_num_rows($resultado)==0){
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    function CheckUserByCPF($connection, $cpf){
+        $query = "SELECT * FROM usuarios WHERE cpf='$cpf'";
+
+        $resultado = $this->queryDatabase($connection, $query);
+
+        if(pg_num_rows($resultado)==0){
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    function CheckUserByMatricula($connection, $matricula){
+        $query = "SELECT * FROM usuarios WHERE matricula='$matricula'";
+
+        $resultado = $this->queryDatabase($connection, $query);
+
+        if(pg_num_rows($resultado)==0){
+            return true;
+        } else {
+            return false;
         }
     }
 }
