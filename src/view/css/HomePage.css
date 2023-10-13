@@ -1,0 +1,84 @@
+body {
+    font-family: 'Nunito', sans-serif;
+    background-color: #f1f1f1;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #383464;
+    color: white;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+}
+
+h2 {
+    font-size: 1.5em;
+    margin: 0;
+    padding: 0;
+    margin-left: 10px;
+}
+
+.search {
+    margin: 3%;
+    padding-left: 75%;
+}
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
+    gap: 10px;
+    padding: 10px;
+    /* Espaço entre as polaroides */
+}
+
+.polaroide {
+    flex: 0 0 calc(25% - 10px);
+    background-color: white;
+    padding: auto;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    margin-bottom: 10px;
+    transition: transform 350ms ease, opacity 350ms linear;
+    text-align: center;
+    border-radius: 4px;
+}
+
+.img-test {
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    width: 80%;
+    margin-top: 10%;
+    border-radius: inherit;
+}
+
+.gallery:has(.polaroide:hover) .polaroide:not(:hover) {
+    transform: scale(.96);
+}
+
+.info-cat {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding-top: 2.5%;
+    padding-bottom: 2.5%;
+}
+
+.material-symbols-outlined {
+    font-family: 'Material Symbols Outlined', sans-serif;
+    font-size: 24px;
+    color: #f5276c;
+    /* Cor personalizada */
+}
+
+
+
+
+
+footer {
+    background-color: #383464;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
