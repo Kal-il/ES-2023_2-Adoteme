@@ -1,5 +1,41 @@
+<?php
+require '..\..\..\vendor\autoload.php';
+require_once __DIR__ . '..\..\..\controller\HomePageController.php';
+
+use controller\HomePageController;
+
+use Firebase\JWT\JWT;
+use Firebase\JWT\Key;
+
+if (isset($_COOKIE['jwt_token'])) {
+    $jwt_token = $_COOKIE['jwt_token'];
+    $decoded = JWT::decode($jwt_token, new Key("test_key", 'HS256'));
+
+    $decoded_array = (array) $decoded;
+    echo $decoded_array['email'];
+} else {
+    echo "<h1> faça login </h1>";
+}
+
+if (!isset($_SESSION)) {
+    session_start();
+} else {
+    session_destroy();
+    session_start();
+}
+$data = array();
+if (isset($_SESSION['search_resultados'])) {
+    $data = $_SESSION['search_resultados'];
+    unset($_SESSION['search_resultados']);
+} else {
+    $homePage = new HomePageController();
+    $data = $homePage->infoHomeGatos();
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -179,48 +215,36 @@
                     form.style.display = 'none';
                 }
             });
-            //Função de curtida
-            $(document).ready(function() {
-                $("#heart").click(function() {
-                    if ($("#heart").hasClass("liked")) {
-                        $("#heart").html('<i class="material-symbols-outlined" aria-hidden="true"></i>');
-                        $("#heart").removeClass("liked");
-                    } else {
-                        $("#heart").html('<i class="material-symbols-outlined" aria-hidden="true"></i>');
-                        $("#heart").addClass("liked");
-                    }
-                });
-            });
         </script>
 
         <section class="gallery">
-        <?php foreach ($data as $gato) : ?>
-            <div class="polaroide">
-                <?php if (!empty($gato['foto1'])) : ?>
-                    <img class="img-test" src="<?php echo '..\..\view\pages\pagesAdmin\\' . $gato['foto1']; ?>" alt="Imagem de gato">
-                <?php else : ?>
-                    <img class="img-test" src="../assets/gato2.jpg" alt="Imagem de gato como exemplo">
-                <?php endif; ?>
-                <div class="info-cat"> <!-- O nome do gato e o botão de curtif ficam aqui-->
-                    <p>Gatinho exemplo</p>
-                    <div class="heartbox">
-                        <input type="checkbox" class="checkbox" id="checkbox" />
-                        <label for="checkbox">
-                            <svg id="heart-svg" viewBox="467 392 58 57" xmlns="http://www.w3.org/2000/svg">
-                                <g id="Group" fill="none" fill-rule="evenodd" transform="translate(467 392)">
-                                    <path d="M29.144 20.773c-.063-.13-4.227-8.67-11.44-2.59C7.63 28.795 28.94 43.256 29.143 43.394c.204-.138 21.513-14.6 11.44-25.213-7.214-6.08-11.377 2.46-11.44 2.59z" id="heart" fill="#AAB8C2" />
-                                    <circle id="main-circ" fill="#E2264D" opacity="0" cx="29.5" cy="29.5" r="1.5" />
-                                    <g id="heartgroup1" opacity="0" transform="translate(24)">
-                                        <circle id="heart1" fill="#9FC7FA" cx="2.5" cy="3" r="2" />
-                                        <circle id="heart2" fill="#9FC7FA" cx="7.5" cy="2" r="2" />
+            <?php foreach ($data as $gato) : ?>
+                <div class="polaroide">
+                    <?php if (!empty($gato['foto1'])) : ?>
+                        <img class="img-test" src="<?php echo '..\..\view\pages\pagesAdmin\\' . $gato['foto1']; ?>" alt="Imagem de gato">
+                    <?php else : ?>
+                        <img class="img-test" src="../assets/gato2.jpg" alt="Imagem de gato como exemplo">
+                    <?php endif; ?>
+                    <div class="info-cat"> <!-- O nome do gato e o botão de curtif ficam aqui-->
+                        <p>Gatinho exemplo</p>
+                        <div class="heartbox">
+                            <input type="checkbox" class="checkbox" id="checkbox" />
+                            <label for="checkbox">
+                                <svg id="heart-svg" viewBox="467 392 58 57" xmlns="http://www.w3.org/2000/svg">
+                                    <g id="Group" fill="none" fill-rule="evenodd" transform="translate(467 392)">
+                                        <path d="M29.144 20.773c-.063-.13-4.227-8.67-11.44-2.59C7.63 28.795 28.94 43.256 29.143 43.394c.204-.138 21.513-14.6 11.44-25.213-7.214-6.08-11.377 2.46-11.44 2.59z" id="heart" fill="#AAB8C2" />
+                                        <circle id="main-circ" fill="#E2264D" opacity="0" cx="29.5" cy="29.5" r="1.5" />
+                                        <g id="heartgroup1" opacity="0" transform="translate(24)">
+                                            <circle id="heart1" fill="#9FC7FA" cx="2.5" cy="3" r="2" />
+                                            <circle id="heart2" fill="#9FC7FA" cx="7.5" cy="2" r="2" />
+                                        </g>
                                     </g>
-                                </g>
-                            </svg>
-                        </label>
+                                </svg>
+                            </label>
+                        </div>
                     </div>
                 </div>
-            </div>
-        <?php endforeach; ?>
+            <?php endforeach; ?>
         </section>
 
 
@@ -231,4 +255,3 @@
 </body>
 
 </html>
-
