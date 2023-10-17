@@ -9,7 +9,6 @@ use Firebase\JWT\Key;
 if (isset($_COOKIE['jwt_token'])) {
     $jwt_token = $_COOKIE['jwt_token'];
     $decoded = JWT::decode($jwt_token, new Key("test_key", 'HS256'));
-
     $decoded_array = (array) $decoded;
     echo $decoded_array['email'];
 } else {
@@ -33,9 +32,7 @@ if (isset($_COOKIE['jwt_token'])) {
         $homePage = new HomePageController();
         $data = $homePage -> infoHomeGatos();
     }
- 
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -204,8 +201,6 @@ if (isset($_COOKIE['jwt_token'])) {
                 </table>
             </form>
         </section>
-
-
         <script>
             const toggleButton = document.getElementById('toggle-form');
             const form = document.getElementById('my-form');
@@ -218,20 +213,29 @@ if (isset($_COOKIE['jwt_token'])) {
                 }
             });
         </script>
-
         <section class="gallery">
-        <?php foreach ($data as $gato) : ?>
-            <div class="polaroide">
-                <?php if (!empty($gato['foto1'])) : ?>
-                    <img class="img-test" src="<?php echo '..\..\view\pages\pagesAdmin\\' . $gato['foto1']; ?>" alt="Imagem de gato">
-                <?php else : ?>
-                    <img class="img-test" src="../assets/gato2.jpg" alt="Imagem de gato como exemplo">
-                <?php endif; ?>
-                <p class="info-gato"><?php echo $gato['nome']; ?><span class="material-symbols-outlined">favorite</span></p>
-            </div>
-        <?php endforeach; ?>
+        <?php
+        if (isset($_GET['erro'])) {
+            
+            echo '<div class="polaroide">';
+            echo '<img class="img-test" src="../assets/gatinho_triste.png" alt="Gatinho triste">';
+            echo '<p class="info-gato">Ocorreu um problema, não temos essa informação.</p>';
+            echo '</div>';
+        } else {
+            foreach ($data as $gato) {
+                echo '<div class="polaroide">';
+                if (!empty($gato['foto1'])) {
+                    echo '<img class="img-test" src="../../view/pages/pagesAdmin/' . $gato['foto1'] . '" alt="Imagem de gato">';
+                } else {
+                    echo '<img class="img-test" src="../assets/gato2.jpg" alt="Imagem de gato como exemplo">';
+                }
+                echo '<p class="info-gato>' . $gato['nome'] . '<span class="material-symbols-outlined">favorite</span></p>';
+                echo '</div>';
+            }
+        }
+        ?>
         </section>
-    </main>
+        </main>
     <footer>
         <p>&copy;2023 Adoteme </p>
     </footer>

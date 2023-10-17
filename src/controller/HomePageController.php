@@ -15,7 +15,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $gatosInfo = $homePageController->searchGato($data);
 
         if (!$gatosInfo) {
-            echo "<h1>Não existe gato com essa informação</h1>";
+            $erro = "Nenhum gato encontrado com essa informação";
+            $erro_encode = json_encode($erro);
+            header("Location: ../view/pages/HomePage.php?erro=$erro_encode");
         } else {
             session_start();
             $_SESSION['search_resultados'] = $gatosInfo;
