@@ -15,13 +15,26 @@ if (isset($_COOKIE['jwt_token'])) {
 } else {
     echo "<h1> faça login </h1>";
 }
-    $homePage = new HomePageController();
+
+    if(!isset($_SESSION)) 
+    { 
+        session_start(); 
+    }
+    else
+    {
+        session_destroy();
+        session_start(); 
+    } 
     $data = array();
-    $data = $homePage -> infoHomeGatos();
-    
+    if(isset($_SESSION['search_resultados'])){
+        $data = $_SESSION['search_resultados'];
+        unset($_SESSION['search_resultados']);
+    } else {
+        $homePage = new HomePageController();
+        $data = $homePage -> infoHomeGatos();
+    }
+ 
 ?>
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -43,7 +56,7 @@ if (isset($_COOKIE['jwt_token'])) {
     </header>
     <main>
         <section class="search">
-            <form action="" method="post">
+            <form action="../../controller/HomePageController.php" method="POST">
                 <input type="text" name="search" id="search" placeholder="Pesquisar">
                 <button type="submit">Pesquisar</button>
             </form>
@@ -210,8 +223,7 @@ if (isset($_COOKIE['jwt_token'])) {
         <?php foreach ($data as $gato) : ?>
             <div class="polaroide">
                 <?php if (!empty($gato['foto1'])) : ?>
-                    <img class="img-test" src="<?php echo '..\..\view\pages\pagesAdmin\\' . $gato['foto1']; ?>
-" alt="Imagem de gato">
+                    <img class="img-test" src="<?php echo '..\..\view\pages\pagesAdmin\\' . $gato['foto1']; ?>" alt="Imagem de gato">
                 <?php else : ?>
                     <img class="img-test" src="../assets/gato2.jpg" alt="Imagem de gato como exemplo">
                 <?php endif; ?>
