@@ -1,5 +1,7 @@
 <?php
 require '..\..\..\vendor\autoload.php';
+require_once __DIR__ . '..\..\..\controller\HomePageController.php';
+use controller\HomePageController;
 
 use Firebase\JWT\JWT;
 use Firebase\JWT\Key;
@@ -13,10 +15,16 @@ if (isset($_COOKIE['jwt_token'])) {
 } else {
     echo "<h1> faça login </h1>";
 }
+    $homePage = new HomePageController();
+    $data = array();
+    $data = $homePage -> infoHomeGatos();
+    
 ?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -199,57 +207,17 @@ if (isset($_COOKIE['jwt_token'])) {
         </script>
 
         <section class="gallery">
+        <?php foreach ($data as $gato) : ?>
             <div class="polaroide">
-                <img class="img-test" src="../assets/gato2.jpg" alt="imagem de gato">
-                <p class="info-cat">Gatinho exemplo
-                    <span class="material-symbols-outlined">
-                        favorite
-                    </span>
-                </p>
+                <?php if (!empty($gato['foto1'])) : ?>
+                    <img class="img-test" src="<?php echo '..\..\view\pages\pagesAdmin\\' . $gato['foto1']; ?>
+" alt="Imagem de gato">
+                <?php else : ?>
+                    <img class="img-test" src="../assets/gato2.jpg" alt="Imagem de gato como exemplo">
+                <?php endif; ?>
+                <p class="info-gato"><?php echo $gato['nome']; ?><span class="material-symbols-outlined">favorite</span></p>
             </div>
-            <div class="polaroide">
-                <img class="img-test" src="../assets/images.jpeg" alt="imagem de gato">
-                <p class="info-cat">Gatinho exemplo
-                    <button class="favorite-button">
-                        <span class="material-symbols-outlined">
-                            favorite
-                        </span>
-                    </button>
-                </p>
-            </div>
-            <div class="polaroide">
-                <img class="img-test" src="../assets/gato2.jpg" alt="imagem de gato">
-                <p class="info-cat">Gatinho exemplo
-                    <span class="material-symbols-outlined">
-                        favorite
-                    </span>
-                </p>
-            </div>
-            <div class="polaroide">
-                <img class="img-test" src="../assets/gato2.jpg" alt="imagem de gato">
-                <p class="info-cat">Gatinho exemplo
-                    <span class="material-symbols-outlined">
-                        favorite
-                    </span>
-                </p>
-            </div>
-            <div class="polaroide">
-                <img class="img-test" src="../assets/gato2.jpg" alt="imagem de gato">
-                <p class="info-cat">Gatinho exemplo
-                    <span class="material-symbols-outlined">
-                        favorite
-                    </span>
-                </p>
-            </div>
-            <div class="polaroide">
-                <img class="img-test" src="../assets/gato2.jpg" alt="imagem de gato">
-                <p class="info-cat">Gatinho exemplo
-                    <span class="material-symbols-outlined">
-                        favorite
-                    </span>
-                </p>
-            </div>
-
+        <?php endforeach; ?>
         </section>
     </main>
     <footer>
@@ -258,3 +226,4 @@ if (isset($_COOKIE['jwt_token'])) {
 </body>
 
 </html>
+
