@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,7 +18,7 @@
     </header>
     <main>
         <section class="search">
-            <form action="" method="post">
+            <form action="../../controller/HomePageController.php" method="POST">
                 <input type="text" name="search" id="search" placeholder="Pesquisar">
                 <button type="submit">Pesquisar</button>
             </form>
@@ -195,8 +194,13 @@
         </script>
 
         <section class="gallery">
+        <?php foreach ($data as $gato) : ?>
             <div class="polaroide">
-                <img class="img-test" src="../assets/images.jpeg" alt="imagem de gato">
+                <?php if (!empty($gato['foto1'])) : ?>
+                    <img class="img-test" src="<?php echo '..\..\view\pages\pagesAdmin\\' . $gato['foto1']; ?>" alt="Imagem de gato">
+                <?php else : ?>
+                    <img class="img-test" src="../assets/gato2.jpg" alt="Imagem de gato como exemplo">
+                <?php endif; ?>
                 <div class="info-cat"> <!-- O nome do gato e o botão de curtif ficam aqui-->
                     <p>Gatinho exemplo</p>
                     <div class="heartbox">
@@ -216,8 +220,7 @@
                     </div>
                 </div>
             </div>
-
-
+        <?php endforeach; ?>
         </section>
 
 
@@ -228,3 +231,4 @@
 </body>
 
 </html>
+
