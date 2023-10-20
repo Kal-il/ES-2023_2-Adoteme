@@ -33,14 +33,18 @@ if (!isset($_SESSION)) {
     session_start();
 }
 $data = array();
+
 if (isset($_SESSION['search_resultados'])) {
     $data = $_SESSION['search_resultados'];
     unset($_SESSION['search_resultados']);
+} elseif (isset($_SESSION['filtragem'])) {
+    $data = $_SESSION['filtragem'];
+    unset($_SESSION['filtragem']);
 } else {
     $homePage = new HomePageController();
     $data = $homePage->infoHomeGatos();
-
 }
+
 
 ?>
 <!DOCTYPE html>
@@ -77,16 +81,16 @@ if (isset($_SESSION['search_resultados'])) {
             </button>
         </section>
         <!-- Formulário aqui-->
-        <form id="my-form">
+        <form id="my-form" action="../../controller/HomePageController.php" method="POST">
             <table>
                 <thead>
                     <!-- aqui ficam os titulos da tabéla-->
                     <tr>
                         <th>Cor</th>
-                        <th>Sexo</th>
+                        <th>filtros</th>
                         <th>Porte</th>
                         <th>Idade</th>
-                        <th>Temperamento</th>
+                        <th>filtros</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -94,128 +98,97 @@ if (isset($_SESSION['search_resultados'])) {
                         <!-- Cor-->
                         <td>
                             <label for="preto">Preto</label>
-                            <input type="checkbox" name="preto" id="preto">
+                            <input type="checkbox" name="filtros[]" value="preto"  id="preto">
                         </td>
-                        <!-- Sexo-->
+                        <!-- filtros-->
                         <td>
                             <label for="femea">Femea</label>
-                            <input type="checkbox" name="femea" id="femea">
+                            <input type="checkbox" name="filtros[]" value="femea" id="femea">
                         </td>
 
                         <!-- Porte-->
-                        <td>
-                            <label for="pequeno">Pequeno</label>
-                            <input type="checkbox" name="pequeno" id="pequeno">
-                        </td>
-                        <!-- Idade-->
-                        <td>
-                            <label for="filhote">Filhote</label>
-                            <input type="checkbox" name="filhote" id="filhote">
-                        </td>
+
                         <!-- Temperamento -->
                         <td>
                             <label for="calmo">Calmo</label>
-                            <input type="checkbox" name="calmo" id="calmo">
+                            <input type="checkbox" name="filtros[]" value="calmo" id="calmo">
                         </td>
                     </tr>
                     <tr>
-                        <!-- Cor linha 2-->
+                        <!-- filtros linha 2-->
                         <td>
                             <label for="laranja">Laranja</label>
-                            <input type="checkbox" name="laranja" id="laranja">
+                            <input type="checkbox" name="filtros[]" name="laranja" value="laranja" id="laranja">
                         </td>
-                        <!-- Sexo linha 2 -->
+                        <!-- filtros linha 2 -->
                         <td>
                             <label for="macho">Macho</label>
-                            <input type="checkbox" name="macho" id="macho">
+                            <input type="checkbox" name="filtros[]" value="macho" id="macho">
                         </td>
-                        <!-- Porte linha 2 -->
-                        <td>
-                            <label for="medio">Médio</label>
-                            <input type="checkbox" name="medio" id="medio">
-                        </td>
-                        <td>
 
                         </td>
-                        <!-- Temperamento linha 2 -->
+                        <!-- filtros linha 2 -->
                         <td>
-                            <label for="brincalhao">Brincalhão</label>
-                            <input type="checkbox" name="brincalhao" id="brincalhao">
+                            <label for="brincalhao">Nervoso</label>
+                            <input type="checkbox" name="filtros[]" value="nervoso" id="brincalhao">
                         </td>
                     </tr>
                     <tr>
-                        <!-- Cor linha 3-->
+                        <!-- filtros linha 3-->
                         <td>
                             <label for="branco">Branco</label>
-                            <input type="checkbox" name="branco" id="branco">
+                            <input type="checkbox" name="filtros[]" value="branco" id="branco">
                         </td>
                         <td></td>
-                        <td>
-                            <label for="grande">Grande</label>
-                            <input type="checkbox" name="grande" id="grande">
-                        </td>
-                        <td>
-                            <label for="adulto">Adulto</label>
-                            <input type="checkbox" name="adulto" id="adulto">
 
-                        </td>
                         <td>
                             <label for="amigavel">Amigável</label>
-                            <input type="checkbox" name="amigavel" id="amigavel">
+                            <input type="checkbox" name="filtros[]" value="amigavel" id="amigavel">
                         </td>
                     </tr>
                     <tr>
                         <td>
                             <label for="marrom">Marrom</label>
-                            <input type="checkbox" name="marrom" id="marrom">
+                            <input type="checkbox" name="filtros[]" value="marrom" id="marrom">
                         </td>
                         <td></td>
                         <td></td>
-                        <td>
-                            <label for="idoso">Idoso</label>
-                            <input type="checkbox" name="idoso" id="idoso">
-                        </td>
                     </tr>
                     <tr>
                         <td>
                             <label for="cinza">Cinza</label>
-                            <input type="checkbox" name="cinza" id="cinza">
+                            <input type="checkbox" name="filtros[]" value="cinza" id="cinza">
                         </td>
                         <td></td>
                         <td></td>
                         <td></td>
                         <td>
-                            <label for="timido">Tímido</label>
-                            <input type="checkbox" name="timido" id="timido">
+                            <label for="timido">Carente</label>
+                            <input type="checkbox" name="filtros[]" value="carente" id="timido">
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <label for="rajado">Rajado</label>
-                            <input type="checkbox" name="rajado" id="rajado">
+                            <label for="rajado">Preto e Branco</label>
+                            <input type="checkbox" name="filtros[]" id="preto_e_branco">
                         </td>
                         <td></td>
                         <td></td>
                         <td></td>
                         <td>
                             <label for="curioso">Curioso</label>
-                            <input type="checkbox" name="curioso" id="curioso">
+                            <input type="checkbox" name="filtros[]" value="curioso" id="curioso">
                         </td>
                     </tr>
                     <tr>
-                        <td>
-                            <label for="tricolor">Tricolor</label>
-                            <input type="checkbox" name="tricolor" id="tricolor">
-                        </td>
                         <td></td>
                         <td></td>
                         <td></td>
                     </tr>
                 </tbody>
             </table>
+            <button type="submit" name="filtrar">Cadastrar</button>
         </form>
-
-
         <script>
             const toggleButton = document.getElementById('toggle-form');
             const form = document.getElementById('my-form');
@@ -233,7 +206,7 @@ if (isset($_SESSION['search_resultados'])) {
         if (isset($_GET['erro'])) {
             echo '<div class="polaroide">';
             echo '<img class="img-test" src="../assets/gatinho_triste.png" alt="Gatinho triste">';
-            echo '<p class="info-gato">Ocorreu um problema, não temos essa informação.</p>';
+            echo '<p class="info-gato">Ofiltrosreu um problema, não temos essa informação.</p>';
             echo '</div>';
         } else {
             foreach ($data as $gato) {
