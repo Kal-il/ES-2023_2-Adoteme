@@ -1,4 +1,5 @@
 <?php
+
 namespace controller;
 
 require_once __DIR__.'..\..\models\Connection.php';
@@ -36,15 +37,7 @@ class HomePageController{
         $gatosInfo = $gatos->ListarGatos($connection);
         return $gatosInfo;
     }
-
-    // function infoHomeGatosAdotados(){
-    //     $connection = new Connection();
-    //     $connection = $connection->getConnection();
-    //     $gatos = new GatosModel();
-    //     $gatosInfo = $gatos->ListarGatosAdotados($connection);
-    //     return $gatosInfo;
-    // }
-
+    
     function searchGato($data){
         $connection = new Connection();
         $connection = $connection->getConnection();

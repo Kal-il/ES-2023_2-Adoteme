@@ -106,5 +106,21 @@ class UserModel {
             return false;
         }
     }
+
+    function GetIDByEmail($connection, $email){
+        $query = "SELECT id FROM usuarios WHERE email='$email'";
+
+        $resultado = $this->queryDatabase($connection, $query);
+
+        if(pg_num_rows($resultado)==0){
+            return 0;
+        }
+
+        $row = pg_fetch_row($resultado);
+        return $row[0];
+    }
+
 }
+
+
 ?>
