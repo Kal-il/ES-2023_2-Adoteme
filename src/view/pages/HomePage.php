@@ -13,15 +13,15 @@ use Firebase\JWT\Key;
 
 use function controller\checkUser;
 
+$flag = false;
+$favoritos = array();
+$user_id = 0;
 if (isset($_COOKIE['jwt_token'])) {
     $jwt_token = $_COOKIE['jwt_token'];
     $decoded = JWT::decode($jwt_token, new Key("test_key", 'HS256'));
     $decoded_array = (array) $decoded;
     $user_id = $decoded_array['user_id'];
-
-    $favoritos = array();
     $favoritos = checkUser($user_id);
-    $flag = false;
 } else {
     echo "<h1> faça login </h1>";
 }
@@ -276,7 +276,12 @@ if (isset($_SESSION['search_resultados'])) {
                                 var id_usuario =  <?php echo $user_id; ?>;  
                                 var id_gato = <?php echo $gato['id']; ?>;
                                 var checked = $(this).is(':checked');
-                                if (checked) {
+                                if (id_usuario==0){
+                                    $(this).prop('checked', false);
+                                    alert("Faça login para adicionar aos favoritos");
+                                    return;
+                                }else{
+                                    if (checked) {
                                     $.ajax({
                                         url: '../../controller/FavoritosController.php',
                                         type: 'POST',
@@ -304,8 +309,9 @@ if (isset($_SESSION['search_resultados'])) {
                                         }
                                     });
                                 }
+                                }
                             });
-                        });
+                        });       
                     </script>
                     
                 </div>

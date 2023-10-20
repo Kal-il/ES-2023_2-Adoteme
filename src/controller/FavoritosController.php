@@ -14,7 +14,6 @@ function checkUser($user_id){
     return $favoritos;
 }
 
-
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $data = [
             "usuario_id" => $_POST['user_id'],
@@ -29,9 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         $favoritosController->deleteFavoritos($data);
     }
-
 }
-
 
 class FavoritosController {
     private function queryDatabase($connection, $query) {

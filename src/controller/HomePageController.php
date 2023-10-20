@@ -25,6 +25,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             header("Location: ../view/pages/HomePage.php");
  
         }
+    }elseif(isset($_POST["filtrar"])){
+        $data = $_POST["filtrar"];
+        var_dump($data);    
+        session_start();
+        $homePageController = new HomePageController();
+        $filtrosGatos = 
+        $_SESSION['filtragem'] = $gatosInfo;
+
     }
 }
 
@@ -48,6 +56,12 @@ class HomePageController{
             return $gatosInfo;
         return false;
            
+    }
+    function filtrarGato($data){
+        $connection = new Connection();
+        $connection = $connection->getConnection();
+        $gatos = new GatosModel();  
+        $gatosInfo = $gatos->FilterGato($connection, $data);
     }
 
 
