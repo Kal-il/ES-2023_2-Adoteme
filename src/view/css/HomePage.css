@@ -84,14 +84,12 @@ h2 {
 .polaroide {
     flex: 0 0 calc(25% - 10px);
     background-color: white;
-    padding: auto;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
     margin-bottom: 10px;
     transition: transform 350ms ease, opacity 350ms linear;
     text-align: center;
     border-radius: 4px;
 }
-
 .img-test {
     aspect-ratio: 1/1;
     object-fit: cover;
@@ -106,16 +104,16 @@ h2 {
 
 .info-cat {
     display: flex;
-    justify-content: space-around;
     align-items: center;
+    flex-direction: row;
+    justify-content: space-around;
     padding-top: 2.5%;
     padding-bottom: 2.5%;
 }
 svg {
     cursor: pointer;
     overflow: visible;
-    width: 60px;
-    margin: 20px;
+    width: 50px;
 }
 
 svg #heart {
@@ -129,6 +127,8 @@ svg #main-circ {
 
 .checkbox {
     display: none;
+    float: left;
+
 }
 
 .checkbox:checked+label svg #heart {
