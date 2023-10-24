@@ -1,42 +1,8 @@
 <?php
 
-$host = 'silly.db.elephantsql.com';
-$port = '5432';
-$dbname = 'ymobdwtv';
-$user = 'ymobdwtv';
-$password = '6z7xnZXsb2DWh6_NWJdqvl8ObXlJMoWu';
+require_once '../../../../controller/gatosController/VisualizarGato.php';
 
-try {
-    $pdo = new PDO("pgsql:host=$host;port=$port;dbname=$dbname", $user, $password);
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch (PDOException $e) {
-    die("Connection failed: " . $e->getMessage());
-}
-
-try {
-    $query = "SELECT nome, data_nascimento, sexo, cor, descricao, castrado, vacina_completa, foto1, foto2, foto3 FROM gatos WHERE id = 8";
-    $stmt = $pdo->prepare($query);
-    $stmt->execute();
-} catch (PDOException $e) {
-    die("Query failed: " . $e->getMessage());
-}
-while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-
-    $nome = $row['nome'];
-    $sexo = $row['sexo'];
-    $cor = $row['cor'];
-    $idade = $row['data_nascimento'];
-    $imagem = $row['foto1'];
-    $imagem2 = $row['foto2'];
-    $imagem3 = $row['foto3'];
-    $descricao = $row['descricao'];
-    $castrado = $row['castrado'];
-    $vacinado = $row['vacina_completa'];
-}
-$pdo = null
-
-
-    ?>
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -81,43 +47,43 @@ $pdo = null
 
         <div class="left-column">
             <div class="left-column-image">
-                <img class="image" id="main-image" src="<?php echo $imagem ?>" alt="Gato" draggable="false" >
+                <img class="image" id="main-image" src="<?php echo $gatoData['foto1']?>" alt="Gato" draggable="false" >
                 <div class="heart">
                     <i id="heart-icon" class="far fa-heart icon"></i>
                 </div>
 
             </div>
             <div class="left-column-images">
-                <img class="left-images" src="<?php echo $imagem; ?>" alt="Imagem 1"
-                    onclick="changeImage('<?php echo $imagem; ?>') "  draggable="false">
-                <img class="left-images" src="<?php echo $imagem2; ?>" alt="Imagem 2"
-                    onclick="changeImage('<?php echo $imagem2; ?>')" draggable="false">
-                <img class="left-images" src="<?php echo $imagem3; ?>" alt="Imagem 3"
-                    onclick="changeImage('<?php echo $imagem3; ?>')" draggable="false">
+                <img class="left-images" src="<?php echo $gatoData['foto1']?>" alt="Imagem 1"
+                    onclick="changeImage('<?php echo $gatoData['foto1']; ?>') "  draggable="false">
+                <img class="left-images" src="<?php echo $gatoData['foto2']?>" alt="Imagem 1"
+                    onclick="changeImage('<?php echo $gatoData['foto2']; ?>') "  draggable="false">
+                <img class="left-images" src="<?php echo $gatoData['foto3']?>" alt="Imagem 2"
+                    onclick="changeImage('<?php echo $gatoData['foto3']; ?>')" draggable="false">
             </div>
         </div>
         <div class="right-column">
             <ul class="cat-info">
                 <h1>
-                    <?php echo strtoupper($nome); ?>
+                <?php echo $gatoData['nome']?>
                 </h1>
                 <li class="bullet-points">
                     -
-                    <?php echo $sexo ?>
+                    <?php echo $gatoData['sexo']?>
                 </li>
                 <li class="bullet-points">
                     -
-                    <?php echo $cor ?>
+                    <?php echo $gatoData['cor']?>
                 </li>
                 <li class="bullet-points">
                     -
                     Nascimento aproximado:
-                    <?php echo $idade ?>
+                    <?php echo $gatoData['data_nascimento']?>
                 </li>
                 <li class="bullet-points">
                     -
                     Castrado:
-                    <?php if ($castrado) {
+                    <?php if ($gatoData['castrado']) {
                         echo "Sim";
                     } else {
                         echo "Não";
@@ -126,17 +92,17 @@ $pdo = null
                 <li class="bullet-points">
                     -
                     Vacinado:
-                    <?php if ($vacinado) {
+                    <?php if ($gatoData['vacina_completa']) {
                         echo "Sim";
                     } else {
                         echo "Não";
                     } ?>
                 </li>
                 <br>
-                <?php echo $descricao ?>
+                <?php echo $gatoData['descricao']?>
             </ul>
             <div class="tenho-interesse"><button class="botao" type="submit" name="botaoAdocao">
-                    <div class="button-info">Tenho Interesse!</div>
+                    <div class="button-info">Quero adotar!</div>
                 </button></div>
 
         </div>
