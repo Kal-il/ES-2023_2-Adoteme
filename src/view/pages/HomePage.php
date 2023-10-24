@@ -1,5 +1,6 @@
 <?php
-require '..\..\..\vendor\autoload.php';
+require __DIR__ . '\..\..\..\..\vendor\autoload.php';
+require_once '../../controller/gatosController/ListarGatosController.php';
 
 use Firebase\JWT\JWT;
 use Firebase\JWT\Key;
@@ -199,6 +200,7 @@ if (isset($_COOKIE['jwt_token'])) {
         </script>
 
         <section class="gallery">
+
             <div class="polaroide">
                 <img class="img-test" src="../assets/gato2.jpg" alt="imagem de gato">
                 <p class="info-cat">Gatinho exemplo
@@ -207,48 +209,19 @@ if (isset($_COOKIE['jwt_token'])) {
                     </span>
                 </p>
             </div>
-            <div class="polaroide">
-                <img class="img-test" src="../assets/images.jpeg" alt="imagem de gato">
-                <p class="info-cat">Gatinho exemplo
-                    <button class="favorite-button">
+
+            <?php foreach ($gatos as $gato) : ?>
+                <div class="polaroide">
+                    <a href="VisualizarGato.php?id=<?php echo $gato['id'] ?>">
+                        <img class="img-test" src="<?php echo $gato['foto1'] ?>" alt="imagem de gato">
+                    </a>                    
+                    <p class="info-cat"><?php echo $gato['nome'] ?>
                         <span class="material-symbols-outlined">
                             favorite
                         </span>
-                    </button>
-                </p>
-            </div>
-            <div class="polaroide">
-                <img class="img-test" src="../assets/gato2.jpg" alt="imagem de gato">
-                <p class="info-cat">Gatinho exemplo
-                    <span class="material-symbols-outlined">
-                        favorite
-                    </span>
-                </p>
-            </div>
-            <div class="polaroide">
-                <img class="img-test" src="../assets/gato2.jpg" alt="imagem de gato">
-                <p class="info-cat">Gatinho exemplo
-                    <span class="material-symbols-outlined">
-                        favorite
-                    </span>
-                </p>
-            </div>
-            <div class="polaroide">
-                <img class="img-test" src="../assets/gato2.jpg" alt="imagem de gato">
-                <p class="info-cat">Gatinho exemplo
-                    <span class="material-symbols-outlined">
-                        favorite
-                    </span>
-                </p>
-            </div>
-            <div class="polaroide">
-                <img class="img-test" src="../assets/gato2.jpg" alt="imagem de gato">
-                <p class="info-cat">Gatinho exemplo
-                    <span class="material-symbols-outlined">
-                        favorite
-                    </span>
-                </p>
-            </div>
+                    </p>
+                </div>
+            <?php endforeach; ?>
 
         </section>
     </main>
