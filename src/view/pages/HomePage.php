@@ -302,5 +302,4 @@ if (isset($_SESSION['search_resultados'])) {
         <p>&copy;2023 Adoteme </p>
     </footer>
 </body>
-
 </html>

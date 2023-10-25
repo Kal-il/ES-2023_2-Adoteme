@@ -1,0 +1,247 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;600&display=swap');
+
+/* Reset de estilos para eliminar margens e preenchimentos padrão */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilos globais */
+body {
+    font-family: 'Nunito', sans-serif;
+    background-color: #f1f1f1;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    display: flex;
+    background-color: #383464;
+    flex-direction: row;
+}
+
+#logo {
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 5px;
+    display: flex;
+    flex-direction: row;
+    color: white;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+#logo,
+nav {
+    align-items: end;
+}
+
+#logo2 {
+    margin: 10PX;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.nav-link {
+    color: white;
+}
+
+h2 {
+    font-size: 1.5em;
+    margin: 0;
+    padding: 0;
+    margin-left: 20px;
+}
+
+
+
+
+
+/* Formulário */
+form {
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    max-width: 680px;
+    margin: 0 auto;
+}
+
+select{
+    width: 640px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+}
+
+/* Botões do formulário */
+.form-buttons-container {
+    display: flex;
+    justify-content: space-between; /* Alinha os elementos no final do contêiner (canto inferior direito) */
+    margin-top: 20px;
+    width: 100%;
+    flex-direction: column;
+
+}
+
+.checkbox-wrapper {
+    display: flex;
+    align-items: center;
+    margin-bottom: 3%;
+    gap: 5px;
+}
+
+/* Estilo para o botão de enviar */
+.form-buttons-container input[type="submit"] {
+    background-color: #383464;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    border-radius: 8px;
+    font-size: large;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.form-buttons-container input[type="submit"]:hover {
+    background-color: #252152;
+}
+
+.form-buttons-container input[type="submit"]:active{
+    background-color: #252152;
+    transform: scale(0.95);
+}
+
+
+
+.button-container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: space-between;
+}
+
+button {
+    background-color: rgb(40, 44, 155);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    border-radius: 8px;
+}
+
+.submit-button button:hover {
+    background-color: #1e2178;
+}
+
+/* Rodapé */
+footer {
+    background-color: #383464;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+
+
+
+/* Estilo para as checkboxes e rótulos na Seção 6 */
+.form-section input[type="checkbox"] {
+    vertical-align: middle;
+    margin-right: 10px;
+    
+}
+
+.form-section label {
+    
+    vertical-align: middle;
+    display: inline-block;
+    margin-bottom: 0;
+    
+}
+
+
+/* Estilo para as form-sections (divs) */
+.form-section {
+    margin-bottom: 30px; /* Espaço entre as seções */
+   
+}
+.form-section-seila{
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+
+
+}
+input::-webkit-outer-spin-button,
+      input::-webkit-inner-spin-button {
+         -webkit-appearance: none;
+        
+      }
+
+.form-section-seila input {
+    padding-left: 3px;
+}
+
+.form-section label,
+.form-section input,
+.form-section select,
+.form-section textarea {
+    font-family: Nunito, sans-serif;
+    
+}
+
+.bold-label {
+    font-weight: bold;
+    font-size: large;
+}
+
+input[type="text"] {
+    width: 560px; /* Largura da caixa de texto */
+    height: 100px; /* Altura da caixa de texto */
+    line-height: 1; /* Posiciona o texto no topo */
+    padding-top: 5px; /* Espaçamento entre o topo da caixa de texto e o texto dentro dela */
+    font-size: 14px; /* Tamanho da fonte (opcional, ajuste conforme necessário) */
+    
+}
+.tituloform{
+    font-weight: bolder;
+    font-size: xx-large;
+    
+    
+}
+#titulo-formulario {
+    text-align: center;
+    padding-bottom: 30px;
+}
+
+.checkbox-section input[type="checkbox"] {
+    vertical-align: middle;
+    margin-right: 10px; /* Espaço entre a checkbox e o texto */
+    
+    
+}
+
+.checkbox-section label {
+    vertical-align: middle;
+    
+}
+
+textarea{
+    width: 640px; /* Largura da caixa de texto */
+    height: 100px; /* Altura da caixa de texto */
+    resize: none;
+}
+
+.custom-textbox{
+    resize:none;
+}
+
+
