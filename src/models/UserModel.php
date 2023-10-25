@@ -1,5 +1,4 @@
 <?php
-
 namespace models;
 require_once 'Connection.php';
 
