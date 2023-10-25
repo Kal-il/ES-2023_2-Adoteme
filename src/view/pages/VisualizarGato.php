@@ -1,6 +1,6 @@
 <?php
 
-require_once(__DIR__. '/../../controller/gatosController/VisualizarGato.php');
+include('C:\xampp\htdocs\ES-2023_2-Adoteme\src\controller\gatosController\VisualizarGato.php');
 
 ?>
 
@@ -102,7 +102,8 @@ require_once(__DIR__. '/../../controller/gatosController/VisualizarGato.php');
                 <?php echo $gatoData['descricao']?>
             </ul>
             <div class="tenho-interesse"><button class="botao" type="submit" name="botaoAdocao">
-                    <div class="button-info">Quero adotar!<i class="fas fa-paw"></i></div>
+                    <?php echo '<div class="button-info"><a href="FormPage.php?id=' . $gatoData['id'] . '">Quero adotar!</a><i class="fas fa-paw"></i></div>'; ?>
+                    
                 </button></div>
 
         </div>

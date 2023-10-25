@@ -28,31 +28,49 @@ h2 {
         'opsz'24
 }
 
+#toggle-form {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    display: inline;
+    font-size: 20px;
+    margin-left: 10px;
+}
+
 .search {
     margin: 3%;
     display: flex;
     flex-direction: row;
 }
 
-table {
-    border-collapse: collapse;
-    width: 100%;
-}
-
-th,
-td {
-    padding: 8px;
-    text-align: center;
-    border-bottom: 1px solid #ddd;
-}
-
-th {
-    background-color: #f2f2f2;
-}
-
 #my-form {
     display: none;
+    position: fixed;
+    z-index: 0;
+    background-color: white;
+    margin-left: 30%;
+    margin-right: 25%;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+
 }
+
+#my-form table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#my-form th,
+#my-form td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+#my-form th {
+    background-color: #383464;
+    color: #fff;
+}
+
 
 .gallery {
     display: flex;
@@ -93,21 +111,157 @@ th {
     padding-top: 2.5%;
     padding-bottom: 2.5%;
 }
-
-.favorite-button {
-    border: none;
-    background-color: transparent;
+svg {
     cursor: pointer;
-    transition: transform 0.3s;
+    overflow: visible;
+    width: 60px;
+    margin: 20px;
 }
 
-.material-symbols-outlined {
-    font-family: 'Material Symbols Outlined', sans-serif;
-    font-size: 24px;
-    color: #f5276c;
-    /* Cor personalizada */
+svg #heart {
+    transform-origin: center;
+    animation: animateHeartOut .3s linear forwards;
 }
 
+svg #main-circ {
+    transform-origin: 29.5px 29.5px;
+}
+
+.checkbox {
+    display: none;
+}
+
+.checkbox:checked+label svg #heart {
+    transform: scale(0.2);
+    fill: #E2264D;
+    animation: animateHeart .3s linear forwards .25s;
+}
+
+.checkbox:checked+label svg #main-circ {
+    transition: all 2s;
+    animation: animateCircle .3s linear forwards;
+    opacity: 1;
+}
+
+.checkbox:checked+label svg #heartgroup1 {
+    opacity: 1;
+    transition: .1s all .3s;
+}
+
+.checkbox:checked+label svg #heartgroup1 #heart1 {
+    transform: scale(0) translate(0, -30px);
+    transform-origin: 0 0 0;
+    transition: .5s transform .3s;
+}
+
+.checkbox:checked+label svg #heartgroup4 #heart1 {
+    transform: scale(0) translate(30px, 15px);
+    transform-origin: 0 0 0;
+    transition: .5s transform .3s;
+}
+
+.checkbox:checked+label svg #heartgroup5 #heart1 {
+    transform: scale(0) translate(-10px, 20px);
+    transform-origin: 0 0 0;
+    transition: .5s transform .3s;
+}
+
+.checkbox:checked+label svg #heartgroup6 #heart1 {
+    transform: scale(0) translate(-30px, 0px);
+    transform-origin: 0 0 0;
+    transition: .5s transform .3s;
+}
+
+.checkbox:checked+label svg #heartgroup7 #heart1 {
+    transform: scale(0) translate(-30px, -15px);
+    transform-origin: 0 0 0;
+    transition: .5s transform .3s;
+}
+
+@keyframes animateCircle {
+    40% {
+        transform: scale(10);
+        opacity: 1;
+        fill: #DD4688;
+    }
+
+    55% {
+        transform: scale(11);
+        opacity: 1;
+        fill: #D46ABF;
+    }
+
+    65% {
+        transform: scale(12);
+        opacity: 1;
+        fill: #CC8EF5;
+    }
+
+    75% {
+        transform: scale(13);
+        opacity: 1;
+        fill: transparent;
+        stroke: #CC8EF5;
+        stroke-width: .5;
+    }
+
+    85% {
+        transform: scale(17);
+        opacity: 1;
+        fill: transparent;
+        stroke: #CC8EF5;
+        stroke-width: .2;
+    }
+
+    95% {
+        transform: scale(18);
+        opacity: 1;
+        fill: transparent;
+        stroke: #CC8EF5;
+        stroke-width: .1;
+    }
+
+    100% {
+        transform: scale(19);
+        opacity: 1;
+        fill: transparent;
+        stroke: #CC8EF5;
+        stroke-width: 0;
+    }
+}
+
+@keyframes animateHeart {
+    0% {
+        transform: scale(0.2);
+    }
+
+    40% {
+        transform: scale(1.2);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes animateHeartOut {
+    0% {
+        transform: scale(1.4);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+button {
+    transition: background-color 0.3s, transform 0.2s;
+    cursor: pointer;
+}
+
+button:active {
+    transform: scale(0.9);
+}
 
 
 

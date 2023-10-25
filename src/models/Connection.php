@@ -3,11 +3,11 @@ namespace models;
 use PDOException;
 
 class Connection {
-    private $host = 'silly.db.elephantsql.com';
+    private $host = 'dpg-ckp7qbfkc2qc73doaqk0-a.ohio-postgres.render.com';
     private $port = '5432';
-    private $dbname = 'ymobdwtv';
-    private $user = 'ymobdwtv'; 
-    private $password = '6z7xnZXsb2DWh6_NWJdqvl8ObXlJMoWu';
+    private $dbname = 'db_adoteme_dev_ldw6';
+    private $user = 'adotemeadmin'; 
+    private $password = 'FSsCgKHuKSzlW9rBOLc4wKpwDayqKyvC';
     private $connection;
 
     function getConnection(){
@@ -16,7 +16,6 @@ class Connection {
             return $this->connection;
         } catch (\PDOException $error) {
             echo "Erro na conexão: " . $error->getMessage();
-           
         }
     }
 }

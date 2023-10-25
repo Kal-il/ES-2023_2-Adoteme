@@ -1,6 +1,7 @@
 <?php
+
 namespace models;
-require_once '../models/Connection.php';
+require_once 'Connection.php';
 
 class UserModel {
 
@@ -22,10 +23,10 @@ class UserModel {
         $email = pg_escape_string($connection, $data['email']); 
         $password = pg_escape_string($connection, $data['password']); 
 
-        $query = "SELECT * FROM usuarios WHERE email = '$email'";
+        $query = "SELECT * FROM usuarios WHERE email = '$email' AND senha = '$password'";
         $resultado = $this->queryDatabase($connection, $query);
 
-        if (pg_num_rows($resultado) == 0 && !password_verify($password, $resultado['senha'])) {
+        if (pg_num_rows($resultado) == 0) {
             return false;
         } else {
             return true;
@@ -58,9 +59,8 @@ class UserModel {
         $matricula = pg_escape_string($connection, $data['matricula']);
         $data_nascimento = pg_escape_string($connection, $data['data_nascimento']); 
         $endereco = pg_escape_string($connection, $data['endereco']);
-
     
-        $password = password_hash($password, PASSWORD_DEFAULT);
+
         $query = "INSERT INTO usuarios (email, senha, nome, sobrenome, cpf, telefone, cep, cidade, estado, endereco, matricula, data_nascimento)
         VALUES ('$email', '$password', '$nome', '$sobrenome', '$cpf', '$telefone', '$cep', '$cidade', '$estado', '$endereco', '$matricula', '$data_nascimento')";
         $resultado = $this->queryDatabase($connection, $query);
@@ -107,5 +107,21 @@ class UserModel {
             return false;
         }
     }
+
+    function GetIDByEmail($connection, $email){
+        $query = "SELECT id FROM usuarios WHERE email='$email'";
+
+        $resultado = $this->queryDatabase($connection, $query);
+
+        if(pg_num_rows($resultado)==0){
+            return 0;
+        }
+
+        $row = pg_fetch_row($resultado);
+        return $row[0];
+    }
+
 }
+
+
 ?>
