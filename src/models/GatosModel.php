@@ -151,7 +151,30 @@ class GatosModel {
         }
         return $gatos;
     }
-    
-   
+
+    function filterGato($connection, $data) {
+
+        $queries = array();
+        foreach ($data as $campo) {
+            $campo = pg_escape_string($connection, $campo);
+            $queries[]= "cor LIKE '%$campo%' OR sexo LIKE '%$campo%' OR personalidade LIKE '%$campo%'";
+        }
+            $filtro = implode(" OR ", $queries);
+            $query = "SELECT * FROM gatos WHERE $filtro";
+            $resultado = $this->queryDatabase($connection, $query);
+            if (!$resultado) {
+                die("Erro na busca: " . pg_last_error($connection));
+            }
+            $gatos = array();
+            while ($row = pg_fetch_assoc($resultado)) {
+                $gatos[] = $row;
+            }
+            return $gatos;
 
     }
+    
+    
+    
+
+    
+}
