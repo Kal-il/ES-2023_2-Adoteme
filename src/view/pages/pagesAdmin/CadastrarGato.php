@@ -157,5 +157,4 @@
         <p id="copyrigth">&copy;2023 Adoteme</p>
     </footer>
 </body>
-
 </html>

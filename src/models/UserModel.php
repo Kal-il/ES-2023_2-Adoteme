@@ -1,6 +1,6 @@
 <?php
 namespace models;
-require_once '../models/Connection.php';
+require_once 'Connection.php';
 
 class UserModel {
 

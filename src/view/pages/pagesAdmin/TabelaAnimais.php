@@ -155,5 +155,4 @@ require_once '../../../controller/gatosController/ListarGatosController.php';
 <footer class="footer">
     <p>&copy;2023 Adoteme </p>
 </footer>
-
 </html>

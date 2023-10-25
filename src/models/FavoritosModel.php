@@ -77,5 +77,4 @@ class FavoritosModel{
         return $favoritos;
     }
 
-
 }

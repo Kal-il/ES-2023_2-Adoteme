@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;600&display=swap');
-
 header {
     display: flex;
     background-color: #383464;
@@ -52,7 +51,9 @@ h2 {
     font-family: 'Nunito', sans-serif;
     font-size: 20px;
     color: white;
-    background-color: #3A2E6F;
+
+    background-color: #3A2E6F ;
+
     border-width: 2px;
     border-style: solid;
     border-color: #000;
@@ -62,13 +63,11 @@ h2 {
     margin-bottom: 20px;
     /*box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3); */
     cursor: pointer;
-    filter:
-        /* drop-shadow(4px 4px #261E48 ) */
-        drop-shadow(6px 6px #130F24);
+    filter: /* drop-shadow(4px 4px #261E48 ) */ drop-shadow(6px 6px #130F24 );
     transition: filter 0.1s ease-out;
 }
 
-.fa-solid {
+.fa-solid{
     padding-left: 10px;
 }
 
@@ -84,23 +83,23 @@ h2 {
 
 }
 
-.left-column-image {
+.left-column-image{
     position: relative;
     height: fit-content;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: center; 
     justify-content: center;
     padding-top: 10px;
     padding-bottom: 10px;
 }
 
-.left-column {
+.left-column{
     position: relative;
     height: fit-content;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: center; 
     justify-content: center;
     width: 50%;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
@@ -116,7 +115,7 @@ h2 {
 }
 
 
-.tenho-interesse {
+.tenho-interesse{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -151,12 +150,11 @@ h2 {
     height: fit-content;
     user-select: none;
     border-radius: 10px;
-    border: 5px solid #000000;
+    border: 5px solid #000000; 
     /* box-shadow: 0px 0px 0 3px #000000; */
     align-self: center;
     background-color: #000;
 }
-
 
 .button-info {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
@@ -172,7 +170,7 @@ body {
     margin-right: 0px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     background-color: #ffffff;
-    background-image: url('../assets/image.png');
+    background-image: url('../assets/image.png'); 
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -196,7 +194,7 @@ body {
     border-radius: 10px;
     margin: 10px;
     width: 25%;
-    filter: drop-shadow(6px 6px #000000);
+    filter: drop-shadow(6px 6px #000000 );
     background-color: #000;
 }
 
@@ -221,6 +219,6 @@ ul {
     padding: 0 20px;
 }
 
-img {
+img{
     display: block;
 }

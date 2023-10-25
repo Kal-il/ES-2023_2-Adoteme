@@ -8,10 +8,11 @@ require_once(__DIR__ . '/../../controller/gatosController/VisualizarGato.php');
 <html lang="en">
 
 <head>
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" type="text/css" href="../css/VisualizarGato.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="../js/VisualizarGato.js"></script>
@@ -57,35 +58,39 @@ require_once(__DIR__ . '/../../controller/gatosController/VisualizarGato.php');
 
         <div class="left-column">
             <div class="left-column-image">
-                <img class="image" id="main-image" src="<?php echo $gatoData['foto1'] ?>" alt="Gato" draggable="false">
+                <img class="image" id="main-image" src="<?php echo $gatoData['foto1']?>" alt="Gato" draggable="false" >
                 <div class="heart">
                     <i id="heart-icon" class="far fa-heart icon"></i>
                 </div>
 
             </div>
             <div class="left-column-images">
-                <img class="left-images" src="<?php echo $gatoData['foto1'] ?>" alt="Imagem 1" onclick="changeImage('<?php echo $gatoData['foto1']; ?>') " draggable="false">
-                <img class="left-images" src="<?php echo $gatoData['foto2'] ?>" alt="Imagem 1" onclick="changeImage('<?php echo $gatoData['foto2']; ?>') " draggable="false">
-                <img class="left-images" src="<?php echo $gatoData['foto3'] ?>" alt="Imagem 2" onclick="changeImage('<?php echo $gatoData['foto3']; ?>')" draggable="false">
+                <img class="left-images" src="<?php echo $gatoData['foto1']?>" alt="Imagem 1"
+                    onclick="changeImage('<?php echo $gatoData['foto1']; ?>') "  draggable="false">
+                <img class="left-images" src="<?php echo $gatoData['foto2']?>" alt="Imagem 1"
+                    onclick="changeImage('<?php echo $gatoData['foto2']; ?>') "  draggable="false">
+                <img class="left-images" src="<?php echo $gatoData['foto3']?>" alt="Imagem 2"
+                    onclick="changeImage('<?php echo $gatoData['foto3']; ?>')" draggable="false">
             </div>
         </div>
         <div class="right-column">
             <ul class="cat-info">
                 <h1>
-                    <?php echo $gatoData['nome'] ?>
+                <?php echo $gatoData['nome']?>
                 </h1>
                 <li class="bullet-points">
                     -
-                    <?php echo $gatoData['sexo'] ?>
+                    <?php echo $gatoData['sexo']?>
                 </li>
                 <li class="bullet-points">
                     -
-                    <?php echo $gatoData['cor'] ?>
+                    <?php echo $gatoData['cor']?>
                 </li>
                 <li class="bullet-points">
                     -
                     Nascimento aproximado:
-                    <?php echo $gatoData['data_nascimento'] ?>
+                    <?php echo $gatoData['data_nascimento']?>
+
                 </li>
                 <li class="bullet-points">
                     -
@@ -106,10 +111,11 @@ require_once(__DIR__ . '/../../controller/gatosController/VisualizarGato.php');
                     } ?>
                 </li>
                 <br>
-                <?php echo $gatoData['descricao'] ?>
+                <?php echo $gatoData['descricao']?>
             </ul>
             <div class="tenho-interesse"><button class="botao" type="submit" name="botaoAdocao">
-                    <div class="button-info">Quero adotar!<i class="fas fa-paw"></i></div>
+                    <?php echo '<div class="button-info"><a href="FormPage.php?id=' . $gatoData['id'] . '">Quero adotar!</a><i class="fas fa-paw"></i></div>'; ?>
+                   
                 </button></div>
 
         </div>

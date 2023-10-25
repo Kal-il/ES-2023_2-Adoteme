@@ -1,4 +1,10 @@
 {
+    "name": "rborges/es-2023_2-adoteme",
+    "autoload": {
+        "psr-4": {
+            "Rborges\\Es20232Adoteme\\": "src/"
+        }
+    },
     "require": {
         "firebase/php-jwt": "^6.9"
     }

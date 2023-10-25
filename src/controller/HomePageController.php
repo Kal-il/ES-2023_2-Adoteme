@@ -80,6 +80,4 @@ class HomePageController{
             return $gatosInfo;
         return false;
     }
-
-
 }

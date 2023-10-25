@@ -78,7 +78,7 @@ h2 {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 10px;
+    padding: 0px;
     background-color: #383464;
     border-top-right-radius: 10px;
     border-top-left-radius: 10px;
@@ -110,11 +110,10 @@ h2 {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    left: 10%;
+    left: 10px;
     font-size: 18px;
     color: #676666;
 }
-
 
 .login {
     font-family: 'Nunito', sans-serif;
@@ -123,12 +122,10 @@ h2 {
     border-radius: 10px;
     width: 300px;
     height: 45px;
-    padding: 10%;
+    padding: 10px;
     margin-bottom: 30px;
     box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.1);
 }
-
-
 
 
 .form-container {
@@ -138,14 +135,13 @@ h2 {
 }
 
 .input {
-    align-items: center;
-    justify-content: space-evenly;
+
     font-family: 'Nunito', sans-serif;
     color: white;
     background-color: rgb(217, 217, 217);
     text-align: center;
     border-radius: 10px;
-    padding: 10%;
+    padding: 10px;
     border-color: black;
     border-width: 1px;
     width: 270px;
