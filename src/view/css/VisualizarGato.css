@@ -1,4 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;600&display=swap');
+
+body {
+
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background-color: #ffffff;
+    background-image: url('../assets/image.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
 header {
     display: flex;
     background-color: #383464;
@@ -44,16 +55,14 @@ h2 {
     display: flex;
     width: 100%;
     height: 100vh;
-    justify-content: space-between;
+    justify-content: flex-start;
 }
 
 .botao {
     font-family: 'Nunito', sans-serif;
     font-size: 20px;
     color: white;
-
-    background-color: #3A2E6F ;
-
+    background-color: #3A2E6F;
     border-width: 2px;
     border-style: solid;
     border-color: #000;
@@ -62,76 +71,55 @@ h2 {
     padding: 10px;
     margin-bottom: 20px;
     /*box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3); */
-    cursor: pointer;
-    filter: /* drop-shadow(4px 4px #261E48 ) */ drop-shadow(6px 6px #130F24 );
-    transition: filter 0.1s ease-out;
+    filter:
+        /* drop-shadow(4px 4px #261E48 ) */
+        drop-shadow(6px 6px #130F24);
 }
 
-.fa-solid{
-    padding-left: 10px;
-}
-
-.left-column,
-.right-column {
-    position: relative;
-    height: fit-content;
+.left-column {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 50%;
-
-}
-
-.left-column-image{
-    position: relative;
-    height: fit-content;
-    display: flex;
-    flex-direction: column;
-    align-items: center; 
-    justify-content: center;
-    padding-top: 10px;
-    padding-bottom: 10px;
-}
-
-.left-column{
-    position: relative;
-    height: fit-content;
-    display: flex;
-    flex-direction: column;
-    align-items: center; 
-    justify-content: center;
+    align-items: flex-start;
+    justify-content: flex-start;
     width: 50%;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 .heart {
+    margin-right: 10%;
     position: absolute;
     top: 20px;
     right: 60px;
     padding: 20px;
     font-size: 50px;
     color: #e00000;
+    align-self: flex-end;
 }
 
 
-.tenho-interesse{
+.tenho-interesse {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
+#quero-adotar {
+    color: white;
+    text-decoration: none;
+}
+
+
 .right-column {
+    margin-left: 10%;
+    display: flex;
     /* border-top: 2px solid #000; */
-    align-items: center;
-    justify-content: center;
+    justify-content: flex-end;
 }
 
 .cat-info {
     font-size: 23px;
     padding: 30px;
     padding-top: 0px;
-    list-style: none;
     color: rgb(41, 41, 41);
 }
 
@@ -145,13 +133,15 @@ h2 {
 }
 
 .image {
+    margin-top: 5%;
+    height: 600px;
+    width: 600px;
+    aspect-ratio: 1/1;
+    object-fit: cover;
     box-sizing: border-box;
-    width: 90%;
-    height: fit-content;
     user-select: none;
     border-radius: 10px;
-    border: 5px solid #000000; 
-    /* box-shadow: 0px 0px 0 3px #000000; */
+    border: 5px solid #000000;
     align-self: center;
     background-color: #000;
 }
@@ -164,27 +154,24 @@ h2 {
     padding: 10px;
 }
 
-body {
-    margin-top: 0px;
-    margin-left: 0px;
-    margin-right: 0px;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    background-color: #ffffff;
-    background-image: url('../assets/image.png'); 
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
+.quick-links {
+    text-decoration: none;
+    color: white;
+}
 
+.header-quick-links {
+
+    display: block;
+    padding-top: 10px;
+    padding-bottom: 1px;
 }
 
 .left-column-images {
+    aspect-ratio: 1/1;
+    margin-inline-end: 40%;
     user-select: none;
-    height: 20%;
-    /* background-color: #e6e6e6; */
-    /* background-color: #7e6fc3; */
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: flex-start;
 }
 
 .left-images {
@@ -193,17 +180,22 @@ body {
     border: 0.2rem solid #000000;
     border-radius: 10px;
     margin: 10px;
-    width: 25%;
-    filter: drop-shadow(6px 6px #000000 );
+    width: 30%;
+    max-width: 200px;
+    filter: drop-shadow(6px 6px #000000);
     background-color: #000;
+    margin-bottom: 10%;
 }
 
 .footer {
+
     background-color: #383464;
     color: white;
     text-align: center;
     padding: 5px;
     display: block;
+    margin: 0;
+    margin-top: 5%;
 }
 
 h3 {
@@ -219,11 +211,51 @@ ul {
     padding: 0 20px;
 }
 
-img{
-    display: block;
+
+
+button {
+    transition: background-color 0.5s, transform 0.3s, ;
+    cursor: pointer;
 }
 
-.button-info a{
-    text-decoration: none;
+button:active {
+    transform: scale(0.9);
+}
+
+.botao {
+    font-family: 'Nunito', sans-serif;
+    font-size: 20px;
     color: white;
+    background-color: #3A2E6F;
+    border-width: 2px;
+    border-style: solid;
+    border-color: #000;
+    border-radius: 10px;
+    height: 90px;
+    padding: 10px;
+    margin-bottom: 20px;
+    /*box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3); */
+    cursor: pointer;
+    filter:
+        /* drop-shadow(4px 4px #261E48 ) */
+        drop-shadow(6px 6px #130F24);
+    transition: filter 0.1s ease-out;
+}
+
+
+.fa-solid {
+    padding-left: 10px;
+}
+
+.left-column,
+.right-column {
+    position: relative;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    gap: 10%;
+
 }
