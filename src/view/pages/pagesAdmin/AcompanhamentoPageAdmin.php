@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="../css/AcompanhamentoPage.css">
+    <link rel="stylesheet" type="text/css" href="../../css/AcompanhamentoPage.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
@@ -33,7 +33,7 @@
             <ul class="nav nav-tabs">
                 <ul class="nav nav-tabs">
                     <li class="nav-item">
-                        <a class="nav-link active" href="HomePage.php">Home</a>
+                        <a class="nav-link active" href="../HomePage.php">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link " href="pagesAdmin/HomePageAdmin.php">Admin</a>
@@ -83,34 +83,37 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <?php foreach ($adocoes as $processo) : ?>
+                            <?php foreach ($adocoes as $gato) : ?>
                             <tr>
                                 <td>
                                     <?php
                                     // Verifique a situação do pedido e exiba o texto apropriado
-                                    if ($processo['situacao'] == 'analise') {
+                                    if ($gato['situacao'] == 'analise') {
                                         echo 'Em analise';
-                                    } elseif ($processo['situacao'] == 'aprovado') {
+                                    } elseif ($gato['situacao'] == 'aprovado') {
                                         echo 'Aprovado';
-                                    } elseif ($processo['situacao'] == 'rejeitado') {
+                                    } elseif ($gato['situacao'] == 'rejeitado') {
                                         echo 'Rejeitado';
                                     }
                                     ?>
                                 </td>
-                                <td><?php echo $processo['id'] ?> </td>
-                                <td><?php echo $processo['nome'] ?></td>
+                                <td><?php echo $gato['id'] ?> </td>
+                                <td><?php echo $gato['nome'] ?></td>
                                 <td>
-                                    <a href="#" class="btn openModal">🗑️</a>
+                                    <a href="#" class="btn openModal">Rejeiar Pedido</a>
                                     <div class="modal">
                                         <div class="modal__content">
                                             <h2 class="modal__title">Atenção!</h2>
                                             <p class="modal__description">
-                                                Deseja <b>cancelar</b> este pedido de adoção?
+                                                Deseja <b>rejeitar</b> este pedido de adoção?
                                             </p>
-                                            <a href="../../../controller/gatosController/RemoverGatos.php?id=<?php echo $processo['id']; ?>" class="modal__deletar deleteButton">Cancelar</a>
+                                            <a href="../../../controller/RejeitarAdocao.php?id=<?php echo $gato['id']; ?>" class="modal__deletar deleteButton">Rejeitar</a>
                                             <a href="#" class="modal__cancelar">Fechar</a>
                                         </div>
                                     </div>
+                                </td>
+                                <td>
+                                    <a href="../../../controller/AprovarAdocao.php?id=<?php echo $gato['id']; ?>">Aprovar Pedido</a>
                                 </td>
                             </tr>
                         <?php endforeach; ?>
