@@ -15,13 +15,13 @@ use models\FavoritosModel;
 use models\FormularioModel;
 
 class Controller{
-    private $connection;
-    private $user_model;
-    private $gatos_model;
-    private $favoritos_model;
-    private $formulario_model;
+    public $connection;
+    public $user_model;
+    public $gatos_model;
+    public $favoritos_model;
+    public $formulario_model;
 
-    public function _construct(){
+    public function __construct(){
         $this->connection = new Connection();
         $this->connection = $this->connection->getConnection();
 

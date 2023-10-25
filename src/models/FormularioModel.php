@@ -1,6 +1,6 @@
 <?php
 namespace models;
-require_once '../models/Connection.php';
+require_once 'Connection.php';
 
 class FormularioModel{
     private function queryDatabase($connection, $query) {
@@ -13,17 +13,17 @@ class FormularioModel{
         return $resultado;
     }
 
-    private function CreateFormulario($connection, $data){
+    public function CreateFormulario($connection, $data){
         $ja_adotou = $data['ja_adotou'];
         $tipo_endereco = $data['tipo_endereco'];
         $num_adultos = $data['num_adultos'];
+        $num_criancas = $data['num_criancas'];
         $idade_criancas = $data['idade_criancas'];
         $motivo = $data['motivo'];
         $tipo_casa = $data['tipo_casa'];
         $permissao_proprietario = $data['permissao_proprietario']; # Se o proprietario permite animais na casa
         $areas_casa = $data['areas_casa']; # Areas de atenção da casa (piscina, lareira, etc)
-        $basculantes = $data['basculantes']; # Tipo dos basculantes
-        $ja_teve_gato = $data['ja_teve'];
+        $ja_teve = $data['ja_teve_gato'];
         $historico_gatos = $data['historico_gatos'];
         $outros_animais = $data['outros_animais'];
         $tempo_planejamento = $data['tempo_planejamento'];
@@ -47,6 +47,7 @@ class FormularioModel{
         $campo_opcional = $data['campo_opcional'];
         $termos_uso = $data['termos_uso'];
         $id_usuario = $data['id_usuario'];
+        #$id_gato = $data['id_gato'];
 
         $query = "INSERT INTO formularios(
             ja_adotou_conosco,
@@ -58,7 +59,6 @@ class FormularioModel{
             tipo_casa,
             permissao_proprietario,
             areas_casa,
-            basculantes,
             ja_teve,
             historico_gatos,
             outro_animais,
@@ -84,40 +84,39 @@ class FormularioModel{
             termos_uso,
             id_usuario
         ) VALUES (
-            $ja_adotou_conosco,
-            $tipo_endereço,
-            $num_adultos,
-            $num_criancas,
-            $idade_criancas,
-            $motivo,
-            $tipo_casa,
-            $permissao_proprietario,
-            $areas_casa,
-            $basculantes,
-            $ja_teve_gato,
-            $historico_gatos,
-            $outros_animais,
-            $tempo_planejamento,
-            $consentimento,
-            $cuidado_viagem,
-            $gastos,
-            $alergia,
-            $se_descobrir_alergia,
-            $filho_descobrir_alergia,
-            $parceiro_descobrir_alergia,
-            $gravidez,
-            $se_arranhar,
-            $se_fugir,
-            $se_nao_puder_cuidar,
-            $mudanca,
-            $motivos_doacao,
-            $consciente_adaptacao,
-            $quarto_adaptacao,
-            $compromisso_idade,
-            $consciente_custo,
-            $campo_opcional,
-            $termos_uso,
-            $id_usuario
+            '$ja_adotou',
+            '$tipo_endereco',
+            '$num_adultos',
+            '$num_criancas',
+            '$idade_criancas',
+            '$motivo',
+            '$tipo_casa',
+            '$permissao_proprietario',
+            '$areas_casa',
+            '$ja_teve',
+            '$historico_gatos',
+            '$outros_animais',
+            '$tempo_planejamento',
+            '$consentimento',
+            '$cuidado_viagem',
+            '$gastos',
+            '$alergia',
+            '$se_descobrir_alergia',
+            '$filho_descobrir_alergia',
+            '$parceiro_descobrir_alergia',
+            '$gravidez',
+            '$se_arranhar',
+            '$se_fugir',
+            '$se_nao_puder_cuidar',
+            '$mudanca',
+            '$motivos_doacao',
+            '$consciente_adaptacao',
+            '$quarto_adaptacao',
+            '$compromisso_idade',
+            '$consciente_custo',
+            '$campo_opcional',
+            '$termos_uso',
+            '$id_usuario'
         );
         ";
 

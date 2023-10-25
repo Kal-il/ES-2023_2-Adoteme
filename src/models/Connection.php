@@ -16,7 +16,6 @@ class Connection {
             return $this->connection;
         } catch (\PDOException $error) {
             echo "Erro na conexão: " . $error->getMessage();
-           
         }
     }
 }
