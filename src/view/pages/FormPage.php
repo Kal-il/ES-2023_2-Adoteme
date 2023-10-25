@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<link rel="stylesheet" type="text/css" href="FormPages.css">
+<link rel="stylesheet" type="text/css" href="../css/FormPage.css">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 <html>
    
@@ -34,7 +34,7 @@
         </div>
     </header>
 
-<form id="adocaoform" method="POST" action="../controller/FormularioController.php">
+<form id="adocaoform" method="POST" action="../../controller/FormularioController.php">
 
     <div id="titulo-formulario">
         <label class="tituloform">Formulário de Adoção</label>
@@ -84,6 +84,10 @@
         </div>
     </div>
 
+    <div class="form-section">
+        <label class="bold-label">🐱 Por que você deseja adotar um gato?</label><br>
+        <textarea rows="5"  class="custom-textbox" name="motivo"></textarea>
+    </div>
 
 
     <!-- Seção 4: Tipo de Casa -->
@@ -162,6 +166,10 @@
         </div>
     </div>
 
+    <div class="form-section">
+        <label class="bold-label">O que aconteceu com seus gatos?</label><br>
+        <textarea rows="5"  class="custom-textbox" name="historico_gatos"></textarea>
+    </div>
 
 
     <!-- Seção 8: Outros Animais -->
@@ -215,7 +223,7 @@
 
     <!-- Seção 10: Consentimento -->
     <div class="form-section">
-        <label class="bold-label">😁 Você dá o seu consentimento para a adoção?</label><br>
+        <label class="bold-label">😁 Seus familiares e pessoas que moram com você estão sabendo e concordam com a adoção?</label><br>
         <input type="radio" class="" value="Sim" name="consentimento">
         <label>Sim</label><br>
         <input type="radio" class="" value="Não" name="consentimento">
@@ -337,7 +345,7 @@
             <label class="bold-label" for="termos_uso">Concordo com os termos de uso</label>
         </div>
         <div>
-        <input type="submit" value="Enviar">
+        <input type="submit" name="postForm" value="Enviar">
     </div>
         
     </div>

@@ -160,7 +160,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             "areas_casa" => $_POST['areas_casa'],
             "ja_teve_gato" => $_POST['ja_teve_gato'],
             "historico_gatos" => $_POST['historico_gatos'],
-            "outros_animais" => $_POST['outros_animais'],
+            "outros_animais" => $_POST['outro_animais'],
             "tempo_planejamento" => $_POST['tempo_planejamento'],
             "consentimento" => $_POST['consentimento'], 
             "cuidado_viagem" => $_POST['cuidado_viagem'], 
@@ -201,8 +201,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         $formularioController = new FormularioController();
         $data = $formularioController->cleanFormulario($data);
-
-        var_dump($data);
         $formularioController->addFormulario($data);
     }
 }
