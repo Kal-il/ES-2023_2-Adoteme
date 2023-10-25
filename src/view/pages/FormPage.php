@@ -34,7 +34,7 @@
         </div>
     </header>
 
-<form id="adocaoform" method="POST" action="../../controller/FormularioController.php">
+    <?php echo '<form id="adocaoform" method="POST" action="../../controller/FormularioController.php?id=' . $_GET['id'] . '">' ?>
 
     <div id="titulo-formulario">
         <label class="tituloform">Formulário de Adoção</label>

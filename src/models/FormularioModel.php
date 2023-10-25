@@ -47,7 +47,7 @@ class FormularioModel{
         $campo_opcional = $data['campo_opcional'];
         $termos_uso = $data['termos_uso'];
         $id_usuario = $data['id_usuario'];
-        #$id_gato = $data['id_gato'];
+        $id_gato = $data['id_gato'];
 
         $query = "INSERT INTO formularios(
             ja_adotou_conosco,
@@ -82,7 +82,8 @@ class FormularioModel{
             consciente_custo,
             campo_opcional,
             termos_uso,
-            id_usuario
+            id_usuario,
+            id_gato
         ) VALUES (
             '$ja_adotou',
             '$tipo_endereco',
@@ -116,7 +117,8 @@ class FormularioModel{
             '$consciente_custo',
             '$campo_opcional',
             '$termos_uso',
-            '$id_usuario'
+            '$id_usuario',
+            '$id_gato'
         );
         ";
 

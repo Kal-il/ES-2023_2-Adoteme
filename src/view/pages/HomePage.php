@@ -235,9 +235,11 @@ if (isset($_SESSION['search_resultados'])) {
                     echo '<img class="img-test" src="../assets/gato2.jpg" alt="Imagem de gato como exemplo">';
                 }
                 echo '<p class="info-gato">' . $gato['nome'] . '<span class="material-symbols-outlined favorite"></span></p>';
+                echo '<a href="VisualizarGato.php?id=' . $gato['id'] . '"> GATO ' . $gato['id'] . "</a>";
         ?>
                 <div class="info-cat">
-                    <p><?php echo $gato['nome']; ?></p>
+                
+                    <p>"><?php echo $gato['nome']; ?></p>
                     <div class="heartbox">
                         <input type="checkbox" class="checkbox" id="checkbox-<?php echo $gato['id']; ?>" name="addFavoritos"/>
                                             <label for="checkbox-<?php echo $gato['id']; ?>">

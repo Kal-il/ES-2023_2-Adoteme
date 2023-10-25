@@ -148,7 +148,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         $data = [
             "id_usuario" => $decoded_array['user_id'],
-            #"id_gato" => $_GET['id_gato'],
+            "id_gato" => $_GET['id'],
             "ja_adotou" => $_POST['ja_adotou_conosco'],
             "tipo_endereco" => $_POST['tipo_endereco'],
             "num_adultos" => $_POST['num_adultos'],
