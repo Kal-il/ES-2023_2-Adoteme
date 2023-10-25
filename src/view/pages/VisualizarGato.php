@@ -1,6 +1,6 @@
 <?php
 
-include('C:\xampp\htdocs\ES-2023_2-Adoteme\src\controller\gatosController\VisualizarGato.php');
+require_once(__DIR__ . '/../../controller/gatosController/VisualizarGato.php');
 
 ?>
 
@@ -8,11 +8,11 @@ include('C:\xampp\htdocs\ES-2023_2-Adoteme\src\controller\gatosController\Visual
 <html lang="en">
 
 <head>
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
         integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" type="text/css" href="../css/VisualizarGato.css">
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="../js/VisualizarGato.js"></script>
@@ -21,22 +21,33 @@ include('C:\xampp\htdocs\ES-2023_2-Adoteme\src\controller\gatosController\Visual
 
 </head>
 
-<header class="header">
-
-
-    <a class="logo" href="HomePage.php">
-        <img class="logo" src="../assets/adoteme.png" alt="Logo Adotme" width="100" height="100">
-    </a> <h1 class="adoteme">Adoteme</h1>
-<!--
-    <div class="header-quick-links">
-       
-
-        <a class="quick-links" href="HomePage.php"> Home </a>
-        <a class="quick-links" href="LoginPage.php"> > Gatos</a>
-        <a class="quick-links" href="VisualizarGato.php"> > VisualizarGato</a>
+<header>
+    <div id="logo">
+        <div id="logo2">
+            <a href="HomePage.php">
+                <img class="image" src="../assets/adoteme.png" alt="Logo Adoteme" width="60" height="60">
+            </a>
+            <h2 class="adoteme">Adoteme</h2>
+        </div>
+        <nav>
+            <ul class="nav nav-tabs">
+                <ul class="nav nav-tabs">
+                    <li class="nav-item">
+                        <a class="nav-link " href="HomePage.php">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled " href="pagesAdmin/HomePageAdmin.php">Admin</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="LoginPage.php">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" href="#">Profile</a>
+                    </li>
+                </ul>
+        </nav>
 
     </div>
--->
 </header>
 
 <body>
@@ -79,6 +90,7 @@ include('C:\xampp\htdocs\ES-2023_2-Adoteme\src\controller\gatosController\Visual
                     -
                     Nascimento aproximado:
                     <?php echo $gatoData['data_nascimento']?>
+
                 </li>
                 <li class="bullet-points">
                     -
@@ -103,7 +115,7 @@ include('C:\xampp\htdocs\ES-2023_2-Adoteme\src\controller\gatosController\Visual
             </ul>
             <div class="tenho-interesse"><button class="botao" type="submit" name="botaoAdocao">
                     <?php echo '<div class="button-info"><a href="FormPage.php?id=' . $gatoData['id'] . '">Quero adotar!</a><i class="fas fa-paw"></i></div>'; ?>
-                    
+                   
                 </button></div>
 
         </div>

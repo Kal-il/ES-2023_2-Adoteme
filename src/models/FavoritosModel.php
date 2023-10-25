@@ -28,9 +28,10 @@ class FavoritosModel{
     }
 
     function getFavoritos($connection, $data) {
-        $id_usuario = pg_escape_string($connection, $data['id_usuario']); 
+        $id_usuario = pg_escape_string($connection, $data['usuario_id']); 
+        $id_gato = pg_escape_string($connection, $data['gato_id']);
 
-        $query = "SELECT * FROM favoritos WHERE usuario_id = '$id_usuario';";
+        $query = "SELECT * FROM favoritos WHERE usuario_id = '$id_usuario' and gato_id = '$id_gato';";
         $resultado = $this->queryDatabase($connection, $query);
 
         if (!$resultado) {
@@ -57,4 +58,23 @@ class FavoritosModel{
             die("Erro na busca: " . pg_last_error($connection));
         }
     }
+
+
+    function getFavoritosByUserId($connection, $user_id){
+        $query = "SELECT gato_id FROM favoritos WHERE usuario_id = '$user_id';";
+        $resultado = $this->queryDatabase($connection, $query);
+
+        if (!$resultado) {
+            die("Erro na busca: " . pg_last_error($connection));
+        }
+
+        $favoritos = array();
+
+        while ($linha = pg_fetch_assoc($resultado)) {
+            $favoritos[] = $linha;
+        }
+
+        return $favoritos;
+    }
+
 }

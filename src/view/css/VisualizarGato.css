@@ -1,9 +1,43 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;600&display=swap');
+header {
+    display: flex;
+    background-color: #383464;
+    flex-direction: row;
+}
 
-h1 {
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    margin-bottom: 30px;
-    margin-top: 30px;
+#logo {
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 5px;
+    display: flex;
+    flex-direction: row;
+    color: white;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+#logo,
+nav {
+    align-items: end;
+}
+
+#logo2 {
+    margin: 10PX;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.nav-link {
+    color: white;
+}
+
+h2 {
+    font-size: 1.5em;
+    margin: 0;
+    padding: 0;
+    margin-left: 20px;
 }
 
 .container {
@@ -17,7 +51,9 @@ h1 {
     font-family: 'Nunito', sans-serif;
     font-size: 20px;
     color: white;
+
     background-color: #3A2E6F ;
+
     border-width: 2px;
     border-style: solid;
     border-color: #000;
@@ -120,29 +156,6 @@ h1 {
     background-color: #000;
 }
 
-
-.adoteme {
-    margin-left: 30px;
-    color: white;
-    display: flex;
-    font-size: 40px;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-}
-
-.header {
-    box-sizing: border-box;
-    padding: 5px;
-    padding-left: 50px;
-    padding-bottom: 10px;
-    display: flex;
-    align-items: center;
-    background-color: #383464;
-    border-bottom: 2px solid #000; 
-
-}
-
-
-
 .button-info {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 200%;
@@ -162,22 +175,6 @@ body {
     background-position: center;
     background-size: cover;
 
-}
-
-.logo {
-    padding-right: 10px;
-}
-
-.quick-links {
-    text-decoration: none;
-    color: white;
-}
-
-.header-quick-links {
-
-    display: block;
-    padding-top: 10px;
-    padding-bottom: 1px;
 }
 
 .left-column-images {
