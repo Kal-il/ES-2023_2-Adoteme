@@ -26,6 +26,7 @@
     <h2> Oi, admin!!!</h2>
     <button><a href="CadastrarGato.php">Adicionar Gatos</a></button>
     <button><a href="TabelaAnimais.php">Tabela de Gatos</a></button>
+    <button><a href="AcompanhamentoPageAdmin.php">Página de Acompanhamento (Admin)</a></button>
 </head>
 <body>
 <img src="../../assets/gatinho.png" alt="desenho de gato">

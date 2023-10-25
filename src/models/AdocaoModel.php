@@ -64,7 +64,7 @@ class AdocaoModel {
     }
 
     function GetAdocaoById($connection, $id_adocao){
-        $query = "SELECT adocoes.id, adotante_id, gato_id, admin_id, situacao FROM adocoes WHERE adocoes.id='$id_adocao'";
+        $query = "SELECT id, adotante_id, gato_id, admin_id, situacao FROM adocoes WHERE id='$id_adocao'";
 
         $resultado = $this -> queryDatabase($connection, $query);
     
@@ -79,6 +79,23 @@ class AdocaoModel {
 
     function GetAdocoes($connection){
         $query = "SELECT * FROM adocoes";
+
+        $resultado = $this -> queryDatabase($connection, $query);
+    
+        if (!$resultado) {
+            die("Erro na busca: " . pg_last_error($connection));
+        }
+    
+        $adocoes = array();
+        while ($row = pg_fetch_assoc($resultado)) {
+            $adocoes[] = $row;
+        }
+    
+        return $adocoes;
+    }
+
+    function GetAdocoesComNome($connection){
+        $query = "SELECT adocoes.id, adotante_id, gato_id, admin_id, situacao, gatos.nome as gato_nome, usuarios.nome as adotante_nome, usuarios.sobrenome FROM adocoes, gatos, usuarios WHERE gato_id = gatos.id AND adotante_id = usuarios.id";
 
         $resultado = $this -> queryDatabase($connection, $query);
     

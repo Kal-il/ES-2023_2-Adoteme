@@ -1,5 +1,5 @@
 <?php
-    include 'C:\xampp\htdocs\ES-2023_2-Adoteme\src\controller\AdocaoController.php';
+    include 'C:\xampp\htdocs\ES-2023_2-Adoteme\src\controller\AdocaoAdminController.php';
 ?>
 
 <!DOCTYPE html>
@@ -79,6 +79,7 @@
                                 <th scope="col">Situação</th>
                                 <th scope="col">ID</th>
                                 <th scope="col">Nome do Gato</th>
+                                <th scope="col">Nome do Adotante</th>
                                 <th></th>
                             </tr>
                         </thead>
@@ -98,7 +99,8 @@
                                     ?>
                                 </td>
                                 <td><?php echo $gato['id'] ?> </td>
-                                <td><?php echo $gato['nome'] ?></td>
+                                <td><?php echo $gato['gato_nome'] ?></td>
+                                <td><?php echo $gato['adotante_nome'] . ' ' . $gato['sobrenome'] ?></th>
                                 <td>
                                     <a href="#" class="btn openModal">Rejeiar Pedido</a>
                                     <div class="modal">

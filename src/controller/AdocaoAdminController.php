@@ -11,7 +11,7 @@ class AdocaoAdminController extends Controller{
     }
 
     public function getAdocoes(){
-        $adocoes = $this->adocao_model->GetAdocoes($this->connection);
+        $adocoes = $this->adocao_model->GetAdocoesComNome($this->connection);
 
         return $adocoes;
     }
@@ -29,6 +29,7 @@ class AdocaoAdminController extends Controller{
 
 if($_SERVER["REQUEST_METHOD"] == "GET"){
     $adocao_controller = new AdocaoAdminController();
+    
     $adocoes = $adocao_controller->getAdocoes();
 }
 
