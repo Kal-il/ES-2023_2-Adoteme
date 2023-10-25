@@ -1,6 +1,6 @@
 <?php
 
-require_once '../../../../controller/gatosController/VisualizarGato.php';
+require_once(__DIR__. '/../../controller/gatosController/VisualizarGato.php');
 
 ?>
 
@@ -102,7 +102,7 @@ require_once '../../../../controller/gatosController/VisualizarGato.php';
                 <?php echo $gatoData['descricao']?>
             </ul>
             <div class="tenho-interesse"><button class="botao" type="submit" name="botaoAdocao">
-                    <div class="button-info">Quero adotar!</div>
+                    <div class="button-info">Quero adotar!<i class="fas fa-paw"></i></div>
                 </button></div>
 
         </div>
