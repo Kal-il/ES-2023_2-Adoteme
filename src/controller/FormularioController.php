@@ -5,7 +5,6 @@ require_once '../models/Connection.php';
 require_once '../models/FavoritosModel.php';
 require_once '../controller/Controller.php';
 
-use models\FormularioModel;
 use controller\Controller;
 
 require 'C:\xampp\htdocs\ES-2023_2-Adoteme\vendor\autoload.php';
@@ -129,7 +128,6 @@ class FormularioController extends Controller{
         }
 
         return $data;
-
     }
 }
 
@@ -145,10 +143,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo "<h1> faça login </h1>";
         }
 
+        $id_gato = $_GET['id'];
 
         $data = [
             "id_usuario" => $decoded_array['user_id'],
-            "id_gato" => $_GET['id'],
+            "id_gato" => $id_gato,
             "ja_adotou" => $_POST['ja_adotou_conosco'],
             "tipo_endereco" => $_POST['tipo_endereco'],
             "num_adultos" => $_POST['num_adultos'],
@@ -202,6 +201,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $formularioController = new FormularioController();
         $data = $formularioController->cleanFormulario($data);
         $formularioController->addFormulario($data);
+
+        header("Location: AdocaoController.php?id=$id_gato");
     }
 }
 

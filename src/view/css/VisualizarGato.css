@@ -222,3 +222,8 @@ ul {
 img{
     display: block;
 }
+
+.button-info a{
+    text-decoration: none;
+    color: white;
+}
