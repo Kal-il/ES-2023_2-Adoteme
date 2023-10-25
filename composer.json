@@ -1,11 +1,5 @@
 {
-    "name": "romeu/es-2023_2-adoteme",
-    "autoload": {
-        "psr-4": {
-            "Romeu\\Es20232Adoteme\\": "src/"
-        }
-    },
     "require": {
-        "firebase/php-jwt": "^6.8"
+        "firebase/php-jwt": "^6.9"
     }
 }

@@ -78,13 +78,13 @@
                 </div>
                 <label for="descricao">
                     Descrição:
-                    <input class="inputInfo" type="text" name="descricao" id="descricao" placeholder="Conte sobre o gato" maxlength="100" required><br>
+                    <input class="inputInfo" type="text" name="descricao" id="descricao" placeholder="Conte sobre o gato" maxlength="1000" required><br>
                 </label>
 
                 <table class="table">
                     <tr>
                         <td >Castrado</td>
-                        <td ><input type="checkbox" name="castrado" required></td>
+                        <td ><input type="checkbox" name="castrado"></td>
                     </tr>
                     <tr>
                         <td >Vacina completa</td>

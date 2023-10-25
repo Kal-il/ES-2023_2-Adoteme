@@ -6,7 +6,6 @@ use Firebase\JWT\JWT;
 
 require_once '../models/Connection.php';
 require_once '../models/UserModel.php';
-
 use models\Connection;
 use models\UserModel;
  /*

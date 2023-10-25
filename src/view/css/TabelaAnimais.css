@@ -1,7 +1,44 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;600&display=swap');
-h1 {
-    margin-bottom: 30px;
-    margin-top: 30px;
+
+header {
+    display: flex;
+    background-color: #383464;
+    flex-direction: row;
+}
+
+#logo {
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 5px;
+    display: flex;
+    flex-direction: row;
+    color: white;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+#logo,
+nav {
+    align-items: end;
+}
+
+#logo2 {
+    margin: 10PX;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.nav-link {
+    color: white;
+}
+
+h2 {
+    font-size: 1.5em;
+    margin: 0;
+    padding: 0;
+    margin-left: 20px;
 }
 
 .label {
@@ -65,24 +102,6 @@ h1 {
     left: 10px;
     font-size: 18px;
     color: #676666;
-}
-
-
-.adoteme {
-    margin-left: 30px;
-    color: white;
-    display: flex;
-    font-size: 40px;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-}
-
-.header {
-    padding: 5px;
-    padding-left: 50px;
-    display: flex;
-    align-items: center;
-    background-color: #383464;
-
 }
 
 .login {
@@ -213,54 +232,62 @@ li {
 }
 
 .table {
-border: solid 1px  #dee2e6;
-border-radius: 10px ;
-  }
+    border: solid 1px #dee2e6;
+    border-radius: 10px;
+}
 
 /* CSS personalizado para arredondar as bordas da tabela */
 .table-rounded {
     border-collapse: separate;
     border-spacing: 0;
-    border-radius: 10px ;
+    border-radius: 10px;
 }
 
-.table-rounded th{
-    padding: 8px; /* Espaçamento interno das células */
+.table-rounded th {
+    padding: 8px;
+    /* Espaçamento interno das células */
 
 }
 
 /* Aplicar cores de fundo e texto para destacar a tabela (opcional) */
 .table-rounded thead {
-    background-color: #f8f9fa; /* Cor de fundo do cabeçalho */
-    color: #343a40; /* Cor do texto do cabeçalho */
+    background-color: #f8f9fa;
+    /* Cor de fundo do cabeçalho */
+    color: #343a40;
+    /* Cor do texto do cabeçalho */
 
 }
 
 
 .table-rounded tbody tr:hover {
-    background-color: #e2e6ea; /* Cor de fundo ao passar o mouse sobre uma linha */
+    background-color: #e2e6ea;
+    /* Cor de fundo ao passar o mouse sobre uma linha */
 }
 
-.table-head{
-    background-color: #ffc107; /* Cor de fundo do thead (exemplo: amarelo) */
-    color: #333; /* Cor do texto do thead (opcional) */
-    font-weight: bold; /* Estilo de texto do thead (opcional) */
+.table-head {
+    background-color: #ffc107;
+    /* Cor de fundo do thead (exemplo: amarelo) */
+    color: #333;
+    /* Cor do texto do thead (opcional) */
+    font-weight: bold;
+    /* Estilo de texto do thead (opcional) */
 }
 
-.roxo{
+.roxo {
     --bs-table-bg: #383464;
     --bs-table-color: white;
 }
 
-.roxo-botao{
+.roxo-botao {
     --bs-btn-color: #fff !important;
-    --bs-btn-bg:#383464 !important;
+    --bs-btn-bg: #383464 !important;
 }
 
-.form-control{
+.form-control {
     color: white;
-    background-color:#bfbfbf !important;
+    background-color: #bfbfbf !important;
 }
+
 .modal {
     display: grid;
     position: fixed;
@@ -271,7 +298,7 @@ border-radius: 10px ;
     background: rgba(0, 0, 0, 0.7);
     place-content: center;
     transition: .3s;
-    
+
 }
 
 
@@ -280,7 +307,8 @@ border-radius: 10px ;
     background: white;
     width: 400px;
     margin: 100px auto;
-    padding: 2rem 2rem 1rem;;
+    padding: 2rem 2rem 1rem;
+    ;
     border-radius: 4px;
     text-align: center;
     border-top: .5rem solid #f02121;
@@ -291,11 +319,11 @@ border-radius: 10px ;
 }
 
 .modal__description {
-    text-align:center;
-    font-size:large;
+    text-align: center;
+    font-size: large;
 }
 
-.modal__deletar{
+.modal__deletar {
     display: inline-flex;
     justify-content: center;
     align-items: center;
@@ -306,6 +334,7 @@ border-radius: 10px ;
     border-radius: 4px;
     transition: transform 0.2s;
 }
+
 .modal__cancelar {
     display: inline-flex;
     justify-content: center;
@@ -319,29 +348,30 @@ border-radius: 10px ;
     transition: transform 0.2s;
 }
 
-.modal__deletar:hover{
-   background-color: #b40606;
+.modal__deletar:hover {
+    background-color: #b40606;
 }
-.modal__deletar:active{
+
+.modal__deletar:active {
     background-color: #b40606;
     transform: scale(0.95);
 }
 
 .modal__cancelar:hover {
-     background-color: #252152;
+    background-color: #252152;
 }
 
-.modal__cancelar:active{
+.modal__cancelar:active {
     background-color: #252152;
     transform: scale(0.95);
 }
 
-.button-icon-link{
+.button-icon-link {
     text-decoration: none;
     color: #292A2D;
 }
 
-.button-icon-link-add{
+.button-icon-link-add {
     text-decoration: none;
     color: white;
 }
