@@ -38,20 +38,21 @@ class LoginController {
             ];
             $login = new UserModel();
             $this->resultado_login = $login -> Login($this->connection, $data);
+            $user_id = $login->GetIDByEmail($this->connection, $this->email);
+
             if ($this->resultado_login){
                 // Caso o login tenha sucesso, será gerado um token JWT:
                 $payload = [
                     "exp" => time() + 3600,
                     "iat" => time(),
                     "email" => $this->email,
+                    "user_id" => $user_id,
                 ];
 
                 // Uso de Chave temporária "test_key"
 
                 $token = JWT::encode($payload, "test_key", "HS256");
-
                 setcookie('jwt_token', $token, time() + 3600, '/');
-        
 
                 if ($login->IsSuperuser($this->connection, $data)){
                     header("Location: ../view/pages/pagesAdmin/HomePageAdmin.php");

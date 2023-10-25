@@ -32,6 +32,12 @@
                 </div>
 
                 <div class="input-field">
+                    <label for="surname">
+                        <input class="inputInfo" type="text" name="surname" id="surname" placeholder="Seu sobrenome aqui" maxlength="100" required><br>
+                    </label>
+                </div>
+
+                <div class="input-field">
                     <label for="email">
                         <input class="inputInfo" type="email" name="email" id="email" placeholder="Example@email.com" maxlength="100" required><br>
                     </label>
@@ -54,7 +60,6 @@
                         if(isset($_GET['cpf'])){
                             $erro_encoded = $_GET['cpf'];
                             $erro = json_decode(urldecode($erro_encoded), true);
-
                             echo '<p class="error-message">' . htmlspecialchars($erro, ENT_QUOTES, 'UTF-8') . '</p>';
                         }
                     ?>

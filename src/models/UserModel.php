@@ -1,6 +1,6 @@
 <?php
 namespace models;
-require_once '../models/Connection.php';
+require_once 'Connection.php';
 
 class UserModel {
 
@@ -48,7 +48,8 @@ class UserModel {
     function CreateUser($connection, $data) {
         $email = pg_escape_string($connection, $data['email']); 
         $password = pg_escape_string($connection, $data['password']); 
-        $nome = pg_escape_string($connection, $data['nome']); 
+        $nome = pg_escape_string($connection, $data['nome']);
+        $sobrenome = pg_escape_string($connection, $data['sobrenome']);
         $cpf = pg_escape_string($connection, $data['cpf']); 
         $telefone = pg_escape_string($connection, $data['telefone']); 
         $cep = pg_escape_string($connection, $data['cep']); 
@@ -59,8 +60,8 @@ class UserModel {
         $endereco = pg_escape_string($connection, $data['endereco']);
     
 
-        $query = "INSERT INTO usuarios (email, senha, nome, cpf, telefone, cep, cidade, estado, endereco, matricula, data_nascimento, superuser)
-        VALUES ('$email', '$password', '$nome', '$cpf', '$telefone', '$cep', '$cidade', '$estado', '$endereco', '$matricula', '$data_nascimento', 'false')";
+        $query = "INSERT INTO usuarios (email, senha, nome, sobrenome, cpf, telefone, cep, cidade, estado, endereco, matricula, data_nascimento)
+        VALUES ('$email', '$password', '$nome', '$sobrenome', '$cpf', '$telefone', '$cep', '$cidade', '$estado', '$endereco', '$matricula', '$data_nascimento')";
         $resultado = $this->queryDatabase($connection, $query);
 
         if (!$resultado) {
@@ -105,5 +106,21 @@ class UserModel {
             return false;
         }
     }
+
+    function GetIDByEmail($connection, $email){
+        $query = "SELECT id FROM usuarios WHERE email='$email'";
+
+        $resultado = $this->queryDatabase($connection, $query);
+
+        if(pg_num_rows($resultado)==0){
+            return 0;
+        }
+
+        $row = pg_fetch_row($resultado);
+        return $row[0];
+    }
+
 }
+
+
 ?>

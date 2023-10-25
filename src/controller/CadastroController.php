@@ -15,6 +15,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 "password" => $password = $_POST['password'],
                 "password2" => $password2 = $_POST['password2'],
                 "nome" => $nome = $_POST['name'],
+                "sobrenome" => $sobrenome = $_POST['surname'],
                 "cpf" => $cpf = $_POST['cpf'],
                 "telefone" => $telefone = $_POST['telephone'],
                 "cep" => $cep = $_POST['cep'],

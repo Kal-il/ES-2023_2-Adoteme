@@ -1282,4 +1282,62 @@ Permite que o usuário entre em contato com a equipe de suporte para esclarecer 
 - A plataforma "AdoteMe" estará disponível apenas para a adoção de gatos no campus da UFT.
 - Os recursos e informações fornecidos pelos usuários devem ser precisos e confiáveis.
 
+## **RF20 - Tela de acompanhamento de adoção**
 
+#### Autor: @MatheusDreher - Matheus Henrique Dreher dos Santos.
+
+---
+
+#### Revisor: @Kal-il - Kalil Garcia Canuto.
+
+| Item            | Descrição                                                                                                                                                                                               |
+| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Caso de uso     | Acompanhar pedido de adoção do animal.                                                                                                                                                                         |
+| Resumo          | Este caso de uso descreve o processo pelo qual um usuário pode acessar a tela de acompanhamento de adoção a partir da página inicial ou de seu perfil, visualizando detalhes sobre seus processos de adoção em andamento, incluindo a etapa atual do processo.                                                          |
+| Ator principal  | Usuário (Adotante).                                                                                                           |
+| Pré-condição    | O usuário deve estar autenticado no sistema. O usuário deve ter iniciado um ou mais processos de adoção de gatos.                                                                                                                     |
+| Pós-condição    | O usuário pode visualizar todas as informações relevantes sobre seus processos de adoção em andamento, incluindo a etapa atual de cada processo.                                                                                                                                  |
+### Descrição Sucinta:
+
+"Um adotante irá acessar a página que mostrará seus processos de adoção, em andamento ou concluidos."
+
+#### Fluxo principal
+
+| Passos   | Descrição                                                                 |
+| -------- | ------------------------------------------------------------------------- |
+| Passo 1  | O usuário acessa a página inicial do site de adoção de gato.                                                     |
+| Passo 2  | O usuário visualiza um botão ou link claramente identificado como "Acompanhar Adoções" ou similar.                     |
+| Passo 3  | O usuário clica no botão/link "Acompanhar Adoções".|
+| Passo 4  | O sistema verifica se há processos de adoção associados ao usuário. |
+| Passo 5  | Se existirem processos de adoção em andamento:<br />
+O sistema exibe uma lista dos processos de adoção em que o usuário está envolvido.<br />
+Para cada processo de adoção listado, o sistema mostra as seguintes informações:<br />
+Número do processo de adoção.<br />
+Nome do gato.<br />
+Etapa atual do processo de adoção (por exemplo, "Em Análise", "Aprovada", "Negada" ou "Negada por Falta de Dados").|
+
+
+### Opções dos Usuários:
+
+| Campo                                   | Descrição | 
+| --------------------------------------- | ----------- | 
+|Cancelar processo| Cancela o processo de adoção.  |
+
+ ### Fluxos Alternativos:
+ #### Fluxo alternativo 1:
+
+| Passos   | Descrição                                                                 |
+| -------- | ------------------------------------------------------------------------- |
+| Passo 1  | Se não houver processos de adoção em andamento:<br />
+O sistema exibe uma mensagem indicando que o usuário não tem processos de adoção em andamento no momento.|
+
+# User Story
+## Persona 01 - Usuário comum
+
+
+| Epic       | User Story                 | Critério de aceitação |
+| ----------- | ------------------------- | ------ | 
+| Como usuário do site, gostaria de visualizar as informações dos meus processos de adoção. | Enquanto usuário, eu gostaria de saber a situação do meu pedido de adoção. | Para consultar as informações de um processo de adoção, o usuário precisa visualizar esta página.
+
+## Protótipo
+![Desktop_-_1_(1)](https://uploaddeimagens.com.br/images/004/645/915/full/Desktop_-_1_%281%29.png?1698176122)
