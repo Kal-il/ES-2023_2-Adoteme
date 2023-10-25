@@ -1,3 +1,4 @@
+
 <?php
 require '..\..\..\..\vendor\autoload.php';
 
@@ -129,9 +130,9 @@ if (isset($_COOKIE['jwt_token'])) {
     <button><a href="CadastrarGato.php">Adicionar Gatos</a></button>
     <button><a href="TabelaAnimais.php">Tabela de Gatos</a></button>
     <button><a href="../HomePage.php">Home Page do Usuário</a></button>
+    <button><a href="AcompanhamentoPageAdmin.php">Página de Acompanhamento (Admin)</a></button>
     </main>
 
 
 </body>
-
 </html>
