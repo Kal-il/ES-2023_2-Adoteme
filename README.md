@@ -1341,3 +1341,20 @@ O sistema exibe uma mensagem indicando que o usuário não tem processos de ado�
 
 ## Protótipo
 ![Desktop_-_1_(1)](https://uploaddeimagens.com.br/images/004/645/915/full/Desktop_-_1_%281%29.png?1698176122)
+
+# User Stories - Sprint 01
+
+- S01 - Criar Tela de Divulgação de Eventos Beneficentes. 1.1 [Ana Flavia Moreira Pires ](https://github.com/ana-flav) Revisado por @romeuborges19
+
+
+
+
+
+
+
+
+### S01 - Criar Tela de Divulgação de Eventos Beneficentes
+
+Eu, como usuário cadastrado ou não, gostaria de contribuir para ajudar os gatos da UFT de outra maneira, mesmo sem adotá-los, portanto gostaria de saber sobres os eventos beneficentes organizados pela Universidade, com opções para compartilhar os post dos eventos.
+<br>
+![Tela de Divulgação de eventos beneficentes ](https://uploaddeimagens.com.br/images/004/657/988/original/Captura_de_tela_2023-11-07_075915.png?1699363775)
