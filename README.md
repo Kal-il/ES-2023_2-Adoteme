@@ -1347,6 +1347,9 @@ O sistema exibe uma mensagem indicando que o usuário não tem processos de ado�
 - S01 - Criar Tela de Divulgação de Eventos Beneficentes. 1.1 [Ana Flavia Moreira Pires ](https://github.com/ana-flav) Revisado por @romeuborges19
 
 
+- S01 - Criar Tela "Sobre Nós". 1.2 [Thiago Gonzaga dos Santos ](https://github.com/tgofsaints) Revisado por @Kal-il
+
+
 
 
 
@@ -1358,3 +1361,13 @@ O sistema exibe uma mensagem indicando que o usuário não tem processos de ado�
 Eu, como usuário cadastrado ou não, gostaria de contribuir para ajudar os gatos da UFT de outra maneira, mesmo sem adotá-los, portanto gostaria de saber sobres os eventos beneficentes organizados pela Universidade, com opções para compartilhar os post dos eventos.
 <br>
 ![Tela de Divulgação de eventos beneficentes ](https://uploaddeimagens.com.br/images/004/657/988/original/Captura_de_tela_2023-11-07_075915.png?1699363775)
+
+
+
+### S01 - Criar Tela "Sobre Nós"
+
+Eu, como usuário logado ou não, desejo acessar a página "Sobre Nós" para obter informações detalhadas sobre a equipe por trás deste projeto. Isso me permitirá conhecer os membros da equipe, a missão do projeto, entender suas experiências e motivações para o projeto, bem como estabelecer confiança na equipe por trás da iniciativa.
+
+<br>
+
+![Tela de Divulgação de eventos beneficentes ](https://uploaddeimagens.com.br/images/004/658/684/full/New_Project%282%29.png?1699399575)
