@@ -1350,8 +1350,10 @@ O sistema exibe uma mensagem indicando que o usuário não tem processos de ado�
 - S01 - Criar Tela "Sobre Nós". 1.2 [Thiago Gonzaga dos Santos ](https://github.com/tgofsaints) Revisado por @Kal-il
 
 
-
 - S01 - Criar Tela "FAQ". 1.3 [Matheus Henrique Dreher dos Santos](https://github.com/MatheusDreher) Revisado por @mariaclaranaires
+
+
+- S01 - Criar Janela de "Excluir Perfil". 1.4 [Maria Clara Nazareno Aires](https://github.com/mariaclaranaires) Revisado por @tgofsaints
 
 
 
@@ -1381,3 +1383,12 @@ Eu, como usuário logado ou não, Gostaria de acessar uma seção de Perguntas F
 <br>
 
 ![FAQ](https://uploaddeimagens.com.br/images/004/658/710/full/FAQ.png?1699404200)
+
+
+
+### S01 - Criar Janela de "Excluir Perfil"
+
+Eu, como um usuário registrado, gostaria de poder excluir permanentemente meu perfil no site, para que eu possa encerrar minha conta e remover meus dados pessoais da plataforma quando desejar, garantindo minha privacidade e controle sobre minhas informações online.
+<br>
+
+![Janela de exclusão de perfil](https://uploaddeimagens.com.br/imagens/np5JrlY)
