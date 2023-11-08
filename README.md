@@ -1352,7 +1352,9 @@ O sistema exibe uma mensagem indicando que o usuário não tem processos de ado�
 
 - S01 - Criar Janela de "Excluir Perfil". 1.4 [Maria Clara Nazareno Aires](https://github.com/mariaclaranaires) Revisado por @tgofsaints
 
-- S01 - Criar Tela de Edição de Perfil do Usuário. 1.5 [Romeu Miranda Borges](https://github.com/romeuborges19) Revisado por @matheusdreher
+- S01 - Criar Tela de Perfil do Usuário. 1.5 [Kalil Garcia Canuto](https://github.com/Kal-il) Revisado por @ana-flav
+- 
+- S01 - Criar Tela de Edição de Perfil do Usuário. 1.6 [Romeu Miranda Borges](https://github.com/romeuborges19) Revisado por @matheusdreher
 
 
 
@@ -1390,6 +1392,12 @@ Eu, como um usuário registrado, gostaria de poder excluir permanentemente meu p
 
 ![Janela de exclusão de perfil](https://uploaddeimagens.com.br/images/004/658/740/full/Prot%C3%B3tipo_-_Excluir_perfil.png?1699407832)
 
+### S01 - Criar Tela de Perfil do Usuário
+
+Eu, como usuário cadastrado e logado, gostaria de poder ver as informações do meu perfil, de poder ter acesso aos botões que levam ás páginas de acompanhamento de processos de adoção, de gatos que favoritei, de edição das informaçoes do meu perfil. Alem disso gostaria de poder ver minha atividade recente na plataforma podendo ver os gatos que visualizei recentemente,  tornando a experiência na plataforma mais conveniente e personalizada.
+<br/>
+
+![Tela de perfil](https://uploaddeimagens.com.br/images/004/658/791/original/Perfil.png?1699417079)
 
 
 ### S01 - Criar Tela de Edição de Perfil

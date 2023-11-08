@@ -51,7 +51,19 @@ body {
     background-size: cover;
 
 }
-
+.row.pb-5 {
+    text-align: center;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-top: 5%;
+}
+#meudeus {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: row;
+}
 
 .form-container {
     border: 1px solid black;
@@ -167,8 +179,13 @@ border-radius: 10px ;
 }
 
 .table-rounded th{
+    text-align: center;
     padding: 8px; /* Espaçamento interno das células */
 
+}
+tr {
+    text-align: center;
+    padding: 8px; /* Espaçamento interno das células */
 }
 
 /* Aplicar cores de fundo e texto para destacar a tabela (opcional) */
@@ -195,6 +212,7 @@ border-radius: 10px ;
 }
 
 .roxo-botao{
+
     --bs-btn-color: #fff !important;
     --bs-btn-bg:#383464 !important;
 }

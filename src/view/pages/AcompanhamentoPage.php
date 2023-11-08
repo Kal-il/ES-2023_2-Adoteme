@@ -25,7 +25,7 @@
     <div id="logo">
         <div id="logo2">
             <a href="HomePage.php">
-                <img class="image" src="../assets/adoteme.png" alt="Logo Adoteme" width="60" height="60">
+                <img class="image" src="../../assets/adoteme.png" alt="Logo Adoteme" width="60" height="60">
             </a>
             <h2 class="adoteme">Adoteme</h2>
         </div>
