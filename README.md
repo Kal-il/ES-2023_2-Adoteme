@@ -1391,4 +1391,4 @@ Eu, como usuário logado ou não, Gostaria de acessar uma seção de Perguntas F
 Eu, como um usuário registrado, gostaria de poder excluir permanentemente meu perfil no site, para que eu possa encerrar minha conta e remover meus dados pessoais da plataforma quando desejar, garantindo minha privacidade e controle sobre minhas informações online.
 <br>
 
-![Janela de exclusão de perfil](https://uploaddeimagens.com.br/imagens/np5JrlY)
+![Janela de exclusão de perfil](https://uploaddeimagens.com.br/images/004/658/740/full/Prot%C3%B3tipo_-_Excluir_perfil.png?1699407832)
