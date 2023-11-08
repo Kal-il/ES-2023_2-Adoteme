@@ -1351,6 +1351,7 @@ O sistema exibe uma mensagem indicando que o usuário não tem processos de ado�
 
 
 
+- S01 - Criar Tela "FAQ". 1.3 [Matheus Henrique Dreher dos Santos](https://github.com/MatheusDreher) Revisado por @mariaclaranaires
 
 
 
@@ -1371,3 +1372,12 @@ Eu, como usuário logado ou não, desejo acessar a página "Sobre Nós" para obt
 <br>
 
 ![Tela de Divulgação de eventos beneficentes ](https://uploaddeimagens.com.br/images/004/658/684/full/New_Project%282%29.png?1699399575)
+
+
+
+### S01 - Criar Tela "FAQ"
+
+Eu, como usuário logado ou não, Gostaria de acessar uma seção de Perguntas Frequentes (FAQ) para encontrar respostas para dúvidas comuns, para que eu possa obter informações rápidas e precisas sem a necessidade de entrar em contato com o suporte ao cliente ou procurar por informações em diferentes partes do site. 
+<br>
+
+![FAQ](https://uploaddeimagens.com.br/images/004/658/710/full/FAQ.png?1699404200)
