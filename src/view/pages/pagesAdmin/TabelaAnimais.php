@@ -54,9 +54,25 @@ require_once '../../../controller/gatosController/ListarGatosController.php';
     <div class="container d-flex align-items-center ">
         <div class="col">
             <div class="row pb-5">
-                <div class="col">
-                    <h1>Gatos cadastrados</h1>
+                <div class=" col" id="meudeus">
+                    <button onclick="window.history.back()"> Voltar </button>
+                    <h2>Tela de Acompanhamento</h2>
                 </div>
+                <style>
+                    .row.pb-5 {
+                        text-align: center;
+                        align-items: center;
+                        justify-content: space-evenly;
+                    }
+
+                    #meudeus {
+                        display: flex;
+                        text-align: center;
+                        align-items: center;
+                        justify-content: space-evenly;
+                        flex-direction: row;
+                    }
+                </style>
                 <div class="col">
                     <div class="input-group">
                         <input type="text" class="form-control" aria-label="Text input with radio button" placeholder="Search">
@@ -155,4 +171,5 @@ require_once '../../../controller/gatosController/ListarGatosController.php';
 <footer class="footer">
     <p>&copy;2023 Adoteme </p>
 </footer>
+
 </html>

@@ -264,7 +264,9 @@ if (isset($_SESSION['search_resultados'])) {
                                 $flag = False;
                             }
                             ?>
+                            
                             <!-- Botão de compartilhar -->
+
                             <button id="buttons-share-fill" class="openModal">
                                 <svg xmlns=" http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="share-fill" viewBox="0 0 16 16">
                                     <path d="M11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.499 2.499 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5z" />
@@ -324,6 +326,7 @@ if (isset($_SESSION['search_resultados'])) {
                         $(document).ready(function() {
                             $('#checkbox-<?php echo $gato['id']; ?>').click(function() {
                                 var id_usuario = <?php echo $user_id; ?>;
+
                                 var id_gato = <?php echo $gato['id']; ?>;
                                 var checked = $(this).is(':checked');
                                 if (id_usuario == 0) {

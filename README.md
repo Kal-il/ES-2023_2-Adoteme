@@ -13,6 +13,9 @@ O "AdoteMe" é uma plataforma digital inovadora desenvolvida para unir coraçõe
 ### [Relatório de gestão de atividades (iteração 4 04/10/23 )](https://docs.google.com/spreadsheets/d/17kG0-oXf1jkvQOHeZQto6eXxYRd2bO6i3HtbkV5-IKI/edit?usp=sharing)
 ### [Relatório de gestão de atividades (iteração 5 25/10/23 )](https://docs.google.com/spreadsheets/d/17kG0-oXf1jkvQOHeZQto6eXxYRd2bO6i3HtbkV5-IKI/edit?usp=sharing)
 
+
+### [EventStorm](https://www.canva.com/design/DAFzewmPuVk/uINPPpF1hX38lTvJtAFEZQ/edit)
+
 ### Escopo:
 
 - #### Épico 1 --- Gerenciamento de usuário: RF01, RF02, RF06, RF17, RF12, RF13;
@@ -1342,3 +1345,67 @@ O sistema exibe uma mensagem indicando que o usuário não tem processos de ado�
 
 ## Protótipo
 ![Desktop_-_1_(1)](https://uploaddeimagens.com.br/images/004/645/915/full/Desktop_-_1_%281%29.png?1698176122)
+
+# User Stories - Sprint 01
+
+- S01 - Criar Tela de Divulgação de Eventos Beneficentes. 1.1 [Ana Flavia Moreira Pires ](https://github.com/ana-flav) Revisado por @romeuborges19
+
+- S01 - Criar Tela "Sobre Nós". 1.2 [Thiago Gonzaga dos Santos ](https://github.com/tgofsaints) Revisado por @Kal-il
+
+- S01 - Criar Tela "FAQ". 1.3 [Matheus Henrique Dreher dos Santos](https://github.com/MatheusDreher) Revisado por @mariaclaranaires
+
+- S01 - Criar Janela de "Excluir Perfil". 1.4 [Maria Clara Nazareno Aires](https://github.com/mariaclaranaires) Revisado por @tgofsaints
+
+- S01 - Criar Tela de Perfil do Usuário. 1.5 [Kalil Garcia Canuto](https://github.com/Kal-il) Revisado por @ana-flav
+- 
+- S01 - Criar Tela de Edição de Perfil do Usuário. 1.6 [Romeu Miranda Borges](https://github.com/romeuborges19) Revisado por @matheusdreher
+
+
+
+### S01 - Criar Tela de Divulgação de Eventos Beneficentes
+
+Eu, como usuário cadastrado ou não, gostaria de contribuir para ajudar os gatos da UFT de outra maneira, mesmo sem adotá-los, portanto gostaria de saber sobres os eventos beneficentes organizados pela Universidade, com opções para compartilhar os post dos eventos.
+<br>
+![Tela de Divulgação de eventos beneficentes ](https://uploaddeimagens.com.br/images/004/657/988/original/Captura_de_tela_2023-11-07_075915.png?1699363775)
+
+
+
+### S01 - Criar Tela "Sobre Nós"
+
+Eu, como usuário logado ou não, desejo acessar a página "Sobre Nós" para obter informações detalhadas sobre a equipe por trás deste projeto. Isso me permitirá conhecer os membros da equipe, a missão do projeto, entender suas experiências e motivações para o projeto, bem como estabelecer confiança na equipe por trás da iniciativa.
+
+<br>
+
+![Tela de Divulgação de eventos beneficentes ](https://uploaddeimagens.com.br/images/004/658/684/full/New_Project%282%29.png?1699399575)
+
+
+
+### S01 - Criar Tela "FAQ"
+
+Eu, como usuário logado ou não, Gostaria de acessar uma seção de Perguntas Frequentes (FAQ) para encontrar respostas para dúvidas comuns, para que eu possa obter informações rápidas e precisas sem a necessidade de entrar em contato com o suporte ao cliente ou procurar por informações em diferentes partes do site. 
+<br>
+
+![FAQ](https://uploaddeimagens.com.br/images/004/658/710/full/FAQ.png?1699404200)
+
+
+
+### S01 - Criar Janela de "Excluir Perfil"
+
+Eu, como um usuário registrado, gostaria de poder excluir permanentemente meu perfil no site, para que eu possa encerrar minha conta e remover meus dados pessoais da plataforma quando desejar, garantindo minha privacidade e controle sobre minhas informações online.
+<br>
+
+![Janela de exclusão de perfil](https://uploaddeimagens.com.br/images/004/658/740/full/Prot%C3%B3tipo_-_Excluir_perfil.png?1699407832)
+
+### S01 - Criar Tela de Perfil do Usuário
+
+Eu, como usuário cadastrado e logado, gostaria de poder ver as informações do meu perfil, de poder ter acesso aos botões que levam ás páginas de acompanhamento de processos de adoção, de gatos que favoritei, de edição das informaçoes do meu perfil. Alem disso gostaria de poder ver minha atividade recente na plataforma podendo ver os gatos que visualizei recentemente,  tornando a experiência na plataforma mais conveniente e personalizada.
+<br/>
+
+![Tela de perfil](https://uploaddeimagens.com.br/images/004/658/791/original/Perfil.png?1699417079)
+
+
+### S01 - Criar Tela de Edição de Perfil
+
+Eu, como usuário comum, cadastrado e logado o sistema, gostaria de acessar uma página que me permitisse alterar as informações do meu perfil, tais como meu nome de usuário, meu endereço, meu número de celular e demais dados de contato, tudo isso de forma rápida e eficiente.
+
+![Tela de Edição de Perfil](https://uploaddeimagens.com.br/images/004/658/775/full/login_%28_%29_%281%29.png?1699412087)

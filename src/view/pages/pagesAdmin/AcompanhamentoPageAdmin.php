@@ -1,5 +1,5 @@
 <?php
-    include 'C:\xampp\htdocs\ES-2023_2-Adoteme\src\controller\AdocaoAdminController.php';
+include 'C:\xampp\htdocs\ES-2023_2-Adoteme\src\controller\AdocaoAdminController.php';
 ?>
 
 <!DOCTYPE html>
@@ -25,7 +25,7 @@
     <div id="logo">
         <div id="logo2">
             <a href="HomePage.php">
-                <img class="image" src="../assets/adoteme.png" alt="Logo Adoteme" width="60" height="60">
+                <img class="image" src="../../assets/adoteme.png" alt="Logo Adoteme" width="60" height="60">
             </a>
             <h2 class="adoteme">Adoteme</h2>
         </div>
@@ -54,16 +54,33 @@
     <div class="container d-flex align-items-center ">
         <div class="col">
             <div class="row pb-5">
-                <div class="col">
-                    <h1>Tela de Acompanhamento</h1>
+                <div class=" col" id="meudeus">
+                    <button onclick="window.history.back()"> Voltar </button>
+                    <h2>Tela de Acompanhamento</h2>
                 </div>
+                <style>
+                    .row.pb-5 {
+                        text-align: center;
+                        align-items: center;
+                        justify-content: space-evenly;
+                        margin-top: 5%;
+                    }
+
+                    #meudeus {
+                        display: flex;
+                        text-align: center;
+                        align-items: center;
+                        justify-content: space-evenly;
+                        flex-direction: row;
+                    }
+                </style>
                 <div class="col">
                     <div class="input-group">
                         <input type="text" class="form-control" aria-label="Text input with radio button" placeholder="Search">
                         <button type="button" class="btn roxo-botao">
                             <a class="button-icon-link-add" href="CadastrarGato.php">
-                            <span class="material-symbols-outlined">
-                                add
+                                <span class="material-symbols-outlined">
+                                    add
                             </a>
                             </span>
                         </button>
@@ -80,45 +97,46 @@
                                 <th scope="col">ID</th>
                                 <th scope="col">Nome do Gato</th>
                                 <th scope="col">Nome do Adotante</th>
-                                <th></th>
+                                <th scope="col">Ação</th>
+                                <th scope="col">Ação</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php foreach ($adocoes as $gato) : ?>
-                            <tr>
-                                <td>
-                                    <?php
-                                    // Verifique a situação do pedido e exiba o texto apropriado
-                                    if ($gato['situacao'] == 'analise') {
-                                        echo 'Em analise';
-                                    } elseif ($gato['situacao'] == 'aprovado') {
-                                        echo 'Aprovado';
-                                    } elseif ($gato['situacao'] == 'rejeitado') {
-                                        echo 'Rejeitado';
-                                    }
-                                    ?>
-                                </td>
-                                <td><?php echo $gato['id'] ?> </td>
-                                <td><?php echo $gato['gato_nome'] ?></td>
-                                <td><?php echo $gato['adotante_nome'] . ' ' . $gato['sobrenome'] ?></th>
-                                <td>
-                                    <a href="#" class="btn openModal">Rejeiar Pedido</a>
-                                    <div class="modal">
-                                        <div class="modal__content">
-                                            <h2 class="modal__title">Atenção!</h2>
-                                            <p class="modal__description">
-                                                Deseja <b>rejeitar</b> este pedido de adoção?
-                                            </p>
-                                            <a href="../../../controller/RejeitarAdocao.php?id=<?php echo $gato['id']; ?>" class="modal__deletar deleteButton">Rejeitar</a>
-                                            <a href="#" class="modal__cancelar">Fechar</a>
+                                <tr>
+                                    <td>
+                                        <?php
+                                        // Verifique a situação do pedido e exiba o texto apropriado
+                                        if ($gato['situacao'] == 'analise') {
+                                            echo 'Em analise';
+                                        } elseif ($gato['situacao'] == 'aprovado') {
+                                            echo 'Aprovado';
+                                        } elseif ($gato['situacao'] == 'rejeitado') {
+                                            echo 'Rejeitado';
+                                        }
+                                        ?>
+                                    </td>
+                                    <td><?php echo $gato['id'] ?> </td>
+                                    <td><?php echo $gato['gato_nome'] ?></td>
+                                    <td><?php echo $gato['adotante_nome'] . ' ' . $gato['sobrenome'] ?></th>
+                                    <td>
+                                        <a href="#" class="btn openModal">Rejeiar Pedido</a>
+                                        <div class="modal">
+                                            <div class="modal__content">
+                                                <h2 class="modal__title">Atenção!</h2>
+                                                <p class="modal__description">
+                                                    Deseja <b>rejeitar</b> este pedido de adoção?
+                                                </p>
+                                                <a href="../../../controller/RejeitarAdocao.php?id=<?php echo $gato['id']; ?>" class="modal__deletar deleteButton">Rejeitar</a>
+                                                <a href="#" class="modal__cancelar">Fechar</a>
+                                            </div>
                                         </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <a href="../../../controller/AprovarAdocao.php?id=<?php echo $gato['id']; ?>">Aprovar Pedido</a>
-                                </td>
-                            </tr>
-                        <?php endforeach; ?>
+                                    </td>
+                                    <td>
+                                        <a href="../../../controller/AprovarAdocao.php?id=<?php echo $gato['id']; ?>">Aprovar Pedido</a>
+                                    </td>
+                                </tr>
+                            <?php endforeach; ?>
                         </tbody>
                     </table>
                     <script>
