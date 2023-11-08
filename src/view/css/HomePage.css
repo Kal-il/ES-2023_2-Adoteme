@@ -132,9 +132,10 @@ h2 {
 
 
 .gallery {
+    margin-left: 5%;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-evenly;
+    justify-content: flex-start;
     gap: 10px;
     margin-bottom: 10%;
 }

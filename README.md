@@ -1355,6 +1355,8 @@ O sistema exibe uma mensagem indicando que o usuário não tem processos de ado�
 
 - S01 - Criar Janela de "Excluir Perfil". 1.4 [Maria Clara Nazareno Aires](https://github.com/mariaclaranaires) Revisado por @tgofsaints
 
+- S01 - Criar Tela de Perfil do Usuário. 1.5 [Kalil Garcia Canuto](https://github.com/Kal-il) Revisado por @MatheusDreher
+
 
 
 
