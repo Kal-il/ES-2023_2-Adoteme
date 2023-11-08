@@ -1354,6 +1354,9 @@ O sistema exibe uma mensagem indicando que o usuário não tem processos de ado�
 - S01 - Criar Tela "FAQ". 1.3 [Matheus Henrique Dreher dos Santos](https://github.com/MatheusDreher) Revisado por @mariaclaranaires
 
 
+- S01 - Criar Tela de Edição de Perfil do Usuário. 1.5 [Romeu Miranda Borges](https://github.com/romeuborges19) Revisado por ---
+
+
 
 
 
@@ -1381,3 +1384,9 @@ Eu, como usuário logado ou não, Gostaria de acessar uma seção de Perguntas F
 <br>
 
 ![FAQ](https://uploaddeimagens.com.br/images/004/658/710/full/FAQ.png?1699404200)
+
+### S01 - Criar Tela de Edição de Perfil
+
+Eu, como usuário comum, cadastrado e logado o sistema, gostaria de acessar uma página que me permitisse alterar as informações do meu perfil, tais como meu nome de usuário, meu endereço, meu número de celular e demais dados de contato, tudo isso de forma rápida e eficiente.
+
+![Tela de Edição de Perfil](https://uploaddeimagens.com.br/images/004/658/775/full/login_%28_%29_%281%29.png?1699412087)
