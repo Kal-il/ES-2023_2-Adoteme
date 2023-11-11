@@ -9,8 +9,7 @@ use models\Connection;
 use models\GatosModel;
 
 if ($_SERVER["REQUEST_METHOD"] == "GET") {
-    if (isset($_GET['id'])) {
-        $gatoId = $_GET['id'];
+        $gatoId = explode('/', $_SERVER["REQUEST_URI"])[2];
 
         $connection = new Connection;
         $connection = $connection->getConnection();
@@ -18,7 +17,6 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
         $gato = new GatosModel();
         $gatoData = $gato->getGatoById($connection, $gatoId);
         $gatoData['id'] = $gatoId;
-    }
 }
 
 ?>

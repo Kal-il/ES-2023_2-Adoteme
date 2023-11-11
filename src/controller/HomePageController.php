@@ -2,12 +2,8 @@
 
 namespace controller;
 
-require_once __DIR__.'..\..\models\Connection.php';
-require_once __DIR__.'..\..\models\GatosModel.php';
-
 use models\Connection;
 use models\GatosModel;
-
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST["search"])) {

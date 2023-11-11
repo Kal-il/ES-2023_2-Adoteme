@@ -3,28 +3,18 @@
 require_once __DIR__ . '..\..\..\controller\HomePageController.php';
 require __DIR__ . '..\..\..\..\vendor\autoload.php';
 include __DIR__ . '\..\..\controller\FavoritosController.php';
+include __DIR__ . '\..\..\controller\JWTController.php';
 
 use controller\HomePageController;
 use models\FavoritosModel;
-
-
-use Firebase\JWT\JWT;
-use Firebase\JWT\Key;
-
 use function controller\checkUser;
 
 $flag = false;
 $favoritos = array();
-$user_id = 0;
-if (isset($_COOKIE['jwt_token'])) {
-    $jwt_token = $_COOKIE['jwt_token'];
-    $decoded = JWT::decode($jwt_token, new Key("test_key", 'HS256'));
-    $decoded_array = (array) $decoded;
-    $user_id = $decoded_array['user_id'];
-    $favoritos = checkUser($user_id);
-} else {
-    echo "<h1> faça login </h1>";
-}
+
+echo '<h1>'.$user_id.'</h1>';
+
+$favoritos = checkUser($user_id);
 
 if (!isset($_SESSION)) {
     session_start();
@@ -53,7 +43,7 @@ if (isset($_SESSION['search_resultados'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/HomePage.css">
+    <link rel="stylesheet" href="src/view/css/HomePage.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
@@ -67,7 +57,7 @@ if (isset($_SESSION['search_resultados'])) {
         <div id="logo">
             <div id="logo2">
                 <a href="HomePage.php">
-                    <img class="image" src="../assets/adoteme.png" alt="Logo Adoteme" width="60" height="60">
+                    <img class="image" src="src/view/assets/adoteme.png" alt="Logo Adoteme" width="60" height="60">
                 </a>
                 <h2 class="adoteme">Adoteme</h2>
             </div>
@@ -81,7 +71,7 @@ if (isset($_SESSION['search_resultados'])) {
                             <a class="nav-link disabled " href="pagesAdmin/HomePageAdmin.php">Admin</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="LoginPage.php">Login</a>
+                            <a class="nav-link" href="/login">Login</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link disabled" href="#">Profile</a>
@@ -246,7 +236,7 @@ if (isset($_SESSION['search_resultados'])) {
                 foreach ($data as $gato) {
                     echo '<div class="polaroide">';
                     if (!empty($gato['foto1'])) {
-                        echo '<a class="link-img-test" href="../../view/pages/VisualizarGato.php/?id= ' . $gato["id"] . '"><img class="img-test" src="../../view/pages/pagesAdmin/' . $gato['foto1'] . '" alt="Imagem de gato"></a>';
+                        echo '<a class="link-img-test" href="/gato/' . $gato["id"] . '"><img class="img-test" src="src/view/pages/pagesAdmin/' . $gato['foto1'] . '" alt="Imagem de gato"></a>';
                     } else {
                         echo '<a href="../../view/pages/VisualizarGato.php/?id= ' . $gato["id"] . '"><img class="img-test" src="../assets/gato2.jpg" alt="Imagem de gato como exemplo"></a>';
                     }

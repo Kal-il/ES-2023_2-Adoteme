@@ -46,6 +46,7 @@ class UserModel {
         }
     }
     function CreateUser($connection, $data) {
+        echo 'ta chegando na model';
         $email = pg_escape_string($connection, $data['email']); 
         $password = pg_escape_string($connection, $data['password']); 
         $nome = pg_escape_string($connection, $data['nome']);
@@ -58,7 +59,7 @@ class UserModel {
         $matricula = pg_escape_string($connection, $data['matricula']);
         $data_nascimento = pg_escape_string($connection, $data['data_nascimento']); 
         $endereco = pg_escape_string($connection, $data['endereco']);
-    
+
 
         $query = "INSERT INTO usuarios (email, senha, nome, sobrenome, cpf, telefone, cep, cidade, estado, endereco, matricula, data_nascimento)
         VALUES ('$email', '$password', '$nome', '$sobrenome', '$cpf', '$telefone', '$cep', '$cidade', '$estado', '$endereco', '$matricula', '$data_nascimento')";

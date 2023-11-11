@@ -4,9 +4,6 @@ namespace controller;
 require __DIR__ . '\..\..\vendor\autoload.php';
 use Firebase\JWT\JWT;
 
-require_once '../models/Connection.php';
-require_once '../models/UserModel.php';
-
 use models\Connection;
 use models\UserModel;
  /*
@@ -15,6 +12,8 @@ use models\UserModel;
         * caso o usuário exista, é redirecionado para a página inicial, caso não exista, é redirecionado
         * para a página de login com uma mensagem de erro.
     */
+
+    session_start();
 class LoginController {
     private $connection;
     private $email;
@@ -27,15 +26,15 @@ class LoginController {
     }
 
     public function Login(){
-        $erros = $this->validar_campos();
-
         if (empty($erros)){
             $this->connection = new Connection();
             $this->connection = $this->connection->getConnection();
+
             $data = [
                 "email" => $this->email,
                 "password" => $this->password,
             ];
+
             $login = new UserModel();
             $this->resultado_login = $login -> Login($this->connection, $data);
             $user_id = $login->GetIDByEmail($this->connection, $this->email);
@@ -57,31 +56,15 @@ class LoginController {
                 if ($login->IsSuperuser($this->connection, $data)){
                     header("Location: ../view/pages/pagesAdmin/HomePageAdmin.php");
                 }else{
-                    header("Location: ../view/pages/HomePage.php");
+                    header("Location: /");
                 }
                 
-            } else {
-                header("Location: ../view/pages/LoginPage.php?error=400");
+            } else {    
+                $_SESSION['campos_invalidos'] = "E-mail ou senha estão errados.";
+
+                header("Location: /login");
             }
         }
-        else {
-                $erros_encoded = urlencode(json_encode($erros));
-                header("Location: ../view/pages/LoginPage.php?erros=$erros_encoded");
-            }
-    }
-
-    private function validar_campos(): array {
-        $erros = [];
-
-        if (empty($this->email)) {
-            $erros[] = "O campo de e-mail não pode estar vazio.";
-        }
-
-        if (empty($this->password)) {
-            $erros[] = "O campo de senha não pode estar vazio.";
-        }
-
-        return $erros;
     }
 }
 ?>

@@ -8,8 +8,9 @@ use models\UserModel;
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
     if(isset($_POST["botaoCadastro"])){
+
         if(!isEmpty($_POST)){
-    
+            var_dump($_POST);
             $data = [
                 "email" => $email = $_POST['email'],
                 "password" => $password = $_POST['password'],
