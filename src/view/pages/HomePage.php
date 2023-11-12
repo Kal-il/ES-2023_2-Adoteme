@@ -326,6 +326,7 @@ if (isset($_SESSION['search_resultados'])) {
                         $(document).ready(function() {
                             $('.checkbox').click(function() {
                                 var id_gato = $(this).attr('id');
+                                var id_usuario = <?php echo $user_id; ?>;
                                 id_gato = id_gato.split("-")[1];
                                 var checked = $(this).is(':checked');
                                 if (id_usuario == 0) {

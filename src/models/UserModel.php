@@ -4,6 +4,8 @@ require_once 'Connection.php';
 
 class UserModel {
 
+   
+
     private function queryDatabase($connection, $query) {
         $resultado = pg_query($connection, $query);
 
@@ -22,16 +24,16 @@ class UserModel {
         $email = pg_escape_string($connection, $data['email']); 
         $password = pg_escape_string($connection, $data['password']); 
 
-        $query = "SELECT * FROM usuarios WHERE email = '$email' AND senha = '$password'";
-        $resultado = $this->queryDatabase($connection, $query);
-
-        if (pg_num_rows($resultado) == 0) {
+        $query = "SELECT * FROM usuarios WHERE email = '$email'";
+        $resultado = pg_fetch_all($this->queryDatabase($connection, $query));
+       
+        if (!$resultado || !password_verify($password, $resultado[0]['senha'])) {
             return false;
         } else {
             return true;
         }
     }
-
+   
     function IsSuperuser($connection, $data) {
         $email = pg_escape_string($connection, $data['email']); 
         $password = pg_escape_string($connection, $data['password']); 
@@ -58,7 +60,8 @@ class UserModel {
         $matricula = pg_escape_string($connection, $data['matricula']);
         $data_nascimento = pg_escape_string($connection, $data['data_nascimento']); 
         $endereco = pg_escape_string($connection, $data['endereco']);
-    
+        
+        $password = password_hash($password, PASSWORD_DEFAULT);
 
         $query = "INSERT INTO usuarios (email, senha, nome, sobrenome, cpf, telefone, cep, cidade, estado, endereco, matricula, data_nascimento)
         VALUES ('$email', '$password', '$nome', '$sobrenome', '$cpf', '$telefone', '$cep', '$cidade', '$estado', '$endereco', '$matricula', '$data_nascimento')";
