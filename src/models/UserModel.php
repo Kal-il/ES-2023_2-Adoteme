@@ -3,9 +3,6 @@ namespace models;
 require_once 'Connection.php';
 
 class UserModel {
-
-   
-
     private function queryDatabase($connection, $query) {
         $resultado = pg_query($connection, $query);
 
