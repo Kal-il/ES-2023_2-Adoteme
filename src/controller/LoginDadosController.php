@@ -13,7 +13,7 @@ if(isset($_POST['botaoLogin'])){
         $email = $_POST['email'];  
         $password = $_POST['password'];
         $login = new LoginController($email, $password);
-        $resultado_login = $login->Login();
+        $login->Login();
     } else {
         $erros = [];
 
@@ -26,7 +26,7 @@ if(isset($_POST['botaoLogin'])){
         }
 
         $_SESSION['erros'] = $erros;
-        var_dump($_SESSION);
+
         header("Location: /login");
     }
 }

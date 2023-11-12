@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<link rel="stylesheet" type="text/css" href="../css/FormPage.css">
+<link rel="stylesheet" type="text/css" href="/src/view/css/FormPage.css">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 <html>
    
@@ -9,7 +9,7 @@
         <div id="logo">
             <div id="logo2">
                 <a href="HomePage.php">
-                    <img class="image" src="../assets/adoteme.png" alt="Logo Adoteme" width="60" height="60">
+                    <img class="image" src="/src/view/assets/adoteme.png" alt="Logo Adoteme" width="60" height="60">
                 </a>
                 <h2 class="adoteme">Adoteme</h2>
             </div>
@@ -34,7 +34,10 @@
         </div>
     </header>
 
-    <?php echo '<form id="adocaoform" method="POST" action="../../controller/FormularioController.php?id=' . $_GET['id'] . '">' ?>
+    <?php 
+        $gato_id = explode('/', $_SERVER['REQUEST_URI'])[3];
+        echo '<form id="adocaoform" method="POST" action="process/' . $gato_id . '">';
+    ?>
 
     <div id="titulo-formulario">
         <label class="tituloform">Formulário de Adoção</label>

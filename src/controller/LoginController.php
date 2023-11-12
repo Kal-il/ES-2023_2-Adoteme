@@ -4,66 +4,84 @@ namespace controller;
 require __DIR__ . '\..\..\vendor\autoload.php';
 use Firebase\JWT\JWT;
 
-use models\Connection;
-use models\UserModel;
  /*
-        * Aqui é implementado toda a lógica de negócio do login, é feita a validação dos campos,
+        * Aqui é implementada toda a lógica de negócio do login, é feita a validação dos campos,
         * a conexão com o banco de dados e a verificação se o usuário existe no banco de dados.
         * caso o usuário exista, é redirecionado para a página inicial, caso não exista, é redirecionado
         * para a página de login com uma mensagem de erro.
     */
 
-    session_start();
-class LoginController {
-    private $connection;
+session_start();
+class LoginController extends Controller{
     private $email;
     private $password;
     private $resultado_login;
 
     public function __construct($email, $password){
+        parent::__construct();
         $this->email = $email;
         $this->password = $password;
     }
 
-    public function Login(){
-        if (empty($erros)){
-            $this->connection = new Connection();
-            $this->connection = $this->connection->getConnection();
+    public static function processar_login() {
+        if(isset($_POST['botaoLogin'])){
+            if(!empty($_POST['email']) && !empty($_POST['password'])){
+                $email = $_POST['email'];  
+                $password = $_POST['password'];
 
-            $data = [
-                "email" => $this->email,
-                "password" => $this->password,
-            ];
-
-            $login = new UserModel();
-            $this->resultado_login = $login -> Login($this->connection, $data);
-            $user_id = $login->GetIDByEmail($this->connection, $this->email);
-
-            if ($this->resultado_login){
-                // Caso o login tenha sucesso, será gerado um token JWT:
-                $payload = [
-                    "exp" => time() + 3600,
-                    "iat" => time(),
-                    "email" => $this->email,
-                    "user_id" => $user_id,
-                ];
-
-                // Uso de Chave temporária "test_key"
-
-                $token = JWT::encode($payload, "test_key", "HS256");
-                setcookie('jwt_token', $token, time() + 3600, '/');
-
-                if ($login->IsSuperuser($this->connection, $data)){
-                    header("Location: ../view/pages/pagesAdmin/HomePageAdmin.php");
-                }else{
-                    header("Location: /");
+                $login = new LoginController($email, $password);
+                $login->Login($email, $password);
+            } else {
+                $erros = [];
+        
+                if (empty($_POST['email'])) {
+                    $erros['email'] = "O campo de e-mail não pode estar vazio.";
                 }
-                
-            } else {    
-                $_SESSION['campos_invalidos'] = "E-mail ou senha estão errados.";
-
+        
+                if (empty($_POST['password'])) {
+                    $erros['senha'] = "O campo de senha não pode estar vazio.";
+                }
+        
+                $_SESSION['erros'] = $erros;
+        
                 header("Location: /login");
             }
+        }
+    }
+
+    public function Login(){
+        $data = [
+            "email" => $this->email,
+            "password" => $this->password,
+        ];
+
+        $this->resultado_login = $this->user_model->Login($this->connection, $data);
+        $user_id = $this->user_model->GetIDByEmail($this->connection, $this->email);
+
+        if ($this->resultado_login){
+            // Caso o login tenha sucesso, será gerado um token JWT:
+            $payload = [
+                "exp" => time() + 3600,
+                "iat" => time(),
+                "email" => $email,
+                "user_id" => $user_id,
+            ];
+
+            // Uso de Chave temporária "test_key"
+
+            $token = JWT::encode($payload, "test_key", "HS256");
+            setcookie('jwt_token', $token, time() + 3600, '/');
+
+            if ($this->user_model->IsSuperuser($this->connection, $data)){
+                header("Location: ../view/pages/pagesAdmin/HomePageAdmin.php");
+            }else{
+                header("Location: /");
+            }
+            
+        } else {    
+            $_SESSION['campos_invalidos'] = "E-mail ou senha estão errados.";
+
+            header("Location: /login");
         }
     }
 }

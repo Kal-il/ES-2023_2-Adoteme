@@ -116,7 +116,7 @@ require_once(__DIR__ . '/../../controller/gatosController/VisualizarGato.php');
                 <?php echo $gatoData['descricao'] ?>
             </ul>
             <div class="tenho-interesse"><button class="botao" type="submit" name="botaoAdocao">
-                    <?php echo '<div class="button-info"><a id = "quero-adotar"href="../FormPage.php?id=' . $gatoData['id'] . '"> Quero adotar! </a><i class="fas fa-paw"></i></div>'; ?>
+                    <?php echo '<div class="button-info"><a id = "quero-adotar"href="adotar/' . $gatoData['id'] . '"> Quero adotar! </a><i class="fas fa-paw"></i></div>'; ?>
 
                 </button></div>
 

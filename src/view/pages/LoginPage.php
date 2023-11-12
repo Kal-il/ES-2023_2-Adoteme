@@ -21,36 +21,9 @@
     <title>login-Adoteme</title>
 
 </head>
-
+<?php include __DIR__ . '/../partials/Header.php'; ?>
 <body>
-    <header>
-        <div id="logo">
-            <div id="logo2">
-                <a href="HomePage.php">
-                    <img class="image" src="../assets/adoteme.png" alt="Logo Adoteme" width="60" height="60">
-                </a>
-                <h2 class="adoteme">Adoteme</h2>
-            </div>
-            <nav>
-                <ul class="nav nav-tabs">
-                    <ul class="nav nav-tabs">
-                        <li class="nav-item">
-                            <a class="nav-link" href="HomePage.php">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link disabled " href="pagesAdmin/HomePageAdmin.php">Admin</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" href="SinginPage.php">Login</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link disabled" href="#">Profile</a>
-                        </li>
-                    </ul>
-            </nav>
 
-        </div>
-    </header>
     <div class="container">
 
         <div class="form-container">
@@ -63,6 +36,9 @@
 
                 /**
                  * Verficar se existe erro, se existir, mostrar mensagem de erro
+                 * Erros estão sendo pegos através de sessão. 
+                 * - 'campos_invalidos' existirá quando o usuário inserir email ou senha errados.
+                 * - 'erros' verifica se os campos foram preenchidos.
                  */
 
                 if(isset($_SESSION['campos_invalidos'])){

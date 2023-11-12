@@ -17,6 +17,11 @@ use models\FormularioModel;
 use models\AdocaoModel;
 
 class Controller{
+    /*     
+    Esta classe contém toda conexão da camada controller com a camada models. 
+    Toda classe da camada controller deve herdar desta classe e chamar sua função construtora. 
+    */
+    
     public $connection;
     public $user_model;
     public $gatos_model;

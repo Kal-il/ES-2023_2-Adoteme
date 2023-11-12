@@ -1,14 +1,9 @@
 <?php
 namespace controller;
 
-require_once '../models/Connection.php';
-require_once '../models/FavoritosModel.php';
-require_once '../controller/Controller.php';
-
-use controller\Controller;
-
 require 'C:\xampp\htdocs\ES-2023_2-Adoteme\vendor\autoload.php';
 
+use controller\Controller;
 use Firebase\JWT\JWT;
 use Firebase\JWT\Key;
 
@@ -143,7 +138,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo "<h1> faça login </h1>";
         }
 
-        $id_gato = $_GET['id'];
+        $id_gato = explode('/', $_SERVER['REQUEST_URI'])[4];
 
         $data = [
             "id_usuario" => $decoded_array['user_id'],

@@ -2,32 +2,56 @@
 
 namespace controller;
 
-use models\Connection;
-use models\GatosModel;
+class HomePageController extends Controller{
+    public function __construct(){
+        parent::__construct();
+    }
+
+    function infoHomeGatos(){
+        $gatosInfo = $this->gatos_model->ListarGatos($this->connection);
+
+        return $gatosInfo;
+    }
+    
+    function searchGato($data){
+        $gatosInfo = $this->gatos_model->SearchGato($this->connection, $data);
+
+        if ($gatosInfo) 
+            return $gatosInfo;
+        return false;
+           
+    }
+    function filtrarGato($data){ 
+        $gatosInfo = $this->gatos_model->FilterGato($this->connection, $data);
+
+        if ($gatosInfo) 
+            return $gatosInfo;
+        return false;
+    }
+}
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    session_start();
     if (isset($_POST["search"])) {
         $data = $_POST["search"];
         $homePageController = new HomePageController();
         $gatosInfo = $homePageController->searchGato($data);
 
         if (!$gatosInfo) {
-            $erro = "Nenhum gato encontrado com essa informação";
-            $erro_encode = json_encode($erro);
-            header("Location: ../view/pages/HomePage.php?erro=$erro_encode");
+            $_SESSION['erro'] = "Nenhum gato encontrado com essa informação";
+            header("Location: /");
         } else {
             session_start();
             $_SESSION['search_resultados'] = $gatosInfo;
-            header("Location: ../view/pages/HomePage.php");
+            header("Location: /");
  
         }
-    }elseif(isset($_POST["filtrar"])){
+    } elseif (isset($_POST["filtrar"])){
         
         $data = $_POST["filtros"];
         foreach ($data as $campo) {
             echo "Valor selecionado: " . $campo . "<br>";
         }
-        var_dump($data);    
         session_start();
         $homePageController = new HomePageController();
         $filtrosGatos = $homePageController->filtrarGato($data);
@@ -45,35 +69,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 
-class HomePageController{
-
-    function infoHomeGatos(){
-        $connection = new Connection();
-        $connection = $connection->getConnection();
-        $gatos = new GatosModel();
-        $gatosInfo = $gatos->ListarGatos($connection);
-        return $gatosInfo;
-    }
-    
-    function searchGato($data){
-        $connection = new Connection();
-        $connection = $connection->getConnection();
-        $gatos = new GatosModel();
-        $gatosInfo = $gatos->SearchGato($connection, $data);
-
-        if ($gatosInfo) 
-            return $gatosInfo;
-        return false;
-           
-    }
-    function filtrarGato($data){
-        $connection = new Connection();
-        $connection = $connection->getConnection();
-        $gatos = new GatosModel();  
-        $gatosInfo = $gatos->FilterGato($connection, $data);
-
-        if ($gatosInfo) 
-            return $gatosInfo;
-        return false;
-    }
-}

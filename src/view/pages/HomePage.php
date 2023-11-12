@@ -11,9 +11,6 @@ use function controller\checkUser;
 
 $flag = false;
 $favoritos = array();
-
-echo '<h1>'.$user_id.'</h1>';
-
 $favoritos = checkUser($user_id);
 
 if (!isset($_SESSION)) {
@@ -53,34 +50,7 @@ if (isset($_SESSION['search_resultados'])) {
 </head>
 
 <body>
-    <header>
-        <div id="logo">
-            <div id="logo2">
-                <a href="HomePage.php">
-                    <img class="image" src="src/view/assets/adoteme.png" alt="Logo Adoteme" width="60" height="60">
-                </a>
-                <h2 class="adoteme">Adoteme</h2>
-            </div>
-            <nav>
-                <ul class="nav nav-tabs">
-                    <ul class="nav nav-tabs">
-                        <li class="nav-item">
-                            <a class="nav-link active" href="HomePage.php">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link disabled " href="pagesAdmin/HomePageAdmin.php">Admin</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/login">Login</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link disabled" href="#">Profile</a>
-                        </li>
-                    </ul>
-            </nav>
-
-        </div>
-    </header>
+    <?php include __DIR__ . '/../partials/Header.php'; ?>
     <main>
         <!-- Modal de compartilhamento -->
 
@@ -104,13 +74,13 @@ if (isset($_SESSION['search_resultados'])) {
                     filter_list
                 </span>
             </button>
-            <form id="form" action="../../controller/HomePageController.php" method="POST">
+            <form id="form" action="/search" method="POST">
                 <input id="search-box" type="text" name="search" id="search" placeholder="Pesquisar">
             </form>
 
         </div>
         <!-- Formulário aqui-->
-        <form id="my-form" action="../../controller/HomePageController.php" method="POST">
+        <form id="my-form" action="/search" method="POST">
             <table>
                 <thead>
                     <!-- aqui ficam os titulos da tabéla-->
@@ -227,11 +197,16 @@ if (isset($_SESSION['search_resultados'])) {
         </script>
         <section class="gallery">
             <?php
-            if (isset($_GET['erro'])) {
+            if (isset($_SESSION['erro'])) {
                 echo '<div class="polaroide">';
-                echo '<img class="img-test" src="../assets/gatinho_triste.png" alt="Gatinho triste">';
-                echo '<p class="info-gato">Ofiltrosreu um problema, não temos essa informação.</p>';
+                echo '<img class="img-test" src="/src/view/assets/gatinho_triste.png" alt="Gatinho triste">';
+                echo '<p class="info-gato">Ocorreu um problema, não temos essa informação.</p>';
+                echo '<a href="/">Retornar à página inicial</a>';
                 echo '</div>';
+                
+                # Após mostrar a tela de erro, seus dados são retirados da sessão. 
+                # Se o usuário recarregar a página, ele será redirecionado à home normal.
+                unset($_SESSION['erro']);
             } else {
                 foreach ($data as $gato) {
                     echo '<div class="polaroide">';
