@@ -30,7 +30,7 @@ class Controller{
 
         $this->user_model = new UserModel();
         $this->gatos_model = new GatosModel();
-        $this->favortios_model = new FavoritosModel();
+        $this->favoritos_model = new FavoritosModel();
         $this->formulario_model = new FormularioModel();
         $this->adocao_model = new AdocaoModel();
     }
