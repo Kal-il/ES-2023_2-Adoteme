@@ -35,10 +35,10 @@ class UserModel {
         $email = pg_escape_string($connection, $data['email']); 
         $password = pg_escape_string($connection, $data['password']); 
 
-        $query = "SELECT * FROM usuarios WHERE email = '$email' AND senha = '$password' AND superuser = true";
-        $resultado = $this->queryDatabase($connection, $query);
+        $query = "SELECT * FROM usuarios WHERE email = '$email' AND superuser = true";
+        $resultado = pg_fetch_all($this->queryDatabase($connection, $query));
 
-        if (pg_num_rows($resultado) == 0) {
+        if (!$resultado || !password_verify($password, $resultado[0]['senha'])) {
             return false;
         } else {
             return true;
