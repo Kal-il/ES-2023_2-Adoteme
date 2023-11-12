@@ -2,9 +2,88 @@
 
 namespace controller;
 
+require __DIR__ . '/../../vendor/autoload.php';
+
+use controller\FavoritosController;
+
 class HomePageController extends Controller{
+
     public function __construct(){
         parent::__construct();
+    }
+
+    public static function carregar_home(){
+        include 'JWTController.php';
+
+        $flag = false;
+
+        $favoritos_controller = new FavoritosController();
+
+        $favoritos = array();
+        $favoritos = $favoritos_controller->checkUser($user_id);
+
+        if (!isset($_SESSION)) {
+            session_start();
+        } else {
+            session_destroy();
+            session_start();
+        }
+        $data = array();
+
+        if (isset($_SESSION['search_resultados'])) {
+            $data = $_SESSION['search_resultados'];
+            unset($_SESSION['search_resultados']);
+        } elseif (isset($_SESSION['filtragem'])) {
+            $data = $_SESSION['filtragem'];
+            unset($_SESSION['filtragem']);
+        } else {
+            $homePage = new HomePageController();
+            $data = $homePage->infoHomeGatos();
+        }
+
+        include __DIR__ . "/../view/pages/HomePage.php";
+    }
+
+    public static function pesquisar_gatos(){
+        session_start();
+        if (isset($_POST["search"])) {
+            $data = $_POST["search"];
+
+            $homePageController = new HomePageController();
+            $gatosInfo = $homePageController->searchGato($data);
+    
+            if (!$gatosInfo) {
+                $_SESSION['erro'] = "Nenhum gato encontrado com essa informação";
+
+                header("Location: /");
+            } else {
+                $_SESSION['search_resultados'] = $gatosInfo;
+
+                header("Location: /");
+            }
+        }
+
+        if (isset($_POST["filtrar"])){
+            $data = $_POST["filtros"];
+
+            foreach ($data as $campo) {
+                echo "Valor selecionado: " . $campo . "<br>";
+            }
+
+            $homePageController = new HomePageController();
+            $filtrosGatos = $homePageController->filtrarGato($data);
+
+            if (!$filtrosGatos) {
+                $_SESSION['erro'] = "Nenhum gato encontrado com essa informação";
+
+                header("Location: /");
+            } else {
+                $_SESSION['filtragem'] = $filtrosGatos;
+
+                header("Location: /");
+     
+            }
+        }
     }
 
     function infoHomeGatos(){
@@ -29,43 +108,3 @@ class HomePageController extends Controller{
         return false;
     }
 }
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    session_start();
-    if (isset($_POST["search"])) {
-        $data = $_POST["search"];
-        $homePageController = new HomePageController();
-        $gatosInfo = $homePageController->searchGato($data);
-
-        if (!$gatosInfo) {
-            $_SESSION['erro'] = "Nenhum gato encontrado com essa informação";
-            header("Location: /");
-        } else {
-            session_start();
-            $_SESSION['search_resultados'] = $gatosInfo;
-            header("Location: /");
- 
-        }
-    } elseif (isset($_POST["filtrar"])){
-        
-        $data = $_POST["filtros"];
-        foreach ($data as $campo) {
-            echo "Valor selecionado: " . $campo . "<br>";
-        }
-        session_start();
-        $homePageController = new HomePageController();
-        $filtrosGatos = $homePageController->filtrarGato($data);
-        if (!$filtrosGatos) {
-            $erro = "Nenhum gato encontrado com essa informação";
-            $erro_encode = json_encode($erro);
-            header("Location: ../view/pages/HomePage.php?erro=$erro_encode");
-        } else {
-            session_start();
-            $_SESSION['filtragem'] = $filtrosGatos;
-            header("Location: ../view/pages/HomePage.php");
- 
-        }
-
-    }
-}
-

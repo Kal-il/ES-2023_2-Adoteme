@@ -1,39 +1,3 @@
-<?php
-// require '..\..\..\vendor\autoload.php';
-require_once __DIR__ . '..\..\..\controller\HomePageController.php';
-require __DIR__ . '..\..\..\..\vendor\autoload.php';
-include __DIR__ . '\..\..\controller\FavoritosController.php';
-include __DIR__ . '\..\..\controller\JWTController.php';
-
-use controller\HomePageController;
-use models\FavoritosModel;
-use function controller\checkUser;
-
-$flag = false;
-$favoritos = array();
-$favoritos = checkUser($user_id);
-
-if (!isset($_SESSION)) {
-    session_start();
-} else {
-    session_destroy();
-    session_start();
-}
-$data = array();
-
-if (isset($_SESSION['search_resultados'])) {
-    $data = $_SESSION['search_resultados'];
-    unset($_SESSION['search_resultados']);
-} elseif (isset($_SESSION['filtragem'])) {
-    $data = $_SESSION['filtragem'];
-    unset($_SESSION['filtragem']);
-} else {
-    $homePage = new HomePageController();
-    $data = $homePage->infoHomeGatos();
-}
-
-
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -213,7 +177,7 @@ if (isset($_SESSION['search_resultados'])) {
                     if (!empty($gato['foto1'])) {
                         echo '<a class="link-img-test" href="/gato/' . $gato["id"] . '"><img class="img-test" src="src/view/pages/pagesAdmin/' . $gato['foto1'] . '" alt="Imagem de gato"></a>';
                     } else {
-                        echo '<a href="../../view/pages/VisualizarGato.php/?id= ' . $gato["id"] . '"><img class="img-test" src="../assets/gato2.jpg" alt="Imagem de gato como exemplo"></a>';
+                        echo '<a href="/gato/' . $gato["id"] . '"><img class="img-test" src="src/view/assets/gato2.jpg" alt="Imagem de gato como exemplo"></a>';
                     }
 
             ?>

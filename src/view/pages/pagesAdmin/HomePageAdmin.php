@@ -1,21 +1,7 @@
 
 <?php
-require '..\..\..\..\vendor\autoload.php';
-
-use Firebase\JWT\JWT;
-use Firebase\JWT\Key;
-
-if (isset($_COOKIE['jwt_token'])) {
-    $jwt_token = $_COOKIE['jwt_token'];
-    $decoded = JWT::decode($jwt_token, new Key("test_key", 'HS256'));
-
-    $decoded_array = (array) $decoded;
-    echo $decoded_array['email'];
-} else {
-    echo "<h1> faça login </h1>";
-}
+include __DIR__ . '\..\..\controller\JWTController.php';
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -95,42 +81,15 @@ if (isset($_COOKIE['jwt_token'])) {
 </style>
 
 <body>
-    <header>
-        <div id="logo">
-            <div id="logo2">
-                <a href="HomePage.php">
-                    <img class="image" src="../../assets/adoteme.png" alt="Logo Adoteme" width="60" height="60">
-                </a>
-                <h2 class="adoteme">Adoteme</h2>
-            </div>
-            <nav>
-                <ul class="nav nav-tabs">
-                    <ul class="nav nav-tabs">
-                        <li class="nav-item">
-                            <a class="nav-link" href="HomePage.php">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" href="pagesAdmin/HomePageAdmin.php">Admin</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link " href="SinginPage.php">Login</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link disabled" href="#">Profile</a>
-                        </li>
-                    </ul>
-            </nav>
-
-        </div>
-    </header>
+    <?php include __DIR__ . '/../../partials/Header.php'; ?>
     <main>
-            <img src="../../assets/gatinho.png" alt="desenho de gato">
-    <h1> Futura página inicial</h1>
-    <h2> Oi, admin!!!</h2>
-    <button><a href="CadastrarGato.php">Adicionar Gatos</a></button>
-    <button><a href="TabelaAnimais.php">Tabela de Gatos</a></button>
-    <button><a href="../HomePage.php">Home Page do Usuário</a></button>
-    <button><a href="AcompanhamentoPageAdmin.php">Página de Acompanhamento (Admin)</a></button>
+        <img src="src/view/assets/gatinho.png" alt="desenho de gato">
+        <h1> Futura página inicial</h1>
+        <h2> Oi, admin!!!</h2>
+        <button><a href="CadastrarGato.php">Adicionar Gatos</a></button>
+        <button><a href="/admin/gatos">Tabela de Gatos</a></button>
+        <button><a href="/">Home Page do Usuário</a></button>
+        <button><a href="/admin/adocoes">Página de Acompanhamento (Admin)</a></button>
     </main>
 
 

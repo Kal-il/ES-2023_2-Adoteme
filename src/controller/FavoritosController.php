@@ -8,13 +8,6 @@ require_once __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'model
 use models\Connection;
 use models\FavoritosModel;
 
-function checkUser($user_id){
-    $favoritosController = new FavoritosController();
-    $favoritos = $favoritosController->getUserFavoritos($user_id);   
-    return $favoritos;
-}
-
-
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $data = [
             "usuario_id" => $_POST['user_id'],
@@ -33,42 +26,33 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 
-class FavoritosController {
-    private function queryDatabase($connection, $query) {
-        $resultado = pg_query($connection, $query);
-        if (!$resultado) {
-            die("Erro na busca: " . pg_last_error($connection));
-        }
-        return $resultado;
+class FavoritosController extends Controller {
+    public function __construct(){
+        parent::__construct();
     }
 
     public function addFavoritos($data) {
-        $connection = new Connection();
-        $connection = $connection->getConnection();
-        $favoritos = new FavoritosModel();
-        $favoritos->addFavoritos($connection, $data);
+        $this->favoritos_model->addFavoritos($this->connection, $data);
     }
 
     public function getFavoritos($data) {
-        $connection = new Connection();
-        $connection = $connection->getConnection();
-        $favoritos = new FavoritosModel();
-        $favoritos = $favoritos->getFavoritos($connection, $data);
+        $favoritos = $this->favoritos_model->getFavoritos($this->connection, $data);
         return $favoritos;
     }
 
     public function deleteFavoritos($data) {
-        $connection = new Connection();
-        $connection = $connection->getConnection();
-        $favoritos = new FavoritosModel();
-        $favoritos->deleteFavoritos($connection, $data);
+        $this->favoritos_model->deleteFavoritos($this->connection, $data);
     }
 
     public function getUserFavoritos($data) {
-        $connection = new Connection();
-        $connection = $connection->getConnection();
-        $favoritos = new FavoritosModel();
-        $favoritos = $favoritos->getFavoritosByUserId($connection, $data);
+        $favoritos = $this->favoritos_model->getFavoritosByUserId($this->connection, $data);
+
+        return $favoritos;
+    }
+
+    public function checkUser($user_id){
+        $favoritos = $this->getUserFavoritos($user_id);  
+
         return $favoritos;
     }
 }

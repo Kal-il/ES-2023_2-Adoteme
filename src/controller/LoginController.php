@@ -73,7 +73,7 @@ class LoginController extends Controller{
             setcookie('jwt_token', $token, time() + 3600, '/');
 
             if ($this->user_model->IsSuperuser($this->connection, $data)){
-                header("Location: ../view/pages/pagesAdmin/HomePageAdmin.php");
+                header("Location: /admin");
             }else{
                 header("Location: /");
             }

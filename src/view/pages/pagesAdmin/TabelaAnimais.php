@@ -1,5 +1,5 @@
 <?php
-require_once '../../../controller/gatosController/ListarGatosController.php';
+include __DIR__ . '../../../src/controller/gatosController/ListarGatosController.php';
 ?>
 
 <!DOCTYPE html>
