@@ -1,50 +1,23 @@
 <?php
-// require '..\..\..\vendor\autoload.php';
-require_once __DIR__ . '..\..\..\controller\HomePageController.php';
-require __DIR__ . '..\..\..\..\vendor\autoload.php';
-include __DIR__ . '\..\..\controller\FavoritosController.php';
-
-use controller\HomePageController;
-use models\FavoritosModel;
-
+require '..\..\..\..\vendor\autoload.php';
+require '..\..\controller\FavoritosController.php';
 
 use Firebase\JWT\JWT;
 use Firebase\JWT\Key;
+use controller\FavoritosController;
 
-use function controller\checkUser;
-
-$flag = false;
-$favoritos = array();
 $user_id = 0;
 if (isset($_COOKIE['jwt_token'])) {
     $jwt_token = $_COOKIE['jwt_token'];
     $decoded = JWT::decode($jwt_token, new Key("test_key", 'HS256'));
     $decoded_array = (array) $decoded;
     $user_id = $decoded_array['user_id'];
-    $favoritos = checkUser($user_id);
 } else {
     echo "<h1> faça login </h1>";
 }
-
-if (!isset($_SESSION)) {
-    session_start();
-} else {
-    session_destroy();
-    session_start();
-}
-$data = array();
-
-if (isset($_SESSION['search_resultados'])) {
-    $data = $_SESSION['search_resultados'];
-    unset($_SESSION['search_resultados']);
-} elseif (isset($_SESSION['filtragem'])) {
-    $data = $_SESSION['filtragem'];
-    unset($_SESSION['filtragem']);
-} else {
-    $homePage = new HomePageController();
-    $data = $homePage->infoHomeGatos();
-}
-
+$favoritos = array();
+$favoritos = new FavoritosController();
+$favoritos = $favoritos->getAllDataFavoritosByUserId($user_id);
 
 ?>
 <!DOCTYPE html>
@@ -59,7 +32,7 @@ if (isset($_SESSION['search_resultados'])) {
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <title>HomePage</title>
+    <title>FavoritosPage</title>
 </head>
 
 <body>
@@ -86,147 +59,13 @@ if (isset($_SESSION['search_resultados'])) {
                         <li class="nav-item">
                             <a class="nav-link disabled" href="#">Profile</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link favoritos" href="FavoritosPage.php">Favoritos</a>
-                        </li>
                     </ul>
             </nav>
 
         </div>
     </header>
-    <script>
-        $(document).ready(function() {
-            $('.nav-link.favoritos').click(function() {
-                var id_usuario = 0;
-                if (id_usuario == 0) {
-                    alert("Faça login para acessar os favoritos");
-                    $(this).prop(href, "#");
-                }
-            });
-        });
-
-    </script>
-    <main>
-        <!-- Modal de compartilhamento -->
-
-        <div class="modal">
-            <div class="modal__content">
-                <h2 class="modal__title">Compartilhar gato</h2>
-                <div class="modal__text">
-                    <a href="https://www.facebook.com/sharer/sharer.php?u=example.org" title="Facebook"><i class="fa fa-facebook"></i></a>
-                    <a href="https://www.instagram.com/direct" title="Instagram"><i class="fa fa-instagram"></i></a>
-                    <a href="whatsapp://send?text= Veja só o gatinho que eu vou adotar! %0a%0 http://localhost/ES-2023_2-Adoteme/src/view/pages/HomePage.php" title="Whatsapp"><i class="fa fa-whatsapp"></i></a>
-                    <a href="#" title="Twitter"><i class="fa fa-twitter"></i></a>
-                </div>
-                <button class="modal__cancelar">Cancelar</button>
-            </div>
-
-            <!-- Aqui ficam as opções de filtro e de pesquisar -->
-        </div>
-        <div class="search">
-            <button id="toggle-form">
-                <span class="material-symbols-outlined">
-                    filter_list
-                </span>
-            </button>
-            <form id="form" action="../../controller/HomePageController.php" method="POST">
-                <input id="search-box" type="text" name="search" id="search" placeholder="Pesquisar">
-            </form>
-
-        </div>
-        <!-- Formulário aqui-->
-        <form id="my-form" action="../../controller/HomePageController.php" method="POST">
-            <table>
-                <thead>
-                    <!-- aqui ficam os titulos da tabéla-->
-                    <tr>
-                        <th>Cor</th>
-                        <th>filtros</th>
-                        <th>filtros</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <!-- Cor-->
-                        <td>
-                            <label for="preto">Preto</label>
-                            <input type="checkbox" name="filtros[]" value="preto" id="preto">
-                        </td>
-                        <!-- filtros-->
-                        <td>
-                            <label for="femea">Femea</label>
-                            <input type="checkbox" name="filtros[]" value="femea" id="femea">
-                        </td>
-                        <!-- Temperamento -->
-                        <td>
-                            <label for="curioso">Curioso</label>
-                            <input type="checkbox" name="filtros[]" value="curioso" id="curioso">
-                        </td>
-                    </tr>
-                    <tr>
-                        <!-- filtros linha 2-->
-                        <td>
-                            <label for="laranja">Laranja</label>
-                            <input type="checkbox" name="filtros[]" name="laranja" value="laranja" id="laranja">
-                        </td>
-                        <!-- filtros linha 2 -->
-                        <td>
-                            <label for="macho">Macho</label>
-                            <input type="checkbox" name="filtros[]" value="macho" id="macho">
-                        </td>
-                        <td>
-                            <label for="timido">Carente</label>
-                            <input type="checkbox" name="filtros[]" value="carente" id="timido">
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <!-- filtros linha 3-->
-                        <td>
-                            <label for="branco">Branco</label>
-                            <input type="checkbox" name="filtros[]" value="branco" id="branco">
-                        </td>
-                        <td>
-                            <label for="independente">Brincalhão</label>
-                            <input type="checkbox" name="filtros[]" value="brincalhão" id="brincalhão">
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>
-                            <label for="marrom">Marrom</label>
-                            <input type="checkbox" name="filtros[]" value="marrom" id="marrom">
-                        </td>
-                        <td>
-                            <label for="brincalhao">Nervoso</label>
-                            <input type="checkbox" name="filtros[]" value="nervoso" id="brincalhao">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <label for="cinza">Cinza</label>
-                            <input type="checkbox" name="filtros[]" value="cinza" id="cinza">
-                        </td>
-                        <td>
-                            <label for="amigavel">Amigável</label>
-                            <input type="checkbox" name="filtros[]" value="amigavel" id="amigavel">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <label for="rajado">Preto e Branco</label>
-                            <input type="checkbox" name="filtros[]" id="preto_e_branco">
-                        </td>
-                        <td>
-                            <label for="calmo">Calmo</label>
-                            <input type="checkbox" name="filtros[]" value="calmo" id="calmo">
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-            <button id="Filtrar" type="submit" name="filtrar">Filtrar</button>
-        </form>
-        <script>
+<main>
+<script>
             const toggleButton = document.getElementById('toggle-form');
             const form = document.getElementById('my-form');
 
@@ -252,13 +91,13 @@ if (isset($_SESSION['search_resultados'])) {
         </script>
         <section class="gallery">
             <?php
-            if (isset($_GET['erro'])) {
+            if (empty($favoritos)) {
                 echo '<div class="polaroide">';
                 echo '<img class="img-test" src="../assets/gatinho_triste.png" alt="Gatinho triste">';
-                echo '<p class="info-gato">Ofiltrosreu um problema, não temos essa informação.</p>';
+                echo '<p class="info-gato">Não há gatos favoritados</p>';
                 echo '</div>';
             } else {
-                foreach ($data as $gato) {
+                foreach ($favoritos as $gato) {
                     echo '<div class="polaroide">';
                     if (!empty($gato['foto1'])) {
                         echo '<a class="link-img-test" href="../../view/pages/VisualizarGato.php/?id= ' . $gato["id"] . '"><img class="img-test" src="../../view/pages/pagesAdmin/' . $gato['foto1'] . '" alt="Imagem de gato"></a>';
@@ -272,7 +111,7 @@ if (isset($_SESSION['search_resultados'])) {
                         <p><?php echo  $gato['nome']; ?></p>
                         <div class="heartbox">
                             <?php foreach ($favoritos as $favorito) {
-                                if ($favorito['gato_id'] == $gato['id']) {
+                                if ($favorito['id'] == $gato['id']) {
                                     $flag = True;
                                     break;
                                 }
@@ -407,6 +246,3 @@ if (isset($_SESSION['search_resultados'])) {
     <footer>
         <p>&copy;2023 Adoteme </p>
     </footer>
-</body>
-
-</html>
