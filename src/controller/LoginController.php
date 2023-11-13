@@ -23,6 +23,12 @@ class LoginController extends Controller{
         $this->password = $password;
     }
 
+    public static function carregar_login() {
+        session_start();
+
+        include $_SERVER["DOCUMENT_ROOT"] . "/src/view/pages/LoginPage.php";
+    }
+
     public static function processar_login() {
         if(isset($_POST['botaoLogin'])){
             if(!empty($_POST['email']) && !empty($_POST['password'])){

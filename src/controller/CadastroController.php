@@ -1,95 +1,106 @@
 <?php
 
-require_once '../models/Connection.php';
-require_once '../models/UserModel.php';
+namespace controller;
 
-use models\Connection;
-use models\UserModel;
+class CadastroController extends Controller {
+    public function __construct(){
+        parent::__construct();
+    }
 
-if($_SERVER["REQUEST_METHOD"] == "POST"){
-    if(isset($_POST["botaoCadastro"])){
+    public static function carregar_cadastro() {
+        session_start();
 
-        if(!isEmpty($_POST)){
-            var_dump($_POST);
-            $data = [
-                "email" => $email = $_POST['email'],
-                "password" => $password = $_POST['password'],
-                "password2" => $password2 = $_POST['password2'],
-                "nome" => $nome = $_POST['name'],
-                "sobrenome" => $sobrenome = $_POST['surname'],
-                "cpf" => $cpf = $_POST['cpf'],
-                "telefone" => $telefone = $_POST['telephone'],
-                "cep" => $cep = $_POST['cep'],
-                "endereco" => $endereco = $_POST['adress'], 
-                "cidade" => $cidade = $_POST['city'],
-                "estado" => $estado = $_POST['state'],
-                "matricula" => $matricula = $_POST['enrollment'],
-                "data_nascimento" => $data_nascimento = $_POST['birthday']
-            ];
-            $connection = new Connection;
-            $connection = $connection->getConnection();
+        include $_SERVER["DOCUMENT_ROOT"] . "/src/view/pages/SinginPage.php";
+    }
 
-            $user = new UserModel();
-            $validacao = true;
+    public static function processar_cadastro() {
+        session_start();
+        $cadastro_controller = new CadastroController();
 
-            if(!validarSenhas($data)){
-                $erro = "As senhas não são iguais.";
-                $erro_senha = "senha=" . urlencode(json_encode($erro));
-                $validacao = false;
-            }
+        if(isset($_POST["botaoCadastro"])){
+            if(!$cadastro_controller->isEmpty($_POST)){
 
-            if(!$user->CheckUserByEmail($connection, $data['email'])){
-                $erro = "Este e-mail já está cadastrado";
-                $erro_email = "email=" . urlencode(json_encode($erro));
-                $validacao = false;
-            }
+                $data = [
+                    "email" => $_POST['email'],
+                    "password" => $_POST['password'],
+                    "password2" => $_POST['password2'],
+                    "nome" => $_POST['name'],
+                    "sobrenome" => $_POST['surname'],
+                    "cpf" => $_POST['cpf'],
+                    "telefone" => $_POST['telephone'],
+                    "cep" => $_POST['cep'],
+                    "endereco" => $_POST['adress'], 
+                    "cidade" => $_POST['city'],
+                    "estado" => $_POST['state'],
+                    "matricula" => $_POST['enrollment'],
+                    "data_nascimento" => $_POST['birthday']
+                ];
+                $validacao = true;
 
-            if(!$user->CheckUserByCPF($connection, $data['cpf'])){
-                $erro = "Este CPF já está cadastrado";
-                $erro_cpf = "cpf=" . urlencode(json_encode($erro));
-                $validacao = false;
-            }
+                $erros = [];
+    
+                if(!$cadastro_controller->validarSenhas($data)){
+                    $erros['senha'] = "As senhas não são iguais.";
+                   
+                    $validacao = false;
+                }
+    
+                if(!$cadastro_controller->user_model->CheckUserByEmail($cadastro_controller->connection, $data['email'])){
+                    $erros['email'] = "Este e-mail já está cadastrado";
 
-            if(!$user->CheckUserByMatricula($connection, $data['matricula'])){
-                $erro = "Este número de matrícula já está cadastrado";
-                $erro_matricula = "matricula=" . urlencode(json_encode($erro));
-                $validacao = false;
-            }
+                    $validacao = false;
+                }
+    
+                if(!$cadastro_controller->user_model->CheckUserByCPF($cadastro_controller->connection, $data['cpf'])){
+                    $erros['cpf'] = "Este CPF já está cadastrado";
 
-            if($validacao){
-                $resultado = $user->CreateUser($connection, $data);
-                
-                if($resultado){
-                    header("Location: ../view/pages/LoginPage.php");
+                    $validacao = false;
+                }
+    
+                if(!$cadastro_controller->user_model->CheckUserByMatricula($cadastro_controller->connection, $data['matricula'])){
+                    $erros['matricula'] = "Este número de matrícula já está cadastrado";
+
+                    $validacao = false;
+                }
+    
+                if($validacao){
+                    $resultado = $cadastro_controller->user_model->CreateUser($cadastro_controller->connection, $data);
+                    
+                    if($resultado){
+                        header("Location: /login");
+                    } else {
+                        echo "<h1> Query inválida </h1>";
+                    }
                 } else {
-                    echo "<h1> Query inválida </h1>";
+                    $_SESSION['erros'] = $erros;
+
+                    header("Location: /cadastrar"); 
+    
                 }
             } else {
-                header("Location: ../view/pages/SinginPage.php?$erro_senha&$erro_email&$erro_cpf&$erro_matricula"); 
+                $_SESSION['erro'] = "Preencha todos os campos";
 
+                header("Location: /cadastrar"); 
             }
+        }
+    }
+
+    public function validarSenhas($data){
+        if ($data['password'] != $data['password2']) {
+            return false;
         } else {
-            $erro = "Preencha todos os campos";
-            $erro = urlencode(json_encode($erro));
-            header("Location: ../view/pages/SinginPage.php?erro=$erro"); 
-        }
-    }
-}
-
-function validarSenhas($data){
-    if ($data['password'] != $data['password2']) {
-        return false;
-    } else {
-        return true;
-    }   
-}
-
-function isEmpty(){
-    foreach($_POST as $item){
-        if(empty($item) && $item != $_POST["botaoCadastro"]){
             return true;
-        }
+        }   
     }
-    return false;
+    
+    public function isEmpty(){
+        foreach($_POST as $item){
+            if(empty($item) && $item != $_POST["botaoCadastro"]){
+                return true;
+            }
+        }
+        return false;
+    }
 }
+
 ?>

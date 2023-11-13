@@ -1,5 +1,5 @@
 <?php
-    session_start();
+    
 ?>
 
 <!DOCTYPE html>
@@ -75,11 +75,10 @@
 
                 <div class="botoes">
                     <button class="entrar" type="submit" name="botaoLogin">Entrar</button>
-                    <a href="SinginPage.php" class="esqueci">Novo por aqui? Registrar-se</a>
+                    <a href="/cadastrar" class="esqueci">Novo por aqui? Registrar-se</a>
                     <button class="esqueci" type="submit">Esqueci minha senha</button>
                 </div>
 
-            </form>
             </form>
         </div>
     </div>

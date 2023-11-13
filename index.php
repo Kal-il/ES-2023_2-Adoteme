@@ -24,11 +24,18 @@
                 } 
             }
 
-            include("src/view/pages/LoginPage.php");
+            controller\LoginController::carregar_login();
             break;
 
         case "cadastrar":
-            include("src/view/pages/SigninPage.php");
+            if (isset($url[2])) {
+                if($url[2] == "process") {
+                    controller\CadastroController::processar_cadastro();
+                    break;
+                }
+            }
+
+            controller\CadastroController::carregar_cadastro();
             break;
 
         case "gato":
