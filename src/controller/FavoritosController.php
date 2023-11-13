@@ -1,12 +1,6 @@
 <?php
+
 namespace controller;
-
-require_once __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'models' . DIRECTORY_SEPARATOR . 'Connection.php';
-require_once __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'models' . DIRECTORY_SEPARATOR . 'FavoritosModel.php';
-
-
-use models\Connection;
-use models\FavoritosModel;
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $data = [

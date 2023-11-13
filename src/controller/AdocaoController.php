@@ -1,13 +1,39 @@
 <?php 
 
-include 'JWTController.php';
-require_once 'Controller.php';
+namespace controller;
 
-use controller\Controller;
+require __DIR__ . '/../../vendor/autoload.php';
 
 class AdocaoController extends Controller{
     public function __construct(){
         parent::__construct();
+    }
+
+    public static function carregar_adocoes() {
+        include 'JWTController.php';
+        $adocao_controller = new AdocaoController();
+
+        if(isset(explode('/', $_SERVER['REQUEST_URI'])[2])){
+            $gato_id = explode('/', $_SERVER['REQUEST_URI'])[2];
+        }
+
+        if(isset($gato_id)) {
+            # Caso o usuario insira a URL /adocoes/, com a '/' no final.
+            if($gato_id != ""){
+                $data = [
+                    "id_adotante" => $user_id,
+                    "id_gato" => $gato_id,
+                ];
+        
+                $adocao_controller->addAdocao($data);
+        
+                header("Location: /adocoes");
+            }
+        } 
+
+        $adocoes = $adocao_controller->getAdocoes($user_id);
+
+        include $_SERVER["DOCUMENT_ROOT"] . "/src/view/pages/AcompanhamentoPage.php";
     }
 
     public function addAdocao($data){
@@ -19,24 +45,5 @@ class AdocaoController extends Controller{
         return $adocoes;
     }
 }
-
-if($_SERVER["REQUEST_METHOD"] == "GET"){
-    $adocao_controller = new AdocaoController();
-
-    if(isset($_GET['id'])){
-        $data = [
-            "id_adotante" => $decoded_array['user_id'],
-            "id_gato" => $_GET['id'],
-        ];
-
-        $adocao_controller->addAdocao($data);
-
-        header("Location: ../view/pages/AcompanhamentoPage.php");
-    } else {
-        $adocoes = $adocao_controller->getAdocoes($decoded_array['user_id']);
-    }
-}
-
-
 
 ?>

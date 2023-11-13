@@ -35,7 +35,7 @@
     </header>
 
     <?php 
-        $gato_id = explode('/', $_SERVER['REQUEST_URI'])[3];
+        
         echo '<form id="adocaoform" method="POST" action="process/' . $gato_id . '">';
     ?>
 

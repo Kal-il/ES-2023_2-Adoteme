@@ -42,18 +42,22 @@
             if (isset($url[2])){
                 if (isset($url[3])){
                     if($url[3] == "process"){
-                        include("src/controller/FormularioController.php");
+                        controller\FormularioController::processar_formulario();
                         break;
                     }
                 }
 
                 if($url[2] == "adotar"){
-                    include("src/view/pages/FormPage.php");
+                    controller\FormularioController::carregar_formulario();
                     break;
                 }
             }
 
-            include("src/view/pages/VisualizarGato.php");
+            controller\GatosController::visualizar_gato();
+            break;
+
+        case "adocoes":
+            controller\AdocaoController::carregar_adocoes();
             break;
 
         case "admin":

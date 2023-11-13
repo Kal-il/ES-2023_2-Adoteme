@@ -1,7 +1,3 @@
-<?php
-    include 'C:\xampp\htdocs\ES-2023_2-Adoteme\src\controller\AdocaoController.php';
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="../css/AcompanhamentoPage.css">
+    <link rel="stylesheet" type="text/css" href="/src/view/css/AcompanhamentoPage.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
@@ -25,7 +21,7 @@
     <div id="logo">
         <div id="logo2">
             <a href="HomePage.php">
-                <img class="image" src="../../assets/adoteme.png" alt="Logo Adoteme" width="60" height="60">
+                <img class="image" src="/src/view/assets/adoteme.png" alt="Logo Adoteme" width="60" height="60">
             </a>
             <h2 class="adoteme">Adoteme</h2>
         </div>
