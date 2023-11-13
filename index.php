@@ -78,11 +78,15 @@
                     break;
                 }
                 if ($url[2] == "gatos"){
-                    include("src/view/pages/pagesAdmin/TabelaAnimais.php");
+					if (isset($url[3])) {
+						controller\GatosController::visualizar_gato_admin();	
+						break;
+					}
+					controller\GatosController::listar_gatos();
                     break;
                 }
             }
-            include("src/view/pages/pagesAdmin/HomePageAdmin.php");
+			controller\HomePageController::carregar_home_admin();
             break;
     }
 

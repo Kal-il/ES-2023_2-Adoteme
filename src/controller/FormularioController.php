@@ -1,7 +1,7 @@
 <?php
 namespace controller;
 
-require 'C:\xampp\htdocs\ES-2023_2-Adoteme\vendor\autoload.php';
+require 'vendor/autoload.php';
 
 class FormularioController extends Controller{
     public function __construct(){
@@ -9,6 +9,12 @@ class FormularioController extends Controller{
     }
 
     public static function carregar_formulario() {
+		include 'JWTController.php';
+
+		if ($user_id == 0) {
+			header("Location: /login");
+		}
+
         $gato_id = explode('/', $_SERVER['REQUEST_URI'])[3];
 
         include $_SERVER["DOCUMENT_ROOT"] . "/src/view/pages/FormPage.php";

@@ -1,8 +1,4 @@
 
-<?php
-include __DIR__ . '\..\..\controller\JWTController.php';
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 

@@ -44,6 +44,12 @@ class HomePageController extends Controller{
         include __DIR__ . "/../view/pages/HomePage.php";
     }
 
+	public static function carregar_home_admin() {
+		include 'JWTController.php';
+
+		include $_SERVER['DOCUMENT_ROOT'] . "/src/view/pages/pagesAdmin/HomePageAdmin.php";
+	}
+
     public static function pesquisar_gatos(){
         session_start();
         if (isset($_POST["search"])) {

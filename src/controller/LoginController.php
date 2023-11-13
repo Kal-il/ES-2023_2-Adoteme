@@ -1,7 +1,7 @@
 <?php
 namespace controller;
 
-require __DIR__ . '\..\..\vendor\autoload.php';
+require 'vendor/autoload.php';
 use Firebase\JWT\JWT;
 
  /*
@@ -11,7 +11,6 @@ use Firebase\JWT\JWT;
         * para a página de login com uma mensagem de erro.
     */
 
-session_start();
 class LoginController extends Controller{
     private $email;
     private $password;
@@ -24,7 +23,7 @@ class LoginController extends Controller{
     }
 
     public static function carregar_login() {
-        session_start();
+		session_start();
 
         include $_SERVER["DOCUMENT_ROOT"] . "/src/view/pages/LoginPage.php";
     }
@@ -69,7 +68,6 @@ class LoginController extends Controller{
             $payload = [
                 "exp" => time() + 3600,
                 "iat" => time(),
-                "email" => $email,
                 "user_id" => $user_id,
             ];
 

@@ -53,6 +53,11 @@
                     unset($_SESSION['erros']);
                 }
 
+				if(isset($_SESSION['adotar'])) {
+					echo '<p>' . $_SESSION['adotar'] . '</p>';
+					unset($_SESSION['adotar']);
+				}
+
                 ?>
 
                 <div class="imput-container">

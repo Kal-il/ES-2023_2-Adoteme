@@ -2,12 +2,7 @@
 
 namespace controller;
 
-require_once 'C:\xampp\htdocs\ES-2023_2-Adoteme\src\models\Connection.php';
-require_once 'C:\xampp\htdocs\ES-2023_2-Adoteme\src\models\UserModel.php';
-require_once 'C:\xampp\htdocs\ES-2023_2-Adoteme\src\models\GatosModel.php';
-require_once 'C:\xampp\htdocs\ES-2023_2-Adoteme\src\models\FavoritosModel.php';
-require_once 'C:\xampp\htdocs\ES-2023_2-Adoteme\src\models\FormularioModel.php';
-require_once 'C:\xampp\htdocs\ES-2023_2-Adoteme\src\models\AdocaoModel.php';
+require 'vendor/autoload.php';
 
 use models\Connection;
 use models\UserModel;

@@ -1,6 +1,6 @@
 <?php
 
-require 'C:\xampp\htdocs\ES-2023_2-Adoteme\vendor\autoload.php';
+require 'vendor/autoload.php';
 
 use Firebase\JWT\JWT;
 use Firebase\JWT\Key;
