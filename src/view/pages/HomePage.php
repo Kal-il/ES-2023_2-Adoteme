@@ -86,15 +86,20 @@ if (isset($_SESSION['search_resultados'])) {
                         <li class="nav-item">
                             <a class="nav-link disabled" href="#">Profile</a>
                         </li>
-                        <li class="nav-item">
+
+                        <?php 
+                        if($user_id != 0){
+                            echo '<li class="nav-item">
                             <a class="nav-link favoritos" href="FavoritosPage.php">Favoritos</a>
-                        </li>
+                            </li>';
+                        } 
+                        ?>
                     </ul>
             </nav>
 
         </div>
     </header>
-    <script>
+    <!-- <script>
         $(document).ready(function() {
             $('.nav-link.favoritos').click(function() {
                 var id_usuario = 0;
@@ -105,7 +110,7 @@ if (isset($_SESSION['search_resultados'])) {
             });
         });
 
-    </script>
+    </script> -->
     <main>
         <!-- Modal de compartilhamento -->
 
