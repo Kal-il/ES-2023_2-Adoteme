@@ -2,7 +2,7 @@
 
 namespace controller;
 
-require __DIR__ . '/../../vendor/autoload.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php';
 
 class AdocaoController extends Controller{
     public function __construct(){
@@ -13,23 +13,16 @@ class AdocaoController extends Controller{
         include 'JWTController.php';
         $adocao_controller = new AdocaoController();
 
-        if(isset(explode('/', $_SERVER['REQUEST_URI'])[2])){
-            $gato_id = explode('/', $_SERVER['REQUEST_URI'])[2];
-        }
+		$gato_id = explode('/', $_SERVER['REQUEST_URI'])[2];
 
-        if(isset($gato_id)) {
-            # Caso o usuario insira a URL /adocoes/, com a '/' no final.
-            if($gato_id != ""){
-                $data = [
-                    "id_adotante" => $user_id,
-                    "id_gato" => $gato_id,
-                ];
-        
-                $adocao_controller->addAdocao($data);
-        
-                header("Location: /adocoes");
-            }
-        } 
+		$data = [
+			"id_adotante" => $user_id,
+			"id_gato" => $gato_id,
+		];
+
+		$adocao_controller->addAdocao($data);
+
+		header("Location: /adocoes");
 
         $adocoes = $adocao_controller->getAdocoes($user_id);
 

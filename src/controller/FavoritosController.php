@@ -10,9 +10,6 @@ function checkUser($user_id){
     return $favoritos;
 }
 
-
-
-
 class FavoritosController extends Controller {
     public function __construct(){
         parent::__construct();

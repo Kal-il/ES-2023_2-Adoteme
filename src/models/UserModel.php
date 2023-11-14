@@ -1,6 +1,5 @@
 <?php
 namespace models;
-require_once 'Connection.php';
 
 class UserModel {
     private function queryDatabase($connection, $query) {

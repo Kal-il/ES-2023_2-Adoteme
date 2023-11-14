@@ -2,8 +2,9 @@
 
 namespace controller;
 
+require_once $_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php';
+
 include 'JWTController.php';
-require_once 'Controller.php';
 
 use controller\Controller;
 
