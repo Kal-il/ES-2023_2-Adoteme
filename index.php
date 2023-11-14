@@ -17,6 +17,12 @@
             break;
 
 		case "favoritos":
+			 if(isset($url[2])){
+                if($url[2] == "gerenciar"){
+                    controller\FavoritosController::gerenciar_favoritos();
+                    break;
+                } 
+            }
 			controller\FavoritosController::carregar_favoritos();
 			break;
 

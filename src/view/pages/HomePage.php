@@ -277,7 +277,7 @@
                                 } else {
                                     if (checked) {
                                         $.ajax({
-                                            url: '../../controller/FavoritosController.php',
+                                            url: '/favoritos/gerenciar',
                                             type: 'POST',
                                             data: {
                                                 'addFavoritos': true,
@@ -290,7 +290,7 @@
                                         });
                                     } else {
                                         $.ajax({
-                                            url: '../../controller/FavoritosController.php',
+                                            url: '/favoritos/gerenciar',
                                             type: 'POST',
                                             data: {
                                                 'removeFavoritos': true,

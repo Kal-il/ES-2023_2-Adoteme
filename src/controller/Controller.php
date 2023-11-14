@@ -2,7 +2,7 @@
 
 namespace controller;
 
-require 'vendor/autoload.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php';
 
 use models\Connection;
 use models\UserModel;
