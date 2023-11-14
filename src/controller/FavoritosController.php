@@ -3,17 +3,18 @@ namespace controller;
 
 require_once __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'models' . DIRECTORY_SEPARATOR . 'Connection.php';
 require_once __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'models' . DIRECTORY_SEPARATOR . 'FavoritosModel.php';
-
+require_once __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'models' . DIRECTORY_SEPARATOR . 'GatosModel.php';
+ 
 
 use models\Connection;
 use models\FavoritosModel;
+use models\GatosModel;
 
 function checkUser($user_id){
     $favoritosController = new FavoritosController();
     $favoritos = $favoritosController->getUserFavoritos($user_id);   
     return $favoritos;
 }
-
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $data = [
@@ -31,7 +32,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
 }
-
 
 class FavoritosController {
     private function queryDatabase($connection, $query) {
@@ -70,6 +70,22 @@ class FavoritosController {
         $favoritos = new FavoritosModel();
         $favoritos = $favoritos->getFavoritosByUserId($connection, $data);
         return $favoritos;
+    }
+
+    public function getAllDataFavoritosByUserId($data) {
+        $connection = new Connection();
+        $connection = $connection->getConnection();
+        $favoritos = new FavoritosModel();
+        $favoritos = $favoritos->getFavoritosByUserId($connection, $data);
+        $dataGatos = array();  
+    
+        foreach($favoritos as $favorito){
+            $gatoId = $favorito['gato_id'];
+            $gatoData = (new GatosModel())->getGatoById($connection, $gatoId);
+            $dataGatos[] = $gatoData;
+        }
+
+        return $dataGatos;
     }
 }
 ?>
