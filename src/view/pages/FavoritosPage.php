@@ -10,144 +10,40 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <title>HomePage</title>
+    <title>FavoritosPage</title>
 </head>
 
 <body>
-	<?php include $_SERVER['DOCUMENT_ROOT'] . "/src/view/partials/Header.php"; ?>
-    <!-- <script>
-        $(document).ready(function() {
-            $('.nav-link.favoritos').click(function() {
-                var id_usuario = 0;
-                if (id_usuario == 0) {
-                    alert("Faça login para acessar os favoritos");
-                    $(this).prop(href, "#");
-                }
-            });
-        });
-
-    </script> -->
-    <main>
-        <!-- Modal de compartilhamento -->
-
-        <div class="modal">
-            <div class="modal__content">
-                <h2 class="modal__title">Compartilhar gato</h2>
-                <div class="modal__text">
-                    <a href="https://www.facebook.com/sharer/sharer.php?u=example.org" title="Facebook"><i class="fa fa-facebook"></i></a>
-                    <a href="https://www.instagram.com/direct" title="Instagram"><i class="fa fa-instagram"></i></a>
-                    <a href="whatsapp://send?text= Veja só o gatinho que eu vou adotar! %0a%0 http://localhost/ES-2023_2-Adoteme/src/view/pages/HomePage.php" title="Whatsapp"><i class="fa fa-whatsapp"></i></a>
-                    <a href="#" title="Twitter"><i class="fa fa-twitter"></i></a>
-                </div>
-                <button class="modal__cancelar">Cancelar</button>
+    <header>
+        <div id="logo">
+            <div id="logo2">
+                <a href="/">
+                    <img class="image" src="/src/view/assets/adoteme.png" alt="Logo Adoteme" width="60" height="60">
+                </a>
+                <h2 class="adoteme">Adoteme</h2>
             </div>
+            <nav>
+                <ul class="nav nav-tabs">
+                    <ul class="nav nav-tabs">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="/">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link disabled " href="/admin">Admin</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/login">Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link disabled" href="#">Profile</a>
+                        </li>
+                    </ul>
+            </nav>
 
-            <!-- Aqui ficam as opções de filtro e de pesquisar -->
         </div>
-        <div class="search">
-            <button id="toggle-form">
-                <span class="material-symbols-outlined">
-                    filter_list
-                </span>
-            </button>
-            <form id="form" action="/search" method="POST">
-                <input id="search-box" type="text" name="search" id="search" placeholder="Pesquisar">
-            </form>
-
-        </div>
-        <!-- Formulário aqui-->
-        <form id="my-form" action="/search" method="POST">
-            <table>
-                <thead>
-                    <!-- aqui ficam os titulos da tabéla-->
-                    <tr>
-                        <th>Cor</th>
-                        <th>filtros</th>
-                        <th>filtros</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <!-- Cor-->
-                        <td>
-                            <label for="preto">Preto</label>
-                            <input type="checkbox" name="filtros[]" value="preto" id="preto">
-                        </td>
-                        <!-- filtros-->
-                        <td>
-                            <label for="femea">Femea</label>
-                            <input type="checkbox" name="filtros[]" value="femea" id="femea">
-                        </td>
-                        <!-- Temperamento -->
-                        <td>
-                            <label for="curioso">Curioso</label>
-                            <input type="checkbox" name="filtros[]" value="curioso" id="curioso">
-                        </td>
-                    </tr>
-                    <tr>
-                        <!-- filtros linha 2-->
-                        <td>
-                            <label for="laranja">Laranja</label>
-                            <input type="checkbox" name="filtros[]" name="laranja" value="laranja" id="laranja">
-                        </td>
-                        <!-- filtros linha 2 -->
-                        <td>
-                            <label for="macho">Macho</label>
-                            <input type="checkbox" name="filtros[]" value="macho" id="macho">
-                        </td>
-                        <td>
-                            <label for="timido">Carente</label>
-                            <input type="checkbox" name="filtros[]" value="carente" id="timido">
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <!-- filtros linha 3-->
-                        <td>
-                            <label for="branco">Branco</label>
-                            <input type="checkbox" name="filtros[]" value="branco" id="branco">
-                        </td>
-                        <td>
-                            <label for="independente">Brincalhão</label>
-                            <input type="checkbox" name="filtros[]" value="brincalhão" id="brincalhão">
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>
-                            <label for="marrom">Marrom</label>
-                            <input type="checkbox" name="filtros[]" value="marrom" id="marrom">
-                        </td>
-                        <td>
-                            <label for="brincalhao">Nervoso</label>
-                            <input type="checkbox" name="filtros[]" value="nervoso" id="brincalhao">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <label for="cinza">Cinza</label>
-                            <input type="checkbox" name="filtros[]" value="cinza" id="cinza">
-                        </td>
-                        <td>
-                            <label for="amigavel">Amigável</label>
-                            <input type="checkbox" name="filtros[]" value="amigavel" id="amigavel">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <label for="rajado">Preto e Branco</label>
-                            <input type="checkbox" name="filtros[]" id="preto_e_branco">
-                        </td>
-                        <td>
-                            <label for="calmo">Calmo</label>
-                            <input type="checkbox" name="filtros[]" value="calmo" id="calmo">
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-            <button id="Filtrar" type="submit" name="filtrar">Filtrar</button>
-        </form>
-        <script>
+    </header>
+<main>
+<script>
             const toggleButton = document.getElementById('toggle-form');
             const form = document.getElementById('my-form');
 
@@ -173,32 +69,27 @@
         </script>
         <section class="gallery">
             <?php
-            if (isset($_SESSION['erro'])) {
+            if (empty($favoritos)) {
                 echo '<div class="polaroide">';
                 echo '<img class="img-test" src="/src/view/assets/gatinho_triste.png" alt="Gatinho triste">';
-                echo '<p class="info-gato">Ocorreu um problema, não temos essa informação.</p>';
-                echo '<a href="/">Retornar à página inicial</a>';
+                echo '<p class="info-gato">Não há gatos favoritados</p>';
                 echo '</div>';
-                
-                # Após mostrar a tela de erro, seus dados são retirados da sessão. 
-                # Se o usuário recarregar a página, ele será redirecionado à home normal.
-                unset($_SESSION['erro']);
             } else {
-                foreach ($data as $gato) {
+                foreach ($favoritos as $gato) {
                     echo '<div class="polaroide">';
                     if (!empty($gato['foto1'])) {
-                        echo '<a class="link-img-test" href="/gatos/' . $gato["id"] . '"><img class="img-test" src="src/view/pages/pagesAdmin/' . $gato['foto1'] . '" alt="Imagem de gato"></a>';
+                        echo '<a class="link-img-test" href="/gatos/' . $gato["id"] . '"><img class="img-test" src="/src/view/pages/pagesAdmin/' . $gato['foto1'] . '" alt="Imagem de gato"></a>';
                     } else {
-                        echo '<a href="/gatos/' . $gato["id"] . '"><img class="img-test" src="src/view/assets/gato2.jpg" alt="Imagem de gato como exemplo"></a>';
+							echo '<a href="/gatos/' . $gato["id"] . '"><img class="img-test" src="/src/view/assets/gato2.jpg" alt="Imagem de gato como exemplo"></a>';
                     }
 
             ?>
-                    <!-- Aqui fiam o nome e os botões de curtir e compartilhar -->
+                    <!-- Aqui ficam o nome e os botões de curtir e compartilhar -->
                     <div class="info-cat">
                         <p><?php echo  $gato['nome']; ?></p>
                         <div class="heartbox">
                             <?php foreach ($favoritos as $favorito) {
-                                if ($favorito['gato_id'] == $gato['id']) {
+                                if ($favorito['id'] == $gato['id']) {
                                     $flag = True;
                                     break;
                                 }
@@ -333,6 +224,3 @@
     <footer>
         <p>&copy;2023 Adoteme </p>
     </footer>
-</body>
-
-</html>

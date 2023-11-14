@@ -100,8 +100,10 @@ class GatosModel {
     }
 
     function DeleteGato($connection, $id){
-        $query =  "DELETE FROM gatos WHERE id='$id'";
+		$query = "DELETE FROM favoritos WHERE gato_id='$id'";
+		$resultado = $this->queryDatabase($connection, $query);
 
+        $query =  "DELETE FROM gatos WHERE id='$id'";
         $resultado = $this->queryDatabase($connection, $query);
 
         if(pg_affected_rows($resultado) == 0){

@@ -46,7 +46,7 @@
                     <div class="input-group">
                         <input type="text" class="form-control" aria-label="Text input with radio button" placeholder="Search">
                         <button type="button" class="btn roxo-botao">
-                            <a class="button-icon-link-add" href="CadastrarGato.php">
+                            <a class="button-icon-link-add" href="/admin/cadastrar-gato">
                                 <span class="material-symbols-outlined">
                                     add
                             </a>
@@ -96,7 +96,7 @@
                                                 <p class="modal__description">
                                                     Deseja <b>deletar</b> todas as informações deste gato?
                                                 </p>
-                                                <a class="button-icon-link" href="../../../controller/gatosController/RemoverGatos.php?id=<?php echo $gato['id']; ?>" class="modal__deletar deleteButton">Deletar</a>
+                                                <a class="button-icon-link" href="/admin/gatos/deletar/<?php echo $gato['id']; ?>" class="modal__deletar deleteButton">Deletar</a>
                                                 <a href="#" class="modal__cancelar">Cancelar</a>
                                             </div>
                                         </div>

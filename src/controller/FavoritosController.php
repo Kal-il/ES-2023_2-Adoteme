@@ -2,6 +2,12 @@
 
 namespace controller;
 
+function checkUser($user_id){
+    $favoritosController = new FavoritosController();
+    $favoritos = $favoritosController->getUserFavoritos($user_id);   
+    return $favoritos;
+}
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $data = [
             "usuario_id" => $_POST['user_id'],
@@ -24,6 +30,16 @@ class FavoritosController extends Controller {
     public function __construct(){
         parent::__construct();
     }
+
+	public static function carregar_favoritos() {
+		include 'JWTController.php';
+
+		$favoritos = array();
+		$favoritos = new FavoritosController();
+		$favoritos = $favoritos->getAllDataFavoritosByUserId($user_id);
+
+		include $_SERVER['DOCUMENT_ROOT'] . "/src/view/pages/FavoritosPage.php";
+	}
 
     public function addFavoritos($data) {
         $this->favoritos_model->addFavoritos($this->connection, $data);
@@ -48,6 +64,19 @@ class FavoritosController extends Controller {
         $favoritos = $this->getUserFavoritos($user_id);  
 
         return $favoritos;
+    }
+
+    public function getAllDataFavoritosByUserId($data) {
+        $favoritos = $this->favoritos_model->getFavoritosByUserId($this->connection, $data);
+        $dataGatos = array();  
+    
+        foreach($favoritos as $favorito){
+            $gatoId = $favorito['gato_id'];
+            $gatoData = $this->gatos_model->getGatoById($this->connection, $gatoId);
+            $dataGatos[] = $gatoData;
+        }
+
+        return $dataGatos;
     }
 }
 ?>

@@ -82,7 +82,7 @@
         <img src="src/view/assets/gatinho.png" alt="desenho de gato">
         <h1> Futura página inicial</h1>
         <h2> Oi, admin!!!</h2>
-        <button><a href="CadastrarGato.php">Adicionar Gatos</a></button>
+        <button><a href="/admin/cadastrar-gato">Adicionar Gatos</a></button>
         <button><a href="/admin/gatos">Tabela de Gatos</a></button>
         <button><a href="/">Home Page do Usuário</a></button>
         <button><a href="/admin/adocoes">Página de Acompanhamento (Admin)</a></button>

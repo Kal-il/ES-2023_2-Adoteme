@@ -16,6 +16,10 @@
             controller\HomePageController::pesquisar_gatos();
             break;
 
+		case "favoritos":
+			controller\FavoritosController::carregar_favoritos();
+			break;
+
         case "login":
             if(isset($url[2])){
                 if($url[2] == "process"){
@@ -38,7 +42,7 @@
             controller\CadastroController::carregar_cadastro();
             break;
 
-        case "gato":
+        case "gatos":
             if (isset($url[2])){
                 if (isset($url[3])){
                     if($url[3] == "process"){
@@ -68,6 +72,7 @@
                             controller\AdocaoAdminController::rejeitar_adocao();
                             break;
                         }
+
                         if ($url[3] == "aprovar"){
                             controller\AdocaoAdminController::aprovar_adocao();
                             break;
@@ -79,13 +84,43 @@
                 }
                 if ($url[2] == "gatos"){
 					if (isset($url[3])) {
+						if ($url[3] == "editar") {
+							if (isset($url[4])) {
+								if($url[4] == "process") {
+									controller\GatosController::atualizar_info_gato();
+									break;
+								}
+							}
+
+							controller\GatosController::editar_gato();
+							break;
+						}
+
+						if ($url[3] == "deletar") {
+							controller\GatosController::deletar_gato();
+							break;
+						}
+
 						controller\GatosController::visualizar_gato_admin();	
 						break;
 					}
+
 					controller\GatosController::listar_gatos();
                     break;
                 }
+				if ($url[2] == "cadastrar-gato") {
+					if (isset($url[3])) {
+						if($url[3] == "process") {
+							controller\GatosController::cadastrar_gato();
+							break;
+						}
+					}
+
+					controller\GatosController::formulario_cadastro_gato();
+					break;
+				}
             }
+
 			controller\HomePageController::carregar_home_admin();
             break;
     }
