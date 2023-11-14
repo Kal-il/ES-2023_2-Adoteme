@@ -17,7 +17,7 @@
 
 </head>
 
-<?php include __DIR__ . '/../../partials/Header.php'; ?>
+<?php include $_SERVER['DOCUMENT_ROOT'] . '/src/view/partials/Header.php'; ?>
 
 <body>
     <div class="container d-flex align-items-center ">
@@ -47,7 +47,7 @@
                     <div class="input-group">
                         <input type="text" class="form-control" aria-label="Text input with radio button" placeholder="Search">
                         <button type="button" class="btn roxo-botao">
-                            <a class="button-icon-link-add" href="CadastrarGato.php">
+                            <a class="button-icon-link-add" href="/admin/cadastrar-gato">
                                 <span class="material-symbols-outlined">
                                     add
                             </a>

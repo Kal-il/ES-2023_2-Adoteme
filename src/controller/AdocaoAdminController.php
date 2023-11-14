@@ -36,6 +36,8 @@ class AdocaoAdminController extends Controller{
     }
 
     public static function rejeitar_adocao() {
+		include 'JWTController.php';
+
         $id_adocao = explode('/', $_SERVER['REQUEST_URI'])[4];
         $adocao_controller = new AdocaoAdminController();
         $adocao = $adocao_controller->getAdocaoById($id_adocao);
@@ -49,6 +51,8 @@ class AdocaoAdminController extends Controller{
     }
 
     public static function aprovar_adocao() {
+		include 'JWTController.php';
+
         $id_adocao = explode('/', $_SERVER['REQUEST_URI'])[4];
         $adocao_controller = new AdocaoAdminController();
         $adocao = $adocao_controller->getAdocaoById($id_adocao);

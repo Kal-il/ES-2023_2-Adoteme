@@ -15,12 +15,7 @@
 </head>
 
 <body>
-    <header>
-        <a href="HomePageAdmin.php">
-            <img id="logo" src="../../assets/adoteme.png" alt="Logo Adotme" width="100" height="100">
-        </a>
-        <h1 id="adoteme">Adoteme</h1>
-    </header>
+<?php include $_SERVER['DOCUMENT_ROOT'] . '/src/view/partials/Header.php'; ?>
     <main class="main">
         <form action="../../../controller/gatosController/AtualizarGatos.php" method="POST" enctype="multipart/form-data">
             <div class="etapa" id="etapa1">

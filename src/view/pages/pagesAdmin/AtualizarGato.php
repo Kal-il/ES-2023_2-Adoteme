@@ -15,18 +15,13 @@
 </head>
 
 <body>
-    <header>
-        <a href="HomePageAdmin.php">
-            <img id="logo" src="/src/view/assets/adoteme.png" alt="Logo Adotme" width="100" height="100">
-        </a>
-        <h1 id="adoteme">Adoteme</h1>
-    </header>
-    <a href="TabelaAnimais.php">
+	<?php include $_SERVER['DOCUMENT_ROOT'] . '/src/view/partials/Header.php'; ?>
+    <a href="/admin/gatos">
         <button>Voltar</button>
     </a>
     <main class="main">
 
-		<form action="/admin/gatos/editar/<?php echo $gatoData['id']; ?>" method="POST" enctype="multipart/form-data">
+		<form action="/admin/gatos/editar/process/<?php echo $gatoData['id']; ?>" method="POST" enctype="multipart/form-data">
             <div class="etapa" id="etapa1">
                 <?php
                 if (isset($_GET['erros'])) {

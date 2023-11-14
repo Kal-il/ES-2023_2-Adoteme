@@ -21,7 +21,7 @@
     <title>login-Adoteme</title>
 
 </head>
-<?php include __DIR__ . '/../partials/Header.php'; ?>
+	<?php include $_SERVER['DOCUMENT_ROOT'] . "/src/view/partials/Header.php"; ?>
 <body>
 
     <div class="container">

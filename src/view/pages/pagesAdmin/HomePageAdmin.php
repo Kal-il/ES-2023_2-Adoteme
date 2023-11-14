@@ -77,7 +77,7 @@
 </style>
 
 <body>
-    <?php include __DIR__ . '/../../partials/Header.php'; ?>
+<?php include $_SERVER['DOCUMENT_ROOT'] . '/src/view/partials/Header.php'; ?>
     <main>
         <img src="src/view/assets/gatinho.png" alt="desenho de gato">
         <h1> Futura página inicial</h1>
