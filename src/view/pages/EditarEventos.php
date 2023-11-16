@@ -1,8 +1,3 @@
-<?php
-include '../../../controller/EventosController.php';
-$data = new EventosController();
-
-?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -30,7 +25,7 @@ $data = new EventosController();
         <a href="HomePage.php">
             <button>Voltar</button>
         </a>
-    <form action="../../../controller/EventosController.php" method="POST" enctype="multipart/form-data">
+    <form action="eventos/editar/<?php echo $gatoData['id']; ?>" method="POST" enctype="multipart/form-data">
     <label for="descricao">
         Nome do evento beneficente:
         <input class="inputInfo" type="text" name="nome" id="nome" placeholder="Nome do evento beneficente" maxlength="1000" required><br>

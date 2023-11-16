@@ -126,9 +126,25 @@
 					break;
 				}
             }
+        case "eventos":
+            if (isset($url[2])) {
+                if ($url[2] == "cadastrar") {
+                    controller\EventosController::gerenciar_eventos();
+                    break;
+                } elseif ($url[2] == "deletar") {
+                    controller\EventosController::deleteEventos($url[2]);
+                    break;
+                } elseif ($url[2] == "editar") {
+                    controller\EventosController::editEventos($url[2]);
+                    break;
+                }else{
+                    controller\EventosController::getEventos($url[2]);
+                    break;
+                }
+            }
 
-			controller\HomePageController::carregar_home_admin();
-            break;
+        controller\HomePageController::carregar_home_admin();
+        break;
     }
 
 ?>
