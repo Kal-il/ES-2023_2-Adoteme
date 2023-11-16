@@ -14,7 +14,7 @@
 </head>
 <body>
 	<?php include $_SERVER['DOCUMENT_ROOT'] . "/src/view/partials/Header.php"; ?>
-
+    <h1>Eventos Beneficentes</h1>
     <?php
     foreach ($allEventos as $evento) {
                     echo '<div class="polaroide">';

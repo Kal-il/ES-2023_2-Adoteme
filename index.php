@@ -138,13 +138,13 @@
                     controller\EventosController::formulario_cadastro_evento();
                     break;
                 } elseif ($url[2] == "deletar") {
-                    controller\EventosController::deleteEventos($url[2]);
+                    controller\EventosController::deleteEventos();
                     break;
                 } elseif ($url[2] == "editar") {
-                    controller\EventosController::editEventos($url[2]);
+                    controller\EventosController::editEventos();
                     break;
                 }else{
-                    controller\EventosController::getEventos($url[2]);
+                    controller\EventosController::getEventos();
                     break;
                 }
             }

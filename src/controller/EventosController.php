@@ -46,6 +46,7 @@ class EventosController extends Controller {
     }
 
     public static function getEventos() {
+        include $_SERVER['DOCUMENT_ROOT'] . "/src/view/pages/ListarEventos.php";
         $eventos = new EventosController();
 
 		$allEventos = $eventos->eventos_model->getEventos($eventos->connection);
