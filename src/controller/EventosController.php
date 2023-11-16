@@ -37,7 +37,9 @@ class EventosController extends Controller {
 	}
 
     public static function createEventos($data) {
-       $resultado = $this->eventos_model->createEventos($this->$connection, $data);
+		$eventos = new EventosController();
+
+       $resultado = $eventos->eventos_model->createEventos($eventos->connection, $data);
        if($resultado){
             include $_SERVER['DOCUMENT_ROOT'] . '/src/view/pages/ListarEventos.php';
        }else{
