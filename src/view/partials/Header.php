@@ -1,3 +1,4 @@
+<?php include $_SERVER['DOCUMENT_ROOT'] . '/src/controller/JWTController.php'; ?>
 <header>
 	<div id="logo">
 		<div id="logo2">

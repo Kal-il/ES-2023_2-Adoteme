@@ -1,7 +1,7 @@
 <?php
 namespace models;
 
-class FormularioModel{
+class EventosModel{
     private function queryDatabase($connection, $query) {
         $resultado = pg_query($connection, $query);
 
@@ -34,7 +34,7 @@ class FormularioModel{
     }
 
     public function deleteEventos($connection, $id){
-        $query = "DELETE FROM eventos WHERE id_evento = $id";
+        $query = "DELETE FROM eventos WHERE id = $id";
         $resultado = $this->queryDatabase($connection, $query);
 
         if(pg_affected_rows($resultado) == 0){

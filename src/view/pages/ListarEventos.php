@@ -16,7 +16,7 @@
 	<?php include $_SERVER['DOCUMENT_ROOT'] . "/src/view/partials/Header.php"; ?>
 
     <?php
-    foreach ($eventos as $evento) {
+    foreach ($allEventos as $evento) {
                     echo '<div class="polaroide">';
                     if (!empty($evento['foto'])) {
                         echo '<a class="link-img-test" href="/eventos/' . $evento["id"] . '"><img class="img-test" src="src/view/pages/pagesAdmin/' . $evento['foto'] . '" alt="Imagem de evento"></a>';

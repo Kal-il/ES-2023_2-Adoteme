@@ -19,7 +19,7 @@
         <a href="HomePage.php">
             <button>Voltar</button>
         </a>
-    <form action="eventos/cadastrar" method="POST" enctype="multipart/form-data">
+    <form action="eventos/cadastrar/process" method="POST" enctype="multipart/form-data">
     <label for="descricao">
         Nome do evento beneficente:
         <input class="inputInfo" type="text" name="nome" id="nome" placeholder="Nome do evento beneficente" maxlength="1000" required><br>

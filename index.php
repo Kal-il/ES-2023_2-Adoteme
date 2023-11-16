@@ -129,7 +129,13 @@
         case "eventos":
             if (isset($url[2])) {
                 if ($url[2] == "cadastrar") {
-                    controller\EventosController::gerenciar_eventos();
+                    if (isset($url[3])) {
+						if($url[3] == "process") {
+							controller\GatosController::gerenciar_eventos();
+							break;
+						}
+                    }
+                    controller\EventosController::formulario_cadastro_evento();
                     break;
                 } elseif ($url[2] == "deletar") {
                     controller\EventosController::deleteEventos($url[2]);
@@ -146,5 +152,5 @@
         controller\HomePageController::carregar_home_admin();
         break;
     }
-
+    
 ?>

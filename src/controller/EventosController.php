@@ -32,23 +32,28 @@ class EventosController extends Controller {
         }
         
     }
+    public static function formulario_cadastro_evento() {
+		include $_SERVER['DOCUMENT_ROOT'] . '/src/view/pages/CadastroEventos.php';
+	}
 
     public static function createEventos($data) {
-       $resultado = $this->$eventos_model->createEventos($this->$connection, $data);
+       $resultado = $this->eventos_model->createEventos($this->$connection, $data);
        if($resultado){
-            include $_SERVER['DOCUMENT_ROOT'] . '/src/view/pages/pagesAdmin/AtualizarGato.php';
+            include $_SERVER['DOCUMENT_ROOT'] . '/src/view/pages/ListarEventos.php';
        }else{
             echo "Erro ao cadastrar evento!";
        }
     }
 
     public static function getEventos() {
-        $eventos = $this->$eventos_model->getEventos($this->$connection);
-        return $eventos;
+        $eventos = new EventosController();
+
+		$allEventos = $eventos->eventos_model->getEventos($eventos->connection);
+        return $allEventos;
     }
 
     public static function deleteEventos($id) {
-        $resultado = $this->$eventos_model->deleteEventos($this->$connection, $id);
+        $resultado = $this->eventos_model->deleteEventos($this->$connection, $id);
         if($resultado){
             include $_SERVER['DOCUMENT_ROOT'] . '/src/view/pages/pagesAdmin/AtualizarGato.php';
         }else{
