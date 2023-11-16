@@ -10,17 +10,12 @@
     <link rel="stylesheet" type="text/css" href="../../css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="../../js/script.js"></script>
+    <script src="/src/view/js/script.js"></script>
 </head>
 </head>
 
 <body>
-    <header>
-        <a href="HomePageAdmin.php">
-            <img id="logo" src="../../assets/adoteme.png" alt="Logo Adotme" width="100" height="100">
-        </a>
-        <h1 id="adoteme">Adoteme</h1>
-    </header>
+<?php include $_SERVER['DOCUMENT_ROOT'] . '/src/view/partials/Header.php'; ?>
     <main class="main">
         <form action="../../../controller/gatosController/AtualizarGatos.php" method="POST" enctype="multipart/form-data">
             <div class="etapa" id="etapa1">

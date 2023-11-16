@@ -2,12 +2,7 @@
 
 namespace controller;
 
-require_once 'C:\xampp\htdocs\ES-2023_2-Adoteme\src\models\Connection.php';
-require_once 'C:\xampp\htdocs\ES-2023_2-Adoteme\src\models\UserModel.php';
-require_once 'C:\xampp\htdocs\ES-2023_2-Adoteme\src\models\GatosModel.php';
-require_once 'C:\xampp\htdocs\ES-2023_2-Adoteme\src\models\FavoritosModel.php';
-require_once 'C:\xampp\htdocs\ES-2023_2-Adoteme\src\models\FormularioModel.php';
-require_once 'C:\xampp\htdocs\ES-2023_2-Adoteme\src\models\AdocaoModel.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php';
 
 use models\Connection;
 use models\UserModel;
@@ -17,6 +12,11 @@ use models\FormularioModel;
 use models\AdocaoModel;
 
 class Controller{
+    /*     
+    Esta classe contém toda conexão da camada controller com a camada models. 
+    Toda classe da camada controller deve herdar desta classe e chamar sua função construtora. 
+    */
+    
     public $connection;
     public $user_model;
     public $gatos_model;
