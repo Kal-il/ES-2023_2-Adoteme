@@ -51,7 +51,6 @@ class EventosController extends Controller {
     public static function getEventos() {
         $eventos = new EventosController();
 		$allEventos = $eventos->eventos_model->getEventos($eventos->connection);
-        var_dump($allEventos);
         include $_SERVER['DOCUMENT_ROOT'] . "/src/view/pages/ListarEventos.php";
        
     }
@@ -69,7 +68,6 @@ class EventosController extends Controller {
 
     public static function editEventos() {
         if (isset($_POST["editar"])) {
-
             $id = explode('/', $_SERVER['REQUEST_URI'])[4];
             $eventos = new EventosController();
             $resultado =  $eventos->eventos_model->getEventosById($eventos->connection, $id);

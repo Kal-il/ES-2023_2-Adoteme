@@ -153,6 +153,8 @@
                     controller\EventosController::getEventos();
                     break;
                 }
+                controller\EventosController::getEventos();
+                break;
             }
 
         controller\HomePageController::carregar_home_admin();

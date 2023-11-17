@@ -26,6 +26,9 @@
 					<li class="nav-item">
 						<a class="nav-link disabled" href="#">Profile</a>
 					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="/eventos/">Eventos</a>
+					</li>
 
 					<?php 
 					if($user_id != 0){
