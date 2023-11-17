@@ -45,7 +45,14 @@ class EventosModel{
     }
 
     public function editEventos($connection, $id){
-        $query = "SELECT * FROM eventos WHERE id_evento = $id";
+        $query = "SELECT * FROM eventos WHERE id = $id";
+        $resultado = $this->queryDatabase($connection, $query);
+        $eventos = pg_fetch_all($resultado);
+        return $eventos;
+    }
+
+    public function getEventosById($connection, $id){
+        $query = "SELECT * FROM eventos WHERE id = $id";
         $resultado = $this->queryDatabase($connection, $query);
         $eventos = pg_fetch_all($resultado);
         return $eventos;

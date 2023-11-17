@@ -21,7 +21,7 @@
                     echo '<div class="polaroide">';
                     if (!empty($evento['foto'])) {
                         echo $evento['nome']; $evento['foto'][0];
-                        echo '<a class="link-img-test" ><img class="img-test" src="/src/view/pages/pagesAdmin/eventos/' . $evento['foto'] . '" alt="Imagem de evento"></a>';
+                        echo '<a class="link-img-test" ><img class="img-test" src="/src/view/pages/pagesAdmin/' . $evento['foto'] . '" alt="Imagem de evento"></a>';
                         echo '<a  href="/eventos/editar/' . $evento["id"] . '"><button class="btn btn-primary">Editar</button></a>';
                         echo '<a  href="/eventos/deletar/' . $evento["id"] . '"><button class="btn btn-primary">Deletar</button></a>';
 

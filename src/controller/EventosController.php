@@ -69,11 +69,29 @@ class EventosController extends Controller {
 
     public static function editEventos() {
         if (isset($_POST["botaoEditarEvento"])) {
-            $id = explode('/', $_SERVER['REQUEST_URI'])[3];
+            $id = explode('/', $_SERVER['REQUEST_URI'])[4];
             $eventos = new EventosController();
-            $resultado =  $eventos->eventos_model->editEventos($eventos->connection, $id);
+            $resultado =  $eventos->eventos_model->getEventosById($eventos->connection, $id);
+     
+            $resultado["nome"] = $_POST['nome'];
+            $deuceurto = $eventos->eventos_model->editEventos($eventos->connection, $resultado);
+            
+            if($deuceurto){
+                header("Location: /eventos/");
+            }else{
+                echo "Erro ao editar evento!";
+            }
             
         }
+    }
+    
+    public static function formulario_edicao_evento() {
+        $id = explode('/', $_SERVER['REQUEST_URI'])[3];
+        $eventos = new EventosController();
+        $resultado =  $eventos->eventos_model->editEventos($eventos->connection, $id);
+        var_dump($resultado);
+        include $_SERVER['DOCUMENT_ROOT'] . "/src/view/pages/EditarEventos.php";
+   
 }
 }
 

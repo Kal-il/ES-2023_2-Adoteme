@@ -141,7 +141,13 @@
                     controller\EventosController::deleteEventos(); 
                     break;
                 } elseif ($url[2] == "editar") {
-                    controller\EventosController::editEventos();
+                    if (isset($url[3])) {
+                        if($url[3] == "process") {
+                            controller\Eventos::editEventos();
+                            break;
+                        }
+                    }
+                    controller\EventosController::formulario_edicao_evento();
                     break;
                 }else{
                     controller\EventosController::getEventos();
