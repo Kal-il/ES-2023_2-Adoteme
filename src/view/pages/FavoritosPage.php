@@ -1,32 +1,10 @@
-<?php
-require '..\..\..\..\vendor\autoload.php';
-require '..\..\controller\FavoritosController.php';
-
-use Firebase\JWT\JWT;
-use Firebase\JWT\Key;
-use controller\FavoritosController;
-
-$user_id = 0;
-if (isset($_COOKIE['jwt_token'])) {
-    $jwt_token = $_COOKIE['jwt_token'];
-    $decoded = JWT::decode($jwt_token, new Key("test_key", 'HS256'));
-    $decoded_array = (array) $decoded;
-    $user_id = $decoded_array['user_id'];
-} else {
-    echo "<h1> faça login </h1>";
-}
-$favoritos = array();
-$favoritos = new FavoritosController();
-$favoritos = $favoritos->getAllDataFavoritosByUserId($user_id);
-
-?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/HomePage.css">
+    <link rel="stylesheet" href="/src/view/css/HomePage.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
@@ -36,34 +14,7 @@ $favoritos = $favoritos->getAllDataFavoritosByUserId($user_id);
 </head>
 
 <body>
-    <header>
-        <div id="logo">
-            <div id="logo2">
-                <a href="HomePage.php">
-                    <img class="image" src="../assets/adoteme.png" alt="Logo Adoteme" width="60" height="60">
-                </a>
-                <h2 class="adoteme">Adoteme</h2>
-            </div>
-            <nav>
-                <ul class="nav nav-tabs">
-                    <ul class="nav nav-tabs">
-                        <li class="nav-item">
-                            <a class="nav-link active" href="HomePage.php">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link disabled " href="pagesAdmin/HomePageAdmin.php">Admin</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="LoginPage.php">Login</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link disabled" href="#">Profile</a>
-                        </li>
-                    </ul>
-            </nav>
-
-        </div>
-    </header>
+<?php include $_SERVER['DOCUMENT_ROOT'] . '/src/view/partials/Header.php'; ?>
 <main>
 <script>
             const toggleButton = document.getElementById('toggle-form');
@@ -93,20 +44,20 @@ $favoritos = $favoritos->getAllDataFavoritosByUserId($user_id);
             <?php
             if (empty($favoritos)) {
                 echo '<div class="polaroide">';
-                echo '<img class="img-test" src="../assets/gatinho_triste.png" alt="Gatinho triste">';
+                echo '<img class="img-test" src="/src/view/assets/gatinho_triste.png" alt="Gatinho triste">';
                 echo '<p class="info-gato">Não há gatos favoritados</p>';
                 echo '</div>';
             } else {
                 foreach ($favoritos as $gato) {
                     echo '<div class="polaroide">';
                     if (!empty($gato['foto1'])) {
-                        echo '<a class="link-img-test" href="../../view/pages/VisualizarGato.php/?id= ' . $gato["id"] . '"><img class="img-test" src="../../view/pages/pagesAdmin/' . $gato['foto1'] . '" alt="Imagem de gato"></a>';
+                        echo '<a class="link-img-test" href="/gatos/' . $gato["id"] . '"><img class="img-test" src="/src/view/pages/pagesAdmin/' . $gato['foto1'] . '" alt="Imagem de gato"></a>';
                     } else {
-                        echo '<a href="../../view/pages/VisualizarGato.php/?id= ' . $gato["id"] . '"><img class="img-test" src="../assets/gato2.jpg" alt="Imagem de gato como exemplo"></a>';
+							echo '<a href="/gatos/' . $gato["id"] . '"><img class="img-test" src="/src/view/assets/gato2.jpg" alt="Imagem de gato como exemplo"></a>';
                     }
 
             ?>
-                    <!-- Aqui fiam o nome e os botões de curtir e compartilhar -->
+                    <!-- Aqui ficam o nome e os botões de curtir e compartilhar -->
                     <div class="info-cat">
                         <p><?php echo  $gato['nome']; ?></p>
                         <div class="heartbox">
@@ -190,7 +141,7 @@ $favoritos = $favoritos->getAllDataFavoritosByUserId($user_id);
                                 } else {
                                     if (checked) {
                                         $.ajax({
-                                            url: '../../controller/FavoritosController.php',
+                                            url: '/favoritos/gerenciar',
                                             type: 'POST',
                                             data: {
                                                 'addFavoritos': true,
@@ -203,7 +154,7 @@ $favoritos = $favoritos->getAllDataFavoritosByUserId($user_id);
                                         });
                                     } else {
                                         $.ajax({
-                                            url: '../../controller/FavoritosController.php',
+                                            url: '/favoritos/gerenciar',
                                             type: 'POST',
                                             data: {
                                                 'removeFavoritos': true,

@@ -2,7 +2,9 @@
     "name": "rborges/es-2023_2-adoteme",
     "autoload": {
         "psr-4": {
-            "Rborges\\Es20232Adoteme\\": "src/"
+            "controller\\": "src/controller",
+            "models\\": "src/models",
+            "view\\": "src/view"
         }
     },
     "require": {

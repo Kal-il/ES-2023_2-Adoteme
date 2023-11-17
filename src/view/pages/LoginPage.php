@@ -1,3 +1,7 @@
+<?php
+    
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,7 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="../css/styles.css">
+    <link rel="stylesheet" type="text/css" href="/src/view/css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 
@@ -17,64 +21,42 @@
     <title>login-Adoteme</title>
 
 </head>
-
+	<?php include $_SERVER['DOCUMENT_ROOT'] . "/src/view/partials/Header.php"; ?>
 <body>
-    <header>
-        <div id="logo">
-            <div id="logo2">
-                <a href="HomePage.php">
-                    <img class="image" src="../assets/adoteme.png" alt="Logo Adoteme" width="60" height="60">
-                </a>
-                <h2 class="adoteme">Adoteme</h2>
-            </div>
-            <nav>
-                <ul class="nav nav-tabs">
-                    <ul class="nav nav-tabs">
-                        <li class="nav-item">
-                            <a class="nav-link" href="HomePage.php">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link disabled " href="pagesAdmin/HomePageAdmin.php">Admin</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" href="SinginPage.php">Login</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link disabled" href="#">Profile</a>
-                        </li>
-                    </ul>
-            </nav>
 
-        </div>
-    </header>
     <div class="container">
 
         <div class="form-container">
             <div class="teste">
                 <h1>Log-In</h1>
             </div>
-            <form class="form" action="../../controller/LoginDadosController.php" method="POST">
+            <form class="form" action="/login/process" method="POST">
 
                 <?php
 
                 /**
                  * Verficar se existe erro, se existir, mostrar mensagem de erro
+                 * Erros estão sendo pegos através de sessão. 
+                 * - 'campos_invalidos' existirá quando o usuário inserir email ou senha errados.
+                 * - 'erros' verifica se os campos foram preenchidos.
                  */
 
-                if (isset($_GET['error']) && $_GET['error'] == 400) {
-                    echo "<h3> E-mail e/ou senha incorreta. Por favor, tente novamente. </h3>";
+                if(isset($_SESSION['campos_invalidos'])){
+                    echo '<p>' . $_SESSION['campos_invalidos'] . '</p>';
+                    unset($_SESSION['campos_invalidos']);
                 }
 
-                if (isset($_GET['erros'])) {
-                    $erros_encoded = $_GET['erros'];
-                    $erros = json_decode(urldecode($erros_encoded), true);
-
-                    echo '<ul>';
-                    foreach ($erros as $erro) {
-                        echo '<li>' . htmlspecialchars($erro, ENT_QUOTES, 'UTF-8') . '</li>';
+                if(isset($_SESSION['erros'])) {
+                    foreach($_SESSION['erros'] as $campo => $erro){
+                        echo '<p>' . $campo . ': ' . $erro . '</p>';
                     }
-                    echo '</ul>';
+                    unset($_SESSION['erros']);
                 }
+
+				if(isset($_SESSION['adotar'])) {
+					echo '<p>' . $_SESSION['adotar'] . '</p>';
+					unset($_SESSION['adotar']);
+				}
 
                 ?>
 
@@ -98,11 +80,10 @@
 
                 <div class="botoes">
                     <button class="entrar" type="submit" name="botaoLogin">Entrar</button>
-                    <a href="SinginPage.php" class="esqueci">Novo por aqui? Registrar-se</a>
+                    <a href="/cadastrar" class="esqueci">Novo por aqui? Registrar-se</a>
                     <button class="esqueci" type="submit">Esqueci minha senha</button>
                 </div>
 
-            </form>
             </form>
         </div>
     </div>

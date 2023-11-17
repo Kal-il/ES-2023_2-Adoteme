@@ -1,40 +1,16 @@
 <!DOCTYPE html>
 
-<link rel="stylesheet" type="text/css" href="../css/FormPage.css">
+<link rel="stylesheet" type="text/css" href="/src/view/css/FormPage.css">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 <html>
    
     <meta charset="UTF-8">
-<header>
-        <div id="logo">
-            <div id="logo2">
-                <a href="HomePage.php">
-                    <img class="image" src="../assets/adoteme.png" alt="Logo Adoteme" width="60" height="60">
-                </a>
-                <h2 class="adoteme">Adoteme</h2>
-            </div>
-            <nav>
-                <ul class="nav nav-tabs">
-                    <ul class="nav nav-tabs">
-                        <li class="nav-item">
-                            <a class="nav-link active" href="#">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link " href="pagesAdmin/HomePageAdmin.php">Admin</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="LoginPage.php">Login</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link disabled" href="#">Profile</a>
-                        </li>
-                    </ul>
-            </nav>
+<?php include $_SERVER['DOCUMENT_ROOT'] . '/src/view/partials/Header.php'; ?>
 
-        </div>
-    </header>
-
-    <?php echo '<form id="adocaoform" method="POST" action="../../controller/FormularioController.php?id=' . $_GET['id'] . '">' ?>
+    <?php 
+        
+        echo '<form id="adocaoform" method="POST" action="process/' . $gato_id . '">';
+    ?>
 
     <div id="titulo-formulario">
         <label class="tituloform">Formulário de Adoção</label>

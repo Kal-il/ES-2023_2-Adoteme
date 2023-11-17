@@ -1,6 +1,5 @@
 <?php
 namespace models;
-require_once 'Connection.php';
 
 class UserModel {
     private function queryDatabase($connection, $query) {
@@ -45,6 +44,7 @@ class UserModel {
         }
     }
     function CreateUser($connection, $data) {
+        echo 'ta chegando na model';
         $email = pg_escape_string($connection, $data['email']); 
         $password = pg_escape_string($connection, $data['password']); 
         $nome = pg_escape_string($connection, $data['nome']);
@@ -57,7 +57,7 @@ class UserModel {
         $matricula = pg_escape_string($connection, $data['matricula']);
         $data_nascimento = pg_escape_string($connection, $data['data_nascimento']); 
         $endereco = pg_escape_string($connection, $data['endereco']);
-        
+
         $password = password_hash($password, PASSWORD_DEFAULT);
 
         $query = "INSERT INTO usuarios (email, senha, nome, sobrenome, cpf, telefone, cep, cidade, estado, endereco, matricula, data_nascimento)
