@@ -20,34 +20,7 @@
 </head>
 
 <body>
-<header>
-        <div id="logo">
-            <div id="logo2">
-                <a href="HomePage.php">
-                    <img class="image" src="../assets/adoteme.png" alt="Logo Adoteme" width="60" height="60">
-                </a>
-                <h2 class="adoteme">Adoteme</h2>
-            </div>
-            <nav>
-                <ul class="nav nav-tabs">
-                    <ul class="nav nav-tabs">
-                        <li class="nav-item">
-                            <a class="nav-link" href="HomePage.php">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link disabled " href="pagesAdmin/HomePageAdmin.php">Admin</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="SinginPage.php">Login</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link disabled" href="#">Profile</a>
-                        </li>
-                    </ul>
-            </nav>
-
-        </div>
-    </header>
+    <?php include($_SERVER['DOCUMENT_ROOT'] . "/ES-2023_2-Adoteme/src/view/partials/Header.php") ?>
     <div class="cards">
         <div class="card-about-us">
             <div class="card-content">
@@ -76,8 +49,8 @@
     </div>
     <footer class="footer">
         <a href="AboutUs.php">About Us</a>
-    <p>&copy;2023 Adoteme </p>
-</footer>
+        <p>&copy;2023 Adoteme </p>
+    </footer>
 </body>
 
 </html>
