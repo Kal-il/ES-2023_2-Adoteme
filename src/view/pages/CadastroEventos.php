@@ -26,7 +26,7 @@
     </label>
     <label for="foto">
         Foto de divulgação do evento beneficente:
-        <input name="foto[]" type=file  id="arquivo" />
+        <input name="foto" type=file  id="arquivo" />
     </label>
 
     <input type="submit" value="Cadastrar" name="cadastrar">
