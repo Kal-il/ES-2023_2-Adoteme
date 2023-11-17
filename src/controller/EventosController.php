@@ -42,24 +42,26 @@ class EventosController extends Controller {
 
        $resultado = $eventos->eventos_model->createEventos($eventos->connection, $data);
        if($resultado){
-            include $_SERVER['DOCUMENT_ROOT'] . '/src/view/pages/ListarEventos.php';
+            header("Location: /eventos/");
        }else{
             echo "Erro ao cadastrar evento!";
        }
     }
 
     public static function getEventos() {
-        include $_SERVER['DOCUMENT_ROOT'] . "/src/view/pages/ListarEventos.php";
         $eventos = new EventosController();
-
 		$allEventos = $eventos->eventos_model->getEventos($eventos->connection);
-        return $allEventos;
+        var_dump($allEventos);
+        include $_SERVER['DOCUMENT_ROOT'] . "/src/view/pages/ListarEventos.php";
+       
     }
 
-    public static function deleteEventos($id) {
-        $resultado = $this->eventos_model->deleteEventos($this->$connection, $id);
+    public static function deleteEventos() {
+        $id = explode('/', $_SERVER['REQUEST_URI'])[3];
+        $eventos = new EventosController();
+        $resultado =  $eventos->eventos_model->deleteEventos($eventos->connection, $id);
         if($resultado){
-            include $_SERVER['DOCUMENT_ROOT'] . '/src/view/pages/pagesAdmin/AtualizarGato.php';
+            header("Location: /eventos/");
         }else{
             echo "Erro ao deletar evento!";
         }
@@ -68,8 +70,9 @@ class EventosController extends Controller {
     public static function editEventos() {
         if (isset($_POST["botaoEditarEvento"])) {
             $id = explode('/', $_SERVER['REQUEST_URI'])[3];
-            $eventos = $this->$eventos_model->editEventos($this->$connection, $id);
-            return $eventos;
+            $eventos = new EventosController();
+            $resultado =  $eventos->eventos_model->editEventos($eventos->connection, $id);
+            
         }
 }
 }

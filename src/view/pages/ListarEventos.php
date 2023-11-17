@@ -15,14 +15,18 @@
 <body>
 	<?php include $_SERVER['DOCUMENT_ROOT'] . "/src/view/partials/Header.php"; ?>
     <h1>Eventos Beneficentes</h1>
+    <input type="button" class="btn btn-primary" value="Cadastrar Evento" onclick="window.location.href='/eventos/cadastro'">
     <?php
     foreach ($allEventos as $evento) {
                     echo '<div class="polaroide">';
                     if (!empty($evento['foto'])) {
-                        echo '<a class="link-img-test" href="/eventos/' . $evento["id"] . '"><img class="img-test" src="src/view/pages/pagesAdmin/' . $evento['foto'] . '" alt="Imagem de evento"></a>';
-                    } else {
-                        echo '<a href="/eventos/' . $gato["id"] . '"><img class="img-test" src="src/view/assets/gato2.jpg" alt="Imagem de gato como exemplo"></a>';
-                    }
+                        echo $evento['nome']; $evento['foto'][0];
+                        echo '<a class="link-img-test" ><img class="img-test" src="/src/view/pages/pagesAdmin/eventos/' . $evento['foto'] . '" alt="Imagem de evento"></a>';
+                        echo '<a  href="/eventos/editar/' . $evento["id"] . '"><button class="btn btn-primary">Editar</button></a>';
+                        echo '<a  href="/eventos/deletar/' . $evento["id"] . '"><button class="btn btn-primary">Deletar</button></a>';
+
+                    } echo '<a class="link-img-test" href="/eventos/' . $evento["id"] . '"><img class="img-test" src="/src/view/pages/pagesAdmin/eventos/' . $evento['foto'] . '" alt="Imagem de evento"></a>';
+
                 }
     ?>
 
