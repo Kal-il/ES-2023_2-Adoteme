@@ -62,6 +62,7 @@ class LoginController extends Controller{
 
         $this->resultado_login = $this->user_model->Login($this->connection, $data);
         $user_id = $this->user_model->GetIDByEmail($this->connection, $this->email);
+        $is_superuser = $this->user_model->IsSuperuser($this->connection, $data);
 
         if ($this->resultado_login){
             // Caso o login tenha sucesso, será gerado um token JWT:
@@ -69,6 +70,7 @@ class LoginController extends Controller{
                 "exp" => time() + 3600,
                 "iat" => time(),
                 "user_id" => $user_id,
+                "is_superuser" => $is_superuser,
             ];
 
             // Uso de Chave temporária "test_key"

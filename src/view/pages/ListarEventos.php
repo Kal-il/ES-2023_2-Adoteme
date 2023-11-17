@@ -14,16 +14,25 @@
 </head>
 <body>
 	<?php include $_SERVER['DOCUMENT_ROOT'] . "/src/view/partials/Header.php"; ?>
+    <?php include $_SERVER['DOCUMENT_ROOT'] . '/src/controller/JWTController.php'; ?>
     <h1>Eventos Beneficentes</h1>
-    <input type="button" class="btn btn-primary" value="Cadastrar Evento" onclick="window.location.href='/eventos/cadastrar'">
+    <?php if($is_superuser){
+        echo '<input type="button" class="btn btn-primary" value="Cadastrar Evento" onclick="window.location.href=\'/eventos/cadastrar\'">' ;
+    }
+    ?>
+
     <?php
     foreach ($allEventos as $evento) {
                     echo '<div class="polaroide">';
                     if (!empty($evento['foto'])) {
                         echo $evento['nome']; $evento['foto'][0];
                         echo '<a class="link-img-test" ><img class="img-test" src="/src/view/pages/pagesAdmin/' . $evento['foto'] . '" alt="Imagem de evento"></a>';
-                        echo '<a  href="/eventos/editar/' . $evento["id"] . '"><button class="btn btn-primary">Editar</button></a>';
-                        echo '<a  href="/eventos/deletar/' . $evento["id"] . '"><button class="btn btn-primary">Deletar</button></a>';
+
+                        if($is_superuser){
+                            echo '<a  href="/eventos/editar/' . $evento["id"] . '"><button class="btn btn-primary">Editar</button></a>';
+                            echo '<a  href="/eventos/deletar/' . $evento["id"] . '"><button class="btn btn-primary">Deletar</button></a>';
+                        }
+
 
                     } 
 

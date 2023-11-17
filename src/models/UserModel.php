@@ -44,7 +44,7 @@ class UserModel {
         }
     }
     function CreateUser($connection, $data) {
-        echo 'ta chegando na model';
+
         $email = pg_escape_string($connection, $data['email']); 
         $password = pg_escape_string($connection, $data['password']); 
         $nome = pg_escape_string($connection, $data['nome']);
