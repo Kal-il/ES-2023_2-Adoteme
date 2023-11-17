@@ -68,12 +68,26 @@ class EventosController extends Controller {
     }
 
     public static function editEventos() {
-        if (isset($_POST["botaoEditarEvento"])) {
+        if (isset($_POST["editar"])) {
+
             $id = explode('/', $_SERVER['REQUEST_URI'])[4];
             $eventos = new EventosController();
             $resultado =  $eventos->eventos_model->getEventosById($eventos->connection, $id);
      
-            $resultado["nome"] = $_POST['nome'];
+            $resultado[0]["nome"] = $_POST['nome'];
+            var_dump($_FILES["foto"]["name"][0]);
+            if($_FILES["foto"]["name"][0] != ""){
+                $path = 'eventos/';
+                $pasta = $path . $_FILES["foto"]["name"][0];
+                $fileDestination = 'C:\xampp\htdocs\ES-2023_2-Adoteme\src\view\pages\pagesAdmin\eventos/' . $_FILES["foto"]["name"][0];
+    
+                move_uploaded_file(
+                    $_FILES["foto"]["tmp_name"][0],
+                    $fileDestination
+                );
+                $imagePath = $pasta;
+                $resultado[0]["foto"] = $imagePath;
+            }
             $deuceurto = $eventos->eventos_model->editEventos($eventos->connection, $resultado);
             
             if($deuceurto){
@@ -88,7 +102,7 @@ class EventosController extends Controller {
     public static function formulario_edicao_evento() {
         $id = explode('/', $_SERVER['REQUEST_URI'])[3];
         $eventos = new EventosController();
-        $resultado =  $eventos->eventos_model->editEventos($eventos->connection, $id);
+        $resultado =  $eventos->eventos_model->getEventosById($eventos->connection, $id);
         var_dump($resultado);
         include $_SERVER['DOCUMENT_ROOT'] . "/src/view/pages/EditarEventos.php";
    

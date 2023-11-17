@@ -17,7 +17,7 @@
 <body>
     <?php include $_SERVER['DOCUMENT_ROOT'] . "/src/view/partials/Header.php" ?>
     <main class="main">
-    <form action="/eventos/editar/process" method="POST" enctype="multipart/form-data">
+    <form action="/eventos/editar/process/<?php echo $resultado[0]['id'];?>" method="POST" enctype="multipart/form-data">
     <label for="descricao">
         Nome do evento beneficente:
         <input class="inputInfo" type="text" name="nome" id="nome" placeholder="Nome do evento beneficente" maxlength="1000" value="<?php echo $resultado[0]['nome']; ?>" required/><br>

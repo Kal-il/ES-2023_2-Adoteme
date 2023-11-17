@@ -143,7 +143,7 @@
                 } elseif ($url[2] == "editar") {
                     if (isset($url[3])) {
                         if($url[3] == "process") {
-                            controller\Eventos::editEventos();
+                            controller\EventosController::editEventos();
                             break;
                         }
                     }
