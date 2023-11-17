@@ -14,11 +14,11 @@ class EventosController extends Controller {
         if (($_SERVER["REQUEST_METHOD"] == "POST")){
             if (isset($_POST["cadastrar"])) {
                 $path = 'eventos/';
-                $pasta = $path . $_FILES["foto"]["name"][0];
-                $fileDestination = 'C:\xampp\htdocs\ES-2023_2-Adoteme\src\view\pages\pagesAdmin\eventos/' . $_FILES["foto"]["name"][0];
+                $pasta = $path . $_FILES["foto"]["name"];
+                $fileDestination = 'C:\xampp\htdocs\ES-2023_2-Adoteme\src\view\pages\pagesAdmin\eventos/' . $_FILES["foto"]["name"];
 
                 move_uploaded_file(
-                    $_FILES["foto"]["tmp_name"][0],
+                    $_FILES["foto"]["tmp_name"],
                     $fileDestination
                 );
                 $imagePath = $pasta;
@@ -75,14 +75,13 @@ class EventosController extends Controller {
             $resultado =  $eventos->eventos_model->getEventosById($eventos->connection, $id);
      
             $resultado[0]["nome"] = $_POST['nome'];
-            var_dump($_FILES["foto"]["name"][0]);
-            if($_FILES["foto"]["name"][0] != ""){
+            if($_FILES["foto"]["name"] != ""){
                 $path = 'eventos/';
-                $pasta = $path . $_FILES["foto"]["name"][0];
-                $fileDestination = 'C:\xampp\htdocs\ES-2023_2-Adoteme\src\view\pages\pagesAdmin\eventos/' . $_FILES["foto"]["name"][0];
+                $pasta = $path . $_FILES["foto"]["name"];
+                $fileDestination = 'C:\xampp\htdocs\ES-2023_2-Adoteme\src\view\pages\pagesAdmin\eventos/' . $_FILES["foto"]["name"];
     
                 move_uploaded_file(
-                    $_FILES["foto"]["tmp_name"][0],
+                    $_FILES["foto"]["tmp_name"],
                     $fileDestination
                 );
                 $imagePath = $pasta;
