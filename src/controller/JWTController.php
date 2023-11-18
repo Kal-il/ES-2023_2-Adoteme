@@ -11,8 +11,10 @@ if (isset($_COOKIE['jwt_token'])) {
     $decoded_array = (array) $decoded;
 
     $user_id = $decoded_array['user_id'];
+    $is_superuser = $decoded_array['is_superuser'];
 } else {
     $user_id = 0;
+    $is_superuser = 0;
 }
 
 ?>

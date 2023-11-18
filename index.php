@@ -126,9 +126,39 @@
 					break;
 				}
             }
+        case "eventos":
+            if (isset($url[2])) {
+                if ($url[2] == "cadastrar") {
+                    if (isset($url[3])) {
+						if($url[3] == "process") {
+							controller\EventosController::gerenciar_eventos();
+							break;
+						}
+                    }
+                    controller\EventosController::formulario_cadastro_evento();
+                    break;
+                } elseif ($url[2] == "deletar") {
+                    controller\EventosController::deleteEventos(); 
+                    break;
+                } elseif ($url[2] == "editar") {
+                    if (isset($url[3])) {
+                        if($url[3] == "process") {
+                            controller\EventosController::editEventos();
+                            break;
+                        }
+                    }
+                    controller\EventosController::formulario_edicao_evento();
+                    break;
+                }else{
+                    controller\EventosController::getEventos();
+                    break;
+                }
+                controller\EventosController::getEventos();
+                break;
+            }
 
-			controller\HomePageController::carregar_home_admin();
-            break;
+        controller\HomePageController::carregar_home_admin();
+        break;
     }
-
+    
 ?>
