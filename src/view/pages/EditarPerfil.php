@@ -19,7 +19,7 @@
         <?php include($_SERVER['DOCUMENT_ROOT'] . "/ES-2023_2-Adoteme/src/view/partials/Header.php") 
         ?>
     </header>
-    <h1>Edit Profile</h1>
+    <h1>Editar Perfil</h1>
     <form class="form" action="update_profile.php" method="POST" enctype="multipart/form-data">
 
         <div class="child">
