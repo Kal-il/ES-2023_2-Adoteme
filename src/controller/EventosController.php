@@ -15,7 +15,7 @@ class EventosController extends Controller {
             if (isset($_POST["cadastrar"])) {
                 $path = 'eventos/';
                 $pasta = $path . $_FILES["foto"]["name"];
-                $fileDestination = 'C:\xampp\htdocs\ES-2023_2-Adoteme\src\view\pages\pagesAdmin\eventos/' . $_FILES["foto"]["name"];
+                $fileDestination = $_SERVER['DOCUMENT_ROOT'] . '/src/view/pages/pagesAdmin/eventos/' . $_FILES["foto"]["name"];
 
                 move_uploaded_file(
                     $_FILES["foto"]["tmp_name"],

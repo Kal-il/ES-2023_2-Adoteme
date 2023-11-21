@@ -37,6 +37,20 @@
             controller\LoginController::carregar_login();
             break;
 
+		case "usuario":
+			if(isset($url[2])) {
+				if($url[2] == "editar") {
+					if(isset($url[3])){
+						if($url[3] == "process") {
+							controller\UsuarioController::editar_perfil();
+							break;
+						}
+					}
+					controller\UsuarioController::carregar_editar_perfil();
+					break;
+				}
+			}
+
         case "cadastrar":
             if (isset($url[2])) {
                 if($url[2] == "process") {

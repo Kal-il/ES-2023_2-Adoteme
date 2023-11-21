@@ -1,5 +1,4 @@
 body {
-
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     background-color: #ffffff;
     background-image: url('../assets/image.png');
@@ -21,8 +20,6 @@ h1 {
 }
 
 .form {
-    width: 30%;
-    margin: 0 auto;
     background-color: #fff;
     padding: 40px;
     border-radius: 8px;
@@ -34,9 +31,9 @@ h1 {
     margin-bottom: 5px;
 }
 
-.input[type="text"], .input[type="email"], .input[type="date"], .input[type="file"] {
-    width: 100%;
-    height: 100%;
+.input[type="text"], .input[type="sobrenome"], .input[type="date"], .input[type="file"] {
+    width: 20rem;
+    height: 2.7rem;
     padding: 10px;
     margin-bottom: 20px;
     border-radius: 4px;
@@ -73,4 +70,20 @@ h1 {
 
 .footer{
     margin-top: 50px;
+}
+
+.form-fields-container {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
+}
+
+.form-side-container {
+	margin-inline: 1.5rem;
+}
+
+.form-profile-container {
+	display: flex;
+	width: 100vw;
+
 }
