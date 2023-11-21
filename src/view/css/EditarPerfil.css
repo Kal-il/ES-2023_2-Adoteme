@@ -46,6 +46,7 @@ h1 {
     border: none;
     border-radius: 4px;
     padding: 10px 20px;
+	margin-top: 30px;
     cursor: pointer;
 }
 
@@ -85,5 +86,18 @@ h1 {
 .form-profile-container {
 	display: flex;
 	width: 100vw;
+}
 
+.form-success-message-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 95%;
+	background-color: #e0f5c9;
+	border: 1px solid #7a9c54;
+	border-radius: 12px;
+}
+
+.form-success-message {
+	margin-block: 5px;
 }

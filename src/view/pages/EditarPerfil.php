@@ -23,6 +23,8 @@
 	<div class="form-profile-container">
 
 			<form class="form" action="/usuario/editar/process" method="POST" enctype="multipart/form-data">
+				
+
 
 				<?php 
 				if($usuario['foto'] == null) {
@@ -73,6 +75,17 @@
 					</div>
 
 				</div>
+
+				<?php
+					session_start();
+					if (isset($_SESSION['sucesso'])) {
+						echo '
+						<div class="form-success-message-container">
+							<p class="form-success-message"> ' .  $_SESSION['sucesso'] . ' </p>
+						</div>';
+						unset($_SESSION['sucesso']);
+					}
+				?>
 
 				<input class="submit" type="submit" value="Confirmar">
 			</form>

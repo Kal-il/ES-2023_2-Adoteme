@@ -8,6 +8,7 @@ class UsuarioController extends Controller {
 	}
 
 	public static function editar_perfil() {
+		session_start();
 		if($_SERVER['REQUEST_METHOD'] == "POST") {
 			include 'JWTController.php';
 
@@ -39,6 +40,7 @@ class UsuarioController extends Controller {
 			if(!$resultado) {
 				echo 'Erro na atualização de dados do usuário';
 			} else {
+				$_SESSION['sucesso'] = "Perfil editado com sucesso";
 				header("Location: /usuario/editar");
 			}
 		}
@@ -49,8 +51,6 @@ class UsuarioController extends Controller {
 
 		$usuario = new UsuarioController();
 		$usuario = $usuario->user_model->GetUserByID($usuario->connection, $user_id);
-
-		var_dump($usuario);
 
 		include $_SERVER['DOCUMENT_ROOT'] . '/src/view/pages/EditarPerfil.php';
 	}
