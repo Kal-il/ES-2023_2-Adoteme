@@ -28,6 +28,26 @@ class LoginController extends Controller{
         include $_SERVER["DOCUMENT_ROOT"] . "/src/view/pages/LoginPage.php";
     }
 
+    public static function deslogar()
+    {
+
+        include 'JWTController.php';
+
+
+        $payload = [
+            "exp" => time() + 3600,
+            "iat" => time(),
+            "user_id" => $user_id,
+            "is_superuser" => $is_superuser,
+        ];
+
+        $token = JWT::encode($payload, "test_key", "HS256");
+        setcookie('jwt_token', $token, time() -1, '/');
+
+
+        header("Location: /login");
+    }
+
     public static function processar_login() {
         if(isset($_POST['botaoLogin'])){
             if(!empty($_POST['email']) && !empty($_POST['password'])){

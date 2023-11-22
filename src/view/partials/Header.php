@@ -73,6 +73,9 @@
 					<li class="nav-item">
 						<a class="nav-link" href="/eventos/">Eventos</a>
 					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="/deslogar/">Sair</a>
+					</li>
 
 					<?php
 					if ($user_id != 0) {
