@@ -53,7 +53,7 @@ echo $_SERVER["REQUEST_URI"];
                 
 			}
 
-            controller\UsuarioController::carregar_perfil();
+            //controller\UsuarioController::carregar_perfil();
             break;
             
         case "cadastrar":
