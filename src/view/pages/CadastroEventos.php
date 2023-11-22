@@ -21,6 +21,7 @@
             <button>Voltar</button>
             
         </a>
+
     <form class="form" action="/eventos/cadastrar/process" method="POST" enctype="multipart/form-data">
     <label class="descricao" for="descricao">
         Nome do evento beneficente:
@@ -35,4 +36,5 @@
     <input type="submit" value="Cadastrar" name="cadastrar" class="btncadastrar">
 </form>
 </body>
+
 </html>

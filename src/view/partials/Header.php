@@ -8,6 +8,7 @@
 	}
 
 	#logo {
+		width: 95vw;
 		padding-left: 5px;
 		padding-right: 5px;
 		padding-top: 5px;

@@ -11,7 +11,9 @@ O "AdoteMe" é uma plataforma digital inovadora desenvolvida para unir coraçõe
 
 ### [Relatório de gestão de atividades (iteração 3)](https://docs.google.com/spreadsheets/d/15xbPCzuF3L6a0VQsooBDLaNwTEBM20fFOac99ntMcq8/edit?usp=sharing)
 ### [Relatório de gestão de atividades (iteração 4 04/10/23 )](https://docs.google.com/spreadsheets/d/17kG0-oXf1jkvQOHeZQto6eXxYRd2bO6i3HtbkV5-IKI/edit?usp=sharing)
-
+### [Relatório de gestão de atividades (iteração 5 25/10/23 )](https://docs.google.com/spreadsheets/d/17kG0-oXf1jkvQOHeZQto6eXxYRd2bO6i3HtbkV5-IKI/edit?usp=sharing)
+### [Relatório de gestão de atividades (iteração 6 08/11/23 )](https://docs.google.com/spreadsheets/d/1Q9vGhXSGGH3XLSQ3aEJ_4QoeB9tO3zv_-i23IPomtYI/edit?usp=sharing)
+### [Relatório de gestão de atividades (iteração 7 22/11/23 )](https://docs.google.com/spreadsheets/d/1Q9vGhXSGGH3XLSQ3aEJ_4QoeB9tO3zv_-i23IPomtYI/edit?usp=sharing)
 ### Escopo:
 
 - #### Épico 1 --- Gerenciamento de usuário: RF01, RF02, RF06, RF17, RF12, RF13;
