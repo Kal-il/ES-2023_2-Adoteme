@@ -18,7 +18,7 @@ class AdocaoModel {
         $id_formulario = $data['id_formulario'];
         $situacao = "analise";
 
-        $query = "INSERT INTO adocoes(adotante_id, gato_id, formulario_id situacao) VALUES ('$id_adotante', '$id_gato', '$id_formulario', '$situacao');";
+        $query = "INSERT INTO adocoes(adotante_id, gato_id, formulario_id, situacao) VALUES ('$id_adotante', '$id_gato', '$id_formulario', '$situacao');";
 
         $resultado = $this->queryDatabase($connection, $query);
 
@@ -27,6 +27,22 @@ class AdocaoModel {
         } else {
             return true;
         } 
+    }
+
+    function CheckAdocaoExists($connection, $data) {
+        $id_usuario = $data['id_usuario'];
+        $id_gato = $data['id_gato'];    
+
+        $query = "SELECT id FROM adocoes WHERE adotante_id = '$id_usuario' AND gato_id = '$id_gato'";
+
+        $resultado = $this->queryDatabase($connection, $query);
+        
+        if(pg_num_rows($resultado)==0){
+            return false;
+        }
+
+        $row = pg_fetch_row($resultado);
+        return $row[0];   
     }
 
     function GetAdocoesByUsuario($connection, $id_usuario){
