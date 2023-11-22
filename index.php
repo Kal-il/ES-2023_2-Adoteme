@@ -50,6 +50,11 @@ echo $_SERVER["REQUEST_URI"];
 					break;
 				}
 
+                if($url[2] == "deletar") {
+                    controller\UsuarioController::deletar_perfil();
+                    break;
+                }
+
                 
 			}
 
