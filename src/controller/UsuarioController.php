@@ -12,6 +12,8 @@ class UsuarioController extends Controller {
 		if($_SERVER['REQUEST_METHOD'] == "POST") {
 			include 'JWTController.php';
 
+			var_dump($_POST);
+
 			$dados = [
 				"id" => $user_id,
 				"nome" => $_POST['nome'],
@@ -23,7 +25,7 @@ class UsuarioController extends Controller {
 				"endereco" => $_POST['endereco'],
 			];
 
-			if (isset($_FILES['foto']['name'])) {
+			if (!($_FILES['foto']['error'] == 4 || ($_FILES['foto']['size'] == 0 && $_FILES['foto']['error'] == 0))) {
 				$path = 'usuarios/';
 				$pasta = $path . $_FILES["foto"]["name"];
 				$fileDestination = $_SERVER['DOCUMENT_ROOT'] . '/src/view/pages/pagesAdmin/usuarios/' . $_FILES["foto"]["name"];
@@ -44,7 +46,7 @@ class UsuarioController extends Controller {
 				echo 'Erro na atualização de dados do usuário';
 			} else {
 				$_SESSION['sucesso'] = "Perfil editado com sucesso";
-				header("Location: /usuario/editar");
+				header("Location: /perfil/editar");
 			}
 		}
 	}

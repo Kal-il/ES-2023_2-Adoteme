@@ -22,7 +22,7 @@
 		<h1>Editar Perfil</h1>
 	<div class="form-profile-container">
 
-			<form class="form" action="/usuario/editar/process" method="POST" enctype="multipart/form-data">
+			<form class="form" action="/perfil/editar/process" method="POST" enctype="multipart/form-data">
 				
 
 
