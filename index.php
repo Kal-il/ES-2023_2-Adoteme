@@ -4,7 +4,7 @@
     # Armazena cada parte da URL num Array.
     # Por exemplo, se a rota é "/admin/gatos/rejeitar", $url será igual ["", ""admin", "gatos", "rejeitar"]
     # ATENÇÃO: por causa da função explode(), a posição $url[0] sempre será uma string vazia.
-
+echo $_SERVER["REQUEST_URI"];
     $url = explode('/', $_SERVER["REQUEST_URI"]);
 
     switch($url[1]){
@@ -49,13 +49,15 @@
 					controller\UsuarioController::carregar_editar_perfil();
 					break;
 				}
+
                 if ($url[2] == "deletar") {
                     controller\UsuarioController::deletar_perfil();
                     break;
                 }
+    
 			}
 
-            controller\UsuarioController::carregar_perfil();
+            //controller\UsuarioController::carregar_perfil();
             break;
             
         case "cadastrar":
