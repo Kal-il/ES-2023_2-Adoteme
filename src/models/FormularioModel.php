@@ -1,6 +1,5 @@
 <?php
 namespace models;
-require_once 'Connection.php';
 
 class FormularioModel{
     private function queryDatabase($connection, $query) {
@@ -11,6 +10,28 @@ class FormularioModel{
         }
 
         return $resultado;
+    }
+
+    public function CheckFormularioExists($connection, $id_usuario) {
+        $query = "SELECT id FROM formularios WHERE id_usuario = '$id_usuario'";
+
+        $resultado = $this->queryDatabase($connection, $query);
+        
+        if(pg_num_rows($resultado)==0){
+            return false;
+        }
+
+        $row = pg_fetch_row($resultado);
+        return $row[0];     
+    }
+
+    public function GetFormularioByUserID($connection, $id_usuario) {
+        $query = "SELECT * FROM formularios WHERE id_usuario = '$id_usuario'";
+        $resultado = $this->queryDatabase($connection, $query);
+
+        $formulario = pg_fetch_assoc($resultado);
+
+        return $formulario;
     }
 
     public function CreateFormulario($connection, $data){
@@ -82,8 +103,7 @@ class FormularioModel{
             consciente_custo,
             campo_opcional,
             termos_uso,
-            id_usuario,
-            id_gato
+            id_usuario
         ) VALUES (
             '$ja_adotou',
             '$tipo_endereco',
@@ -117,9 +137,8 @@ class FormularioModel{
             '$consciente_custo',
             '$campo_opcional',
             '$termos_uso',
-            '$id_usuario',
-            '$id_gato'
-        );
+            '$id_usuario'
+        ) RETURNING id;
         ";
 
         $resultado = $this->queryDatabase($connection, $query);
@@ -127,8 +146,11 @@ class FormularioModel{
         if(pg_affected_rows($resultado) == 0){
             return false;
         } else {
-            return true;
-        }  
+            $row = pg_fetch_array($resultado);
+            $formulario_id = $row[0];
+
+            return $formulario_id;
+        }
 
     }
 }

@@ -1,12 +1,8 @@
 <?php
+
 namespace controller;
 
-require_once __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'models' . DIRECTORY_SEPARATOR . 'Connection.php';
-require_once __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'models' . DIRECTORY_SEPARATOR . 'FavoritosModel.php';
-
-
-use models\Connection;
-use models\FavoritosModel;
+require_once $_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php';
 
 function checkUser($user_id){
     $favoritosController = new FavoritosController();
@@ -14,62 +10,81 @@ function checkUser($user_id){
     return $favoritos;
 }
 
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $data = [
-            "usuario_id" => $_POST['user_id'],
-            "gato_id" => $_POST['id_gato']
-        ];
-       
-      $favoritosController = new FavoritosController();
-      $existefavoritos = $favoritosController->getFavoritos($data);
-  
-      if (isset($_POST["addFavoritos"]) && empty($existeFavoritos)) {
-        $favoritosController->addFavoritos($data);
-    } else {
-        $favoritosController->deleteFavoritos($data);
+class FavoritosController extends Controller {
+    public function __construct(){
+        parent::__construct();
     }
 
-}
+	public static function gerenciar_favoritos() {
+		# Processa requisição AJAX
+		if ($_SERVER["REQUEST_METHOD"] == "POST") {
+				error_reporting(E_ALL);
+				ini_set('display_errors', 1);
+				$data = [
+					"usuario_id" => $_POST['user_id'],
+					"gato_id" => $_POST['id_gato']
+				];
+			   
+			  $favoritosController = new FavoritosController();
+			  $existefavoritos = $favoritosController->getFavoritos($data);
+		  
+			  if (isset($_POST["addFavoritos"]) && empty($existeFavoritos)) {
+				$favoritosController->addFavoritos($data);
+			} else {
+				$favoritosController->deleteFavoritos($data);
+			}
+		}
+	}
 
+	public static function carregar_favoritos() {
+		include 'JWTController.php';
 
-class FavoritosController {
-    private function queryDatabase($connection, $query) {
-        $resultado = pg_query($connection, $query);
-        if (!$resultado) {
-            die("Erro na busca: " . pg_last_error($connection));
-        }
-        return $resultado;
-    }
+		$favoritos = array();
+		$favoritos = new FavoritosController();
+		$favoritos = $favoritos->getAllDataFavoritosByUserId($user_id);
+
+		include $_SERVER['DOCUMENT_ROOT'] . "/src/view/pages/FavoritosPage.php";
+	}
 
     public function addFavoritos($data) {
-        $connection = new Connection();
-        $connection = $connection->getConnection();
-        $favoritos = new FavoritosModel();
-        $favoritos->addFavoritos($connection, $data);
+        $this->favoritos_model->addFavoritos($this->connection, $data);
     }
 
     public function getFavoritos($data) {
-        $connection = new Connection();
-        $connection = $connection->getConnection();
-        $favoritos = new FavoritosModel();
-        $favoritos = $favoritos->getFavoritos($connection, $data);
+        $favoritos = $this->favoritos_model->getFavoritos($this->connection, $data);
         return $favoritos;
     }
 
     public function deleteFavoritos($data) {
-        $connection = new Connection();
-        $connection = $connection->getConnection();
-        $favoritos = new FavoritosModel();
-        $favoritos->deleteFavoritos($connection, $data);
+        $this->favoritos_model->deleteFavoritos($this->connection, $data);
     }
 
     public function getUserFavoritos($data) {
-        $connection = new Connection();
-        $connection = $connection->getConnection();
-        $favoritos = new FavoritosModel();
-        $favoritos = $favoritos->getFavoritosByUserId($connection, $data);
+        $favoritos = $this->favoritos_model->getFavoritosByUserId($this->connection, $data);
+
         return $favoritos;
     }
+
+    public function checkUser($user_id){
+        $favoritos = $this->getUserFavoritos($user_id);  
+
+        return $favoritos;
+    }
+
+    public function getAllDataFavoritosByUserId($data) {
+        $favoritos = $this->favoritos_model->getFavoritosByUserId($this->connection, $data);
+        $dataGatos = array();  
+    
+        foreach($favoritos as $favorito){
+            $gatoId = $favorito['gato_id'];
+            $gatoData = $this->gatos_model->getGatoById($this->connection, $gatoId);
+            $dataGatos[] = $gatoData;
+        }
+
+        return $dataGatos;
+    }
 }
+
+
+
 ?>

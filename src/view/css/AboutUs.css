@@ -1,0 +1,48 @@
+body {
+    margin: 0;
+}
+
+.cards {
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    text-align: justify;
+
+}
+
+.card-about-us {
+    text-align: justify;
+    max-width: 30%;
+    font-size: larger;
+    border-radius: 8px;
+    background-color: white;
+    margin: 40px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    outline: 3px solid #000000;
+    box-shadow: 10px 10px 0px 0px rgba(0,0,0,1);
+-webkit-box-shadow: 10px 10px 0px 0px rgba(0,0,0,1);
+-moz-box-shadow: 10px 10px 0px 0px rgba(0,0,0,1);
+
+
+}
+
+.card-about-us h1{
+   padding: 20px;
+}
+
+.card-about-us:hover {
+    transform: scale(1.1);
+}
+.fa-bullseye-pointer, .fa-users, .fa-cat{
+    font-size: 6rem;
+    padding: 10px;
+
+}
+.card-content{
+    text-align: justify;
+    padding: 40px;
+}

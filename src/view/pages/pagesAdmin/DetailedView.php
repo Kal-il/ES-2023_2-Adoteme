@@ -1,7 +1,3 @@
-<?php
-    require_once '../../../controller/gatosController/VisualizarGato.php';
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,23 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../../css/DetailedView.css">
+    <link rel="stylesheet" href="/src/view/css/DetailedView.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Gabarito&family=Nunito&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <header>
-        <a href="HomePage.php">
-            <img id="logo" src="../../assets/adoteme.png" alt="Logo Adotme" width="100" height="100">
-        </a>
-        <h1 id="adoteme">Adoteme</h1>
-    </header>
+	<?php include $_SERVER['DOCUMENT_ROOT'] . "/src/view/partials/Header.php" ?>
     <main>
 
         <div id="div1">
-            <button><a href="TabelaAnimais.php" class="butao-vei">Voltar</a></button>
+            <button><a href="/admin/gatos" class="butao-vei">Voltar</a></button>
             <h3 class="info-detail">Informações detalhadas</h3>
         </div>
         <table>
@@ -94,7 +85,7 @@
 
                             for($i=1; $i <= 3; $i++){
                                 if(isset($gatoData['foto' . $i]))
-                                echo '<img src=' . $gatoData['foto1'] . ' width="150px" height="150px">';
+                                echo '<img src=/src/view/pages/pagesAdmin/' . $gatoData['foto1'] . ' width="150px" height="150px">';
                             }
                         ?>
                     </div>

@@ -1,59 +1,10 @@
-<?php
-// require '..\..\..\vendor\autoload.php';
-require_once __DIR__ . '..\..\..\controller\HomePageController.php';
-require __DIR__ . '..\..\..\..\vendor\autoload.php';
-include __DIR__ . '\..\..\controller\FavoritosController.php';
-
-use controller\HomePageController;
-use models\FavoritosModel;
-
-
-use Firebase\JWT\JWT;
-use Firebase\JWT\Key;
-
-use function controller\checkUser;
-
-$flag = false;
-$favoritos = array();
-$user_id = 0;
-if (isset($_COOKIE['jwt_token'])) {
-    $jwt_token = $_COOKIE['jwt_token'];
-    $decoded = JWT::decode($jwt_token, new Key("test_key", 'HS256'));
-    $decoded_array = (array) $decoded;
-    $user_id = $decoded_array['user_id'];
-    $favoritos = checkUser($user_id);
-} else {
-    echo "<h1> faça login </h1>";
-}
-
-if (!isset($_SESSION)) {
-    session_start();
-} else {
-    session_destroy();
-    session_start();
-}
-$data = array();
-
-if (isset($_SESSION['search_resultados'])) {
-    $data = $_SESSION['search_resultados'];
-    unset($_SESSION['search_resultados']);
-} elseif (isset($_SESSION['filtragem'])) {
-    $data = $_SESSION['filtragem'];
-    unset($_SESSION['filtragem']);
-} else {
-    $homePage = new HomePageController();
-    $data = $homePage->infoHomeGatos();
-}
-
-
-?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/HomePage.css">
+    <link rel="stylesheet" href="/src/view/css/HomePage.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
@@ -63,34 +14,19 @@ if (isset($_SESSION['search_resultados'])) {
 </head>
 
 <body>
-    <header>
-        <div id="logo">
-            <div id="logo2">
-                <a href="HomePage.php">
-                    <img class="image" src="../assets/adoteme.png" alt="Logo Adoteme" width="60" height="60">
-                </a>
-                <h2 class="adoteme">Adoteme</h2>
-            </div>
-            <nav>
-                <ul class="nav nav-tabs">
-                    <ul class="nav nav-tabs">
-                        <li class="nav-item">
-                            <a class="nav-link active" href="HomePage.php">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link disabled " href="pagesAdmin/HomePageAdmin.php">Admin</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="LoginPage.php">Login</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link disabled" href="#">Profile</a>
-                        </li>
-                    </ul>
-            </nav>
+	<?php include $_SERVER['DOCUMENT_ROOT'] . "/src/view/partials/Header.php"; ?>
+    <!-- <script>
+        $(document).ready(function() {
+            $('.nav-link.favoritos').click(function() {
+                var id_usuario = 0;
+                if (id_usuario == 0) {
+                    alert("Faça login para acessar os favoritos");
+                    $(this).prop(href, "#");
+                }
+            });
+        });
 
-        </div>
-    </header>
+    </script> -->
     <main>
         <!-- Modal de compartilhamento -->
 
@@ -114,13 +50,13 @@ if (isset($_SESSION['search_resultados'])) {
                     filter_list
                 </span>
             </button>
-            <form id="form" action="../../controller/HomePageController.php" method="POST">
+            <form id="form" action="/search" method="POST">
                 <input id="search-box" type="text" name="search" id="search" placeholder="Pesquisar">
             </form>
 
         </div>
         <!-- Formulário aqui-->
-        <form id="my-form" action="../../controller/HomePageController.php" method="POST">
+        <form id="my-form" action="/search" method="POST">
             <table>
                 <thead>
                     <!-- aqui ficam os titulos da tabéla-->
@@ -237,18 +173,23 @@ if (isset($_SESSION['search_resultados'])) {
         </script>
         <section class="gallery">
             <?php
-            if (isset($_GET['erro'])) {
+            if (isset($_SESSION['erro'])) {
                 echo '<div class="polaroide">';
-                echo '<img class="img-test" src="../assets/gatinho_triste.png" alt="Gatinho triste">';
-                echo '<p class="info-gato">Ofiltrosreu um problema, não temos essa informação.</p>';
+                echo '<img class="img-test" src="/src/view/assets/gatinho_triste.png" alt="Gatinho triste">';
+                echo '<p class="info-gato">Ocorreu um problema, não temos essa informação.</p>';
+                echo '<a href="/">Retornar à página inicial</a>';
                 echo '</div>';
+                
+                # Após mostrar a tela de erro, seus dados são retirados da sessão. 
+                # Se o usuário recarregar a página, ele será redirecionado à home normal.
+                unset($_SESSION['erro']);
             } else {
                 foreach ($data as $gato) {
                     echo '<div class="polaroide">';
                     if (!empty($gato['foto1'])) {
-                        echo '<a class="link-img-test" href="../../view/pages/VisualizarGato.php/?id= ' . $gato["id"] . '"><img class="img-test" src="../../view/pages/pagesAdmin/' . $gato['foto1'] . '" alt="Imagem de gato"></a>';
+                        echo '<a class="link-img-test" href="/gatos/' . $gato["id"] . '"><img class="img-test" src="src/view/pages/pagesAdmin/' . $gato['foto1'] . '" alt="Imagem de gato"></a>';
                     } else {
-                        echo '<a href="../../view/pages/VisualizarGato.php/?id= ' . $gato["id"] . '"><img class="img-test" src="../assets/gato2.jpg" alt="Imagem de gato como exemplo"></a>';
+                        echo '<a href="/gatos/' . $gato["id"] . '"><img class="img-test" src="src/view/assets/gato2.jpg" alt="Imagem de gato como exemplo"></a>';
                     }
 
             ?>
@@ -324,10 +265,10 @@ if (isset($_SESSION['search_resultados'])) {
                     </div>
                     <script>
                         $(document).ready(function() {
-                            $('#checkbox-<?php echo $gato['id']; ?>').click(function() {
+                            $('.checkbox').click(function() {
+                                var id_gato = $(this).attr('id');
                                 var id_usuario = <?php echo $user_id; ?>;
-
-                                var id_gato = <?php echo $gato['id']; ?>;
+                                id_gato = id_gato.split("-")[1];
                                 var checked = $(this).is(':checked');
                                 if (id_usuario == 0) {
                                     $(this).prop('checked', false);
@@ -336,7 +277,7 @@ if (isset($_SESSION['search_resultados'])) {
                                 } else {
                                     if (checked) {
                                         $.ajax({
-                                            url: '../../controller/FavoritosController.php',
+                                            url: '/favoritos/gerenciar',
                                             type: 'POST',
                                             data: {
                                                 'addFavoritos': true,
@@ -349,7 +290,7 @@ if (isset($_SESSION['search_resultados'])) {
                                         });
                                     } else {
                                         $.ajax({
-                                            url: '../../controller/FavoritosController.php',
+                                            url: '/favoritos/gerenciar',
                                             type: 'POST',
                                             data: {
                                                 'removeFavoritos': true,
@@ -390,6 +331,7 @@ if (isset($_SESSION['search_resultados'])) {
 
     </main>
     <footer>
+    <a href="/faq" class="btnfaq">FAQ</a>
         <p>&copy;2023 Adoteme </p>
     </footer>
 </body>

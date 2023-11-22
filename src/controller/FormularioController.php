@@ -1,24 +1,137 @@
 <?php
 namespace controller;
 
-require_once '../models/Connection.php';
-require_once '../models/FavoritosModel.php';
-require_once '../controller/Controller.php';
-
-use controller\Controller;
-
-require 'C:\xampp\htdocs\ES-2023_2-Adoteme\vendor\autoload.php';
-
-use Firebase\JWT\JWT;
-use Firebase\JWT\Key;
+require_once $_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php';
 
 class FormularioController extends Controller{
     public function __construct(){
         parent::__construct();
     }
 
+    public static function carregar_formulario() {
+		include 'JWTController.php';
+
+        $gato_id = explode('/', $_SERVER['REQUEST_URI'])[3];
+
+		if ($user_id == 0) {
+			header("Location: /login");
+		}
+
+        $controller = new FormularioController();
+
+        $data = [
+            "id_gato" => $gato_id,
+            "id_usuario" => $user_id,
+        ];
+
+        $ja_pediu = $controller->adocao_model->CheckAdocaoExists($controller->connection, $data);
+
+        if($ja_pediu) {
+            echo '
+            <script> 
+                alert("Você já fez um pedido de adoção para este gato");
+                window.location.href = "/"; 
+            </script>';
+        }
+
+        $formulario_id = $controller->formulario_model->CheckFormularioExists($controller->connection, $user_id);
+
+        if($formulario_id) {
+            $formulario = $controller->formulario_model->GetFormularioByUserID($controller->connection, $user_id);
+        }
+
+        
+
+        include $_SERVER["DOCUMENT_ROOT"] . "/src/view/pages/FormPage.php";
+    }
+
+    public function processar_dados_formulario($user_id) {
+        $data = [
+            "id_usuario" => $user_id,
+            "id_gato" => $id_gato,
+            "ja_adotou" => $_POST['ja_adotou_conosco'],
+            "tipo_endereco" => $_POST['tipo_endereco'],
+            "num_adultos" => $_POST['num_adultos'],
+            "num_criancas" => $_POST['num_criancas'],
+            "idade_criancas" => $_POST['idade_criancas'],
+            "motivo" => $_POST['motivo'],
+            "tipo_casa" => $_POST['tipo_casa'],
+            "permissao_proprietario" => $_POST['permissao_proprietario'], 
+            "areas_casa" => $_POST['areas_casa'],
+            "ja_teve_gato" => $_POST['ja_teve_gato'],
+            "historico_gatos" => $_POST['historico_gatos'],
+            "outros_animais" => $_POST['outro_animais'],
+            "tempo_planejamento" => $_POST['tempo_planejamento'],
+            "consentimento" => $_POST['consentimento'], 
+            "cuidado_viagem" => $_POST['cuidado_viagem'], 
+            "gastos" => $_POST['gastos'], 
+            "alergia" => $_POST['alergia'], 
+            "se_descobrir_alergia" => $_POST['se_descobrir_alergia'],
+            "filho_descobrir_alergia" => $_POST['filho_descobrir_alergia'],
+            "parceiro_descobrir_alergia" => $_POST['parceiro_descobrir_alergia'],
+            "gravidez" => $_POST['gravidez'],
+            "se_arranhar" => $_POST['se_arranhar'],
+            "se_fugir" => $_POST['se_fugir'],
+            "se_nao_puder_cuidar" => $_POST['se_nao_puder_cuidar'],
+            "mudanca" => $_POST['mudanca'], 
+            "motivos_doacao" => $_POST['motivos_doacao'], 
+            "consciente_adaptacao" => $_POST['consciente_adaptacao'], 
+            "quarto_adaptacao" => $_POST['quarto_adaptacao'], 
+            "compromisso_idade" => $_POST['compromisso_idade'],                     
+            "consciente_custo" => $_POST['consciente_custo'],
+            "campo_opcional" => $_POST['campo_opcional'],
+            "termos_uso" => $_POST['termos_uso'],            
+        ];
+
+        if(isset($_POST["qtd_gato"])){
+            $data["qtd_gato"] = $_POST["qtd_gato"];
+        }
+
+        if(isset($_POST["qtd_cachorro"])){
+            $data["qtd_cachorro"] = $_POST["qtd_cachorro"];
+        }
+
+        if(isset($_POST["qtd_passaro"])){
+            $data["qtd_passaro"] = $_POST["qtd_passaro"];
+        }
+
+        if(isset($_POST["qtd_outros"])){
+            $data["qtd_outros"] = $_POST["qtd_outros"];
+        }
+
+        return $data;
+    }
+
+    public static function processar_formulario() {
+        include 'JWTController.php';
+
+        $controller = new FormularioController();
+        $formulario_id = $controller->formulario_model->CheckFormularioExists($controller->connection, $user_id);
+
+        if (!$formulario_id) {
+            $data = processar_dados_formulario($user_id);
+            $data = $controller->cleanFormulario($data);
+            
+            $formulario_id = $controller->addFormulario($data);
+        }
+
+        $id_gato = explode('/', $_SERVER['REQUEST_URI'])[4];
+
+        $data_adocao = [
+            "id_adotante" => $user_id,
+            "id_gato" => $id_gato,
+            "id_formulario" => $formulario_id,
+        ];
+
+        $controller->adocao_model->CreateAdocao($controller->connection, $data_adocao);
+
+        header("Location: /adocoes/$id_gato");
+    }
+
     public function addFormulario($data){
-        $this->formulario_model->CreateFormulario($this->connection, $data);
+        $formulario_id = $this->formulario_model->CreateFormulario($this->connection, $data);
+
+        return $formulario_id;
     }
 
     public function cleanFormulario($data){
@@ -130,82 +243,5 @@ class FormularioController extends Controller{
         return $data;
     }
 }
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if (isset($_POST["postForm"])) {
-        
-        if (isset($_COOKIE['jwt_token'])) {
-            $jwt_token = $_COOKIE['jwt_token'];
-            $decoded = JWT::decode($jwt_token, new Key("test_key", 'HS256'));
-            $decoded_array = (array) $decoded;
-
-        } else {
-            echo "<h1> faça login </h1>";
-        }
-
-        $id_gato = $_GET['id'];
-
-        $data = [
-            "id_usuario" => $decoded_array['user_id'],
-            "id_gato" => $id_gato,
-            "ja_adotou" => $_POST['ja_adotou_conosco'],
-            "tipo_endereco" => $_POST['tipo_endereco'],
-            "num_adultos" => $_POST['num_adultos'],
-            "num_criancas" => $_POST['num_criancas'],
-            "idade_criancas" => $_POST['idade_criancas'],
-            "motivo" => $_POST['motivo'],
-            "tipo_casa" => $_POST['tipo_casa'],
-            "permissao_proprietario" => $_POST['permissao_proprietario'], 
-            "areas_casa" => $_POST['areas_casa'],
-            "ja_teve_gato" => $_POST['ja_teve_gato'],
-            "historico_gatos" => $_POST['historico_gatos'],
-            "outros_animais" => $_POST['outro_animais'],
-            "tempo_planejamento" => $_POST['tempo_planejamento'],
-            "consentimento" => $_POST['consentimento'], 
-            "cuidado_viagem" => $_POST['cuidado_viagem'], 
-            "gastos" => $_POST['gastos'], 
-            "alergia" => $_POST['alergia'], 
-            "se_descobrir_alergia" => $_POST['se_descobrir_alergia'],
-            "filho_descobrir_alergia" => $_POST['filho_descobrir_alergia'],
-            "parceiro_descobrir_alergia" => $_POST['parceiro_descobrir_alergia'],
-            "gravidez" => $_POST['gravidez'],
-            "se_arranhar" => $_POST['se_arranhar'],
-            "se_fugir" => $_POST['se_fugir'],
-            "se_nao_puder_cuidar" => $_POST['se_nao_puder_cuidar'],
-            "mudanca" => $_POST['mudanca'], 
-            "motivos_doacao" => $_POST['motivos_doacao'], 
-            "consciente_adaptacao" => $_POST['consciente_adaptacao'], 
-            "quarto_adaptacao" => $_POST['quarto_adaptacao'], 
-            "compromisso_idade" => $_POST['compromisso_idade'],                     
-            "consciente_custo" => $_POST['consciente_custo'],
-            "campo_opcional" => $_POST['campo_opcional'],
-            "termos_uso" => $_POST['termos_uso'],            
-        ];
-
-        if(isset($_POST["qtd_gato"])){
-            $data["qtd_gato"] = $_POST["qtd_gato"];
-        }
-
-        if(isset($_POST["qtd_cachorro"])){
-            $data["qtd_cachorro"] = $_POST["qtd_cachorro"];
-        }
-
-        if(isset($_POST["qtd_passaro"])){
-            $data["qtd_passaro"] = $_POST["qtd_passaro"];
-        }
-
-        if(isset($_POST["qtd_outros"])){
-            $data["qtd_outros"] = $_POST["qtd_outros"];
-        }
-
-        $formularioController = new FormularioController();
-        $data = $formularioController->cleanFormulario($data);
-        $formularioController->addFormulario($data);
-
-        header("Location: AdocaoController.php?id=$id_gato");
-    }
-}
-
-
 
 ?>

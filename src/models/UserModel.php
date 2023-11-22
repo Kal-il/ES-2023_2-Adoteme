@@ -1,9 +1,7 @@
 <?php
 namespace models;
-require_once 'Connection.php';
 
 class UserModel {
-
     private function queryDatabase($connection, $query) {
         $resultado = pg_query($connection, $query);
 
@@ -14,6 +12,40 @@ class UserModel {
         return $resultado;
     }
 
+	function UpdateUser($connection, $data) {
+		$id = pg_escape_string($connection, $data['id']);	
+		$nome =  pg_escape_string($connection, $data['nome']);					
+		$sobrenome =  pg_escape_string($connection, $data['sobrenome']);
+		$telefone =  pg_escape_string($connection, $data['telefone']);
+		$nascimento =  pg_escape_string($connection, $data['nascimento']);
+		$estado =  pg_escape_string($connection, $data['estado']);
+		$cidade =  pg_escape_string($connection, $data['cidade']);
+		$endereco =  pg_escape_string($connection, $data['endereco']);
+
+		$query = "UPDATE usuarios
+		SET nome='$nome', sobrenome='$sobrenome', telefone='$telefone', cidade='$cidade', estado='$estado', endereco='$endereco', data_nascimento='$nascimento' 
+		WHERE id='$id'";
+
+		$resultado = $this->queryDatabase($connection, $query);
+
+		if(pg_affected_rows($resultado)==0) {
+			return false;
+		}
+
+        if (isset($data['foto'])) {
+            $foto = pg_escape_string($connection, $data['foto']);
+
+            $query = "UPDATE usuarios SET foto='$foto' WHERE id='$id'";
+            $resultado = $this->queryDatabase($connection, $query);
+
+            if(pg_affected_rows($resultado)==0) {
+                return false;
+            }
+        }
+
+		return true;
+	}
+
     function Login($connection, $data) {
          /*
             * o uso do pg_escape_string é para evitar o SQL Injection, que é uma técnica de invasão de banco de dados
@@ -22,30 +54,31 @@ class UserModel {
         $email = pg_escape_string($connection, $data['email']); 
         $password = pg_escape_string($connection, $data['password']); 
 
-        $query = "SELECT * FROM usuarios WHERE email = '$email' AND senha = '$password'";
-        $resultado = $this->queryDatabase($connection, $query);
-
-        if (pg_num_rows($resultado) == 0) {
+        $query = "SELECT * FROM usuarios WHERE email = '$email'";
+        $resultado = pg_fetch_all($this->queryDatabase($connection, $query));
+       
+        if (!$resultado || !password_verify($password, $resultado[0]['senha'])) {
             return false;
         } else {
             return true;
         }
     }
-
+   
     function IsSuperuser($connection, $data) {
         $email = pg_escape_string($connection, $data['email']); 
         $password = pg_escape_string($connection, $data['password']); 
 
-        $query = "SELECT * FROM usuarios WHERE email = '$email' AND senha = '$password' AND superuser = true";
-        $resultado = $this->queryDatabase($connection, $query);
+        $query = "SELECT * FROM usuarios WHERE email = '$email' AND superuser = true";
+        $resultado = pg_fetch_all($this->queryDatabase($connection, $query));
 
-        if (pg_num_rows($resultado) == 0) {
+        if (!$resultado || !password_verify($password, $resultado[0]['senha'])) {
             return false;
         } else {
             return true;
         }
     }
     function CreateUser($connection, $data) {
+
         $email = pg_escape_string($connection, $data['email']); 
         $password = pg_escape_string($connection, $data['password']); 
         $nome = pg_escape_string($connection, $data['nome']);
@@ -58,7 +91,8 @@ class UserModel {
         $matricula = pg_escape_string($connection, $data['matricula']);
         $data_nascimento = pg_escape_string($connection, $data['data_nascimento']); 
         $endereco = pg_escape_string($connection, $data['endereco']);
-    
+
+        $password = password_hash($password, PASSWORD_DEFAULT);
 
         $query = "INSERT INTO usuarios (email, senha, nome, sobrenome, cpf, telefone, cep, cidade, estado, endereco, matricula, data_nascimento)
         VALUES ('$email', '$password', '$nome', '$sobrenome', '$cpf', '$telefone', '$cep', '$cidade', '$estado', '$endereco', '$matricula', '$data_nascimento')";
@@ -118,6 +152,30 @@ class UserModel {
 
         $row = pg_fetch_row($resultado);
         return $row[0];
+    }
+
+	function GetUserByID($connection, $user_id) {
+		$query = "SELECT id, email, nome, sobrenome, telefone, cep, cidade, estado, endereco, data_nascimento, foto from usuarios WHERE id='$user_id'";
+		$resultado = $this->queryDatabase($connection, $query);
+
+		if(pg_num_rows($resultado) == 0) {
+			return false;
+		}
+
+        $usuario = pg_fetch_assoc($resultado);
+		return $usuario;
+	}
+
+    function DeleteUser($connection, $user_id) {
+        $query = "DELETE FROM usuarios WHERE id='$user_id'";
+
+        $resultado = $this->queryDatabase($connection, $query);
+
+        if(pg_affected_rows($resultado)==0) {
+            return false;
+        }
+
+        return true;
     }
 
 }

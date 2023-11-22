@@ -1,0 +1,48 @@
+ body {
+     font-family: 'Arial', sans-serif;
+     margin: 0;
+     padding: 0;
+     background-color: #f8f9fa;
+ }
+
+ h1 {
+     text-align: center;
+     color: #2f0061;
+     margin-top: 20px;
+ }
+
+ .container {
+     max-width: 800px;
+     margin: 20px auto;
+ }
+
+ .polaroid {
+     margin: 15px;
+     background-color: #fff;
+     padding: 15px;
+     border: 1px solid #ddd;
+     border-radius: 8px;
+     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+ }
+
+ .polaroid img {
+    image-fit: cover;
+     width: 100%;
+     border-radius: 6px;
+     margin-bottom: 10px;
+ }
+
+ .btn-container {
+     text-align: center;
+     margin-top: 20px;
+ }
+
+ .btn-primary {
+     background-color: #383464;
+     color: #fff;
+     border: none;
+     padding: 10px 20px;
+     border-radius: 5px;
+     cursor: pointer;
+     margin-right: 10px;
+ }
