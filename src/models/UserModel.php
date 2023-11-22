@@ -12,6 +12,40 @@ class UserModel {
         return $resultado;
     }
 
+	function UpdateUser($connection, $data) {
+		$id = pg_escape_string($connection, $data['id']);	
+		$nome =  pg_escape_string($connection, $data['nome']);					
+		$sobrenome =  pg_escape_string($connection, $data['sobrenome']);
+		$telefone =  pg_escape_string($connection, $data['telefone']);
+		$nascimento =  pg_escape_string($connection, $data['nascimento']);
+		$estado =  pg_escape_string($connection, $data['estado']);
+		$cidade =  pg_escape_string($connection, $data['cidade']);
+		$endereco =  pg_escape_string($connection, $data['endereco']);
+
+		$query = "UPDATE usuarios
+		SET nome='$nome', sobrenome='$sobrenome', telefone='$telefone', cidade='$cidade', estado='$estado', endereco='$endereco', data_nascimento='$nascimento' 
+		WHERE id='$id'";
+
+		$resultado = $this->queryDatabase($connection, $query);
+
+		if(pg_affected_rows($resultado)==0) {
+			return false;
+		}
+
+        if (isset($data['foto'])) {
+            $foto = pg_escape_string($connection, $data['foto']);
+
+            $query = "UPDATE usuarios SET foto='$foto' WHERE id='$id'";
+            $resultado = $this->queryDatabase($connection, $query);
+
+            if(pg_affected_rows($resultado)==0) {
+                return false;
+            }
+        }
+
+		return true;
+	}
+
     function Login($connection, $data) {
          /*
             * o uso do pg_escape_string é para evitar o SQL Injection, que é uma técnica de invasão de banco de dados
@@ -119,6 +153,18 @@ class UserModel {
         $row = pg_fetch_row($resultado);
         return $row[0];
     }
+
+	function GetUserByID($connection, $user_id) {
+		$query = "SELECT id, email, nome, sobrenome, telefone, cep, cidade, estado, endereco, data_nascimento, foto from usuarios WHERE id='$user_id'";
+		$resultado = $this->queryDatabase($connection, $query);
+
+		if(pg_num_rows($resultado) == 0) {
+			return false;
+		}
+
+        $usuario = pg_fetch_assoc($resultado);
+		return $usuario;
+	}
 
 }
 

@@ -2,7 +2,7 @@
     require_once("vendor/autoload.php");
 
     # Armazena cada parte da URL num Array.
-    # Por exemplo, se a rota é "admin/gatos/rejeitar", $url será igual ["", ""admin", "gatos", "rejeitar"]
+    # Por exemplo, se a rota é "/admin/gatos/rejeitar", $url será igual ["", ""admin", "gatos", "rejeitar"]
     # ATENÇÃO: por causa da função explode(), a posição $url[0] sempre será uma string vazia.
 echo $_SERVER["REQUEST_URI"];
     $url = explode('/', $_SERVER["REQUEST_URI"]);
@@ -37,6 +37,25 @@ echo $_SERVER["REQUEST_URI"];
             controller\LoginController::carregar_login();
             break;
 
+		case "perfil":
+			if(isset($url[2])) {
+				if($url[2] == "editar") {
+					if(isset($url[3])){
+						if($url[3] == "process") {
+							controller\UsuarioController::editar_perfil();
+							break;
+						}
+					}
+					controller\UsuarioController::carregar_editar_perfil();
+					break;
+				}
+
+                
+			}
+
+            controller\UsuarioController::carregar_perfil();
+            break;
+            
         case "cadastrar":
             if (isset($url[2])) {
                 if($url[2] == "process") {
