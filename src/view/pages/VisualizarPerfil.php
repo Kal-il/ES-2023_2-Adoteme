@@ -45,31 +45,36 @@
                         <P id="cidade"><?php echo $usuario['cidade'] ?></p>
                     </div>
                 </div>
+            </div>
 
-                <div class="botoes">
-                    <a href="/src/view/pages/AcompanhamentoPage.php">
-                        <button id="botão1">
-                            <img src="/src/view/assets/Frame 124.png" alt="" width="70" height="60">
-                            Adoções em progresso
-                        </button>
-                    </a>
-                    <a href="/src/view/pages/FavoritosPage.php">
-                        <button id="botão2">
-                            <img src="/src/view/assets/heart.png" alt="" width="80" height="60">
-                            Gatos Favoritos
-                        </button>
-                    </a>
-                    <a href="/src/view/pages/EditarPerfil.php">
-                        <button id="botão3">
-                            <img src="/src/view/assets/Account.png" alt="" width="90" height="60">
-                            Editar perfil
-                        </button>
-                    </a>
+            <div class="botoes">
+                <a href="/src/view/pages/AcompanhamentoPage.php">
+                    <button id="botão1">
+                        <img src="/src/view/assets/Frame 124.png" alt="" width="70" height="60">
+                        Adoções em progresso
+                    </button>
+                </a>
+                <a href="/src/view/pages/FavoritosPage.php">
+                    <button id="botão2">
+                        <img src="/src/view/assets/heart.png" alt="" width="80" height="60">
+                        Gatos Favoritos
+                    </button>
+                </a>
+                <a href="/src/view/pages/EditarPerfil.php">
+                    <button id="botão3">
+                        <img src="/src/view/assets/Account.png" alt="" width="90" height="60">
+                        Editar perfil
+                    </button>
+                </a>
+            </div>
+            <div class="seusInteresses">
+                <p>Seus Interesses</p>
+                <!---->
+                <div class="gatosInteressantes">
+                    <img src="/src/view/assets/gato2.jpg" alt="" class="GatoInteressante">
+                    <p>Gatinho amarelo</p>
                 </div>
-                <div class="seusInteresses">
-                    <p>Seus Interesses</p>
-                    <!---->
-                </div>
+            </div>
 
         </main>
         <footer class="footer">
