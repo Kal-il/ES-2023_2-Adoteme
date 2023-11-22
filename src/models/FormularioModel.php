@@ -15,10 +15,12 @@ class FormularioModel{
     public function CheckFormularioExists($connection, $id_usuario) {
         $query = "SELECT id FROM formularios WHERE id_usuario = '$id_usuario'";
 
+        $resultado = $this->queryDatabase($connection, $query);
+        
         if(pg_num_rows($resultado)==0){
             return false;
         }
-        
+
         $row = pg_fetch_row($resultado);
         return $row[0];     
     }
