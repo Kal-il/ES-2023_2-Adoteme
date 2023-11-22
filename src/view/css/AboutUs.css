@@ -4,7 +4,6 @@ body {
 
 .cards {
     display: flex;
-    align-items: center;
     justify-content: center;
     height: 100vh;
     text-align: justify;
@@ -13,8 +12,7 @@ body {
 
 .card-about-us {
     text-align: justify;
-    width: 20%;
-    height: 65%;
+    max-width: 30%;
     font-size: larger;
     border-radius: 8px;
     background-color: white;
