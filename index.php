@@ -191,6 +191,10 @@ switch ($url[1]) {
     case "faq":
         include $_SERVER['DOCUMENT_ROOT'] . "/src/view/pages/FAQPage.php";
         break;
+
+    case "deslogar":
+        controller\LoginController::deslogar();
+        break;
 }
 
 ?>

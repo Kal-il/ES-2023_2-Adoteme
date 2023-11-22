@@ -48,13 +48,13 @@
             </div>
 
             <div class="botoes">
-                <a href="/src/view/pages/AcompanhamentoPage.php">
+                <a href="/adocoes">
                     <button id="botão1">
                         <img src="/src/view/assets/Frame 124.png" alt="" width="70" height="60">
                         Adoções em progresso
                     </button>
                 </a>
-                <a href="/src/view/pages/FavoritosPage.php">
+                <a href="/favoritos">
                     <button id="botão2">
                         <img src="/src/view/assets/heart.png" alt="" width="80" height="60">
                         Gatos Favoritos
