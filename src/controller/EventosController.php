@@ -68,9 +68,12 @@ class EventosController extends Controller {
 
     public static function editEventos() {
         if (isset($_POST["editar"])) {
+            
             $id = explode('/', $_SERVER['REQUEST_URI'])[4];
+            echo $id;
             $eventos = new EventosController();
             $resultado =  $eventos->eventos_model->getEventosById($eventos->connection, $id);
+            var_dump($resultado);
      
             $resultado[0]["nome"] = $_POST['nome'];
             if($_FILES["foto"]["name"] != ""){
@@ -85,6 +88,8 @@ class EventosController extends Controller {
                 $imagePath = $pasta;
                 $resultado[0]["foto"] = $imagePath;
             }
+            $resultado[0]['id'] = $id;
+            var_dump ($resultado);
             $deuceurto = $eventos->eventos_model->editEventos($eventos->connection, $resultado);
             
             if($deuceurto){

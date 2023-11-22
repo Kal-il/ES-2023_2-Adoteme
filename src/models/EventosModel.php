@@ -48,7 +48,7 @@ class EventosModel{
         $nome = $data[0]['nome'];  
         $foto = $data[0]['foto'];
         $id = $data[0]['id'];
-        $query = "UPDATE eventos SET nome = '$nome', foto = '$foto' WHERE id = $id";
+        $query = "UPDATE eventos SET nome = '$nome', foto = '$foto' WHERE id ='$id'";
         $resultado = $this->queryDatabase($connection, $query);
         if(pg_affected_rows($resultado) == 0){
             return false;
@@ -58,7 +58,7 @@ class EventosModel{
     }
 
     public function getEventosById($connection, $id){
-        $query = "SELECT * FROM eventos WHERE id = $id";
+        $query = "SELECT * FROM eventos WHERE id = '$id'";
         $resultado = $this->queryDatabase($connection, $query);
         $eventos = pg_fetch_all($resultado);
         return $eventos;
