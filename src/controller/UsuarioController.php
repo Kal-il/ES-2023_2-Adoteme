@@ -51,6 +51,19 @@ class UsuarioController extends Controller {
 		}
 	}
 
+	public static function carregar_perfil() {
+		include 'JWTController.php';
+
+		if($user_id == 0) {
+			header("Location: /login");
+		}
+
+		$usuario = new UsuarioController();
+		$usuario = $usuario->user_model->GetUserByID($usuario->connection, $user_id);
+
+		include $_SERVER['DOCUMENT_ROOT'] . '/src/view/pages/VisualizarPerfil.php';
+	}
+
 	public static function carregar_editar_perfil() {
 		include 'JWTController.php';
 
