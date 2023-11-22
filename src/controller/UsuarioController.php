@@ -76,14 +76,17 @@ class UsuarioController extends Controller {
 
 		include $_SERVER['DOCUMENT_ROOT'] . '/src/view/pages/EditarPerfil.php';
 	}
-
-	public static function deletar_perfil() {
+	public static function carregar_perfil() {
 		include 'JWTController.php';
 
-		$usuario = new UsuarioController();
-		$usuario = $usuario->user_model->DeleteUser($usuario->connection, $user_id);
+		if($user_id == 0) {
+			header("Location: /login");
+		}
 
-		header("Location: /");
+		$usuario = new UsuarioController();
+		$usuario = $usuario->user_model->GetUserByID($usuario->connection, $user_id);
+
+		include $_SERVER['DOCUMENT_ROOT'] . '/src/view/pages/PerfilPage.php';
 	}
 }
 

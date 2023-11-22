@@ -14,9 +14,17 @@
 </head>
 
 <body>
-<?php include $_SERVER['DOCUMENT_ROOT'] . '/src/view/partials/Header.php'; ?>
-<main>
-<script>
+    <?php include $_SERVER['DOCUMENT_ROOT'] . '/src/view/partials/Header.php'; ?>
+    <!-- Botão de voltar -->
+    <main class=FavoritosMain>
+        <a href="javascript:history.back()">
+            <button class=BackButtonFavorite>
+                Voltar
+            </button>
+        </a>
+        <!-- Botão de voltar -->
+
+        <script>
             const toggleButton = document.getElementById('toggle-form');
             const form = document.getElementById('my-form');
 
@@ -53,7 +61,7 @@
                     if (!empty($gato['foto1'])) {
                         echo '<a class="link-img-test" href="/gatos/' . $gato["id"] . '"><img class="img-test" src="/src/view/pages/pagesAdmin/' . $gato['foto1'] . '" alt="Imagem de gato"></a>';
                     } else {
-							echo '<a href="/gatos/' . $gato["id"] . '"><img class="img-test" src="/src/view/assets/gato2.jpg" alt="Imagem de gato como exemplo"></a>';
+                        echo '<a href="/gatos/' . $gato["id"] . '"><img class="img-test" src="/src/view/assets/gato2.jpg" alt="Imagem de gato como exemplo"></a>';
                     }
 
             ?>
@@ -69,7 +77,7 @@
                                 $flag = False;
                             }
                             ?>
-                            
+
                             <!-- Botão de compartilhar -->
 
                             <button id="buttons-share-fill" class="openModal">
