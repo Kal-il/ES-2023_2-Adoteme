@@ -21,10 +21,9 @@ class UserModel {
 		$estado =  pg_escape_string($connection, $data['estado']);
 		$cidade =  pg_escape_string($connection, $data['cidade']);
 		$endereco =  pg_escape_string($connection, $data['endereco']);
-		$foto = pg_escape_string($connection, $data['foto']);
 
 		$query = "UPDATE usuarios
-		SET nome='$nome', sobrenome='$sobrenome', telefone='$telefone', cidade='$cidade', estado='$estado', endereco='$endereco', data_nascimento='$nascimento', foto='$foto' 
+		SET nome='$nome', sobrenome='$sobrenome', telefone='$telefone', cidade='$cidade', estado='$estado', endereco='$endereco', data_nascimento='$nascimento' 
 		WHERE id='$id'";
 
 		$resultado = $this->queryDatabase($connection, $query);
@@ -32,6 +31,18 @@ class UserModel {
 		if(pg_affected_rows($resultado)==0) {
 			return false;
 		}
+
+        if (isset($data['foto'])) {
+            $foto = pg_escape_string($connection, $data['foto']);
+
+            $query = "UPDATE usuarios SET foto='$foto' WHERE id='$id'";
+            $resultado = $this->queryDatabase($connection, $query);
+
+            if(pg_affected_rows($resultado)==0) {
+                return false;
+            }
+        }
+
 		return true;
 	}
 

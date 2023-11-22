@@ -12,16 +12,6 @@ class UsuarioController extends Controller {
 		if($_SERVER['REQUEST_METHOD'] == "POST") {
 			include 'JWTController.php';
 
-			$path = 'usuarios/';
-			$pasta = $path . $_FILES["foto"]["name"];
-			$fileDestination = $_SERVER['DOCUMENT_ROOT'] . '/src/view/pages/pagesAdmin/usuarios/' . $_FILES["foto"]["name"];
-
-			move_uploaded_file(
-				$_FILES["foto"]["tmp_name"],
-				$fileDestination
-			);
-			$imagePath = $pasta;
-
 			$dados = [
 				"id" => $user_id,
 				"nome" => $_POST['nome'],
@@ -31,8 +21,21 @@ class UsuarioController extends Controller {
 				"estado" => $_POST['estado'],
 				"cidade" => $_POST['cidade'],
 				"endereco" => $_POST['endereco'],
-				"foto" => $imagePath,
 			];
+
+			if (isset($_FILES['foto']['name'])) {
+				$path = 'usuarios/';
+				$pasta = $path . $_FILES["foto"]["name"];
+				$fileDestination = $_SERVER['DOCUMENT_ROOT'] . '/src/view/pages/pagesAdmin/usuarios/' . $_FILES["foto"]["name"];
+
+				move_uploaded_file(
+					$_FILES["foto"]["tmp_name"],
+					$fileDestination
+				);
+				$imagePath = $pasta;
+				
+				$dados["foto"] = $imagePath; 
+			}
 
 			$controller = new UsuarioController();
 			$resultado = $controller->user_model->UpdateUser($controller->connection, $dados);
@@ -48,6 +51,10 @@ class UsuarioController extends Controller {
 
 	public static function carregar_editar_perfil() {
 		include 'JWTController.php';
+
+		if($user_id == 0) {
+			header("Location: /login");
+		}
 
 		$usuario = new UsuarioController();
 		$usuario = $usuario->user_model->GetUserByID($usuario->connection, $user_id);
