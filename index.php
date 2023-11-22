@@ -178,8 +178,16 @@
                 break;
             }
 
-        controller\HomePageController::carregar_home_admin();
-        break;
+            controller\HomePageController::carregar_home_admin();
+            break;
+
+        case "sobre":
+            include $_SERVER['DOCUMENT_ROOT'] . "/src/view/pages/AboutUs.php";
+            break;
+
+        case "faq":
+            include $_SERVER['DOCUMENT_ROOT'] . "/src/view/pages/FAQPage.php";
+            break;
     }
     
 ?>
