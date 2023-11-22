@@ -166,6 +166,18 @@ class UserModel {
 		return $usuario;
 	}
 
+    function DeleteUser($connection, $user_id) {
+        $query = "DELETE FROM usuarios WHERE id='$user_id'";
+
+        $resultado = $this->queryDatabase($connection, $query);
+
+        if(pg_affected_rows($resultado)==0) {
+            return false;
+        }
+
+        return true;
+    }
+
 }
 
 
