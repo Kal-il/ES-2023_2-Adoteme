@@ -45,6 +45,7 @@ h2 {
     padding: 0;
     margin-left: 20px;
 }
+
 .search {
     justify-content: center;
     display: flex;
@@ -79,7 +80,7 @@ h2 {
 
 
 #form {
-   display: flex;
+    display: flex;
     justify-content: center;
     align-items: center;
 }
@@ -105,7 +106,7 @@ h2 {
 
 #my-form th,
 #my-form td {
-    border: 1px  rgb(0, 0, 0, 0.1) solid;
+    border: 1px rgb(0, 0, 0, 0.1) solid;
     padding: 10px;
     padding-inline: 30px;
     text-align: center;
@@ -543,4 +544,21 @@ footer {
     color: white;
     text-align: center;
     padding: 10px;
+}
+
+.FavoritosMain {
+    margin-top: 2%;
+}
+
+.BackButtonFavorite{
+    margin-left: 5%;
+    margin-bottom: 2%;
+    background-color: #383464;
+    color: white;
+    border: none;
+    padding: 0.5%;
+    padding-inline: 2%;
+    cursor: pointer;
+    font-size: 15px;
+    border-radius: 4px;
 }
