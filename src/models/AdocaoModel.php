@@ -15,6 +15,7 @@ class AdocaoModel {
     function CreateAdocao($connection, $data){
         $id_adotante = $data['id_adotante'];
         $id_gato = $data['id_gato'];
+        $id_formulario = $data['id_formulario'];
         $situacao = "analise";
 
         $query = "INSERT INTO adocoes(adotante_id, gato_id, situacao) VALUES ('$id_adotante', '$id_gato', '$situacao');";

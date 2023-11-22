@@ -12,6 +12,16 @@ class FormularioModel{
         return $resultado;
     }
 
+    public function CheckFormularioExists($connection, $id_usuario) {
+        $query = "SELECT id FROM formularios WHERE id_usuario = '$id_usuario'";
+
+        if(pg_num_rows($resultado)==0){
+            return false;
+        }
+        
+        return true;        
+    }
+
     public function CreateFormulario($connection, $data){
         $ja_adotou = $data['ja_adotou'];
         $tipo_endereco = $data['tipo_endereco'];
@@ -81,8 +91,7 @@ class FormularioModel{
             consciente_custo,
             campo_opcional,
             termos_uso,
-            id_usuario,
-            id_gato
+            id_usuario
         ) VALUES (
             '$ja_adotou',
             '$tipo_endereco',
@@ -116,9 +125,8 @@ class FormularioModel{
             '$consciente_custo',
             '$campo_opcional',
             '$termos_uso',
-            '$id_usuario',
-            '$id_gato'
-        );
+            '$id_usuario'
+        ) RETURNING id;
         ";
 
         $resultado = $this->queryDatabase($connection, $query);
@@ -126,8 +134,11 @@ class FormularioModel{
         if(pg_affected_rows($resultado) == 0){
             return false;
         } else {
-            return true;
-        }  
+            $row = pg_fetch_array($resultado);
+            $formulario_id = $row[0];
+
+            return $formulario_id;
+        }
 
     }
 }

@@ -1,0 +1,79 @@
+body {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background-color: #ffffff;
+    background-image: url('../assets/image.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    margin: 0;
+}
+
+header {
+    display: flex;
+    background-color: #383464;
+    flex-direction: row;
+}
+
+h1 {
+    text-align: center;
+    padding: 20px;
+}
+
+.form {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+}
+
+.label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.footer {
+    margin-top: 50px;
+}
+
+.form-fields-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.form-side-container {
+    margin-inline: 1.5rem;
+}
+
+.faq-container {
+    max-width: 600px;
+    margin: 20px auto;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.question {
+    cursor: pointer;
+    padding: 15px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+    background-color: #f9f9f9;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+    
+}
+
+.question:hover {
+    background-color: #e0e0e0;
+}
+
+.answer {
+    display: none;
+    padding: 15px;
+   margin-bottom: 10px;
+    background-color: #fff;
+    border-radius: 4px;
+   
+}

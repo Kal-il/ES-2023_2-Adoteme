@@ -50,12 +50,11 @@ echo $_SERVER["REQUEST_URI"];
 					break;
 				}
 
-                if($url[2] == "deletar") {
+                if ($url[2] == "deletar") {
                     controller\UsuarioController::deletar_perfil();
                     break;
                 }
-
-                
+    
 			}
 
             //controller\UsuarioController::carregar_perfil();
@@ -181,8 +180,16 @@ echo $_SERVER["REQUEST_URI"];
                 break;
             }
 
-        controller\HomePageController::carregar_home_admin();
-        break;
+            controller\HomePageController::carregar_home_admin();
+            break;
+
+        case "sobre":
+            include $_SERVER['DOCUMENT_ROOT'] . "/src/view/pages/AboutUs.php";
+            break;
+
+        case "faq":
+            include $_SERVER['DOCUMENT_ROOT'] . "/src/view/pages/FAQPage.php";
+            break;
     }
     
 ?>

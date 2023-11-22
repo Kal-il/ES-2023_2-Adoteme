@@ -331,6 +331,7 @@
 
     </main>
     <footer>
+    <a href="/faq" class="btnfaq">FAQ</a>
         <p>&copy;2023 Adoteme </p>
     </footer>
 </body>
