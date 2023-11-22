@@ -18,7 +18,7 @@ class AdocaoModel {
         $id_formulario = $data['id_formulario'];
         $situacao = "analise";
 
-        $query = "INSERT INTO adocoes(adotante_id, gato_id, situacao) VALUES ('$id_adotante', '$id_gato', '$situacao');";
+        $query = "INSERT INTO adocoes(adotante_id, gato_id, formulario_id situacao) VALUES ('$id_adotante', '$id_gato', '$id_formulario', '$situacao');";
 
         $resultado = $this->queryDatabase($connection, $query);
 

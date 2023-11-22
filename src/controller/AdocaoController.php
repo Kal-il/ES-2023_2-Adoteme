@@ -13,16 +13,18 @@ class AdocaoController extends Controller{
         include 'JWTController.php';
         $adocao_controller = new AdocaoController();
 
-		$gato_id = explode('/', $_SERVER['REQUEST_URI'])[2];
+        if($_SERVER['REQUEST_METHOD'] == "POST") {
+            $gato_id = explode('/', $_SERVER['REQUEST_URI'])[2];
 
-		$data = [
-			"id_adotante" => $user_id,
-			"id_gato" => $gato_id,
-		];
+            $data = [
+                "id_adotante" => $user_id,
+                "id_gato" => $gato_id,
+            ];
 
-		$adocao_controller->addAdocao($data);
+            $adocao_controller->addAdocao($data);
 
-		header("Location: /adocoes");
+            header("Location: /adocoes");
+        }
 
         $adocoes = $adocao_controller->getAdocoes($user_id);
 

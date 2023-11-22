@@ -19,7 +19,17 @@ class FormularioModel{
             return false;
         }
         
-        return true;        
+        $row = pg_fetch_row($resultado);
+        return $row[0];     
+    }
+
+    public function GetFormularioByUserID($connection, $id_usuario) {
+        $query = "SELECT * FROM formularios WHERE id_usuario = '$id_usuario'";
+        $resultado = $this->queryDatabase($connection, $query);
+
+        $formulario = pg_fetch_assoc($resultado);
+
+        return $formulario;
     }
 
     public function CreateFormulario($connection, $data){

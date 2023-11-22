@@ -15,6 +15,14 @@ class FormularioController extends Controller{
 			header("Location: /login");
 		}
 
+        $controller = new FormularioController();
+
+        $formulario_id = $controller->formulario_model->CheckFormularioExists($controller->connection, $user_id);
+
+        if($formulario_id) {
+            $formulario = $controller->formulario_model->GetFormularioByUserID($controller->connection, $user_id);
+        }
+
         $gato_id = explode('/', $_SERVER['REQUEST_URI'])[3];
 
         include $_SERVER["DOCUMENT_ROOT"] . "/src/view/pages/FormPage.php";
@@ -81,20 +89,32 @@ class FormularioController extends Controller{
         include 'JWTController.php';
 
         $formulario_controller = new FormularioController();
+        $formulario_id = $formulario_controller->formulario_model->CheckFormularioExists($controller->connection, $user_id);
+
+        if (!$formulario_id) {
+            $data = processar_dados_formulario($user_id);
+            $data = $formulario_controller->cleanFormulario($data);
+            
+            $formulario_id = $formulario_controller->addFormulario($data);
+        }
 
         $id_gato = explode('/', $_SERVER['REQUEST_URI'])[4];
 
-        $data = processar_dados_formulario($user_id);
+        $data_adocao = [
+            "id_adotante" => $user_id,
+            "id_gato" => $id_gato,
+            "id_formulario" => $formulario_id,
+        ];
 
-        
-        $data = $formulario_controller->cleanFormulario($data);
-        $formulario_controller->addFormulario($data);
+        $formulario_controller->adocao_model->CreateAdocao($formulario_controller->connection, $data_adocao);
 
         header("Location: /adocoes/$id_gato");
     }
 
     public function addFormulario($data){
-        $this->formulario_model->CreateFormulario($this->connection, $data);
+        $formulario_id = $this->formulario_model->CreateFormulario($this->connection, $data);
+
+        return $formulario_id;
     }
 
     public function cleanFormulario($data){
