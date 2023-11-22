@@ -1,0 +1,130 @@
+.perfil {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    justify-content: center;
+}
+
+#imgPerfil {
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 2px solid #333;
+}
+
+#nome_user {
+    font-size: 32px;
+    color: #333;
+
+}
+
+#email_user,
+#cidade {
+    font-size: 18px;
+    color: #333;
+}
+
+#perfil_info2 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    justify-content: center;
+
+}
+
+.botoes {
+    display: flex;
+    margin-top: 2%;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    justify-content: center;
+
+}
+
+button {
+    background-color: #06c0d9;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 10px 0;
+    flex-direction: row;
+    justify-content: space-around;
+    transition: transform 350ms ease, opacity 350ms linear;
+}
+
+button:active {
+    transform: scale(0.9);
+}
+
+#botão1 {
+    background-color: #D5D906;
+    width: 300px;
+}
+
+
+.botoes:has(#botão1:hover) #botão1:not(:hover) {
+    transform: scale(.96);
+}
+
+#botão1:hover {
+    background-color: #dfe300;
+}
+
+#botão2 {
+    background-color: #DC5656;
+    width: 300px;
+}
+
+#botão2:hover {
+    background-color: #e13f3f;
+}
+
+#botão3 {
+    background-color: #067ad9;
+    width: 300px;
+}
+
+#botão3:hover {
+    background-color: #0888f1;
+}
+
+.seusInteresses {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 2%;
+    font-size: large;
+    background-color: aliceblue;
+}
+
+.BackButtonFavorite {
+    margin-left: 5%;
+    margin-bottom: 2%;
+    background-color: #383464;
+    color: white;
+    border: none;
+    padding: 0.5%;
+    padding-inline: 2%;
+    cursor: pointer;
+    font-size: 15px;
+    border-radius: 4px;
+}
+
+footer {
+    margin-top: 10%;
+    margin-bottom: 0;
+    background-color: #383464;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
