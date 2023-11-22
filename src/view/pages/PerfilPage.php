@@ -58,6 +58,10 @@
             <div class="seusInteresses">
                 <p>Seus Interesses</p>
                 <!---->
+                <div class = "gatosInteressantes">
+                    <img src="/src/view/assets/gato2.jpg" alt="" class = "GatoInteressante">
+                    <p>Gatinho amarelo</p>
+                </div>
             </div>
 
         </main>
