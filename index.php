@@ -49,8 +49,10 @@
 					controller\UsuarioController::carregar_editar_perfil();
 					break;
 				}
-
-                
+                if ($url[2] == "deletar") {
+                    controller\UsuarioController::deletar_perfil();
+                    break;
+                }
 			}
 
             controller\UsuarioController::carregar_perfil();

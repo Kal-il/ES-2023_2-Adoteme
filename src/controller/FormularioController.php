@@ -20,11 +20,7 @@ class FormularioController extends Controller{
         include $_SERVER["DOCUMENT_ROOT"] . "/src/view/pages/FormPage.php";
     }
 
-    public static function processar_formulario() {
-        include 'JWTController.php';
-
-        $id_gato = explode('/', $_SERVER['REQUEST_URI'])[4];
-
+    public function processar_dados_formulario($user_id) {
         $data = [
             "id_usuario" => $user_id,
             "id_gato" => $id_gato,
@@ -78,7 +74,19 @@ class FormularioController extends Controller{
             $data["qtd_outros"] = $_POST["qtd_outros"];
         }
 
+        return $data;
+    }
+
+    public static function processar_formulario() {
+        include 'JWTController.php';
+
         $formulario_controller = new FormularioController();
+
+        $id_gato = explode('/', $_SERVER['REQUEST_URI'])[4];
+
+        $data = processar_dados_formulario($user_id);
+
+        
         $data = $formulario_controller->cleanFormulario($data);
         $formulario_controller->addFormulario($data);
 

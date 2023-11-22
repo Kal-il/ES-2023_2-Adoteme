@@ -51,6 +51,15 @@ class UsuarioController extends Controller {
 		}
 	}
 
+	public static function deletar_perfil() {
+		include 'JWTController.php';
+
+		$usuario = new UsuarioController();
+		$usuario = $usuario->user_model->DeleteUser($usuario->connection, $user_id);
+
+		header("Location: /");
+	}
+
 	public static function carregar_editar_perfil() {
 		include 'JWTController.php';
 
