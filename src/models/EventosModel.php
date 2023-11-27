@@ -15,6 +15,9 @@ class EventosModel{
     public function createEventos($connection, $data){
         $img = $data['foto'];
         $nome = $data['nome'];
+        if(empty($img) || empty($nome)){
+            return false;
+        }
 
         $query = "INSERT INTO eventos(nome,foto) VALUES ('$nome','$img')";
         $resultado = $this->queryDatabase($connection, $query);
