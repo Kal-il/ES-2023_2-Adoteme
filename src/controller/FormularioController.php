@@ -1,8 +1,6 @@
 <?php
 namespace controller;
 
-require_once $_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php';
-
 class FormularioController extends Controller{
     public function __construct(){
         parent::__construct();

@@ -60,7 +60,7 @@
                         Gatos Favoritos
                     </button>
                 </a>
-                <a href="/src/view/pages/EditarPerfil.php">
+                <a href="/perfil/editar">
                     <button id="botão3">
                         <img src="/src/view/assets/Account.png" alt="" width="90" height="60">
                         Editar perfil

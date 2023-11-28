@@ -1,6 +1,6 @@
 <?php
 
-require_once $_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php';
+namespace controller;
 
 use Firebase\JWT\JWT;
 use Firebase\JWT\Key;
