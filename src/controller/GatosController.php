@@ -2,8 +2,7 @@
 
 namespace controller;
 
-class GatosController extends Controller
-{
+class GatosController extends Controller {
 	public function __construct() {
 		parent::__construct();
 	}
@@ -81,23 +80,29 @@ class GatosController extends Controller
 
 	}
 
-	public static function visualizar_gato()
-	{
+	public static function visualizar_gato() {
 		include 'JWTController.php';
-		$gatoId = explode('/', $_SERVER["REQUEST_URI"])[2];
 
-		if ($user_id == 0) {
-			$redirect = "/login";
+		if (isset(explode('/', $_SERVER["REQUEST_URI"])[2])) {
+			$gatoId = explode('/', $_SERVER["REQUEST_URI"])[2];
+
+			if ($user_id == 0) {
+				$redirect = "/login";
+			} else {
+				$redirect = "/gatos/adotar/$gatoId";
+			}
+
+			$gatos_controller = new GatosController();
+
+			$gatoData = $gatos_controller->gatos_model->getGatoById($gatos_controller->connection, $gatoId);
+			$gatoData['id'] = $gatoId;
+
+			include $_SERVER["DOCUMENT_ROOT"] . "/src/view/pages/VisualizarGato.php";
+
 		} else {
-			$redirect = "/gatos/adotar/$gatoId";
+			echo "Gato não encontrado";
 		}
 
-		$gatos_controller = new GatosController();
-
-		$gatoData = $gatos_controller->gatos_model->getGatoById($gatos_controller->connection, $gatoId);
-		$gatoData['id'] = $gatoId;
-
-		include $_SERVER["DOCUMENT_ROOT"] . "/src/view/pages/VisualizarGato.php";
 	}
 
 	public static function visualizar_gato_admin()

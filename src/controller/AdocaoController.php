@@ -2,8 +2,6 @@
 
 namespace controller;
 
-require_once $_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php';
-
 class AdocaoController extends Controller{
     public function __construct(){
         parent::__construct();

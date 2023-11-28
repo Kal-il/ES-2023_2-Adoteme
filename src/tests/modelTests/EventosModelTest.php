@@ -5,7 +5,7 @@ use models\EventosModel;
 use models\Connection;
 
 
-class EventosTest extends TestCase {
+class EventosModelTest extends TestCase {
     public function testEventosModelGetEventos (){
         // Testando se a função getEventos retorna um array
 

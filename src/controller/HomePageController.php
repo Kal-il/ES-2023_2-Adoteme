@@ -2,8 +2,6 @@
 
 namespace controller;
 
-require_once $_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php';
-
 use controller\FavoritosController;
 
 class HomePageController extends Controller{
