@@ -72,6 +72,28 @@ class GatosModelTest extends TestCase {
         pg_close($connection);
     }
 
+    public function testFilterGato() {
+        $gatosModel = new GatosModel();
+
+        $connection = pg_connect("host=silly.db.elephantsql.com dbname=ymobdwtv user=ymobdwtv password=6z7xnZXsb2DWh6_NWJdqvl8ObXlJMoWu");
+
+        if (!$connection) {
+            $this->markTestSkipped('Não foi possível conectar ao banco de dados.');
+        }
+
+        // Dados de exemplo
+        $data = ['preto', 'macho', 'amigavel'];
+
+        // Chamando a função filterGato com os dados de teste
+        $resultados = $gatosModel->filterGato($connection, $data);
+
+        // Verificando se todos os resultados atendem a algum dos critérios
+        foreach ($resultados as $gato) {
+            $this->assertTrue($gatosModel->atendeCriterios($gato, $data));
+        }
+
+        pg_close($connection);
+    }
 }
 
 ?>
