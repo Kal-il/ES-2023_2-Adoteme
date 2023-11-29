@@ -174,8 +174,22 @@ class GatosModel {
 
     }
     
+    public function atendeCriterios($gato, $criterios)
+    {
+        // Verifica se o gato atende a pelo menos um dos critérios
+        foreach ($criterios as $criterio) {
+            $atendeCor = stripos($gato['cor'], $criterio) !== false;
+            $atendeSexo = stripos($gato['sexo'], $criterio) !== false;
+            $atendePersonalidade = stripos($gato['personalidade'], $criterio) !== false;
     
+            // Se o gato atender a um dos critérios, retorna verdadeiro
+            if ($atendeCor || $atendeSexo || $atendePersonalidade) {
+                return true;
+            }
+        }
     
+        // Se o gato não atender a nenhum critério, retorna falso
+        return false;
+    }
 
-    
 }
