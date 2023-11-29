@@ -2,8 +2,6 @@
 
 namespace controller;
 
-require_once $_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php';
-
 function checkUser($user_id){
     $favoritosController = new FavoritosController();
     $favoritos = $favoritosController->getUserFavoritos($user_id);   
