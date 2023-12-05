@@ -36,7 +36,7 @@
 							<input class="inputInfo" type="text" name="cpf" placeholder="Seu CPF" maxlength="100" required>
 						</label>
 						<label for="birthday">
-							<input class="inputInfo" type="date" name="birthday" maxlength="8" required>
+							<input class="inputInfo" type="date" name="birthday" placeholder="dd/mm/yyyy"  required>
 						</label>
 						<label for="enrollment">
 							<input class="inputInfo" type="text" name="enrollment" placeholder="Seu número de matrícula" maxlength="100" required>
@@ -65,7 +65,7 @@
 						}
 
 						if(isset($_SESSION['erro'])){
-						echo '<div class="error-container"> 
+						echo '<div class="error-container" 
 								<p>' . $_SESSION['erro'] . '</p>
 							  </div>';
 							unset($_SESSION['erro']);

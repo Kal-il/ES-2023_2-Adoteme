@@ -82,7 +82,11 @@
                                     </div>
                                 </td>
                             </tr>
-                        <?php endforeach; ?>
+								<?php endforeach; ?>
+
+								<?php if(!$adocoes) : ?>
+									<tr> <td> Você não possui pedidos de adoção </td> <td></td> <td></td> <td></td></tr>
+								<?php endif; ?>
                         </tbody>
                     </table>
                     <script>
