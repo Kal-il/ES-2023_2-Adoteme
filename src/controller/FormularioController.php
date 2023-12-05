@@ -22,6 +22,8 @@ class FormularioController extends Controller{
             "id_usuario" => $user_id,
         ];
 
+		# Caso o usuário já tenha feito um pedido para aquele gato
+
         $ja_pediu = $controller->adocao_model->CheckAdocaoExists($controller->connection, $data);
 
         if($ja_pediu) {
@@ -32,12 +34,15 @@ class FormularioController extends Controller{
             </script>';
         }
 
+		# Verifica se já existe formulário
+
         $formulario_id = $controller->formulario_model->CheckFormularioExists($controller->connection, $user_id);
 
         if($formulario_id) {
             $formulario = $controller->formulario_model->GetFormularioByUserID($controller->connection, $user_id);
         }
 
+		var_dump($formulario);
         
 
         include $_SERVER["DOCUMENT_ROOT"] . "/src/view/pages/FormPage.php";
