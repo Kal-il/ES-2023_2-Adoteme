@@ -35,49 +35,64 @@
                     }
                 ?>
 
-                <h1 id="h1cadastro">Cadastro</h1>
-                <label for="name">
-                    <input class="inputInfo" type="text" name="name" placeholder="Seu nome aqui" maxlength="100" required><br>
-                </label>
-                <label for="email">
-                    <input class="inputInfo" type="email" name="email" placeholder="Example@email.com" maxlength="100" required><br>
-                </label>
-                <label for="cpf">
-                    <input class="inputInfo" type="text" name="cpf" placeholder="000.000.000-00" maxlength="100" required><br>
-                </label>
-                <label for="birthday">
-                    <input class="inputInfo" type="date" name="birthday" maxlength="8" required><br>
-                </label>
-                <label for="enrollment">
-                    <input class="inputInfo" type="text" name="enrollment" placeholder="00000000000" maxlength="100" required><br>
-                </label>
-                <label for="telephone">
-                    <input class="inputInfo" type="tel" name="telephone" placeholder="(00)0 0000-0000" minlength="11" maxlength="100" required><br>
-                </label>
-                <label for="password">
-                    <input class="inputInfo" type="password" name="password" placeholder="Senha123" minlength="6" maxlength="30" required><br><br>
-                </label>
-                <label for="password2">
-                    <input class="inputInfo" type="password" name="password2" placeholder="Senha123" minlength="6" maxlength="30" required><br><br>
-                </label>
-                <button onclick="proximoEtapa(1)">Próximo</button>
-                <a href="/login"><button id="login">Já possui cadastro? login</button></a><!--Botão para voltar para a página inicial porem não funciona como devia por conta do "required" nos inputs-->
+				<div class="etapa-container etapa-title-container">
+					<h1 id="h1cadastro">Cadastro</h1>
+				</div>
+				<div class="etapa-container etapa-fields-container">
+						<label for="name">
+							<input class="inputInfo" type="text" name="name" placeholder="Seu nome aqui" maxlength="100" required>
+						</label>
+						<label for="email">
+							<input class="inputInfo" type="email" name="email" placeholder="Seu e-mail" maxlength="100" required>
+						</label>
+						<label for="cpf">
+							<input class="inputInfo" type="text" name="cpf" placeholder="Seu CPF" maxlength="100" required>
+						</label>
+						<label for="birthday">
+							<input class="inputInfo" type="date" name="birthday" maxlength="8" required>
+						</label>
+						<label for="enrollment">
+							<input class="inputInfo" type="text" name="enrollment" placeholder="Seu número de matrícula" maxlength="100" required>
+						</label>
+						<label for="telephone">
+							<input class="inputInfo" type="tel" name="telephone" placeholder="(00)0 0000-0000" minlength="11" maxlength="100" required>
+						</label>
+						<label for="password">
+							<input class="inputInfo" type="password" name="password" placeholder="Insira sua senha" minlength="6" maxlength="30" required>
+						</label>
+						<label for="password2">
+							<input class="inputInfo" type="password" name="password2" placeholder="Confirme sua senha" minlength="6" maxlength="30" required>
+						</label>
+					</div>
+					<div class="etapa-container etapa-buttons-container">
+						<button class="button-container" onclick="proximoEtapa(1)">Próximo</button>
+
+
+						<a href="/login">Já possui cadastro? Faça login</a><!--Botão para voltar para a página inicial porem não funciona como devia por conta do "required" nos inputs-->
+					</div>
             </div>
 
             <div class="etapa2" id="etapa2">
-                <h1 id="h1cadastro">Cadastro</h1>
-                <label for="state">
-                    <input class="inputInfo" type="text" name="state" placeholder="Tocantins" minlength="4" maxlength="20" required><br>
-                </label>
-                <label for="city">
-                    <input class="inputInfo" type="text" name="city" placeholder="Palmas" maxlength="100" required><br>
-                </label>
-                <label for="adress">
-                    <input class="inputInfo" type="text" name="adress" placeholder="Bairro rua número" maxlength="100" required><br>
-                </label>
-                <button type="submit" name="botaoCadastro">Cadastrar</button>
+				<div class="etapa-container etapa-title-container">
+					<h2 id="h1cadastro">Seu endereço</h2>
+				</div>
+				<div class="etapa-container etapa-fields-container">
+					<label for="state">
+						<input class="inputInfo" type="text" name="state" placeholder="Estado" minlength="4" maxlength="20" required><br>
+					</label>
+					<label for="city">
+						<input class="inputInfo" type="text" name="city" placeholder="Cidade" maxlength="100" required><br>
+					</label>
+					<label for="adress">
+						<input class="inputInfo" type="text" name="adress" placeholder="Endereço e complemento" maxlength="100" required><br>
+					</label>
+				</div>
+				<div class="etapa-container etapa-buttons-container">
+					<button class="button-container" type="submit" name="botaoCadastro">Cadastrar</button>
+					<button class="button-container" onclick="voltarEtapa(1)">Voltar</button>
+					<a href="/login">Já possui cadastro? login</a><!--Botão para voltar para a página inicial funciona por estar fora das divs, mas n consegui centralizar-->
+				</div>
             </div>
-            <a href="/login"><button id="login" type="button">Já possui cadastro? login</button></a><!--Botão para voltar para a página inicial funciona por estar fora das divs, mas n consegui centralizar-->
             <script>
                 function proximoEtapa(etapa) {
                     // Oculta a etapa atual
@@ -88,6 +103,12 @@
                         document.getElementById("etapa" + etapa).style.display = "block";
                     }
                 }
+
+				function voltarEtapa(etapa) {
+					document.getElementById("etapa" + (etapa+1)).style.display="none"
+
+					document.getElementById("etapa" + etapa).style.display = "block"
+				}
             </script>
         </form>
 

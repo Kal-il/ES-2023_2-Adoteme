@@ -34,7 +34,29 @@ header {
     border-radius: 12px;
     background: rgba(236, 236, 236, 0.90);
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-    display: block;
+}
+
+.etapa2 {
+	display: none;
+}
+
+.etapa-fields-container{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.etapa-buttons-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 15px;
+}
+
+.etapa-container {
+	padding-block: 1rem;
 }
 
 #login-container {
@@ -51,14 +73,13 @@ header {
 }
 
 .inputInfo {
-    max-width: 40%;
+    width: 70%;
+	height: 3rem;
     font-family: 'Nunito', sans-serif;
     background-color: rgb(217, 217, 217);
     border-radius: 8px;
     border-color: rgba(236, 236, 236, 0);
     text-align: center;
-    padding-inline: 25%;
-    padding-block: 2%;
 }
 #birthday {
     padding-inline: 28%;
@@ -70,16 +91,21 @@ button {
     font-family: 'Nunito', sans-serif;
     color: white;
     background-color: rgb(40, 44, 155);
-    border-width: 0px;
-    border-radius: 10px;
-    width: 50%;
-    max-width: 50%;
-    height: 45px;
+	border: none;
+    width: 70%;
+    height: 3rem;
     padding: 8px;
     margin: 20px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
     cursor: pointer;
     transition: transform 0.2s;
+}
+
+
+
+.button-container{
+	border-radius: 10px;
+	font-weight: bold;
 }
 
 .login-button {
@@ -92,6 +118,10 @@ button {
     display: flex;
     flex-direction: column;
     justify-content: center;
+}
+
+label {
+	width: 100%;
 }
 
 .login-button a{
