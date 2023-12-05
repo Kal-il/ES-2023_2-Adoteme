@@ -98,14 +98,49 @@ button {
     margin: 20px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
     cursor: pointer;
-    transition: transform 0.2s;
+    transition: 0.2s;
 }
 
+button:hover {
+	background-color: rgb(61, 66, 191);
+}
 
+.etapa-errors-container{ 
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 10px;
+}
+
+.error-container {
+	width: 70%;
+	padding: 1rem 2rem;
+	border: 1px solid #9e4a4a;
+	border-radius: 10px;
+	background-color: #ffcfcf;
+}
+
+.error-container p{
+	margin: 0px;
+}
 
 .button-container{
 	border-radius: 10px;
 	font-weight: bold;
+}
+
+.return-button-container {
+	border: 2px solid  rgb(40, 44, 155);
+	background-color: white;
+	border-radius: 10px;
+	color: rgb(40, 44, 155);
+	transition: 100ms;
+	font-weight: bold;
+}
+
+.return-button-container:hover {
+	background-color: rgb(237, 237, 252);
 }
 
 .login-button {

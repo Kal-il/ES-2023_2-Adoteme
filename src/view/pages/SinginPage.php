@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SinginPage Teste</title>
+    <title>Faça seu cadastro</title>
 
     <link rel="stylesheet" type="text/css" href="/src/view/css/SinginPage.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -19,25 +19,12 @@
 
             <div class="etapa" id="etapa1">
 
-                <?php
-                    session_start();
 
-                    if(isset($_SESSION['erros'])){
-                        foreach($_SESSION['erros'] as $campo => $erro) {
-                            echo '<p>' . $campo . ': ' . $erro . '</p>';
-                        }
-                        unset($_SESSION['erros']);
-                    }
-
-                    if(isset($_SESSION['erro'])){
-                        echo '<p>' . $_SESSION['erro'] . '</p>';
-                        unset($_SESSION['erro']);
-                    }
-                ?>
 
 				<div class="etapa-container etapa-title-container">
 					<h1 id="h1cadastro">Cadastro</h1>
 				</div>
+
 				<div class="etapa-container etapa-fields-container">
 						<label for="name">
 							<input class="inputInfo" type="text" name="name" placeholder="Seu nome aqui" maxlength="100" required>
@@ -64,6 +51,28 @@
 							<input class="inputInfo" type="password" name="password2" placeholder="Confirme sua senha" minlength="6" maxlength="30" required>
 						</label>
 					</div>
+				<div class="etapa-errors-container">
+					<?php
+						session_start();
+
+						if(isset($_SESSION['erros'])){
+							foreach($_SESSION['erros'] as $campo => $erro) {
+						echo '<div class="error-container">
+								<p> <b>' . $erro . '</p>
+							  </div>';
+							}
+							unset($_SESSION['erros']);
+						}
+
+						if(isset($_SESSION['erro'])){
+						echo '<div class="error-container"> 
+								<p>' . $_SESSION['erro'] . '</p>
+							  </div>';
+							unset($_SESSION['erro']);
+						}
+					?>
+				</div>
+
 					<div class="etapa-container etapa-buttons-container">
 						<button class="button-container" onclick="proximoEtapa(1)">Próximo</button>
 
@@ -89,7 +98,7 @@
 				</div>
 				<div class="etapa-container etapa-buttons-container">
 					<button class="button-container" type="submit" name="botaoCadastro">Cadastrar</button>
-					<button class="button-container" onclick="voltarEtapa(1)">Voltar</button>
+					<button class="return-button-container" onclick="voltarEtapa(1)">Voltar</button>
 					<a href="/login">Já possui cadastro? login</a><!--Botão para voltar para a página inicial funciona por estar fora das divs, mas n consegui centralizar-->
 				</div>
             </div>
