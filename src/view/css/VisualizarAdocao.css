@@ -1,0 +1,49 @@
+table, th, td, tr {
+	border: 1px solid black;
+}
+
+thead {
+	background-color: #383464;
+	font-weight: bold;
+	color: white;
+}
+
+main {
+	width: 100%;
+}
+
+table {
+	margin-block: 1rem 2rem;
+	width: 50%;
+}
+.table-container{
+	margin-top: 2rem;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.question {
+	width: 40%;
+}
+
+
+
+.return-container{
+	width: 50%;
+	display: flex;
+	justify-content: start-line;
+}
+
+.return-container a{
+	background-color: #383464;
+	padding: 0.5rem 1rem;
+	color: white;
+	font-weight: bold;
+}
+
+.answer {
+	width: 60%;
+}

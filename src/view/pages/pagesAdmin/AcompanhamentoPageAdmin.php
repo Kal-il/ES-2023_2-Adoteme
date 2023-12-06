@@ -68,6 +68,7 @@
                                 <th scope="col">Nome do Adotante</th>
                                 <th scope="col">Ação</th>
                                 <th scope="col">Ação</th>
+								<th scope="col">Ação</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -104,6 +105,9 @@
                                     <td>
                                         <a href="/admin/adocoes/aprovar/<?php echo $gato['id']; ?>">Aprovar Pedido</a>
                                     </td>
+									<td>
+										<a href="/admin/adocoes/detalhes/<?php echo $gato['id']; ?>">Ver Detalhes</a>
+									</td>
                                 </tr>
                             <?php endforeach; ?>
                         </tbody>

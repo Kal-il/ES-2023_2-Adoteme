@@ -60,8 +60,6 @@
 					<li class="nav-item">
 						<a class="nav-link <?php if (explode('/', $_SERVER['REQUEST_URI'])[1] == 'admin') {
 												echo 'active';
-											} else {
-												echo 'disabled';
 											} ?>" href="/admin">Admin</a>
 					</li>
 					<li class="nav-item">
