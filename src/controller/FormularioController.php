@@ -42,13 +42,12 @@ class FormularioController extends Controller{
             $formulario = $controller->formulario_model->GetFormularioByUserID($controller->connection, $user_id);
         }
 
-		var_dump($formulario);
-        
-
         include $_SERVER["DOCUMENT_ROOT"] . "/src/view/pages/FormPage.php";
     }
 
     public function processar_dados_formulario($user_id) {
+		$id_gato = explode('/', $_SERVER['REQUEST_URI'])[4];
+
         $data = [
             "id_usuario" => $user_id,
             "id_gato" => $id_gato,
@@ -112,7 +111,7 @@ class FormularioController extends Controller{
         $formulario_id = $controller->formulario_model->CheckFormularioExists($controller->connection, $user_id);
 
         if (!$formulario_id) {
-            $data = processar_dados_formulario($user_id);
+            $data = $controller->processar_dados_formulario($user_id);
             $data = $controller->cleanFormulario($data);
             
             $formulario_id = $controller->addFormulario($data);
