@@ -34,6 +34,16 @@ class FormularioModel{
         return $formulario;
     }
 
+
+    public function GetFormularioByID($connection, $id_formulario) {
+        $query = "SELECT * FROM formularios WHERE id = '$id_formulario'";
+        $resultado = $this->queryDatabase($connection, $query);
+
+        $formulario = pg_fetch_assoc($resultado);
+
+        return $formulario;
+    }
+
     public function CreateFormulario($connection, $data){
         $ja_adotou = $data['ja_adotou'];
         $tipo_endereco = $data['tipo_endereco'];

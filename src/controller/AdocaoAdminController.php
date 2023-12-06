@@ -34,6 +34,19 @@ class AdocaoAdminController extends Controller{
         include __DIR__ . "/../view/pages/pagesAdmin/AcompanhamentoPageAdmin.php";
     }
 
+	public static function visualizar_adocao() {
+		include 'JWTController.php';
+
+		$id_adocao = explode('/', $_SERVER['REQUEST_URI'])[4];
+		$controller = new AdocaoAdminController();
+
+		$adocao = $controller->getAdocaoById($id_adocao);
+		$gato = $controller->gatos_model->getGatoById($controller->connection, $adocao['gato_id']);
+		$formulario = $controller->formulario_model->GetFormularioByUserID($controller->connection, $adocao['adotante_id']);
+
+		include $_SERVER['DOCUMENT_ROOT'] . '/src/view/pages/pagesAdmin/VisualizarAdocao.php';
+	}
+
     public static function rejeitar_adocao() {
 		include 'JWTController.php';
 

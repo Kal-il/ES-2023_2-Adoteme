@@ -106,6 +106,11 @@ switch ($url[1]) {
                         controller\AdocaoAdminController::aprovar_adocao();
                         break;
                     }
+
+					if ($url[3] == "detalhes") {
+						controller\AdocaoAdminController::visualizar_adocao();
+						break;
+					}
                 }
 
                 controller\AdocaoAdminController::listar_adocoes();
