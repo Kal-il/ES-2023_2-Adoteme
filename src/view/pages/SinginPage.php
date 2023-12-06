@@ -36,7 +36,7 @@
 							<input class="inputInfo" type="text" name="cpf" placeholder="Seu CPF" maxlength="100" required>
 						</label>
 						<label for="birthday">
-							<input class="inputInfo" type="date" name="birthday" placeholder="dd/mm/yyyy"  required>
+							<input class="inputInfo" type="date" name="birthday" placeholder="dd/mm/yyyy" maxlength="8" required>
 						</label>
 						<label for="enrollment">
 							<input class="inputInfo" type="text" name="enrollment" placeholder="Seu número de matrícula" maxlength="100" required>
