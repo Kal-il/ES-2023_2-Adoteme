@@ -25,7 +25,7 @@
             <label>Sim</label>
         </div>
         <div class="radio-options">
-            <input type="radio" value="Não" class="" name="ja_adotou_conosco" <?php if(!$formulario["ja_adotou_conosco"]=='f') echo 'checked';  ?>>
+            <input type="radio" value="Não" class="" name="ja_adotou_conosco" <?php if($formulario["ja_adotou_conosco"]=='f') echo 'checked';  ?>>
             <label>Não</label>
         </div>
     </div>
@@ -33,6 +33,7 @@
 
     <!-- Seção 2: Tipo de Endereço -->
     <div class="form-section">
+		<?php var_dump($formulario['tipo_endereco']); ?>
         <label class="bold-label">🏢 Tipo de Endereço</label>
         <select class="" name="tipo_endereco" form="adocaoform">
 			<option <?php if($formulario["tipo_endereco"] == "Residencial") echo 'selected'; ?>>Residencial</option>
@@ -172,7 +173,7 @@
 
         <div class="outros-animais-qtd" style="<?php if(isset($outros_animais['cachorro'])) { echo 'display: block;'; }else { echo 'display: none;'; }?>">
             Quantos?
-            <input type="number" class="" name="qtd_cachorro" <?php if(isset($outros_animais['cachorro'])) echo $outros_animais['cachorro']; ?>>
+            <input type="number" class="" name="qtd_cachorro" value="<?php if(isset($outros_animais['cachorro'])) echo $outros_animais['cachorro']; ?>">
         </div>
 
         <input type="checkbox" value="tem-passaro" class="outros-animais-checkbox" name="outro_animais[]"<?php if(isset($outros_animais['passaro'])) echo 'checked'?>>
@@ -180,12 +181,7 @@
 
         <div class="outros-animais-qtd" style="<?php if(isset($outros_animais['passaro'])) { echo 'display: block;'; }else { echo 'display: none;'; }?>">
             Quantos?
-            <input type="number" class="" name="qtd_cachorro" <?php if(isset($outros_animais['passaro'])) echo $outros_animais['cachorro']; ?>>
-        </div>
-
-        <div class="outros-animais-qtd" style="<?php if(isset($outros_animais['passaro'])) { echo 'display: block;'; }else { echo 'display: none;'; }?>">
-            Quantos?
-            <input type="number" class="" name="qtd_cachorro" <?php if(isset($outros_animais['passaro'])) echo $outros_animais['cachorro']; ?>>
+            <input type="number" class="" name="qtd_cachorro" value="<?php if(isset($outros_animais['passaro'])) echo $outros_animais['passaro']; ?>">
         </div>
 
 		<input type="checkbox" value="tem-outro" class="outros-animais-checkbox" name="outro_animais[]" <?php if(isset($outros_animais['tem-outros'])) echo 'checked'; ?>>
@@ -194,7 +190,7 @@
         <!-- Campo de entrada para especificar outros animais -->
         <div class="outros-animais-qtd" style="<?php if(isset($outros_animais['tem-outros'])) { echo 'display: block;'; }else { echo 'display: none;'; } ?>">
             Quantos?
-            <input type="number" class="" name="qtd_outros" <?php if(isset($outros_animais['tem-outros'])) echo $outros_animais['tem-outros']; ?>>
+            <input type="number" class="" name="qtd_outros" value="<?php if(isset($outros_animais['tem-outros'])) echo $outros_animais['tem-outros']; ?>">
         </div>
       
 		<input type="checkbox" value="nao-tem" class="outros-animais-checkbox" name="outro_animais" <?php if(isset($outros_animais['nao-tem'])) echo 'checked'; ?> >

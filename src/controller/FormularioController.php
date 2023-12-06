@@ -40,9 +40,11 @@ class FormularioController extends Controller{
 
         if($formulario_id) {
             $formulario = $controller->formulario_model->GetFormularioByUserID($controller->connection, $user_id);
-        }
+			include $_SERVER["DOCUMENT_ROOT"] . "/src/view/pages/FormPage.php";
+		} else {
+			include $_SERVER['DOCUMENT_ROOT'] . "/src/view/pages/CleanFormPage.php";
+		}
 
-        include $_SERVER["DOCUMENT_ROOT"] . "/src/view/pages/FormPage.php";
     }
 
     public function processar_dados_formulario($user_id) {

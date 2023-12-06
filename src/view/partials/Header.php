@@ -55,33 +55,35 @@
 			<ul class="nav nav-tabs">
 				<ul class="nav nav-tabs">
 					<li class="nav-item">
-						<a class="nav-link active" href="/">Home</a>
+						<a class="nav-link <?php if (explode('/', $_SERVER['REQUEST_URI'])[1] == '')	echo 'active'; ?>" href="/">Home</a>
 					</li>
+					<?php if($is_superuser): ?>
 					<li class="nav-item">
 						<a class="nav-link <?php if (explode('/', $_SERVER['REQUEST_URI'])[1] == 'admin') {
 												echo 'active';
 											} ?>" href="/admin">Admin</a>
 					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="/login">Login</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="/perfil/">Perfil</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="/eventos/">Eventos</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="/deslogar/">Sair</a>
-					</li>
+					<?php endif; ?>
+					<?php if($user_id): ?>
+						<li class="nav-item">
+							<a class="nav-link <?php if (explode('/', $_SERVER['REQUEST_URI'])[1] == 'eventos')	echo 'active'; ?>" href="/eventos">Eventos</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link <?php if (explode('/', $_SERVER['REQUEST_URI'])[1] == 'perfil')	echo 'active'; ?>" href="/perfil">Perfil</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link favoritos" href="/favoritos">Favoritos</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link <?php if (explode('/', $_SERVER['REQUEST_URI'])[1] == 'deslogar')	echo 'active'; ?>" href="/deslogar">Sair</a>
+						</li>
+					<?php endif; ?>
 
-					<?php
-					if ($user_id != 0) {
-						echo '<li class="nav-item">
-						<a class="nav-link favoritos" href="/favoritos">Favoritos</a>
-						</li>';
-					}
-					?>
+					<?php if(!$user_id): ?>
+						<li class="nav-item">
+							<a class="nav-link <?php if (explode('/', $_SERVER['REQUEST_URI'])[1] == 'login')	echo 'active'; ?>" href="/login">Login</a>
+						</li>
+					<?php endif; ?>
 				</ul>
 		</nav>
 
